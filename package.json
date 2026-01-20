@@ -5,8 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "pages:build": "next build && next-on-pages",
-    "pages:dev": "next-on-pages dev"
   },
   "dependencies": {
     "framer-motion": "^12.26.2",
