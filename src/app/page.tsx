@@ -53,3 +53,43 @@ export default function Page() {
     </main>
   );
 }
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dmitrii Garanin",
+  "jobTitle": "Actor",
+  "url": "https://dmitriigaranin.com",
+  "image": "https://dmitriigaranin.com/p/portrait-01.jpg",
+  "sameAs": [
+    "https://www.imdb.com/name/XXXX", 
+    "https://www.instagram.com/XXXX"
+  ]
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Dmitrii Garanin",
+  "url": "https://dmitriigaranin.com"
+};
+
+const reelJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Showreel — Dmitrii Garanin",
+  "description": "Selected scenes with subtitles.",
+  "thumbnailUrl": ["https://dmitriigaranin.com/p/showreel-cover.jpg"],
+  "uploadDate": "2026-01-21",
+  "contentUrl": "https://dmitriigaranin.com/video/showreel.mp4",
+  "embedUrl": "https://dmitriigaranin.com/#showreel"
+};
+
+export function JsonLd() {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reelJsonLd) }} />
+    </>
+  );
+}
