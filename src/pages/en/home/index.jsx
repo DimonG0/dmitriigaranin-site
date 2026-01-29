@@ -30,10 +30,11 @@ export default function EnHome() {
   });
 
   return (
-  <main className="relative min-h-screen bg-[#0a0a0a] text-white">
-  <div className="relative mx-auto w-full max-w-[1400px] px-6">
+    <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white">
+        <div className="mx-auto w-full max-w-[1400px] px-6 xl:px-12">
+  <div className="mx-auto w-full max-w-[1400px] px-6">
       {/* BACKDROP: luxury textures + glows */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      <div className="pointer-events-none absolute inset-0">
         {/* velvet grain */}
         <div
           className="absolute inset-0 opacity-[0.14]"
@@ -70,7 +71,7 @@ export default function EnHome() {
       </div>
 
       {/* HERO */}
-      <section className="relative mx-auto flex w-full max-w-6xl flex-col px-5 pb-20 pt-10 md:pt-14">
+      <section className="relative flex w-full flex-col pb-20 pt-14 md:pt-20">
         {/* tiny top label */}
         <motion.div
           className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur"
@@ -289,7 +290,7 @@ export default function EnHome() {
     </section>
 
       {/* SECTION: quick navigation tiles */}
-      <section className="relative mx-auto w-full max-w-6xl px-5 pb-24">
+      <section className="relative w-full pb-24">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <Tile
             to="/en/about"
@@ -308,10 +309,10 @@ export default function EnHome() {
           />
         </div>
       </section>
-      <div className="flex-grow" />
       </div>
-    </main>
-  );
+    </div>
+  </main>
+);
 }
 
 function Stat({ label, value }) {
