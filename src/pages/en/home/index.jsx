@@ -70,7 +70,7 @@ export default function EnHome() {
       </div>
 
       {/* HERO */}
-      <section className="relative mx-auto flex w-full max-w-6xl flex-col px-5 pb-20 pt-14 md:pt-20">
+      <section className="relative mx-auto flex w-full max-w-6xl flex-col px-5 pb-20 pt-10 md:pt-14">
         {/* tiny top label */}
         <motion.div
           className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur"
