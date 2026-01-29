@@ -22,11 +22,11 @@ const glowPulse = {
 
 export default function EnHome() {
   useSeo({
-    title: "Dmitrii Garanin — Actor · Creative · IT",
+    title: "Dmitrii Garanin — Acteur · Créatif · IT",
     description:
-      "A curated luxury portfolio combining acting, creative direction, and digital presence.",
+      "Un portfolio de luxe soigneusement élaboré, alliant jeu d’acteur, direction créative et présence numérique.",
     url: "https://dmitriigaranin.com/en/home",
-    lang: "en",
+    lang: "fr",
   });
 
   return (
@@ -84,7 +84,7 @@ export default function EnHome() {
             className="inline-block h-1.5 w-1.5 rounded-full"
             style={{ background: "#D4AF37", boxShadow: "0 0 14px rgba(212,175,55,.55)" }}
           />
-          International • Actor • Creative • IT
+          International • Acteur • Créatif • IT
         </motion.div>
 
         <div className="mt-10 grid grid-cols-1 gap-10 md:mt-14 md:grid-cols-12 md:gap-8">
@@ -112,7 +112,7 @@ export default function EnHome() {
               </span>
 
               <span className="mt-4 block text-[14px] font-[400] tracking-[0.35em] uppercase text-white/70 md:text-[15px]">
-                Luxury Portfolio / Showreel / Contact
+                Portfolio de luxe / Showreel / Contact
               </span>
             </motion.h1>
 
@@ -123,8 +123,9 @@ export default function EnHome() {
               animate="show"
               custom={2}
             >
-              A curated presence designed like a private club: minimal text, cinematic visuals,
-              and polished presentation for castings, collaborations, and international opportunities.
+              Une présence soigneusement conçue comme un club privé : texte minimal,
+              visuels cinématographiques et présentation raffinée pour les castings,
+              les collaborations et les opportunités internationales.
             </motion.p>
 
             {/* CTAs */}
@@ -144,7 +145,7 @@ export default function EnHome() {
                   className="inline-block h-2 w-2 rounded-full"
                   style={{ background: "#FFD700", boxShadow: "0 0 18px rgba(255,215,0,.55)" }}
                 />
-                Watch showreel
+                Voir le showreel
                 <span className="opacity-70 transition group-hover:translate-x-0.5">→</span>
               </Link>
 
@@ -160,7 +161,7 @@ export default function EnHome() {
                 to="/en/portfolio"
                 className="inline-flex items-center justify-center text-[12px] font-[600] tracking-[0.22em] uppercase text-white/60 transition hover:text-white/80"
               >
-                View portfolio
+                Voir le portfolio
               </Link>
             </motion.div>
 
@@ -234,11 +235,12 @@ export default function EnHome() {
                 <div className="mt-6 space-y-4">
                   <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                     <div className="text-[11px] tracking-[0.22em] uppercase text-white/55">
-                      Positioning
+                      Positionnement
                     </div>
                     <div className="mt-2 text-[13px] leading-relaxed text-white/75">
-                      Cinematic presence with premium minimalism. Built for casting directors,
-                      producers, agencies, and high-end collaborations.
+                      Une présence cinématographique au minimalisme premium.
+                      Conçue pour les directeurs de casting, les producteurs,
+                      les agences et les collaborations haut de gamme.
                     </div>
                   </div>
 
@@ -249,8 +251,8 @@ export default function EnHome() {
 
                   <div className="flex flex-wrap gap-2">
                     <Tag>Film Noir</Tag>
-                    <Tag>Luxury Ads</Tag>
-                    <Tag>Tech / Creative</Tag>
+                    <Tag>Publicités de luxe</Tag>
+                    <Tag>Tech / Créatif</Tag>
                     <Tag>International</Tag>
                   </div>
                 </div>
@@ -261,7 +263,7 @@ export default function EnHome() {
                 {/* social */}
                 <div className="mt-5 flex items-center justify-between">
                   <div className="text-[11px] tracking-[0.22em] uppercase text-white/55">
-                    Social
+                    Réseaux sociaux
                   </div>
                   <div className="flex items-center gap-3">
                     <SocialLink label="Instagram" href="#" />

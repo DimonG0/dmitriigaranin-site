@@ -22,9 +22,9 @@ const glowPulse = {
 
 export default function EnHome() {
   useSeo({
-    title: "Dmitrii Garanin — Actor · Creative · IT",
+    title: "Дмитрий Гаранин — актёр · креатив · IT",
     description:
-      "A curated luxury portfolio combining acting, creative direction, and digital presence.",
+      "Портфолио премиум-класса, сочетающее актёрство, креативное направление и цифровое присутствие.",
     url: "https://dmitriigaranin.com/en/home",
     lang: "en",
   });
@@ -84,7 +84,7 @@ export default function EnHome() {
             className="inline-block h-1.5 w-1.5 rounded-full"
             style={{ background: "#D4AF37", boxShadow: "0 0 14px rgba(212,175,55,.55)" }}
           />
-          International • Actor • Creative • IT
+          Международный • актёр • творчество • IT
         </motion.div>
 
         <div className="mt-10 grid grid-cols-1 gap-10 md:mt-14 md:grid-cols-12 md:gap-8">
@@ -98,7 +98,7 @@ export default function EnHome() {
               custom={1}
             >
               <span className="block text-[44px] font-[600] md:text-[64px] lg:text-[76px]">
-                Dmitrii{" "}
+                Дмитрий{" "}
                 <span
                   className="bg-clip-text text-transparent"
                   style={{
@@ -107,12 +107,12 @@ export default function EnHome() {
                     textShadow: "0 0 30px rgba(212,175,55,.15)",
                   }}
                 >
-                  Garanin
+                  Гаранин
                 </span>
               </span>
 
               <span className="mt-4 block text-[14px] font-[400] tracking-[0.35em] uppercase text-white/70 md:text-[15px]">
-                Luxury Portfolio / Showreel / Contact
+                Премиальное портфолио / Шоурил / Контакты
               </span>
             </motion.h1>
 
@@ -123,8 +123,9 @@ export default function EnHome() {
               animate="show"
               custom={2}
             >
-              A curated presence designed like a private club: minimal text, cinematic visuals,
-              and polished presentation for castings, collaborations, and international opportunities.
+              Эксклюзивное присутствие, выстроенное по принципу частного клуба: минимум текста,
+              кинематографичные визуальные образы и выверенная подача для кастингов,
+              коллабораций и международного сотрудничества.
             </motion.p>
 
             {/* CTAs */}
@@ -144,7 +145,7 @@ export default function EnHome() {
                   className="inline-block h-2 w-2 rounded-full"
                   style={{ background: "#FFD700", boxShadow: "0 0 18px rgba(255,215,0,.55)" }}
                 />
-                Watch showreel
+                Посмотреть Showreel
                 <span className="opacity-70 transition group-hover:translate-x-0.5">→</span>
               </Link>
 
@@ -152,7 +153,7 @@ export default function EnHome() {
                 to="/en/contact"
                 className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/12 bg-white/5 px-7 py-3 text-[12px] font-[600] tracking-[0.22em] uppercase text-white/80 backdrop-blur transition hover:border-white/20 hover:bg-white/7"
               >
-                Contact
+                Контакты
                 <span className="opacity-60 transition group-hover:translate-x-0.5">→</span>
               </Link>
 
@@ -160,7 +161,7 @@ export default function EnHome() {
                 to="/en/portfolio"
                 className="inline-flex items-center justify-center text-[12px] font-[600] tracking-[0.22em] uppercase text-white/60 transition hover:text-white/80"
               >
-                View portfolio
+                Посмотреть портфолио
               </Link>
             </motion.div>
 
@@ -218,10 +219,10 @@ export default function EnHome() {
                     </div>
                     <div>
                       <div className="text-[12px] tracking-[0.18em] uppercase text-white/60">
-                        Signature Card
+                        Персональное приглашение
                       </div>
                       <div className="mt-1 text-[14px] font-[600] text-white/85">
-                        Private Access — Portfolio
+                        Эксклюзивный доступ — Портфолио
                       </div>
                     </div>
                   </div>
@@ -234,11 +235,11 @@ export default function EnHome() {
                 <div className="mt-6 space-y-4">
                   <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                     <div className="text-[11px] tracking-[0.22em] uppercase text-white/55">
-                      Positioning
+                      Позиционирование
                     </div>
                     <div className="mt-2 text-[13px] leading-relaxed text-white/75">
-                      Cinematic presence with premium minimalism. Built for casting directors,
-                      producers, agencies, and high-end collaborations.
+                      Кинематографичное присутствие с акцентом на премиальный минимализм.
+                      Создано для кастинг-директоров, продюсеров, агентств и коллабораций высокого уровня.
                     </div>
                   </div>
 
@@ -249,9 +250,9 @@ export default function EnHome() {
 
                   <div className="flex flex-wrap gap-2">
                     <Tag>Film Noir</Tag>
-                    <Tag>Luxury Ads</Tag>
-                    <Tag>Tech / Creative</Tag>
-                    <Tag>International</Tag>
+                    <Tag>Эксклюзивная реклама</Tag>
+                    <Tag>Digital / Креатив</Tag>
+                    <Tag>Международное сотрудничество</Tag>
                   </div>
                 </div>
 
@@ -390,7 +391,7 @@ function Tile({ to, title, desc }) {
           to={to}
           className="mt-6 inline-flex items-center gap-2 text-[11px] font-[700] tracking-[0.22em] uppercase text-[#f6e6a7] opacity-80 transition group-hover:opacity-100"
         >
-          Open <span className="transition group-hover:translate-x-0.5">→</span>
+          Открыть <span className="transition group-hover:translate-x-0.5">→</span>
         </Link>
       </div>
     </motion.div>
