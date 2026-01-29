@@ -1,5 +1,24 @@
 import { useEffect } from "react";
 
+const LOCALES = {
+  en: "en_US",
+  ru: "ru_RU",
+  fr: "fr_FR",
+  hy: "hy_AM",
+};
+
+function setMeta({ key, name, content }) {
+  if (!content) return;
+
+  let el = document.querySelector(`meta[${key}="${name}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(key, name);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
+}
+
 export function useSeo({
   title,
   description,
@@ -8,29 +27,29 @@ export function useSeo({
   image = "/og.jpg",
 }) {
   useEffect(() => {
-    if (title) document.title = title;
+    /* Title */
+    if (title) {
+      document.title = title;
+    }
 
-    const set = (name, content, prop = false) => {
-      const key = prop ? "property" : "name";
-      let el = document.querySelector(`meta[${key}="${name}"]`);
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute(key, name);
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", content);
-    };
+    /* Basic SEO */
+    setMeta({ key: "name", name: "description", content: description });
 
-    if (description) set("description", description);
-    set("og:title", title || document.title, true);
-    set("og:description", description || "", true);
-    if (url) set("og:url", url, true);
-    set("og:image", image, true);
-    set("og:locale", lang === "ru" ? "ru_RU" : lang === "fr" ? "fr_FR" : "en_US", true);
+    /* Open Graph */
+    setMeta({ key: "property", name: "og:title", content: title });
+    setMeta({ key: "property", name: "og:description", content: description });
+    setMeta({ key: "property", name: "og:url", content: url });
+    setMeta({ key: "property", name: "og:image", content: image });
+    setMeta({
+      key: "property",
+      name: "og:locale",
+      content: LOCALES[lang] || LOCALES.en,
+    });
 
-    set("twitter:card", "summary_large_image");
-    set("twitter:title", title || document.title);
-    set("twitter:description", description || "");
-    set("twitter:image", image);
+    /* Twitter */
+    setMeta({ key: "name", name: "twitter:card", content: "summary_large_image" });
+    setMeta({ key: "name", name: "twitter:title", content: title });
+    setMeta({ key: "name", name: "twitter:description", content: description });
+    setMeta({ key: "name", name: "twitter:image", content: image });
   }, [title, description, url, lang, image]);
 }

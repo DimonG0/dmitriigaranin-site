@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useSeo } from "../../../lib/useSeo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
@@ -20,6 +21,14 @@ const glowPulse = {
 };
 
 export default function EnHome() {
+  useSeo({
+    title: "Dmitrii Garanin — Actor · Creative · IT",
+    description:
+      "A curated luxury portfolio combining acting, creative direction, and digital presence.",
+    url: "https://dmitriigaranin.com/en/home",
+    lang: "en",
+  });
+
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white">
       {/* BACKDROP: luxury textures + glows */}
@@ -262,7 +271,8 @@ export default function EnHome() {
             </motion.div>
 
             {/* note */}
-            <motion.div
+    {import.meta.env.DEV && (
+       <motion.div
               className="mt-5 rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-[12px] leading-relaxed text-white/60"
               variants={fadeUp}
               initial="hidden"
@@ -272,9 +282,10 @@ export default function EnHome() {
               Tip: put your showreel file into <span className="text-white/80">/public/showreel.mp4</span>{" "}
               — then we’ll add a cinematic background video layer.
             </motion.div>
-          </div>
+          )}
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* SECTION: quick navigation tiles */}
       <section className="relative mx-auto w-full max-w-6xl px-5 pb-24">
