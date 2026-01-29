@@ -22,6 +22,7 @@ const shimmer = {
 export default function EnAbout() {
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white">
+  <div className="mx-auto w-full max-w-[1400px] px-6">
       {/* BACKDROP */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -290,6 +291,7 @@ export default function EnAbout() {
           </div>
         </motion.div>
       </section>
+      </div>
     </main>
   );
 }

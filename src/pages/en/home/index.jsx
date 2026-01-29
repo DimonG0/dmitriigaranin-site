@@ -31,6 +31,7 @@ export default function EnHome() {
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white">
+  <div className="mx-auto w-full max-w-[1400px] px-6">
       {/* BACKDROP: luxury textures + glows */}
       <div className="pointer-events-none absolute inset-0">
         {/* velvet grain */}
@@ -307,6 +308,7 @@ export default function EnHome() {
           />
         </div>
       </section>
+      </div>
     </main>
   );
 }
