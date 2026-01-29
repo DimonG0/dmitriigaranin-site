@@ -310,8 +310,9 @@ export default function EnHome() {
         </div>
       </section>
       </div>
-    </main>
-  );
+    </div>
+  </main>
+);
 }
 
 function Stat({ label, value }) {
