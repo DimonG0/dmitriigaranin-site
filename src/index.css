@@ -15,7 +15,7 @@
 }
 
 /* =========================
-   Global Layout Fix (KEY)
+   Global Layout (CORRECT)
 ========================= */
 
 html,
@@ -23,20 +23,20 @@ body {
   width: 100%;
   min-height: 100%;
   margin: 0;
+  padding: 0;
   background: #0a0a0a;
   overflow-x: hidden;
 }
 
-/* центрируем ВСЁ приложение относительно viewport */
+/* ❗ body НЕ flex */
 body {
-  display: flex;
-  justify-content: center;
+  display: block;
 }
 
-/* ограничиваем canvas приложения */
+/* React root — на всю ширину viewport */
 #root {
   width: 100%;
-  max-width: 1400px;
+  min-height: 100vh;
 }
 
 /* =========================
