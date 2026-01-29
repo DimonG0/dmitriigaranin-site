@@ -30,8 +30,8 @@ export default function EnHome() {
   });
 
   return (
-  <main className="relative min-h-screen bg-[#0a0a0a] text-white flex flex-col">
-  <div className="mx-auto w-full max-w-[1400px] px-6">
+  <main className="relative min-h-screen bg-[#0a0a0a] text-white">
+  <div className="relative mx-auto w-full max-w-[1400px] px-6">
       {/* BACKDROP: luxury textures + glows */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         {/* velvet grain */}
