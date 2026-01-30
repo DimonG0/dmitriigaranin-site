@@ -173,9 +173,9 @@ export default function EnHome() {
               animate="show"
               custom={4}
             >
-              <Stat label="Languages" value="EN / RU / HY / FR" />
-              <Stat label="Focus" value="Film • Ads • Digital" />
-              <Stat label="Availability" value="EU / US-ready" />
+              <Stat label="Языки" value="EN / RU / HY / FR" />
+              <Stat label="Специализация" value="Film • Ads • Digital" />
+              <Stat label="Международное сотрудничество" value="Европа / Азия" />
             </motion.div>
           </div>
 
@@ -244,8 +244,8 @@ export default function EnHome() {
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
-                    <MiniPill label="Showreel" value="Video + Captions" />
-                    <MiniPill label="Delivery" value="Fast, clean, pro" />
+                    <MiniPill label="Showreel" value="Видео + Субтитры" />
+                    <MiniPill label="Позиционирование" value="Быстро, легко, профессионально" />
                   </div>
 
                   <div className="flex flex-wrap gap-2">
@@ -295,18 +295,18 @@ export default function EnHome() {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <Tile
             to="/en/about"
-            title="About"
-            desc="Biography, positioning, languages, key highlights."
+            title="Обо мне"
+            desc="Биография, позиционирование, языки, ключевые моменты."
           />
           <Tile
             to="/en/portfolio"
-            title="Portfolio"
-            desc="Selected projects: frames, posters, digital work."
+            title="Портфолио"
+            desc="Ключевые проекты: кадры, постеры, цифровой формат."
           />
           <Tile
             to="/en/behind"
-            title="Behind the Scenes"
-            desc="Private archive: backstage and process."
+            title="Сцены за кадром"
+            desc="Приватный архив: закулисье и рабочий процесс."
           />
         </div>
       </section>
