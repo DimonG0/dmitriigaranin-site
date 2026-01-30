@@ -1,6 +1,22 @@
 import { NavLink, useLocation } from "react-router-dom";
 
 const langs = ["en", "ru", "fr", "hy"];
+
+const brand = {
+  name: {
+    en: "DMITRII GARANIN",
+    ru: "ДМИТРИЙ ГАРАНИН",
+    fr: "DMITRII GARANIN",
+    hy: "ԴՄԻՏՐԻ ԳԱՐԱՆԻՆ",
+  },
+  tagline: {
+    en: "ACTOR • CREATIVE • IT",
+    ru: "АКТЁР • КРЕАТИВ • IT",
+    fr: "ACTEUR • CRÉATIF • IT",
+    hy: "ԴԵՐԱՍԱՆ • ՍՏԵՂԾԱԳՈՐԾ • IT",
+  },
+};
+
 const items = [
   { key: "home", label: { en: "Home", ru: "Главная", fr: "Accueil", hy: "Գլխավոր" } },
   { key: "about", label: { en: "About", ru: "О себе", fr: "À propos", hy: "Իմ մասին" } },
@@ -9,6 +25,7 @@ const items = [
   { key: "behind", label: { en: "Behind", ru: "За кадром", fr: "Backstage", hy: "Կուլիսներ" } },
   { key: "contact", label: { en: "Contact", ru: "Контакты", fr: "Contact", hy: "Կապ" } },
 ];
+
 
 function getLangFromPath(pathname) {
   const p = pathname.split("/").filter(Boolean);
