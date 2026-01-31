@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -34,6 +35,11 @@ import HyReviews from "./pages/hy/reviews";
 import HyBehind from "./pages/hy/behind";
 import HyContact from "./pages/hy/contact";
 
+function LangPage({ en, ru, fr, hy }) {
+  const { lang } = useParams();
+  return { en, ru, fr, hy }[lang] ?? en;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -42,40 +48,46 @@ export default function App() {
 
         <main className="pt-20">
           <Routes>
-            {/* root -> /en/home */}
+            {/* ROOT */}
             <Route path="/" element={<Navigate to="/en/home" replace />} />
 
-            {/* EN */}
-            <Route path="/en/home" element={<EnHome />} />
-            <Route path="/en/about" element={<EnAbout />} />
-            <Route path="/en/portfolio" element={<EnPortfolio />} />
-            <Route path="/en/reviews" element={<EnReviews />} />
-            <Route path="/en/behind" element={<EnBehind />} />
-            <Route path="/en/contact" element={<EnContact />} />
+            {/* 🌍 LANG ROUTES */}
+            <Route path="/:lang">
+              {/* /en -> /en/home */}
+              <Route index element={<Navigate to="home" replace />} />
 
-            {/* RU */}
-            <Route path="/ru/home" element={<RuHome />} />
-            <Route path="/ru/about" element={<RuAbout />} />
-            <Route path="/ru/portfolio" element={<RuPortfolio />} />
-            <Route path="/ru/reviews" element={<RuReviews />} />
-            <Route path="/ru/behind" element={<RuBehind />} />
-            <Route path="/ru/contact" element={<RuContact />} />
+              {/* EN */}
+              <Route path="home" element={<EnHome />} />
+              <Route path="about" element={<EnAbout />} />
+              <Route path="portfolio" element={<EnPortfolio />} />
+              <Route path="reviews" element={<EnReviews />} />
+              <Route path="behind" element={<EnBehind />} />
+              <Route path="contact" element={<EnContact />} />
 
-            {/* FR */}
-            <Route path="/fr/home" element={<FrHome />} />
-            <Route path="/fr/about" element={<FrAbout />} />
-            <Route path="/fr/portfolio" element={<FrPortfolio />} />
-            <Route path="/fr/reviews" element={<FrReviews />} />
-            <Route path="/fr/behind" element={<FrBehind />} />
-            <Route path="/fr/contact" element={<FrContact />} />
+              {/* RU */}
+              <Route path="home" element={<RuHome />} />
+              <Route path="about" element={<RuAbout />} />
+              <Route path="portfolio" element={<RuPortfolio />} />
+              <Route path="reviews" element={<RuReviews />} />
+              <Route path="behind" element={<RuBehind />} />
+              <Route path="contact" element={<RuContact />} />
 
-            {/* HY */}
-            <Route path="/hy/home" element={<HyHome />} />
-            <Route path="/hy/about" element={<HyAbout />} />
-            <Route path="/hy/portfolio" element={<HyPortfolio />} />
-            <Route path="/hy/reviews" element={<HyReviews />} />
-            <Route path="/hy/behind" element={<HyBehind />} />
-            <Route path="/hy/contact" element={<HyContact />} />
+              {/* FR */}
+              <Route path="home" element={<FrHome />} />
+              <Route path="about" element={<FrAbout />} />
+              <Route path="portfolio" element={<FrPortfolio />} />
+              <Route path="reviews" element={<FrReviews />} />
+              <Route path="behind" element={<FrBehind />} />
+              <Route path="contact" element={<FrContact />} />
+
+              {/* HY */}
+              <Route path="home" element={<HyHome />} />
+              <Route path="about" element={<HyAbout />} />
+              <Route path="portfolio" element={<HyPortfolio />} />
+              <Route path="reviews" element={<HyReviews />} />
+              <Route path="behind" element={<HyBehind />} />
+              <Route path="contact" element={<HyContact />} />
+            </Route>
 
             {/* fallback */}
             <Route path="*" element={<Navigate to="/en/home" replace />} />

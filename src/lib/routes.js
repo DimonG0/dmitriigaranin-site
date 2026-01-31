@@ -1,4 +1,4 @@
-export const LANGS = ["en", "ru", "hy", "fr"];
+export const LANGS = ["am", "en", "fr", "ru"];
 
 export const ROUTES = [
   { key: "home", path: "home" },

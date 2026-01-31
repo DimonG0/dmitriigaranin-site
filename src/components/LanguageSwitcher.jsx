@@ -3,38 +3,51 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 export default function LanguageSwitcher() {
   const { lang } = useParams();
-  const loc = useLocation();
-  const nav = useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const current = lang || "en";
+  const currentLang = LANGS.includes(lang) ? lang : "en";
 
   function go(toLang) {
-    const parts = loc.pathname.split("/").filter(Boolean); // [lang, page...]
+    const parts = location.pathname.split("/").filter(Boolean);
+
+    // если вдруг зашли на /
     if (parts.length === 0) {
-      nav(`/${toLang}/home`);
+      navigate(`/${toLang}/home`);
       return;
     }
-    parts[0] = toLang;
-    nav("/" + parts.join("/"));
+
+    // если первый сегмент — язык
+    if (LANGS.includes(parts[0])) {
+      parts[0] = toLang;
+    } else {
+      parts.unshift(toLang);
+    }
+
+    navigate("/" + parts.join("/"));
   }
 
   return (
     <div className="flex items-center gap-2">
-      {LANGS.map((l) => (
-        <button
-          key={l}
-          onClick={() => go(l)}
-          className={[
-            "rounded-full px-3 py-1 text-xs tracking-luxe border transition",
-            l === current
-              ? "border-goldBright/70 text-goldBright shadow-goldGlow"
-              : "border-white/15 text-zinc-300 hover:border-gold/50 hover:text-goldBright",
-          ].join(" ")}
-          type="button"
-        >
-          {l.toUpperCase()}
-        </button>
-      ))}
+      {LANGS.map((l) => {
+        const active = l === currentLang;
+
+        return (
+          <button
+            key={l}
+            onClick={() => go(l)}
+            type="button"
+            className={[
+              "rounded-full px-3 py-1 text-[11px] tracking-[0.25em] uppercase transition",
+              active
+                ? "bg-[#D4AF37]/20 text-[#D4AF37] ring-1 ring-[#D4AF37]/40"
+                : "text-white/60 hover:text-white",
+            ].join(" ")}
+          >
+            {l.toUpperCase()}
+          </button>
+        );
+      })}
     </div>
   );
 }

@@ -172,7 +172,7 @@ export default function EnHome() {
               animate="show"
               custom={4}
             >
-              <Stat label="Languages" value="EN / RU / HY / FR" />
+              <Stat label="Languages" value="AM / EN / FR / RU" />
               <Stat label="Focus" value="Film • Ads • Digital" />
               <Stat label="Availability" value="EU / US-ready" />
             </motion.div>
@@ -205,7 +205,7 @@ export default function EnHome() {
                       aria-label="DG"
                     >
                       <span
-                        className="text-[14px] font-[800] tracking-[0.18em]"
+                        className="text-[14px] font-[800] tracking-[0.13em]"
                         style={{
                           backgroundImage:
                             "linear-gradient(90deg, #f6e6a7, #D4AF37, #FFD700, #b08b1b)",
@@ -217,7 +217,7 @@ export default function EnHome() {
                       </span>
                     </div>
                     <div>
-                      <div className="text-[12px] tracking-[0.18em] uppercase text-white/60">
+                      <div className="text-[12px] tracking-[0.13em] uppercase text-white/60">
                         Signature Card
                       </div>
                       <div className="mt-1 text-[14px] font-[600] text-white/85">
@@ -264,9 +264,9 @@ export default function EnHome() {
                     Social
                   </div>
                   <div className="flex items-center gap-3">
-                    <SocialLink label="Instagram" href="#" />
-                    <SocialLink label="IMDb" href="#" />
-                    <SocialLink label="Telegram" href="#" />
+                    <SocialLink label="Instagram" href="https://www.instagram.com/dmitriy_garanin/" />
+                    <SocialLink label="IMDb" href="https://www.imdb.com/name/nm18154035/" />
+                    <SocialLink label="Telegram" href="https://t.me/Dmitrii_GaRaNin" />
                   </div>
                 </div>
               </div>
