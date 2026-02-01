@@ -39,11 +39,14 @@ export default function Navbar() {
         {/* BRAND */}
         <NavLink to={`/${currentLang}/home`} className="group flex items-center gap-3">
           <div className="grid h-10 w-10 place-items-center rounded-full border border-[#D4AF37]/40 bg-gradient-to-b from-[#D4AF37]/15 to-transparent">
-            <span className="font-semibold tracking-[0.15em] text-[#D4AF37]">DG</span>
+            <span className="font-semibold tracking-[0.05em] text-[#D4AF37]">DG</span>
           </div>
           <div className="leading-tight">
             <div className="text-sm tracking-[0.35em] text-white/90">
               {brand.name[currentLang]}
+              <span className="font-semibold tracking-[-0.05em] scale-x-[0.95] text-[#D4AF37]">
+              {brand.initials[lang]}
+              </span>
             </div>
             <div className="text-[11px] tracking-[0.28em] text-white/50">
               {brand.tagline[currentLang]}
