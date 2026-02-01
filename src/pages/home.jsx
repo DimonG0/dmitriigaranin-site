@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
-import { useSeo } from "../lib/useSeo";
 import { t } from "../lib/i18n";
+import { useSeo } from "../lib/useSeo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
@@ -9,7 +9,11 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.9, delay: 0.12 + i * 0.08, ease: [0.22, 1, 0.36, 1] },
+    transition: {
+      duration: 0.9,
+      delay: 0.12 + i * 0.08,
+      ease: [0.22, 1, 0.36, 1],
+    },
   }),
 };
 
@@ -25,10 +29,13 @@ export default function Home() {
   const { lang = "en" } = useParams();
   const copy = t(lang);
 
+  const brandParts = (copy.brand || "").split(" ");
+  const brandFirst = brandParts[0] || "";
+  const brandSecond = brandParts.slice(1).join(" ") || "";
+
   useSeo({
-    title: "Dmitrii Garanin — Actor · Creative · IT",
-    description:
-      "A curated luxury portfolio combining acting, creative direction, and digital presence.",
+    title: copy.seo?.baseTitle ?? "Dmitrii Garanin",
+    description: copy.seo?.baseDesc ?? "",
     url: `https://dmitriigaranin.com/${lang}/home`,
     lang,
   });
@@ -67,7 +74,7 @@ export default function Home() {
           custom={0}
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
-          {copy.tagline}
+          {copy.tagline ?? ""}
         </motion.div>
 
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-12">
@@ -81,13 +88,16 @@ export default function Home() {
               custom={1}
             >
               <span className="block text-[44px] font-[600] md:text-[76px]">
-                {copy.brand.split(" ")[0]}{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f6e6a7] via-[#D4AF37] to-[#FFD700]">
-                  {copy.brand.split(" ")[1]}
-                </span>
+                {brandFirst}{" "}
+                {brandSecond && (
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f6e6a7] via-[#D4AF37] to-[#FFD700]">
+                    {brandSecond}
+                  </span>
+                )}
               </span>
+
               <span className="mt-4 block text-[14px] tracking-[0.35em] uppercase text-white/70">
-                {copy.home.note}
+                {copy.home?.note ?? ""}
               </span>
             </motion.h1>
 
@@ -98,7 +108,7 @@ export default function Home() {
               animate="show"
               custom={2}
             >
-             {copy.home.sub}
+              {copy.home?.sub ?? ""}
             </motion.p>
 
             {/* CTAs */}
@@ -110,10 +120,10 @@ export default function Home() {
               custom={3}
             >
               <Link to={`/${lang}/contact`} className="lux-btn-primary">
-                {copy.nav.contact} →
+                {copy.nav?.contact ?? "Contact"} →
               </Link>
               <Link to={`/${lang}/portfolio`} className="lux-btn-secondary">
-                {copy.nav.portfolio}
+                {copy.nav?.portfolio ?? "Portfolio"}
               </Link>
             </motion.div>
           </div>
@@ -128,10 +138,11 @@ export default function Home() {
               custom={2.6}
             >
               <div className="text-[12px] tracking-[0.22em] uppercase text-white/60">
-                {copy.home.signatureTitle ?? "Signature Card"}
+                {copy.home?.signatureTitle ?? "Signature Card"}
               </div>
               <div className="mt-3 text-[14px] text-white/75">
-                {copy.home.signatureText ?? "Cinematic presence with premium minimalism. Built for casting directors, producers, agencies, and high-end collaborations."}
+                {copy.home?.signatureText ??
+                  "Cinematic presence with premium minimalism. Built for casting directors, producers, agencies, and high-end collaborations."}
               </div>
 
               <div className="mt-6 flex flex-wrap gap-2">
@@ -147,9 +158,21 @@ export default function Home() {
       {/* QUICK NAV */}
       <section className="mx-auto w-full max-w-[1400px] px-6 pb-24">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <Tile to={`/${lang}/about`} title={copy.nav.about} desc={copy.about?.short ?? "Positioning & identity."} />
-          <Tile to={`/${lang}/portfolio`} title="Portfolio" desc="Selected work." />
-          <Tile to={`/${lang}/behind`} title="Behind" desc="Private archive." />
+          <Tile
+            to={`/${lang}/about`}
+            title={copy.nav?.about ?? "About"}
+            desc={copy.about?.short ?? "Positioning & identity."}
+          />
+          <Tile
+            to={`/${lang}/portfolio`}
+            title={copy.nav?.portfolio ?? "Portfolio"}
+            desc="Selected work."
+          />
+          <Tile
+            to={`/${lang}/behind`}
+            title={copy.nav?.behind ?? "Behind"}
+            desc="Private archive."
+          />
         </div>
       </section>
     </main>
