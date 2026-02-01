@@ -26,6 +26,11 @@ export const copy = {
       p1:
         "International-minded actor and creator. I build worlds on camera — and systems in code.",
       p2: "Languages: Armenian, English, Russian, French.",
+      stats: [
+        { k: "Focus", v: "Cinematic presence" },
+        { k: "Style", v: "Luxury editorial / noir" },
+        { k: "Work", v: "Film • Digital • IT" },
+      ],
     },
 
     portfolio: {
@@ -52,23 +57,19 @@ export const copy = {
 
       list: [
         {
-          q:
-            "A rare screen presence. Calm, controlled, and impossible to ignore.",
+          q: "A rare screen presence. Calm, controlled, and impossible to ignore.",
           a: "Film Producer",
         },
         {
-          q:
-            "Minimalism that feels expensive. Every frame is deliberate.",
+          q: "Minimalism that feels expensive. Every frame is deliberate.",
           a: "Creative Director",
         },
         {
-          q:
-            "He understands pacing, silence, and camera language better than most.",
+          q: "He understands pacing, silence, and camera language better than most.",
           a: "Casting Consultant",
         },
         {
-          q:
-            "International level of taste. No noise — only signal.",
+          q: "International level of taste. No noise — only signal.",
           a: "Brand Strategist",
         },
       ],
@@ -87,8 +88,7 @@ export const copy = {
 
     contact: {
       h1: "Contact",
-      sub:
-        "Business inquiries, collaborations, casting, IT projects.",
+      sub: "Business inquiries, collaborations, casting, IT projects.",
       emailLabel: "Email",
       socialsLabel: "Social",
       cta: "Copy Email",
@@ -119,6 +119,18 @@ export const copy = {
       reviews: "Отзывы",
       behind: "За кадром",
       contact: "Контакты",
+    },
+
+    about: {
+      h1: "О себе",
+      p1:
+        "Актёр и креативщик с международным мышлением. Работаю с присутствием — в кадре и в системах.",
+      p2: "Языки: армянский, английский, русский, французский.",
+      stats: [
+        { k: "Фокус", v: "Экранное присутствие" },
+        { k: "Стиль", v: "Luxury editorial / noir" },
+        { k: "Работа", v: "Кино • Digital • IT" },
+      ],
     },
 
     reviews: {

@@ -29,7 +29,8 @@ export default function About() {
   const copy = t(lang);
 
   return (
-    <>
+    <main className="relative min-h-[calc(100vh-1px)] bg-[#0a0a0a] text-white overflow-hidden">
+      
       {/* BACKDROP */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -53,7 +54,8 @@ export default function About() {
       </div>
 
       {/* CONTENT */}
-      <section className="relative mx-auto w-full max-w-6xl px-5 pb-24 pt-16">
+      <section className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-24 pt-16">
+
         {/* HEADER */}
         <motion.div
           variants={fadeUp}
@@ -66,19 +68,19 @@ export default function About() {
               className="h-1.5 w-1.5 rounded-full"
               style={{ background: "#D4AF37" }}
             />
-            {copy.nav.about}
+            {copy?.nav?.about ?? "About"}
           </div>
 
           <h1 className="mt-6 text-[40px] font-[800] tracking-[-0.02em] md:text-[56px]">
-            {copy.brand}
+            {copy?.brand ?? "Dmitrii Garanin"}
           </h1>
 
           <p className="mt-3 text-[13px] tracking-[0.35em] uppercase text-white/60">
-            {copy.tagline}
+            {copy?.tagline}
           </p>
         </motion.div>
 
-        {/* STATEMENT */}
+        {/* TEXT */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -87,35 +89,37 @@ export default function About() {
           className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2"
         >
           <p className="text-[14px] leading-relaxed text-white/75">
-            {copy.about.p1}
+            {copy?.about?.p1}
           </p>
           <p className="text-[14px] leading-relaxed text-white/75">
-            {copy.about.p2}
+            {copy?.about?.p2}
           </p>
         </motion.div>
 
         {/* STATS */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          custom={2}
-          className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3"
-        >
-          {copy.about.stats.map((s, i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4"
-            >
-              <div className="text-[10px] tracking-[0.22em] uppercase text-white/55">
-                {s.k}
+        {Array.isArray(copy?.about?.stats) && (
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            custom={2}
+            className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3"
+          >
+            {copy.about.stats.map((s, i) => (
+              <div
+                key={i}
+                className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4"
+              >
+                <div className="text-[10px] tracking-[0.22em] uppercase text-white/55">
+                  {s.k}
+                </div>
+                <div className="mt-2 text-[13px] font-[700] text-white/80">
+                  {s.v}
+                </div>
               </div>
-              <div className="mt-2 text-[13px] font-[700] text-white/80">
-                {s.v}
-              </div>
-            </div>
-          ))}
-        </motion.div>
+            ))}
+          </motion.div>
+        )}
 
         {/* CTA */}
         <motion.div
@@ -127,19 +131,20 @@ export default function About() {
         >
           <Link
             to={`/${lang}/portfolio`}
-            className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-7 py-3 text-[12px] font-[700] tracking-[0.22em] uppercase text-[#f7e7b2] transition hover:border-[#FFD700]/80 hover:bg-[#D4AF37]/15"
+            className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-7 py-3 text-[12px] font-[700] tracking-[0.22em] uppercase text-[#f7e7b2]"
           >
-            {copy.nav.portfolio} →
+            {copy?.nav?.portfolio} →
           </Link>
 
           <Link
             to={`/${lang}/contact`}
-            className="rounded-full border border-white/15 bg-white/5 px-7 py-3 text-[12px] font-[700] tracking-[0.22em] uppercase text-white/80 transition hover:border-white/25 hover:bg-white/10"
+            className="rounded-full border border-white/15 bg-white/5 px-7 py-3 text-[12px] font-[700] tracking-[0.22em] uppercase text-white/80"
           >
-            {copy.nav.contact} →
+            {copy?.nav?.contact} →
           </Link>
         </motion.div>
+
       </section>
-    </>
+    </main>
   );
 }
