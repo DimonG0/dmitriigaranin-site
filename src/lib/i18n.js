@@ -185,30 +185,29 @@ export const copy = {
 export const SAFE = (v, fallback = "") =>
   v === undefined || v === null ? fallback : v;
 
-const dev = import.meta.env.DEV;
-
-function warn(path, lang) {
-  if (dev) {
-    console.warn(`🌍 i18n missing key: "${path}" for lang "${lang}"`);
+export const pick = (obj, path, fallback = "") => {
+  try {
+    return path.split(".").reduce((o, k) => o?.[k], obj) ?? fallback;
+  } catch {
+    return fallback;
   }
-}
+};
 
 export function t(lang = "en") {
-const base = copy.en;
-  const cur = copy[lang] ?? {};
+  const base = copy.en;
+  const current = copy[lang] ?? base;
 
-  return new Proxy(base, {
-    get(_, key) {
-      if (typeof key !== "string") return base[key];
-
-      if (cur[key] !== undefined) return cur[key];
-      if (base[key] !== undefined) {
-        warn(key, lang);
-        return base[key];
+  if (import.meta.env.DEV) {
+    for (const k in base) {
+      if (!(k in current)) {
+        console.warn(`[i18n] missing key "${k}" in lang "${lang}"`);
       }
+    }
+  }
 
-      warn(key, lang);
-      return "";
+  return new Proxy(current, {
+    get(target, prop) {
+      return target[prop] ?? base[prop];
     },
   });
 }
