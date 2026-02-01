@@ -194,20 +194,20 @@ export const pick = (obj, path, fallback = "") => {
 };
 
 export function t(lang = "en") {
-  const base = copy.en;
-  const current = copy[lang] ?? base;
+  const data = copy[lang] ?? copy.en;
 
   if (import.meta.env.DEV) {
-    for (const k in base) {
-      if (!(k in current)) {
-        console.warn(`[i18n] missing key "${k}" in lang "${lang}"`);
-      }
-    }
+    const proxy = new Proxy(data, {
+      get(target, prop) {
+        if (!(prop in target)) {
+          console.warn(`[i18n] Missing key: ${lang}.${String(prop)}`);
+          return {};
+        }
+        return target[prop];
+      },
+    });
+    return proxy;
   }
 
-  return new Proxy(current, {
-    get(target, prop) {
-      return target[prop] ?? base[prop];
-    },
-  });
+  return data;
 }

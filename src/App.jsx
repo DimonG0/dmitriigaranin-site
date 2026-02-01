@@ -1,3 +1,4 @@
+import ErrorBoundary from "./components/ErrorBoundary";
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -26,6 +27,7 @@ function Layout() {
 
 export default function App() {
   return (
+   <ErrorBoundary>
     <BrowserRouter>
       <Routes>
         {/* ROOT */}
@@ -47,5 +49,6 @@ export default function App() {
         <Route path="*" element={<Navigate to="/en/home" replace />} />
       </Routes>
     </BrowserRouter>
+   </ErrorBoundary>
   );
 }
