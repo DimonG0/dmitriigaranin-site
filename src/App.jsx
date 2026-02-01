@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -10,22 +11,14 @@ import Behind from "./pages/behind";
 import Contact from "./pages/contact";
 
 function Layout() {
-  const location = useLocation();
-
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
       <Navbar />
-      <main className="pt-20 flex-grow" key={location.pathname}>
-        <Routes>
-          <Route index element={<Navigate to="home" replace />} />
-          <Route path="home" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="portfolio" element={<Portfolio />} />
-          <Route path="reviews" element={<Reviews />} />
-          <Route path="behind" element={<Behind />} />
-          <Route path="contact" element={<Contact />} />
-        </Routes>
+
+      <main className="pt-20 flex-grow">
+        <Outlet />
       </main>
+
       <Footer />
     </div>
   );
@@ -35,8 +28,22 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* ROOT */}
         <Route path="/" element={<Navigate to="/en/home" replace />} />
-        <Route path="/:lang/*" element={<Layout />} />
+
+        {/* LANG LAYOUT */}
+        <Route path="/:lang" element={<Layout />}>
+          <Route index element={<Navigate to="home" replace />} />
+
+          <Route path="home" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="portfolio" element={<Portfolio />} />
+          <Route path="reviews" element={<Reviews />} />
+          <Route path="behind" element={<Behind />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+
+        {/* FALLBACK */}
         <Route path="*" element={<Navigate to="/en/home" replace />} />
       </Routes>
     </BrowserRouter>
