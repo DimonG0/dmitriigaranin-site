@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { useSeo } from "../lib/useSeo";
+import { t } from "../lib/i18n";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
@@ -22,6 +23,7 @@ const glowPulse = {
 
 export default function Home() {
   const { lang = "en" } = useParams();
+  const copy = t(lang);
 
   useSeo({
     title: "Dmitrii Garanin — Actor · Creative · IT",
@@ -65,7 +67,7 @@ export default function Home() {
           custom={0}
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
-          International • Actor • Creative • IT
+          {copy.tagline}
         </motion.div>
 
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-12">
@@ -79,13 +81,13 @@ export default function Home() {
               custom={1}
             >
               <span className="block text-[44px] font-[600] md:text-[76px]">
-                Dmitrii{" "}
+                {copy.brand.split(" ")[0]}{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f6e6a7] via-[#D4AF37] to-[#FFD700]">
-                  Garanin
+                  {copy.brand.split(" ")[1]}
                 </span>
               </span>
               <span className="mt-4 block text-[14px] tracking-[0.35em] uppercase text-white/70">
-                Luxury Portfolio / Showreel / Contact
+                {copy.home.note}
               </span>
             </motion.h1>
 
@@ -96,9 +98,7 @@ export default function Home() {
               animate="show"
               custom={2}
             >
-              A curated presence designed like a private club: minimal text,
-              cinematic visuals, and polished presentation for castings,
-              collaborations, and international opportunities.
+             {copy.home.sub}
             </motion.p>
 
             {/* CTAs */}
@@ -110,10 +110,10 @@ export default function Home() {
               custom={3}
             >
               <Link to={`/${lang}/contact`} className="lux-btn-primary">
-                Contact →
+                {copy.nav.contact} →
               </Link>
               <Link to={`/${lang}/portfolio`} className="lux-btn-secondary">
-                View portfolio
+                {copy.nav.portfolio}
               </Link>
             </motion.div>
           </div>
@@ -128,11 +128,10 @@ export default function Home() {
               custom={2.6}
             >
               <div className="text-[12px] tracking-[0.22em] uppercase text-white/60">
-                Signature Card
+                {copy.home.signatureTitle ?? "Signature Card"}
               </div>
               <div className="mt-3 text-[14px] text-white/75">
-                Cinematic presence with premium minimalism. Built for casting
-                directors, producers, agencies, and high-end collaborations.
+                {copy.home.signatureText ?? "Cinematic presence with premium minimalism. Built for casting directors, producers, agencies, and high-end collaborations."}
               </div>
 
               <div className="mt-6 flex flex-wrap gap-2">
@@ -148,7 +147,7 @@ export default function Home() {
       {/* QUICK NAV */}
       <section className="mx-auto w-full max-w-[1400px] px-6 pb-24">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <Tile to={`/${lang}/about`} title="About" desc="Positioning & identity." />
+          <Tile to={`/${lang}/about`} title={copy.nav.about} desc={copy.about?.short ?? "Positioning & identity."} />
           <Tile to={`/${lang}/portfolio`} title="Portfolio" desc="Selected work." />
           <Tile to={`/${lang}/behind`} title="Behind" desc="Private archive." />
         </div>
