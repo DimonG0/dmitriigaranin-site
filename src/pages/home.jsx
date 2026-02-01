@@ -29,13 +29,9 @@ export default function Home() {
   const { lang = "en" } = useParams();
   const copy = t(lang);
 
-  const brandParts = (copy.brand || "").split(" ");
-  const brandFirst = brandParts[0] || "";
-  const brandSecond = brandParts.slice(1).join(" ") || "";
-
   useSeo({
-    title: copy.seo?.baseTitle ?? "Dmitrii Garanin",
-    description: copy.seo?.baseDesc ?? "",
+    title: copy.seo?.baseTitle,
+    description: copy.seo?.baseDesc,
     url: `https://dmitriigaranin.com/${lang}/home`,
     lang,
   });
@@ -71,10 +67,9 @@ export default function Home() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          custom={0}
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
-          {copy.tagline ?? ""}
+          {copy.tagline}
         </motion.div>
 
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-12">
@@ -88,16 +83,11 @@ export default function Home() {
               custom={1}
             >
               <span className="block text-[44px] font-[600] md:text-[76px]">
-                {brandFirst}{" "}
-                {brandSecond && (
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f6e6a7] via-[#D4AF37] to-[#FFD700]">
-                    {brandSecond}
-                  </span>
-                )}
+                {copy.brand}
               </span>
 
               <span className="mt-4 block text-[14px] tracking-[0.35em] uppercase text-white/70">
-                {copy.home?.note ?? ""}
+                {copy.home.note}
               </span>
             </motion.h1>
 
@@ -108,7 +98,7 @@ export default function Home() {
               animate="show"
               custom={2}
             >
-              {copy.home?.sub ?? ""}
+              {copy.home.sub}
             </motion.p>
 
             {/* CTAs */}
@@ -120,10 +110,10 @@ export default function Home() {
               custom={3}
             >
               <Link to={`/${lang}/contact`} className="lux-btn-primary">
-                {copy.nav?.contact ?? "Contact"} →
+                {copy.nav.contact} →
               </Link>
               <Link to={`/${lang}/portfolio`} className="lux-btn-secondary">
-                {copy.nav?.portfolio ?? "Portfolio"}
+                {copy.nav.portfolio}
               </Link>
             </motion.div>
           </div>
@@ -138,17 +128,11 @@ export default function Home() {
               custom={2.6}
             >
               <div className="text-[12px] tracking-[0.22em] uppercase text-white/60">
-                {copy.home?.signatureTitle ?? "Signature Card"}
+                {copy.home.signatureTitle ?? "Signature"}
               </div>
               <div className="mt-3 text-[14px] text-white/75">
-                {copy.home?.signatureText ??
-                  "Cinematic presence with premium minimalism. Built for casting directors, producers, agencies, and high-end collaborations."}
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                <Tag>Film Noir</Tag>
-                <Tag>Luxury Ads</Tag>
-                <Tag>International</Tag>
+                {copy.home.signatureText ??
+                  "Cinematic presence with premium minimalism."}
               </div>
             </motion.div>
           </div>
@@ -158,21 +142,9 @@ export default function Home() {
       {/* QUICK NAV */}
       <section className="mx-auto w-full max-w-[1400px] px-6 pb-24">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <Tile
-            to={`/${lang}/about`}
-            title={copy.nav?.about ?? "About"}
-            desc={copy.about?.short ?? "Positioning & identity."}
-          />
-          <Tile
-            to={`/${lang}/portfolio`}
-            title={copy.nav?.portfolio ?? "Portfolio"}
-            desc="Selected work."
-          />
-          <Tile
-            to={`/${lang}/behind`}
-            title={copy.nav?.behind ?? "Behind"}
-            desc="Private archive."
-          />
+          <Tile to={`/${lang}/about`} title={copy.nav.about} />
+          <Tile to={`/${lang}/portfolio`} title={copy.nav.portfolio} />
+          <Tile to={`/${lang}/behind`} title={copy.nav.behind} />
         </div>
       </section>
     </main>
@@ -181,15 +153,7 @@ export default function Home() {
 
 /* ===== helpers ===== */
 
-function Tag({ children }) {
-  return (
-    <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] tracking-[0.22em] uppercase text-white/70">
-      {children}
-    </span>
-  );
-}
-
-function Tile({ to, title, desc }) {
+function Tile({ to, title }) {
   return (
     <Link
       to={to}
@@ -201,7 +165,6 @@ function Tile({ to, title, desc }) {
       <div className="mt-2 text-[22px] font-[700] bg-gradient-to-r from-white via-[#D4AF37] to-white bg-clip-text text-transparent">
         {title}
       </div>
-      <p className="mt-3 text-[13px] text-white/65">{desc}</p>
     </Link>
   );
 }
