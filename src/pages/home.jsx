@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
-import { t } from "../lib/i18n";
+import { t, SAFE } from "../lib/i18n";
 import { useSeo } from "../lib/useSeo";
 
 const fadeUp = {
@@ -9,11 +9,7 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: {
-      duration: 0.9,
-      delay: 0.12 + i * 0.08,
-      ease: [0.22, 1, 0.36, 1],
-    },
+    transition: { duration: 0.9, delay: 0.12 + i * 0.08, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
@@ -30,11 +26,13 @@ export default function Home() {
   const copy = t(lang);
 
   useSeo({
-    title: copy.seo?.baseTitle,
-    description: copy.seo?.baseDesc,
+    title: SAFE(copy.seo?.baseTitle, "Dmitrii Garanin"),
+    description: SAFE(copy.seo?.baseDesc),
     url: `https://dmitriigaranin.com/${lang}/home`,
     lang,
   });
+
+  const brand = SAFE(copy.brand, "Dmitrii Garanin");
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white">
@@ -69,25 +67,22 @@ export default function Home() {
           animate="show"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
-          {copy.tagline}
+          {SAFE(copy.tagline)}
         </motion.div>
 
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-12">
-          {/* LEFT */}
           <div className="md:col-span-7">
             <motion.h1
               className="leading-[0.95] tracking-[-0.02em]"
               variants={fadeUp}
               initial="hidden"
               animate="show"
-              custom={1}
             >
               <span className="block text-[44px] font-[600] md:text-[76px]">
-                {copy.brand}
+                {brand}
               </span>
-
               <span className="mt-4 block text-[14px] tracking-[0.35em] uppercase text-white/70">
-                {copy.home.note}
+                {SAFE(copy.home?.note)}
               </span>
             </motion.h1>
 
@@ -96,75 +91,26 @@ export default function Home() {
               variants={fadeUp}
               initial="hidden"
               animate="show"
-              custom={2}
             >
-              {copy.home.sub}
+              {SAFE(copy.home?.sub)}
             </motion.p>
 
-            {/* CTAs */}
             <motion.div
               className="mt-10 flex flex-wrap items-center gap-4"
               variants={fadeUp}
               initial="hidden"
               animate="show"
-              custom={3}
             >
               <Link to={`/${lang}/contact`} className="lux-btn-primary">
-                {copy.nav.contact} →
+                {SAFE(copy.nav?.contact)} →
               </Link>
               <Link to={`/${lang}/portfolio`} className="lux-btn-secondary">
-                {copy.nav.portfolio}
+                {SAFE(copy.nav?.portfolio)}
               </Link>
             </motion.div>
           </div>
-
-          {/* RIGHT CARD */}
-          <div className="md:col-span-5">
-            <motion.div
-              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur"
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={2.6}
-            >
-              <div className="text-[12px] tracking-[0.22em] uppercase text-white/60">
-                {copy.home.signatureTitle ?? "Signature"}
-              </div>
-              <div className="mt-3 text-[14px] text-white/75">
-                {copy.home.signatureText ??
-                  "Cinematic presence with premium minimalism."}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* QUICK NAV */}
-      <section className="mx-auto w-full max-w-[1400px] px-6 pb-24">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <Tile to={`/${lang}/about`} title={copy.nav.about} />
-          <Tile to={`/${lang}/portfolio`} title={copy.nav.portfolio} />
-          <Tile to={`/${lang}/behind`} title={copy.nav.behind} />
         </div>
       </section>
     </main>
-  );
-}
-
-/* ===== helpers ===== */
-
-function Tile({ to, title }) {
-  return (
-    <Link
-      to={to}
-      className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-[#D4AF37]/40"
-    >
-      <div className="text-[11px] tracking-[0.22em] uppercase text-white/55">
-        Explore
-      </div>
-      <div className="mt-2 text-[22px] font-[700] bg-gradient-to-r from-white via-[#D4AF37] to-white bg-clip-text text-transparent">
-        {title}
-      </div>
-    </Link>
   );
 }

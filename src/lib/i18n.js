@@ -182,6 +182,33 @@ export const copy = {
   },
 };
 
+export const SAFE = (v, fallback = "") =>
+  v === undefined || v === null ? fallback : v;
+
+const dev = import.meta.env.DEV;
+
+function warn(path, lang) {
+  if (dev) {
+    console.warn(`🌍 i18n missing key: "${path}" for lang "${lang}"`);
+  }
+}
+
 export function t(lang = "en") {
-  return copy[lang] ?? copy.en;
+const base = copy.en;
+  const cur = copy[lang] ?? {};
+
+  return new Proxy(base, {
+    get(_, key) {
+      if (typeof key !== "string") return base[key];
+
+      if (cur[key] !== undefined) return cur[key];
+      if (base[key] !== undefined) {
+        warn(key, lang);
+        return base[key];
+      }
+
+      warn(key, lang);
+      return "";
+    },
+  });
 }
