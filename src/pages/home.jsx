@@ -72,12 +72,14 @@ export default function Home() {
         </motion.div>
 
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-12">
+          {/* LEFT */}
           <div className="md:col-span-7">
             <motion.h1
               className="leading-[0.95] tracking-[-0.02em]"
               variants={fadeUp}
               initial="hidden"
               animate="show"
+              custom={1}
             >
               <span className="block text-[44px] font-[600] md:text-[76px]">
                 {SAFE(copy.brand, "Dmitrii Garanin")}
@@ -93,15 +95,18 @@ export default function Home() {
               variants={fadeUp}
               initial="hidden"
               animate="show"
+              custom={2}
             >
               {SAFE(copy.home?.sub)}
             </motion.p>
 
+            {/* CTAs */}
             <motion.div
               className="mt-10 flex flex-wrap items-center gap-4"
               variants={fadeUp}
               initial="hidden"
               animate="show"
+              custom={3}
             >
               <Link to={`/${lang}/contact`} className="lux-btn-primary">
                 {SAFE(copy.nav?.contact, "Contact")} →
@@ -111,8 +116,54 @@ export default function Home() {
               </Link>
             </motion.div>
           </div>
+
+          {/* RIGHT CARD */}
+          <div className="md:col-span-5">
+            <motion.div
+              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur"
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              custom={2.6}
+            >
+              <div className="text-[12px] tracking-[0.22em] uppercase text-white/60">
+                {copy.home.signatureTitle ?? "Signature"}
+              </div>
+              <div className="mt-3 text-[14px] text-white/75">
+                {copy.home.signatureText ??
+                  "Cinematic presence with premium minimalism."}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* QUICK NAV */}
+      <section className="mx-auto w-full max-w-[1400px] px-6 pb-24">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <Tile to={`/${lang}/about`} title={copy.nav.about} />
+          <Tile to={`/${lang}/portfolio`} title={copy.nav.portfolio} />
+          <Tile to={`/${lang}/behind`} title={copy.nav.behind} />
         </div>
       </section>
     </main>
+  );
+}
+
+/* ===== helpers ===== */
+
+function Tile({ to, title }) {
+  return (
+    <Link
+      to={to}
+      className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-[#D4AF37]/40"
+    >
+      <div className="text-[11px] tracking-[0.22em] uppercase text-white/55">
+        Explore
+      </div>
+      <div className="mt-2 text-[22px] font-[700] bg-gradient-to-r from-white via-[#D4AF37] to-white bg-clip-text text-transparent">
+        {title}
+      </div>
+    </Link>
   );
 }
