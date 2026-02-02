@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
-import { t } from "../lib/i18n";
+import { t, SAFE } from "../lib/i18n";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -23,7 +23,7 @@ const slowPulse = {
 };
 
 export default function Reviews() {
-  const { lang } = useParams();
+  const { lang = "en" } = useParams();
   const copy = t(lang);
 
   const reviews = copy?.reviews?.list ?? [];
@@ -39,13 +39,6 @@ export default function Reviews() {
               "radial-gradient(1200px 720px at 20% 10%, rgba(212,175,55,0.16), transparent 60%), radial-gradient(980px 660px at 86% 14%, rgba(210,210,210,0.10), transparent 58%), radial-gradient(1150px 860px at 50% 92%, rgba(255,215,0,0.10), transparent 62%)",
           }}
         />
-        <div
-          className="absolute inset-0 mix-blend-soft-light opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E\")",
-          }}
-        />
         <motion.div
           className="absolute left-1/2 top-0 h-[2px] w-[1200px] -translate-x-1/2"
           variants={slowPulse}
@@ -57,50 +50,21 @@ export default function Reviews() {
             boxShadow: "0 0 30px rgba(212,175,55,.35)",
           }}
         />
-        <motion.div
-          className="absolute -left-56 top-52 h-[620px] w-[620px] rounded-full blur-3xl"
-          variants={slowPulse}
-          initial="initial"
-          animate="animate"
-          style={{
-            background: "radial-gradient(circle, rgba(120,255,220,.75), transparent 58%)",
-            opacity: 0.1,
-          }}
-        />
-        <motion.div
-          className="absolute -right-56 top-24 h-[620px] w-[620px] rounded-full blur-3xl"
-          variants={slowPulse}
-          initial="initial"
-          animate="animate"
-          style={{
-            background: "radial-gradient(circle, rgba(120,120,255,.75), transparent 58%)",
-            opacity: 0.1,
-          }}
-        />
       </div>
 
       <section className="relative mx-auto w-full max-w-6xl px-5 pb-24 pt-14 md:pt-20">
         {/* HEADER */}
         <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}>
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur">
-            <span
-              className="inline-block h-1.5 w-1.5 rounded-full"
-              style={{ background: "#D4AF37", boxShadow: "0 0 14px rgba(212,175,55,.55)" }}
-            />
-            {copy.reviews?.pill ?? "Private feedback"}
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
+            {SAFE(copy?.reviews?.pill, "Private feedback")}
           </div>
 
           <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
             <span className="block text-[38px] font-[900] md:text-[58px]">
-              {copy.reviews?.h1a ?? "Trusted"}{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(90deg, #ffffff 0%, #f6e6a7 18%, #D4AF37 45%, #FFD700 60%, #b08b1b 100%)",
-                }}
-              >
-                {copy.reviews?.h1b ?? "Presence"}
+              {SAFE(copy?.reviews?.h1a, "Trusted")}{" "}
+              <span className="bg-gradient-to-r from-white via-[#f6e6a7] via-40% via-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
+                {SAFE(copy?.reviews?.h1b, "Presence")}
               </span>
             </span>
             <span className="mt-3 block text-[12px] tracking-[0.35em] uppercase text-white/65">
@@ -109,8 +73,7 @@ export default function Reviews() {
           </h1>
 
           <p className="mt-5 max-w-2xl text-sm leading-7 text-white/70">
-            {copy.reviews?.sub ??
-              "Selected words from professionals who value precision, restraint, and cinematic discipline."}
+            {SAFE(copy?.reviews?.sub, "Selected words from professionals who value precision, restraint, and cinematic discipline.")}
           </p>
         </motion.div>
 
@@ -124,7 +87,7 @@ export default function Reviews() {
             animate="show"
             custom={1}
           >
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-6 backdrop-blur">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
               <div
                 className="pointer-events-none absolute inset-0 opacity-[0.55]"
                 style={{
@@ -134,7 +97,7 @@ export default function Reviews() {
               />
               <div className="relative space-y-5">
                 <SectionTitle
-                  over={copy.reviews?.sections?.focus ?? "What they notice"}
+                  over={SAFE(copy?.reviews?.sections?.focus, "What they notice")}
                   title="Precision. Restraint. Discipline."
                 />
 
@@ -148,11 +111,11 @@ export default function Reviews() {
                 <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
 
                 <SectionTitle
-                  over={copy.reviews?.sections?.signal ?? "What it communicates"}
+                  over={SAFE(copy?.reviews?.sections?.signal, "What it communicates")}
                   title="Premium positioning."
                 />
                 <p className="text-sm leading-7 text-white/70">
-                  This section is curated. No “mass reviews” — only statements that match the tone of
+                  This section is curated. No "mass reviews" — only statements that match the tone of
                   a private portfolio.
                 </p>
               </div>
@@ -168,9 +131,21 @@ export default function Reviews() {
             custom={2}
           >
             <div className="grid grid-cols-1 gap-5">
-              {reviews.map((r, i) => (
-                <EndorsementCard key={`${r.a}-${i}`} quote={r.q} author={r.a} index={i} />
-              ))}
+              {reviews.length > 0 ? (
+                reviews.map((r, i) => (
+                  <EndorsementCard key={`${r.a}-${i}`} quote={r.q} author={r.a} index={i} />
+                ))
+              ) : (
+                <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 text-center">
+                  <div className="text-[40px] font-[900] text-white/30">∅</div>
+                  <div className="mt-4 text-[18px] font-[700] text-white/70">
+                    No reviews available
+                  </div>
+                  <p className="mt-2 text-white/50">
+                    Reviews will be displayed here when available.
+                  </p>
+                </div>
+              )}
             </div>
 
             <motion.div
@@ -181,11 +156,10 @@ export default function Reviews() {
               className="mt-6 rounded-2xl border border-white/10 bg-black/30 p-5"
             >
               <div className="text-[10px] tracking-[0.28em] uppercase text-white/55">
-                {copy.reviews?.notes?.title ?? "Protocol"}
+                {SAFE(copy?.reviews?.notes?.title, "Protocol")}
               </div>
               <div className="mt-2 text-[12px] leading-relaxed text-white/65">
-                {copy.reviews?.notes?.text ??
-                  "References are available upon request. Discretion is part of the process."}
+                {SAFE(copy?.reviews?.notes?.text, "References are available upon request. Discretion is part of the process.")}
               </div>
             </motion.div>
 
@@ -203,15 +177,7 @@ function SectionTitle({ over, title }) {
   return (
     <div>
       <div className="text-[10px] tracking-[0.28em] uppercase text-white/55">{over}</div>
-      <div
-        className="mt-2 text-[20px] font-[900] tracking-[-0.01em]"
-        style={{
-          backgroundImage:
-            "linear-gradient(90deg, #ffffff 0%, #f6e6a7 22%, #D4AF37 55%, #ffffff 100%)",
-          WebkitBackgroundClip: "text",
-          color: "transparent",
-        }}
-      >
+      <div className="mt-2 text-[20px] font-[900] tracking-[-0.01em] bg-gradient-to-r from-white via-[#f6e6a7] via-40% via-[#D4AF37] to-white bg-clip-text text-transparent">
         {title}
       </div>
     </div>
@@ -234,10 +200,10 @@ function EndorsementCard({ quote, author, index }) {
       initial="hidden"
       animate="show"
       custom={index}
-      className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur"
+      className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition-all duration-300 hover:border-[#D4AF37]/40 hover:bg-white/[0.06]"
     >
       <div
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 hover:opacity-100"
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
         style={{
           background:
             "radial-gradient(900px 360px at 30% 0%, rgba(255,215,0,0.10), transparent 65%), radial-gradient(700px 360px at 90% 60%, rgba(212,175,55,0.10), transparent 62%)",
@@ -246,7 +212,7 @@ function EndorsementCard({ quote, author, index }) {
 
       <div className="relative">
         <div className="text-[20px] leading-relaxed font-[500] text-white/85">
-          “{quote}”
+          "{quote}"
         </div>
 
         <div className="mt-4 flex items-center justify-between gap-4">

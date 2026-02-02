@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
+import { t, SAFE } from "../lib/i18n";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -13,14 +14,6 @@ const fadeUp = {
   }),
 };
 
-const slowFloat = {
-  initial: { y: 0 },
-  animate: {
-    y: [0, -10, 0],
-    transition: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-  },
-};
-
 const shimmerLine = {
   initial: { opacity: 0.18 },
   animate: {
@@ -31,6 +24,7 @@ const shimmerLine = {
 
 export default function Behind() {
   const { lang = "en" } = useParams();
+  const copy = t(lang);
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white">
@@ -68,13 +62,13 @@ export default function Behind() {
           <div>
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
-              Behind the scenes / Private Archive
+              {SAFE(copy?.nav?.behind, "Behind the scenes / Private Archive")}
             </div>
 
             <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
               <span className="block text-[38px] font-[800] md:text-[56px]">
                 Backstage{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f6e6a7] via-[#D4AF37] to-[#FFD700]">
+                <span className="bg-gradient-to-r from-[#f6e6a7] via-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
                   Access
                 </span>
               </span>
@@ -103,27 +97,72 @@ export default function Behind() {
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
                   to={`/${lang}/portfolio`}
-                  className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-7 py-3 text-[12px] tracking-[0.22em] uppercase text-[#f7e7b2]"
+                  className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-7 py-3 text-[12px] tracking-[0.22em] uppercase text-[#f7e7b2] hover:border-[#D4AF37]/80 hover:bg-[#D4AF37]/20 transition-colors"
                 >
                   View portfolio →
                 </Link>
 
                 <Link
                   to={`/${lang}/contact`}
-                  className="rounded-full border border-white/12 bg-white/5 px-7 py-3 text-[12px] tracking-[0.22em] uppercase text-white/80"
+                  className="rounded-full border border-white/12 bg-white/5 px-7 py-3 text-[12px] tracking-[0.22em] uppercase text-white/80 hover:bg-white/10 hover:border-white/25 transition-colors"
                 >
                   Request access →
                 </Link>
               </div>
             </div>
           </motion.div>
+          
+          {/* Добавьте дополнительные секции при необходимости */}
+          <motion.div
+            className="md:col-span-5 mt-6 md:mt-0"
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            custom={1.5}
+          >
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+              <div className="text-[10px] tracking-[0.22em] uppercase text-white/55">
+                Note
+              </div>
+              <div className="mt-3 text-[14px] text-white/75">
+                This section contains exclusive content available to verified collaborators and partners only.
+              </div>
+            </div>
+          </motion.div>
         </div>
+
+        {/* Дополнительные карточки */}
+        <motion.div
+          className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3"
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          custom={2}
+        >
+          {[
+            { title: "Process", desc: "Methodical approach to creative work" },
+            { title: "Archive", desc: "Curated collection of unreleased material" },
+            { title: "Access", desc: "Strictly controlled viewing permissions" },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="rounded-2xl border border-white/10 bg-white/[0.04] p-5"
+            >
+              <div className="text-[12px] tracking-[0.22em] uppercase text-white/55">
+                {item.title}
+              </div>
+              <div className="mt-2 text-[14px] text-white/75">
+                {item.desc}
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </section>
     </main>
   );
 }
 
-/* ===== helpers unchanged ===== */
+/* ===== helpers ===== */
 function SectionTitle({ over, title }) {
   return (
     <div>

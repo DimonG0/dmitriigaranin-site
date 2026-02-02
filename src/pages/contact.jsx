@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { t, SAFE } from "../lib/i18n";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -24,26 +24,24 @@ const slowPulse = {
 
 export default function Contact() {
   const { lang = "en" } = useParams();
-  const [copied, setCopied] = useState(false);
+  const copy = t(lang);
 
-  const CONTACT = useMemo(
-    () => ({
-      email: "booking@dmitriigaranin.com",
-      telegram: "@dmitriigaranin",
-      instagram: "@dmitriigaranin",
-      note:
-        "For serious proposals only. Please include budget, dates, location, and brief context.",
-    }),
-    []
-  );
+  const contactInfo = {
+    email: "booking@dmitriigaranin.com",
+    telegram: "@dmitriigaranin",
+    instagram: "@dmitriigaranin",
+    note: "For serious proposals only. Please include budget, dates, location, and brief context.",
+  };
 
   const copyEmail = async () => {
     try {
-      await navigator.clipboard.writeText(CONTACT.email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1400);
-    } catch {
-      setCopied(false);
+      await navigator.clipboard.writeText(contactInfo.email);
+      document.querySelector(".copy-button").textContent = "Copied ✓";
+      setTimeout(() => {
+        document.querySelector(".copy-button").textContent = "Copy email";
+      }, 2000);
+    } catch (err) {
+      console.error("Failed to copy:", err);
     }
   };
 
@@ -51,14 +49,22 @@ export default function Contact() {
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white">
       {/* BACKDROP */}
       <div className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute inset-0 opacity-[0.14]"
+          style={{
+            backgroundImage:
+              "radial-gradient(1200px 700px at 20% 12%, rgba(212,175,55,0.16), transparent 60%), radial-gradient(900px 600px at 85% 25%, rgba(200,200,200,0.08), transparent 58%)",
+          }}
+        />
         <motion.div
-          className="absolute inset-0"
+          className="absolute left-1/2 top-0 h-[2px] w-[1200px] -translate-x-1/2"
           variants={slowPulse}
           initial="initial"
           animate="animate"
           style={{
             background:
-              "radial-gradient(1200px 700px at 20% 12%, rgba(212,175,55,0.16), transparent 60%)",
+              "linear-gradient(90deg, transparent, rgba(212,175,55,.8), rgba(255,215,0,.95), rgba(212,175,55,.8), transparent)",
+            boxShadow: "0 0 30px rgba(212,175,55,.35)",
           }}
         />
       </div>
@@ -73,15 +79,15 @@ export default function Contact() {
           custom={0}
         >
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
-              Private booking channel
+              {SAFE(copy?.nav?.contact, "Private booking channel")}
             </div>
 
             <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
               <span className="block text-[38px] font-[900] md:text-[58px]">
                 The{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-[#D4AF37] to-[#FFD700]">
+                <span className="bg-gradient-to-r from-white via-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
                   contact
                 </span>{" "}
                 you were looking for
@@ -112,8 +118,28 @@ export default function Contact() {
             <Card>
               <SectionTitle over="Protocol" title="Discreet. Direct. Verified." />
               <p className="mt-4 text-sm text-white/70 leading-relaxed">
-                {CONTACT.note}
+                {contactInfo.note}
               </p>
+              
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <div className="text-[10px] tracking-[0.22em] uppercase text-white/55 mb-3">
+                  Guidelines
+                </div>
+                <ul className="space-y-2 text-[13px] text-white/60">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4AF37] mt-1">•</span>
+                    <span>Include project budget and timeline</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4AF37] mt-1">•</span>
+                    <span>Specify location and travel requirements</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4AF37] mt-1">•</span>
+                    <span>Provide creative direction and mood references</span>
+                  </li>
+                </ul>
+              </div>
             </Card>
           </motion.div>
 
@@ -128,24 +154,72 @@ export default function Contact() {
             <Card>
               <SectionTitle over="Primary" title="Email vault" />
 
-              <div className="mt-4 rounded-xl border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white/80">
-                {CONTACT.email}
+              <div className="mt-6">
+                <div className="text-[10px] tracking-[0.22em] uppercase text-white/55 mb-2">
+                  Professional inquiries
+                </div>
+                <div className="rounded-xl border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white/80">
+                  {contactInfo.email}
+                </div>
               </div>
 
               <button
                 onClick={copyEmail}
-                className="mt-4 w-full rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 py-3 text-[11px] tracking-[0.22em] uppercase text-[#f6e6a7] transition hover:bg-[#D4AF37]/20"
+                className="copy-button mt-4 w-full rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 py-3 text-[11px] tracking-[0.22em] uppercase text-[#f6e6a7] transition-all hover:border-[#D4AF37]/80 hover:bg-[#D4AF37]/20 active:scale-95"
               >
-                {copied ? "Copied" : "Copy email"}
+                Copy email
               </button>
 
-              <div className="mt-6 flex flex-wrap gap-2">
-                <Tag>{CONTACT.telegram}</Tag>
-                <Tag>{CONTACT.instagram}</Tag>
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <div className="text-[10px] tracking-[0.22em] uppercase text-white/55 mb-3">
+                  Alternative channels
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Tag>{contactInfo.telegram}</Tag>
+                  <Tag>{contactInfo.instagram}</Tag>
+                </div>
+              </div>
+
+              <div className="mt-6 text-[11px] text-white/50">
+                Response time: 24–48 hours for verified inquiries
               </div>
             </Card>
           </motion.div>
         </div>
+
+        {/* ADDITIONAL INFO */}
+        <motion.div
+          className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3"
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          custom={2}
+        >
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <div className="text-[12px] tracking-[0.22em] uppercase text-white/55">
+              Availability
+            </div>
+            <div className="mt-2 text-[14px] text-white/75">
+              Limited booking slots for 2026
+            </div>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <div className="text-[12px] tracking-[0.22em] uppercase text-white/55">
+              Location
+            </div>
+            <div className="mt-2 text-[14px] text-white/75">
+              Based in Europe, available worldwide
+            </div>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <div className="text-[12px] tracking-[0.22em] uppercase text-white/55">
+              Response
+            </div>
+            <div className="mt-2 text-[14px] text-white/75">
+              Confirmation within 48 hours
+            </div>
+          </div>
+        </motion.div>
       </section>
     </main>
   );
@@ -184,7 +258,7 @@ function Chip({ children }) {
 
 function Tag({ children }) {
   return (
-    <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] tracking-[0.22em] uppercase text-white/70">
+    <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[10px] tracking-[0.22em] uppercase text-white/70 hover:bg-white/10 transition-colors">
       {children}
     </span>
   );

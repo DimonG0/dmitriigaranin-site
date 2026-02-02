@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
-import { t } from "../lib/i18n";
+import { t, SAFE } from "../lib/i18n";
 import { useSeo } from "../lib/useSeo";
-
-const SAFE = (v, fallback = "") =>
-  typeof v === "string" && v.length ? v : fallback;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
@@ -29,8 +26,8 @@ export default function Home() {
   const copy = t(lang);
 
   useSeo({
-    title: copy.seo?.baseTitle ?? "Dmitrii Garanin",
-    description: copy.seo?.baseDesc ?? "",
+    title: SAFE(copy.seo?.baseTitle, "Dmitrii Garanin"),
+    description: SAFE(copy.seo?.baseDesc, ""),
     url: `https://dmitriigaranin.com/${lang}/home`,
     lang,
   });
@@ -43,7 +40,7 @@ export default function Home() {
           className="absolute inset-0 opacity-[0.14]"
           style={{
             backgroundImage:
-              "radial-gradient(1200px 700px at 20% 10%, rgba(212,175,55,0.12), transparent 60%)",
+              "radial-gradient(1200px 700px at 20% 10%, rgba(212,175,55,0.12), transparent 60%), radial-gradient(1000px 650px at 85% 25%, rgba(200,200,200,0.08), transparent 58%)",
           }}
         />
         <motion.div
@@ -97,7 +94,7 @@ export default function Home() {
               animate="show"
               custom={2}
             >
-              {SAFE(copy.home?.sub)}
+              {SAFE(copy.home?.sub, "Your professional description here. Highlight your experience, style, and approach to creative work.")}
             </motion.p>
 
             {/* CTAs */}
@@ -108,10 +105,16 @@ export default function Home() {
               animate="show"
               custom={3}
             >
-              <Link to={`/${lang}/contact`} className="lux-btn-primary">
+              <Link 
+                to={`/${lang}/contact`} 
+                className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-6 py-3 text-[12px] font-[700] tracking-[0.22em] uppercase text-[#f7e7b2] hover:border-[#FFD700]/80 hover:bg-[#D4AF37]/20 transition-all duration-200"
+              >
                 {SAFE(copy.nav?.contact, "Contact")} →
               </Link>
-              <Link to={`/${lang}/portfolio`} className="lux-btn-secondary">
+              <Link 
+                to={`/${lang}/portfolio`} 
+                className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-[12px] font-[700] tracking-[0.22em] uppercase text-white/80 hover:bg-white/10 hover:border-white/25 transition-all duration-200"
+              >
                 {SAFE(copy.nav?.portfolio, "Portfolio")}
               </Link>
             </motion.div>
@@ -127,11 +130,10 @@ export default function Home() {
               custom={2.6}
             >
               <div className="text-[12px] tracking-[0.22em] uppercase text-white/60">
-                {copy.home.signatureTitle ?? "Signature"}
+                {SAFE(copy.home?.signatureTitle, "Signature")}
               </div>
               <div className="mt-3 text-[14px] text-white/75">
-                {copy.home.signatureText ??
-                  "Cinematic presence with premium minimalism."}
+                {SAFE(copy.home?.signatureText, "Cinematic presence with premium minimalism. A focus on subtlety, timing, and frame-perfect delivery.")}
               </div>
             </motion.div>
           </div>
@@ -141,9 +143,9 @@ export default function Home() {
       {/* QUICK NAV */}
       <section className="mx-auto w-full max-w-[1400px] px-6 pb-24">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <Tile to={`/${lang}/about`} title={copy.nav.about} />
-          <Tile to={`/${lang}/portfolio`} title={copy.nav.portfolio} />
-          <Tile to={`/${lang}/behind`} title={copy.nav.behind} />
+          <Tile to={`/${lang}/about`} title={SAFE(copy.nav?.about, "About")} />
+          <Tile to={`/${lang}/portfolio`} title={SAFE(copy.nav?.portfolio, "Portfolio")} />
+          <Tile to={`/${lang}/behind`} title={SAFE(copy.nav?.behind, "Behind")} />
         </div>
       </section>
     </main>
@@ -156,7 +158,7 @@ function Tile({ to, title }) {
   return (
     <Link
       to={to}
-      className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-[#D4AF37]/40"
+      className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition-all hover:border-[#D4AF37]/40 hover:bg-white/[0.08]"
     >
       <div className="text-[11px] tracking-[0.22em] uppercase text-white/55">
         Explore
