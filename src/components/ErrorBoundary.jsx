@@ -1,49 +1,23 @@
 import React from "react";
 
-export default class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false, error: null };
-  }
+export class ErrorBoundary extends React.Component {
+  state = { hasError: false };
 
-  static getDerivedStateFromError(error) {
-    return { hasError: true, error };
+  static getDerivedStateFromError() {
+    return { hasError: true };
   }
 
   componentDidCatch(error, info) {
-    // 🧪 DEV: логируем
-    if (import.meta.env.DEV) {
-      console.error("🔥 UI CRASH CAUGHT:", error);
-      console.error("ℹ️ Component stack:", info);
-    }
-
-    // 🔐 PROD: можно отправлять в Sentry / LogRocket
+    console.error("🔥 UI crash prevented:", error, info);
   }
 
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen bg-black text-white flex items-center justify-center px-6">
-          <div className="max-w-xl text-center">
-            <div className="text-[11px] tracking-[0.35em] uppercase text-[#D4AF37] mb-4">
-              System safeguard
-            </div>
-
-            <h1 className="text-[32px] font-[800] mb-4">
-              Something went wrong
-            </h1>
-
-            <p className="text-white/60 text-sm mb-8">
-              The interface recovered safely.  
-              Please refresh the page or continue browsing.
-            </p>
-
-            <button
-              onClick={() => window.location.reload()}
-              className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-7 py-3 text-[12px] font-[700] tracking-[0.22em] uppercase text-[#f7e7b2] hover:border-[#FFD700]/80"
-            >
-              Reload
-            </button>
+        <div className="min-h-screen flex items-center justify-center bg-black text-white">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold mb-4">Something went wrong</h1>
+            <p className="opacity-70">The interface is protected.</p>
           </div>
         </div>
       );

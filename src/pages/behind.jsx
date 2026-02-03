@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { t, SAFE } from "../lib/i18n";
 
+
 const ease = [0.22, 1, 0.36, 1];
 
 const fadeUp = {

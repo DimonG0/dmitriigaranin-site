@@ -14,29 +14,32 @@ html, body {
 body {
   margin: 0;
   overflow-x: hidden;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
 }
 
-/* subtle luxury grain */
-.luxe-grain {
-  position: relative;
-}
+/* luxury grain */
 .luxe-grain::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   background-image:
-    radial-gradient(rgba(255,215,0,.05) 1px, transparent 1px),
-    radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size: 120px 120px, 180px 180px;
-  background-position: 0 0, 40px 60px;
+    radial-gradient(rgba(212,175,55,.04) 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size: 140px 140px, 200px 200px;
   opacity: .25;
   mix-blend-mode: screen;
 }
 
-/* crisp separators */
-.luxe-line {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212,175,55,.55), transparent);
+/* luxury buttons */
+.lux-btn-primary {
+  @apply rounded-full border border-[#D4AF37]/50 bg-[#D4AF37]/10
+         px-7 py-3 text-xs uppercase tracking-[0.22em]
+         text-[#f7e7b2] transition hover:bg-[#D4AF37]/20;
+}
+
+.lux-btn-secondary {
+  @apply rounded-full border border-white/20 bg-white/5
+         px-7 py-3 text-xs uppercase tracking-[0.22em]
+         text-white/80 transition hover:bg-white/10;
 }
