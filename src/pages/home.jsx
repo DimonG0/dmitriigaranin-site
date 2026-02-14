@@ -2,9 +2,22 @@ import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { t, SAFE } from "../lib/i18n";
 import { useSeo } from "../lib/useSeo";
+import SectionTitle from "../ui/SectionTitle";
 import Badge from "../ui/Badge";
-import SectionTitle from "@/components/ui/SectionTitle";
-import Badge from "@/components/ui/Badge";
+
+function Tile({ to, title }) {
+  return (
+    <Link
+      to={to}
+      className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition-all hover:border-[#D4AF37]/40 hover:bg-white/[0.08]"
+    >
+      <div className="text-[11px] tracking-[0.22em] uppercase text-white/55">Explore</div>
+      <div className="mt-2 text-[22px] font-[700] bg-gradient-to-r from-white via-[#D4AF37] to-white bg-clip-text text-transparent">
+        {title}
+      </div>
+    </Link>
+  );
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
@@ -18,10 +31,7 @@ const fadeUp = {
 
 const glowPulse = {
   initial: { opacity: 0.35 },
-  animate: {
-    opacity: [0.25, 0.55, 0.25],
-    transition: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-  },
+  animate: { opacity: [0.25, 0.55, 0.25], transition: { duration: 6, repeat: Infinity, ease: "easeInOut" } },
 };
 
 export default function Home() {
@@ -37,7 +47,6 @@ export default function Home() {
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white">
-      {/* BACKDROP */}
       <div className="pointer-events-none absolute inset-0">
         <div
           className="absolute inset-0 opacity-[0.14]"
@@ -59,7 +68,6 @@ export default function Home() {
         />
       </div>
 
-      {/* HERO */}
       <section className="relative mx-auto w-full max-w-[1400px] px-6 pb-20 pt-14 md:pt-20">
         <motion.div
           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur"
@@ -67,30 +75,21 @@ export default function Home() {
           initial="hidden"
           animate="show"
         >
-        <Badge subtle>
-          {copy.tagline}
-        </Badge>
+          <Badge subtle>{SAFE(copy.tagline, "")}</Badge>
+        </motion.div>
 
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-12">
-          {/* LEFT */}
           <div className="md:col-span-7">
-            <motion.h1
-              className="leading-[0.95] tracking-[-0.02em]"
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={1}
-            >
-            <SectionTitle
-              over={copy.nav.home}
-              title={copy.brand}
-              desc={copy.home.sub}
-            />
-
+            <motion.div variants={fadeUp} initial="hidden" animate="show" custom={1}>
+              <SectionTitle
+                over={SAFE(copy.nav?.home, "Home")}
+                title={SAFE(copy.brand, "Dmitrii Garanin")}
+                desc={SAFE(copy.home?.sub, "")}
+              />
               <span className="mt-4 block text-[14px] tracking-[0.35em] uppercase text-white/70">
                 {SAFE(copy.home?.note, "Luxury Portfolio")}
               </span>
-            </motion.h1>
+            </motion.div>
 
             <motion.p
               className="mt-7 max-w-xl text-[16px] leading-relaxed text-white/70"
@@ -99,33 +98,26 @@ export default function Home() {
               animate="show"
               custom={2}
             >
-              {SAFE(copy.home?.sub, "Your professional description here. Highlight your experience, style, and approach to creative work.")}
+              {SAFE(copy.home?.sub, "")}
             </motion.p>
 
-            {/* CTAs */}
-            <motion.div
-              className="mt-10 flex flex-wrap items-center gap-4"
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={3}
-            >
-              <Link 
-                to={`/${lang}/contact`} 
-                className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-6 py-3 text-[12px] font-[700] tracking-[0.22em] uppercase text-[#f7e7b2] hover:border-[#FFD700]/80 hover:bg-[#D4AF37]/20 transition-all duration-200"
+            <motion.div className="mt-10 flex flex-wrap items-center gap-4" variants={fadeUp} initial="hidden" animate="show" custom={3}>
+              <Link
+                to={`/${lang}/contact`}
+                className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-6 py-3 text-[12px] font-[700] tracking-[0.22em] uppercase text-[#f7e7b2] transition-all duration-200 hover:border-[#FFD700]/80 hover:bg-[#D4AF37]/20"
               >
                 {SAFE(copy.nav?.contact, "Contact")} →
               </Link>
-              <Link 
-                to={`/${lang}/portfolio`} 
-                className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-[12px] font-[700] tracking-[0.22em] uppercase text-white/80 hover:bg-white/10 hover:border-white/25 transition-all duration-200"
+
+              <Link
+                to={`/${lang}/portfolio`}
+                className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-[12px] font-[700] tracking-[0.22em] uppercase text-white/80 transition-all duration-200 hover:border-white/25 hover:bg-white/10"
               >
                 {SAFE(copy.nav?.portfolio, "Portfolio")}
               </Link>
             </motion.div>
           </div>
 
-          {/* RIGHT CARD */}
           <div className="md:col-span-5">
             <motion.div
               className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur"
@@ -138,14 +130,13 @@ export default function Home() {
                 {SAFE(copy.home?.signatureTitle, "Signature")}
               </div>
               <div className="mt-3 text-[14px] text-white/75">
-                {SAFE(copy.home?.signatureText, "Cinematic presence with premium minimalism. A focus on subtlety, timing, and frame-perfect delivery.")}
+                {SAFE(copy.home?.signatureText, "")}
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* QUICK NAV */}
       <section className="mx-auto w-full max-w-[1400px] px-6 pb-24">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <Tile to={`/${lang}/about`} title={SAFE(copy.nav?.about, "About")} />
@@ -154,23 +145,5 @@ export default function Home() {
         </div>
       </section>
     </main>
-  );
-}
-
-/* ===== helpers ===== */
-
-function Tile({ to, title }) {
-  return (
-    <Link
-      to={to}
-      className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition-all hover:border-[#D4AF37]/40 hover:bg-white/[0.08]"
-    >
-      <div className="text-[11px] tracking-[0.22em] uppercase text-white/55">
-        Explore
-      </div>
-      <div className="mt-2 text-[22px] font-[700] bg-gradient-to-r from-white via-[#D4AF37] to-white bg-clip-text text-transparent">
-        {title}
-      </div>
-    </Link>
   );
 }

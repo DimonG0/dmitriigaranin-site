@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import { ErrorBoundary } from "./app/ErrorBoundary";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 /* ============================
    Browser & Environment Guards

@@ -1,95 +1,58 @@
-import React from "react";
+// src/lib/i18n.ts
+import { copy, Lang } from "./copy";
 
-export class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false, error: null };
-  }
+const DEV = import.meta.env?.DEV === true;
 
-  static getDerivedStateFromError(error) {
-    return { hasError: true, error };
-  }
+/* ================================
+   Safe primitive getter
+================================ */
+export const SAFE = <T>(v: T | undefined | null, fallback: T): T => (v ?? fallback);
 
-  componentDidCatch(error, info) {
-    if (import.meta.env.DEV) {
-      console.group("🛑 UI Crash Prevented");
-      console.error(error);
-      console.info(info?.componentStack);
-      console.groupEnd();
-    }
-  }
+export type I18nCopy = Record<string, any>;
 
-  handleReload = () => {
-    window.location.reload();
-  };
+/* ================================
+   Safe deep picker
+   pick(copy.en, "home.note")
+================================ */
+export function pick<T = any>(
+  obj: Record<string, any> | null | undefined,
+  path: string,
+  fallback: T = "" as T
+): T {
+  try {
+    if (!obj || typeof obj !== "object") return fallback;
 
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div
-          style={{
-            minHeight: "100vh",
-            background: "#0a0a0a",
-            color: "#ffffff",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "2rem",
-            fontFamily: "system-ui, -apple-system, sans-serif",
-          }}
-        >
-          <div style={{ textAlign: "center", maxWidth: 520 }}>
-            <h1
-              style={{
-                color: "#D4AF37",
-                fontSize: "2rem",
-                marginBottom: "1rem",
-                letterSpacing: "0.08em",
-              }}
-            >
-              Interface Protected
-            </h1>
+    const value = path
+      .split(".")
+      .filter(Boolean)
+      .reduce<any>((o, k) => (o && typeof o === "object" && k in o ? o[k] : undefined), obj);
 
-            <p style={{ opacity: 0.75, marginBottom: "2rem" }}>
-              A rendering error was intercepted.  
-              The system is stable.
-            </p>
-
-            <button
-              onClick={this.handleReload}
-              style={{
-                padding: "0.75rem 1.75rem",
-                background: "#D4AF37",
-                color: "#0a0a0a",
-                border: "none",
-                borderRadius: 999,
-                fontWeight: 700,
-                letterSpacing: "0.15em",
-                cursor: "pointer",
-                textTransform: "uppercase",
-              }}
-            >
-              Reload
-            </button>
-
-            {import.meta.env.DEV && this.state.error && (
-              <pre
-                style={{
-                  marginTop: "2rem",
-                  textAlign: "left",
-                  fontSize: "0.75rem",
-                  opacity: 0.6,
-                  whiteSpace: "pre-wrap",
-                }}
-              >
-                {String(this.state.error)}
-              </pre>
-            )}
-          </div>
-        </div>
-      );
+    if (value === undefined && DEV) {
+      console.warn(`⚠️ i18n missing key: ${path}`);
     }
 
-    return this.props.children;
+    return (value ?? fallback) as T;
+  } catch {
+    return fallback;
   }
+}
+
+/* ================================
+   Main i18n accessor
+================================ */
+export function t(lang: Lang = "en"): I18nCopy {
+  const data: I18nCopy = (copy as any)[lang] ?? (copy as any).en ?? {};
+
+  if (!DEV) return data;
+
+  // DEV guard: warn on missing sections (top-level only)
+  return new Proxy(data, {
+    get(target, prop) {
+      if (typeof prop === "string" && !(prop in target)) {
+        console.warn(`⚠️ i18n missing section: ${lang}.${prop}`);
+        return {};
+      }
+      return (target as any)[prop as any];
+    },
+  });
 }
