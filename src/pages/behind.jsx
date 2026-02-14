@@ -2,45 +2,58 @@ import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { t, SAFE } from "../lib/i18n";
 
+import Badge from "../ui/Badge";
+import Chip from "../ui/Chip";
+import SectionTitle from "../ui/SectionTitle";
+import Tag from "../ui/Tag";
+
+/* ===== motion ===== */
 
 const ease = [0.22, 1, 0.36, 1];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 18, filter: "blur(7px)" },
+  hidden: { opacity: 0, y: 20, filter: "blur(6px)" },
   show: (i = 0) => ({
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.95, delay: 0.12 + i * 0.08, ease },
+    transition: {
+      duration: 0.9,
+      delay: 0.12 + i * 0.08,
+      ease,
+    },
   }),
 };
 
-const shimmerLine = {
+const shimmer = {
   initial: { opacity: 0.18 },
   animate: {
-    opacity: [0.1, 0.4, 0.1],
-    transition: { duration: 7.5, repeat: Infinity, ease: "easeInOut" },
+    opacity: [0.12, 0.42, 0.12],
+    transition: { duration: 7, repeat: Infinity, ease: "easeInOut" },
   },
 };
+
+/* ===== page ===== */
 
 export default function Behind() {
   const { lang = "en" } = useParams();
   const copy = t(lang);
 
   return (
-    <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white">
-      {/* BACKDROP */}
+    <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white luxe-grain">
+
+      {/* ===== BACKDROP ===== */}
       <div className="pointer-events-none absolute inset-0">
         <div
-          className="absolute inset-0 opacity-[0.16]"
+          className="absolute inset-0 opacity-[0.14]"
           style={{
             backgroundImage:
-              "radial-gradient(1200px 700px at 18% 10%, rgba(212,175,55,0.14), transparent 60%), radial-gradient(1000px 650px at 86% 18%, rgba(210,210,210,0.10), transparent 58%), radial-gradient(1200px 800px at 48% 92%, rgba(255,215,0,0.09), transparent 62%)",
+              "radial-gradient(1200px 700px at 18% 10%, rgba(212,175,55,0.14), transparent 60%), radial-gradient(1000px 650px at 86% 20%, rgba(210,210,210,0.10), transparent 58%)",
           }}
         />
         <motion.div
           className="absolute left-1/2 top-0 h-[2px] w-[1200px] -translate-x-1/2"
-          variants={shimmerLine}
+          variants={shimmer}
           initial="initial"
           animate="animate"
           style={{
@@ -51,36 +64,39 @@ export default function Behind() {
         />
       </div>
 
-      {/* CONTENT */}
-      <section className="relative mx-auto w-full max-w-6xl px-5 pb-24 pt-14 md:pt-20">
+      {/* ===== CONTENT ===== */}
+      <section className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-24 pt-16 md:pt-20">
+
+        {/* ===== HEADER ===== */}
         <motion.div
-          className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
           variants={fadeUp}
           initial="hidden"
           animate="show"
           custom={0}
+          className="max-w-3xl"
         >
-          <div>
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
-              {SAFE(copy?.nav?.behind, "Behind the scenes / Private Archive")}
-            </div>
+          <Badge>
+            {SAFE(copy?.nav?.behind, "Behind")}
+          </Badge>
 
-            <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
-              <span className="block text-[38px] font-[800] md:text-[56px]">
-                Backstage{" "}
-                <span className="bg-gradient-to-r from-[#f6e6a7] via-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
-                  Access
-                </span>
+          <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
+            <span className="block text-[40px] font-[800] md:text-[56px]">
+              Backstage{" "}
+              <span className="bg-gradient-to-r from-[#f6e6a7] via-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
+                Access
               </span>
-              <span className="mt-3 block text-[13px] tracking-[0.35em] uppercase text-white/65">
-                Exclusive • Noir • Controlled • Cinematic
-              </span>
-            </h1>
-          </div>
+            </span>
+          </h1>
+
+          <p className="mt-3 text-[13px] tracking-[0.35em] uppercase text-white/65">
+            Exclusive • Noir • Controlled
+          </p>
         </motion.div>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
+        {/* ===== MAIN GRID ===== */}
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-12">
+
+          {/* LEFT */}
           <motion.div
             className="md:col-span-7"
             variants={fadeUp}
@@ -88,73 +104,86 @@ export default function Behind() {
             animate="show"
             custom={1}
           >
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-              <SectionTitle over="Concept" title="A closed club. A private archive." />
-              <p className="mt-4 text-[14px] text-white/70">
-                Behind-the-scenes is presented like an exclusive vault: calm pacing, premium texture,
-                and curated access.
-              </p>
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+              <SectionTitle
+                over="Concept"
+                title={SAFE(copy?.behind?.title, "A closed club. A private archive.")}
+                desc={SAFE(
+                  copy?.behind?.desc,
+                  "Behind-the-scenes is presented like a private vault: calm pacing, premium texture, and curated access."
+                )}
+              />
 
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
                   to={`/${lang}/portfolio`}
-                  className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-7 py-3 text-[12px] tracking-[0.22em] uppercase text-[#f7e7b2] hover:border-[#D4AF37]/80 hover:bg-[#D4AF37]/20 transition-colors"
+                  className="lux-btn-primary"
                 >
-                  View portfolio →
+                  {SAFE(copy?.nav?.portfolio, "Portfolio")} →
                 </Link>
 
                 <Link
                   to={`/${lang}/contact`}
-                  className="rounded-full border border-white/12 bg-white/5 px-7 py-3 text-[12px] tracking-[0.22em] uppercase text-white/80 hover:bg-white/10 hover:border-white/25 transition-colors"
+                  className="lux-btn-secondary"
                 >
-                  Request access →
+                  {SAFE(copy?.nav?.contact, "Contact")} →
                 </Link>
               </div>
             </div>
           </motion.div>
-          
-          {/* Добавьте дополнительные секции при необходимости */}
+
+          {/* RIGHT */}
           <motion.div
-            className="md:col-span-5 mt-6 md:mt-0"
+            className="md:col-span-5"
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            custom={1.5}
+            custom={1.4}
           >
             <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-              <div className="text-[10px] tracking-[0.22em] uppercase text-white/55">
-                Note
-              </div>
-              <div className="mt-3 text-[14px] text-white/75">
-                This section contains exclusive content available to verified collaborators and partners only.
+              <div className="flex flex-col gap-3">
+                <Chip>Restricted access</Chip>
+                <p className="text-[14px] text-white/75">
+                  {SAFE(
+                    copy?.behind?.note,
+                    "This section contains materials available only to verified collaborators and partners."
+                  )}
+                </p>
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Дополнительные карточки */}
+        {/* ===== CARDS ===== */}
         <motion.div
-          className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3"
+          className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3"
           variants={fadeUp}
           initial="hidden"
           animate="show"
           custom={2}
         >
           {[
-            { title: "Process", desc: "Methodical approach to creative work" },
-            { title: "Archive", desc: "Curated collection of unreleased material" },
-            { title: "Access", desc: "Strictly controlled viewing permissions" },
-          ].map((item, index) => (
+            {
+              title: "Process",
+              desc: "Methodical and controlled creative workflow",
+            },
+            {
+              title: "Archive",
+              desc: "Curated unreleased material and drafts",
+            },
+            {
+              title: "Access",
+              desc: "Invitation-only viewing permissions",
+            },
+          ].map((item, i) => (
             <div
-              key={index}
+              key={i}
               className="rounded-2xl border border-white/10 bg-white/[0.04] p-5"
             >
-              <div className="text-[12px] tracking-[0.22em] uppercase text-white/55">
-                {item.title}
-              </div>
-              <div className="mt-2 text-[14px] text-white/75">
+              <Tag>{item.title}</Tag>
+              <p className="mt-3 text-[14px] text-white/75">
                 {item.desc}
-              </div>
+              </p>
             </div>
           ))}
         </motion.div>
@@ -163,14 +192,3 @@ export default function Behind() {
   );
 }
 
-/* ===== helpers ===== */
-function SectionTitle({ over, title }) {
-  return (
-    <div>
-      <div className="text-[10px] tracking-[0.22em] uppercase text-white/55">{over}</div>
-      <div className="mt-2 text-[22px] font-[900] bg-gradient-to-r from-white via-[#D4AF37] to-white bg-clip-text text-transparent">
-        {title}
-      </div>
-    </div>
-  );
-}

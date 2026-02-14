@@ -15,6 +15,9 @@ export const ROUTES = [
   "contact",
 ];
 
+export const DEFAULT_LANG = "en";
+export const DEFAULT_ROUTE = "home";
+
 /* =====================
    Guards (runtime-safe)
    ===================== */
@@ -32,21 +35,40 @@ export function isRoute(value) {
    ===================== */
 
 export function resolveLang(value) {
-  return isLang(value) ? value : "en";
+  return isLang(value) ? value : DEFAULT_LANG;
 }
 
 export function resolveRoute(value) {
-  return isRoute(value) ? value : "home";
+  return isRoute(value) ? value : DEFAULT_ROUTE;
 }
 
 /* =====================
-   Builders
+   Parsers / Builders
    ===================== */
 
-export function buildPath(lang, route) {
-  const safeLang = resolveLang(lang);
-  const safeRoute = resolveRoute(route);
-  return `/${safeLang}/${safeRoute}`;
+export function parsePathname(pathname = "") {
+  const clean = String(pathname).split("?")[0].split("#")[0];
+  const parts = clean.split("/").filter(Boolean); // ["en","about",...]
+  const lang = resolveLang(parts[0]);
+  const route = resolveRoute(parts[1]);
+  const rest = parts.slice(2);
+  return { lang, route, rest };
 }
 
-export const DEFAULT_PATH = "/en/home";
+export function buildPath(lang, route, rest = []) {
+  const safeLang = resolveLang(lang);
+  const safeRoute = resolveRoute(route);
+  const tail = Array.isArray(rest) && rest.length ? `/${rest.map(encodeURIComponent).join("/")}` : "";
+  return `/${safeLang}/${safeRoute}${tail}`;
+}
+
+/* =====================
+   Language switch (keep current route)
+   ===================== */
+
+export function switchLangPath(pathname, nextLang) {
+  const { route, rest } = parsePathname(pathname);
+  return buildPath(nextLang, route, rest);
+}
+
+export const DEFAULT_PATH = buildPath(DEFAULT_LANG, DEFAULT_ROUTE);

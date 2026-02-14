@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { t, SAFE } from "../lib/i18n";
 import { useSeo } from "../lib/useSeo";
+import Badge from "../ui/Badge";
+import SectionTitle from "@/components/ui/SectionTitle";
+import Badge from "@/components/ui/Badge";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
@@ -64,9 +67,9 @@ export default function Home() {
           initial="hidden"
           animate="show"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
-          {SAFE(copy.tagline, "Actor • Creative • IT")}
-        </motion.div>
+        <Badge subtle>
+          {copy.tagline}
+        </Badge>
 
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-12">
           {/* LEFT */}
@@ -78,9 +81,11 @@ export default function Home() {
               animate="show"
               custom={1}
             >
-              <span className="block text-[44px] font-[600] md:text-[76px]">
-                {SAFE(copy.brand, "Dmitrii Garanin")}
-              </span>
+            <SectionTitle
+              over={copy.nav.home}
+              title={copy.brand}
+              desc={copy.home.sub}
+            />
 
               <span className="mt-4 block text-[14px] tracking-[0.35em] uppercase text-white/70">
                 {SAFE(copy.home?.note, "Luxury Portfolio")}
