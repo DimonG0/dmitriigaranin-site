@@ -30,28 +30,6 @@ export default function Reviews() {
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white">
-      {/* BACKDROP */}
-      <div className="pointer-events-none absolute inset-0">
-        <div
-          className="absolute inset-0 opacity-[0.16]"
-          style={{
-            backgroundImage:
-              "radial-gradient(1200px 720px at 20% 10%, rgba(212,175,55,0.16), transparent 60%), radial-gradient(980px 660px at 86% 14%, rgba(210,210,210,0.10), transparent 58%), radial-gradient(1150px 860px at 50% 92%, rgba(255,215,0,0.10), transparent 62%)",
-          }}
-        />
-        <motion.div
-          className="absolute left-1/2 top-0 h-[2px] w-[1200px] -translate-x-1/2"
-          variants={slowPulse}
-          initial="initial"
-          animate="animate"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(212,175,55,.85), rgba(255,215,0,.95), rgba(212,175,55,.85), transparent)",
-            boxShadow: "0 0 30px rgba(212,175,55,.35)",
-          }}
-        />
-      </div>
-
       <section className="relative mx-auto w-full max-w-6xl px-5 pb-24 pt-14 md:pt-20">
         {/* HEADER */}
         <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}>

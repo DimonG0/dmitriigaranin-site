@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -15,15 +16,11 @@ function checkBrowserCompatibility() {
   }
 
   if (!("IntersectionObserver" in window)) {
-    console.warn(
-      "[BOOT] IntersectionObserver not supported. Animations may degrade."
-    );
+    console.warn("[BOOT] IntersectionObserver not supported. Animations may degrade.");
   }
 
   if (!("ResizeObserver" in window)) {
-    console.warn(
-      "[BOOT] ResizeObserver not supported. Layout may degrade."
-    );
+    console.warn("[BOOT] ResizeObserver not supported. Layout may degrade.");
   }
 }
 
@@ -36,9 +33,7 @@ function performanceCheck() {
     "gyroscope" in window;
 
   if (!hasAcceleration) {
-    console.info(
-      "[BOOT] Hardware acceleration disabled. Visual experience may degrade."
-    );
+    console.info("[BOOT] Hardware acceleration disabled. Visual experience may degrade.");
   }
 }
 
@@ -52,15 +47,10 @@ function bootstrap() {
     performanceCheck();
 
     const rootElement = document.getElementById("root");
-
-    if (!rootElement) {
-      throw new Error("Root element #root not found");
-    }
+    if (!rootElement) throw new Error("Root element #root not found");
 
     if (!document.querySelector('meta[name="viewport"]')) {
-      console.warn(
-        "[BOOT] Missing viewport meta tag. Responsive layout may break."
-      );
+      console.warn("[BOOT] Missing viewport meta tag. Responsive layout may break.");
     }
 
     const root = ReactDOM.createRoot(rootElement);
@@ -81,8 +71,7 @@ function bootstrap() {
                 padding: "2rem",
                 textAlign: "center",
                 zIndex: 9999,
-                fontFamily:
-                  "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+                fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
               }}
             >
               <div>
@@ -95,9 +84,7 @@ function bootstrap() {
                 >
                   Critical Error
                 </h1>
-                <p style={{ opacity: 0.8 }}>
-                  The application failed to load.
-                </p>
+                <p style={{ opacity: 0.8 }}>The application failed to load.</p>
                 <button
                   onClick={() => window.location.reload()}
                   style={{
@@ -119,7 +106,9 @@ function bootstrap() {
             </div>
           }
         >
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </ErrorBoundary>
       </React.StrictMode>
     );
@@ -130,29 +119,19 @@ function bootstrap() {
     );
     console.log("%c App initialized successfully", "color:#4CAF50");
 
-    /* Resource load errors */
     window.addEventListener(
       "error",
       (e) => {
         const t = e.target;
-        if (
-          t &&
-          (t.tagName === "IMG" ||
-            t.tagName === "SCRIPT" ||
-            t.tagName === "LINK")
-        ) {
+        if (t && (t.tagName === "IMG" || t.tagName === "SCRIPT" || t.tagName === "LINK")) {
           console.warn("[RESOURCE FAILED]", t.src || t.href);
         }
       },
       true
     );
 
-    window.addEventListener("offline", () =>
-      console.warn("[NETWORK] Offline")
-    );
-    window.addEventListener("online", () =>
-      console.info("[NETWORK] Online")
-    );
+    window.addEventListener("offline", () => console.warn("[NETWORK] Offline"));
+    window.addEventListener("online", () => console.info("[NETWORK] Online"));
   } catch (err) {
     console.error("[BOOT] Fatal error", err);
 
@@ -191,10 +170,6 @@ function bootstrap() {
     `;
   }
 }
-
-/* ============================
-   Start
-   ============================ */
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", bootstrap);

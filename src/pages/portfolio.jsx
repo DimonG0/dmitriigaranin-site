@@ -95,28 +95,6 @@ export default function Portfolio() {
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white">
-      {/* BACKDROP */}
-      <div className="pointer-events-none absolute inset-0">
-        <div
-          className="absolute inset-0 opacity-[0.14]"
-          style={{
-            backgroundImage:
-              "radial-gradient(1200px 700px at 20% 10%, rgba(212,175,55,0.12), transparent 60%), radial-gradient(1000px 650px at 85% 25%, rgba(200,200,200,0.08), transparent 58%)",
-          }}
-        />
-        <motion.div
-          className="absolute left-1/2 top-0 h-[2px] w-[1200px] -translate-x-1/2"
-          variants={slowPulse}
-          initial="initial"
-          animate="animate"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(212,175,55,.85), rgba(255,215,0,.95), rgba(212,175,55,.85), transparent)",
-            boxShadow: "0 0 30px rgba(212,175,55,.35)",
-          }}
-        />
-      </div>
-
       <section className="relative mx-auto w-full max-w-6xl px-5 pb-24 pt-14 md:pt-20">
         {/* HEADER */}
         <motion.div

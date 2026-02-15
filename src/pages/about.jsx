@@ -19,12 +19,6 @@ export default function About() {
   return (
     <div className="relative">
       <section className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-24 pt-24 md:pt-28">
-        {/* GOLD GLOW */}
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute -left-40 top-10 h-[520px] w-[520px] rounded-full bg-[#D4AF37]/10 blur-[90px]" />
-          <div className="absolute -right-44 top-20 h-[520px] w-[520px] rounded-full bg-[#FFD700]/10 blur-[90px]" />
-        </div>
-
         {/* HEADER */}
         <motion.div variants={fadeUp} initial="hidden" animate="show" className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur">
