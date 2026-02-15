@@ -53,8 +53,12 @@ export default function About() {
         />
       </div>
 
-      {/* CONTENT */}
-      <section className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-24 pt-16">
+      <section className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-24 pt-24 md:pt-28">
+            {/* GOLD GLOW */}
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -left-40 top-10 h-[520px] w-[520px] rounded-full bg-[#D4AF37]/10 blur-[90px]" />
+          <div className="absolute -right-44 top-20 h-[520px] w-[520px] rounded-full bg-[#FFD700]/10 blur-[90px]" />
+        </div>
 
         {/* HEADER */}
         <motion.div
@@ -68,10 +72,12 @@ export default function About() {
             {SAFE(copy?.nav?.about, "About")}
           </div>
 
-          <h1 className="mt-6 text-[40px] font-[800] tracking-[-0.02em] md:text-[56px]">
+          <h1 className="mt-6 text-[40px] font-[800] tracking-[-0.02em] md:text-[56px] bg-gradient-to-r from-white via-[#D4AF37] to-white bg-clip-text text-transparent">
             {SAFE(copy?.brand, "Dmitrii Garanin")}
           </h1>
-
+          
+          <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
+          
           <p className="mt-3 text-[13px] tracking-[0.35em] uppercase text-white/60">
             {SAFE(copy?.tagline, "Actor • Creative • IT")}
           </p>

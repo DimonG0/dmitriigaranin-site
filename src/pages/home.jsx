@@ -86,7 +86,6 @@ export default function Home() {
           <div className="md:col-span-7">
             <motion.div variants={fadeUp} initial="hidden" animate="show" custom={1}>
               <SectionTitle
-                over={SAFE(copy.nav?.home, "Home")}
                 title={SAFE(copy.brand, "Dmitrii Garanin")}
                 desc={SAFE(copy.home?.sub, "")}
               />
