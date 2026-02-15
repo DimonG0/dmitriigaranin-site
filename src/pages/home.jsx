@@ -78,12 +78,7 @@ export default function Home() {
       </div>
 
       <section className="relative mx-auto w-full max-w-[1400px] px-6 pb-20 pt-14 md:pt-20">
-        <motion.div
-          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur"
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-        >
+        <motion.div variants={fadeUp} initial="hidden" animate="show">
           <Badge subtle>{SAFE(copy.tagline, "")}</Badge>
         </motion.div>
 
