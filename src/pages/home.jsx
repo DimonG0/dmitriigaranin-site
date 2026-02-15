@@ -9,11 +9,20 @@ function Tile({ to, title }) {
   return (
     <Link
       to={to}
-      className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition-all hover:border-[#D4AF37]/40 hover:bg-white/[0.08]"
-    >
-      <div className="text-[11px] tracking-[0.22em] uppercase text-white/55">Explore</div>
-      <div className="mt-2 text-[22px] font-[700] bg-gradient-to-r from-white via-[#D4AF37] to-white bg-clip-text text-transparent">
-        {title}
+      className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition-all duration-200 hover:border-[#D4AF37]/40 hover:bg-white/[0.08]">
+      {/* glow */}
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+        <div className="absolute -left-24 -top-24 h-64 w-64 rounded-full bg-[#D4AF37]/10 blur-3xl" />
+        <div className="absolute -right-24 -bottom-24 h-64 w-64 rounded-full bg-[#FFD700]/10 blur-3xl" />
+      </div>
+      <div className="relative">
+        <div className="text-[11px] tracking-[0.22em] uppercase text-white/55">Explore</div>
+        <div className="mt-2 text-[22px] font-[700] bg-gradient-to-r from-white via-[#D4AF37] to-white bg-clip-text text-transparent">
+          {title}
+        </div>
+        <div className="mt-2 text-[12px] tracking-[0.22em] uppercase text-white/35 transition group-hover:text-white/60">
+          Open →
+        </div>
       </div>
     </Link>
   );
