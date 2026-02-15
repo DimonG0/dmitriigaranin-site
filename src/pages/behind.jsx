@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { t, SAFE } from "../lib/i18n";
 
-import Badge from "../ui/Badge";
 import Chip from "../ui/Chip";
 import SectionTitle from "../ui/SectionTitle";
 import Tag from "../ui/Tag";
@@ -25,14 +24,6 @@ const fadeUp = {
   }),
 };
 
-const shimmer = {
-  initial: { opacity: 0.18 },
-  animate: {
-    opacity: [0.12, 0.42, 0.12],
-    transition: { duration: 7, repeat: Infinity, ease: "easeInOut" },
-  },
-};
-
 /* ===== page ===== */
 
 export default function Behind() {
@@ -41,43 +32,15 @@ export default function Behind() {
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white luxe-grain">
-
-      {/* ===== BACKDROP ===== */}
-      <div className="pointer-events-none absolute inset-0">
-        <div
-          className="absolute inset-0 opacity-[0.14]"
-          style={{
-            backgroundImage:
-              "radial-gradient(1200px 700px at 18% 10%, rgba(212,175,55,0.14), transparent 60%), radial-gradient(1000px 650px at 86% 20%, rgba(210,210,210,0.10), transparent 58%)",
-          }}
-        />
-        <motion.div
-          className="absolute left-1/2 top-0 h-[2px] w-[1200px] -translate-x-1/2"
-          variants={shimmer}
-          initial="initial"
-          animate="animate"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(212,175,55,.85), rgba(255,215,0,.95), rgba(212,175,55,.85), transparent)",
-            boxShadow: "0 0 30px rgba(212,175,55,.35)",
-          }}
-        />
-      </div>
-
       {/* ===== CONTENT ===== */}
       <section className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-24 pt-16 md:pt-20">
-
         {/* ===== HEADER ===== */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          custom={0}
-          className="max-w-3xl"
-        >
-          <Badge>
+        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0} className="max-w-3xl">
+          {/* neutral badge */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-white/60" />
             {SAFE(copy?.nav?.behind, "Behind")}
-          </Badge>
+          </div>
 
           <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
             <span className="block text-[40px] font-[800] md:text-[56px]">
@@ -95,15 +58,8 @@ export default function Behind() {
 
         {/* ===== MAIN GRID ===== */}
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-12">
-
           {/* LEFT */}
-          <motion.div
-            className="md:col-span-7"
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            custom={1}
-          >
+          <motion.div className="md:col-span-7" variants={fadeUp} initial="hidden" animate="show" custom={1}>
             <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
               <SectionTitle
                 over="Concept"
@@ -115,17 +71,11 @@ export default function Behind() {
               />
 
               <div className="mt-7 flex flex-wrap gap-3">
-                <Link
-                  to={`/${lang}/portfolio`}
-                  className="lux-btn-primary"
-                >
+                <Link to={`/${lang}/portfolio`} className="lux-btn-primary">
                   {SAFE(copy?.nav?.portfolio, "Portfolio")} →
                 </Link>
 
-                <Link
-                  to={`/${lang}/contact`}
-                  className="lux-btn-secondary"
-                >
+                <Link to={`/${lang}/contact`} className="lux-btn-secondary">
                   {SAFE(copy?.nav?.contact, "Contact")} →
                 </Link>
               </div>
@@ -133,13 +83,7 @@ export default function Behind() {
           </motion.div>
 
           {/* RIGHT */}
-          <motion.div
-            className="md:col-span-5"
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            custom={1.4}
-          >
+          <motion.div className="md:col-span-5" variants={fadeUp} initial="hidden" animate="show" custom={1.4}>
             <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
               <div className="flex flex-col gap-3">
                 <Chip>Restricted access</Chip>
@@ -163,27 +107,13 @@ export default function Behind() {
           custom={2}
         >
           {[
-            {
-              title: "Process",
-              desc: "Methodical and controlled creative workflow",
-            },
-            {
-              title: "Archive",
-              desc: "Curated unreleased material and drafts",
-            },
-            {
-              title: "Access",
-              desc: "Invitation-only viewing permissions",
-            },
+            { title: "Process", desc: "Methodical and controlled creative workflow" },
+            { title: "Archive", desc: "Curated unreleased material and drafts" },
+            { title: "Access", desc: "Invitation-only viewing permissions" },
           ].map((item, i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-white/10 bg-white/[0.04] p-5"
-            >
+            <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
               <Tag>{item.title}</Tag>
-              <p className="mt-3 text-[14px] text-white/75">
-                {item.desc}
-              </p>
+              <p className="mt-3 text-[14px] text-white/75">{item.desc}</p>
             </div>
           ))}
         </motion.div>
@@ -191,4 +121,3 @@ export default function Behind() {
     </main>
   );
 }
-
