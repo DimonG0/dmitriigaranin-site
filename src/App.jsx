@@ -1,5 +1,7 @@
+// src/App.jsx
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import Backdrop from "./components/Backdrop";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -12,12 +14,15 @@ import Contact from "./pages/contact";
 
 function Layout() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col">
-      <Navbar />
-      <main className="flex-grow">
-        <Outlet />
-      </main>
-      <Footer />
+    <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white flex flex-col">
+      <Backdrop />
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
@@ -28,10 +33,8 @@ export default function App() {
       <ErrorBoundary>
         <BrowserRouter>
           <Routes>
-            {/* ROOT REDIRECT */}
             <Route path="/" element={<Navigate to="/en/home" replace />} />
-            
-            {/* LANGUAGE PREFIX ROUTES */}
+
             <Route path="/:lang" element={<Layout />}>
               <Route index element={<Navigate to="home" replace />} />
               <Route path="home" element={<Home />} />
@@ -41,8 +44,7 @@ export default function App() {
               <Route path="behind" element={<Behind />} />
               <Route path="contact" element={<Contact />} />
             </Route>
-            
-            {/* CATCH ALL - 404 REDIRECT */}
+
             <Route path="*" element={<Navigate to="/en/home" replace />} />
           </Routes>
         </BrowserRouter>
