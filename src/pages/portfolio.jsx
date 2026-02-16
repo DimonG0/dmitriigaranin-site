@@ -1,7 +1,8 @@
+// src/pages/portfolio.jsx
 import { motion, AnimatePresence } from "framer-motion";
 import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { t } from "../lib/i18n";
+import { t, SAFE } from "../lib/i18n";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -19,23 +20,40 @@ export default function Portfolio() {
   const { lang = "en" } = useParams();
   const copy = t(lang);
 
+  const p = copy?.portfolio ?? {};
+
   const [active, setActive] = useState("all");
   const [open, setOpen] = useState(null);
 
+  const categories = p?.categories ?? {};
   const CATEGORIES = useMemo(
     () => [
-      { id: "all", label: copy.portfolio.categories.all },
-      { id: "film", label: copy.portfolio.categories.film },
-      { id: "brand", label: copy.portfolio.categories.brand },
-      { id: "creative", label: copy.portfolio.categories.creative },
-      { id: "tech", label: copy.portfolio.categories.tech },
+      { id: "all", label: SAFE(categories?.all, "All") },
+      { id: "film", label: SAFE(categories?.film, "Film / TV") },
+      { id: "brand", label: SAFE(categories?.brand, "Luxury / Brand") },
+      { id: "creative", label: SAFE(categories?.creative, "Creative") },
+      { id: "tech", label: SAFE(categories?.tech, "IT / Product") },
     ],
-    [copy]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [categories?.all, categories?.film, categories?.brand, categories?.creative, categories?.tech]
   );
 
-  const items = useMemo(() => copy.portfolio.items, [copy]);
+  const items = useMemo(() => {
+    const arr = p?.items;
+    return Array.isArray(arr) ? arr : [];
+  }, [p?.items]);
 
-  const filtered = active === "all" ? items : items.filter((x) => x.category === active);
+  const filtered = active === "all" ? items : items.filter((x) => x?.category === active);
+
+  const pill = SAFE(p?.pill, SAFE(copy?.nav?.portfolio, "Portfolio"));
+  const h1a = SAFE(p?.h1a, "Luxury");
+  const h1b = SAFE(p?.h1b, "Portfolio");
+  const sub = SAFE(p?.sub, "");
+  const projectsWord = SAFE(p?.counters?.projects, "Projects");
+  const cardCta = SAFE(p?.card?.cta, "Click to view details");
+  const emptyTitle = SAFE(p?.empty?.title, "No projects in this category");
+  const emptyDesc = SAFE(p?.empty?.desc, "Select another category or check back later.");
+  const closeText = SAFE(p?.modal?.close, "Close");
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white">
@@ -49,28 +67,30 @@ export default function Portfolio() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
-              {copy.portfolio.pill}
+              {pill}
             </div>
 
             <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
               <span className="block text-[38px] font-[900] md:text-[58px]">
-                {copy.portfolio.h1a}{" "}
+                {h1a}{" "}
                 <span className="bg-gradient-to-r from-[#f6e6a7] via-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
-                  {copy.portfolio.h1b}
+                  {h1b}
                 </span>
               </span>
-              <span className="mt-3 block text-[13px] tracking-[0.35em] uppercase text-white/65">
-                {copy.portfolio.sub}
-              </span>
+              {!!sub && (
+                <span className="mt-3 block text-[13px] tracking-[0.35em] uppercase text-white/65">
+                  {sub}
+                </span>
+              )}
             </h1>
           </div>
 
           <div className="flex gap-2">
             <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[10px] tracking-[0.22em] uppercase text-white/65">
-              {lang.toUpperCase()}
+              {(lang || "en").toUpperCase()}
             </span>
             <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[10px] tracking-[0.22em] uppercase text-white/65">
-              {filtered.length} {copy.portfolio.counters.projects.toUpperCase()}
+              {filtered.length} {String(projectsWord).toUpperCase()}
             </span>
           </div>
         </motion.div>
@@ -96,18 +116,27 @@ export default function Portfolio() {
 
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {filtered.map((it, idx) => (
-            <PortfolioCard key={it.id} item={it} index={idx} onOpen={() => setOpen(it)} cta={copy.portfolio.card.cta} />
+            <PortfolioCard
+              key={it?.id ?? `${it?.title ?? "item"}-${idx}`}
+              item={it}
+              index={idx}
+              onOpen={() => setOpen(it)}
+              cta={cardCta}
+            />
           ))}
         </div>
 
         {filtered.length === 0 && (
-          <motion.div className="mt-16 text-center" variants={fadeUp} initial="hidden" animate="show">
+          <motion.div
+            className="mt-16 text-center"
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+          >
             <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-12">
               <div className="text-[40px] font-[900] text-white/30">∅</div>
-              <div className="mt-4 text-[18px] font-[700] text-white/70">
-                {copy.portfolio.empty.title}
-              </div>
-              <p className="mt-2 text-white/50">{copy.portfolio.empty.desc}</p>
+              <div className="mt-4 text-[18px] font-[700] text-white/70">{emptyTitle}</div>
+              <p className="mt-2 text-white/50">{emptyDesc}</p>
             </div>
           </motion.div>
         )}
@@ -134,32 +163,36 @@ export default function Portfolio() {
             >
               <div className="relative">
                 <img
-                  src={open.cover}
-                  alt={open.title}
+                  src={open?.cover}
+                  alt={SAFE(open?.title, "")}
                   className="h-64 w-full object-cover md:h-80"
                   onError={(e) => {
-                    e.currentTarget.src = `https://picsum.photos/seed/fallback/1400/900`;
+                    e.currentTarget.src = "https://picsum.photos/seed/fallback/1400/900";
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="inline-flex items-center gap-2">
-                    <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] tracking-[0.22em] uppercase text-white/80">
-                      {open.badge}
-                    </span>
-                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] tracking-[0.22em] uppercase text-white/60">
-                      {open.year}
-                    </span>
+                    {!!open?.badge && (
+                      <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] tracking-[0.22em] uppercase text-white/80">
+                        {open.badge}
+                      </span>
+                    )}
+                    {!!open?.year && (
+                      <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] tracking-[0.22em] uppercase text-white/60">
+                        {open.year}
+                      </span>
+                    )}
                   </div>
-                  <h3 className="mt-4 text-[28px] font-[900]">{open.title}</h3>
+                  <h3 className="mt-4 text-[28px] font-[900]">{SAFE(open?.title, "")}</h3>
                 </div>
               </div>
 
               <div className="p-6">
                 <div className="mb-4 flex flex-wrap gap-2">
-                  {open.tags.map((tag, index) => (
+                  {(Array.isArray(open?.tags) ? open.tags : []).map((tag, index) => (
                     <span
-                      key={index}
+                      key={`${tag}-${index}`}
                       className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] tracking-[0.22em] uppercase text-white/70"
                     >
                       {tag}
@@ -167,15 +200,19 @@ export default function Portfolio() {
                   ))}
                 </div>
 
-                <div className="mb-6 text-sm text-white/70">{open.description}</div>
+                {!!open?.description && (
+                  <div className="mb-6 text-sm text-white/70">{open.description}</div>
+                )}
 
                 <div className="flex items-center justify-between border-t border-white/10 pt-6">
-                  <div className="text-[12px] tracking-[0.22em] uppercase text-white/50">{open.subtitle}</div>
+                  <div className="text-[12px] tracking-[0.22em] uppercase text-white/50">
+                    {SAFE(open?.subtitle, "")}
+                  </div>
                   <button
                     onClick={() => setOpen(null)}
                     className="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 hover:bg-white/10 hover:text-white transition-colors"
                   >
-                    {copy.portfolio.modal.close}
+                    {closeText}
                   </button>
                 </div>
               </div>
@@ -188,6 +225,8 @@ export default function Portfolio() {
 }
 
 function PortfolioCard({ item, index, onOpen, cta }) {
+  const tags = Array.isArray(item?.tags) ? item.tags : [];
+
   return (
     <motion.div
       variants={fadeUp}
@@ -200,32 +239,36 @@ function PortfolioCard({ item, index, onOpen, cta }) {
       <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-[#D4AF37]/40 hover:bg-white/[0.06]">
         <div className="relative overflow-hidden">
           <img
-            src={item.cover}
-            alt={item.title}
+            src={item?.cover}
+            alt={SAFE(item?.title, "")}
             className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
             onError={(e) => {
-              e.currentTarget.src = `https://picsum.photos/seed/fallback/1400/900`;
+              e.currentTarget.src = "https://picsum.photos/seed/fallback/1400/900";
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           <div className="absolute top-4 right-4">
-            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] tracking-[0.22em] uppercase text-white/80 backdrop-blur">
-              {item.badge}
-            </span>
+            {!!item?.badge && (
+              <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] tracking-[0.22em] uppercase text-white/80 backdrop-blur">
+                {item.badge}
+              </span>
+            )}
           </div>
           <div className="absolute bottom-4 left-4 right-4">
-            <div className="text-[12px] tracking-[0.22em] uppercase text-white/80">{item.year}</div>
-            <div className="mt-1 text-[18px] font-[800]">{item.title}</div>
+            <div className="text-[12px] tracking-[0.22em] uppercase text-white/80">
+              {SAFE(item?.year, "")}
+            </div>
+            <div className="mt-1 text-[18px] font-[800]">{SAFE(item?.title, "")}</div>
           </div>
         </div>
 
         <div className="p-5">
-          <div className="text-[14px] text-white/70">{item.subtitle}</div>
+          <div className="text-[14px] text-white/70">{SAFE(item?.subtitle, "")}</div>
 
           <div className="mt-4 flex flex-wrap gap-2">
-            {item.tags.map((tag, idx) => (
+            {tags.map((tag, idx) => (
               <span
-                key={idx}
+                key={`${tag}-${idx}`}
                 className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[10px] tracking-[0.22em] uppercase text-white/60"
               >
                 {tag}
@@ -235,7 +278,9 @@ function PortfolioCard({ item, index, onOpen, cta }) {
 
           <div className="mt-4 flex items-center justify-between">
             <div className="text-[11px] tracking-[0.22em] uppercase text-white/50">{cta}</div>
-            <span className="text-[#D4AF37] transition-transform group-hover:translate-x-1">→</span>
+            <span className="text-[#D4AF37] transition-transform group-hover:translate-x-1">
+              →
+            </span>
           </div>
         </div>
       </div>
