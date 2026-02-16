@@ -21,6 +21,7 @@ export type CopyBlock = {
     sub: string;
     signatureTitle: string;
     signatureText: string;
+    portraitAlt: string;
     tileOverline: string;
     tileCta: string;
   };
@@ -171,6 +172,7 @@ export const copy: Record<Lang, CopyBlock> = {
       sub: "A luxury-first personal platform: showreel, portfolio, editorial presence, and direct contact.",
       signatureTitle: "Signature",
       signatureText: "Black & gold restraint. Cinematic pacing. Private positioning.",
+      portraitAlt: "Portrait",
       tileOverline: "Explore",
       tileCta: "Open →",
     },
@@ -369,6 +371,7 @@ export const copy: Record<Lang, CopyBlock> = {
       sub: "Люксовая платформа: шоу-рил, портфолио, редакционное присутствие и прямой контакт.",
       signatureTitle: "Подпись",
       signatureText: "Сдержанный black & gold. Кинематографичный ритм. Приватное позиционирование.",
+      portraitAlt: "Портрет",
       tileOverline: "Раздел",
       tileCta: "Открыть →",
     },
@@ -516,6 +519,7 @@ export const copy: Record<Lang, CopyBlock> = {
       sub: "Plateforme de luxe : showreel, portfolio, présence éditoriale et contact direct.",
       signatureTitle: "Signature",
       signatureText: "Sobriété black & gold. Rythme cinématographique. Positionnement privé.",
+      portraitAlt: "Portrait",
       tileOverline: "Explorer",
       tileCta: "Ouvrir →",
     },
@@ -646,6 +650,7 @@ export const copy: Record<Lang, CopyBlock> = {
       sub: "Luxury հարթակ՝ շոուռիլ, պորտֆոլիո, խմբագրական ներկայություն և ուղիղ կապ։",
       signatureTitle: "Ստորագրություն",
       signatureText: "Black & gold զսպվածություն։ Կինեմատոգրաֆիկ ռիթմ։ Պրիվատ դիրքավորում։",
+      portraitAlt: "Դիմանկար",
       tileOverline: "Բաժին",
       tileCta: "Բացել →",
     },

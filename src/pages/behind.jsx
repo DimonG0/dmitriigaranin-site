@@ -27,7 +27,7 @@ export default function Behind() {
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white luxe-grain">
       <section className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-24 pt-16 md:pt-20">
         <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0} className="max-w-3xl">
-          <Badge>{c.behind.pill}</Badge>
+          <Badge>{c.nav.behind}</Badge>
 
           <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
             <span className="block text-[40px] font-[800] md:text-[56px]">
@@ -46,11 +46,7 @@ export default function Behind() {
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-12">
           <motion.div className="md:col-span-7" variants={fadeUp} initial="hidden" animate="show" custom={1}>
             <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-              <SectionTitle
-                over={c.behind.sectionOver}
-                title={c.behind.title}
-                desc={c.behind.desc}
-              />
+              <SectionTitle over={c.behind.sectionOver} title={c.behind.title} desc={c.behind.desc} />
 
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link to={`/${lang}/portfolio`} className="lux-btn-primary">
@@ -73,7 +69,13 @@ export default function Behind() {
           </motion.div>
         </div>
 
-        <motion.div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3" variants={fadeUp} initial="hidden" animate="show" custom={2}>
+        <motion.div
+          className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3"
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          custom={2}
+        >
           {c.behind.cards.map((item, i) => (
             <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
               <Tag>{item.title}</Tag>

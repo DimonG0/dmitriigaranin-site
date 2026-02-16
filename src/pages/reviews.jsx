@@ -75,7 +75,15 @@ export default function Reviews() {
           <motion.div className="md:col-span-8" variants={fadeUp} initial="hidden" animate="show" custom={2}>
             <div className="grid grid-cols-1 gap-5">
               {reviews.length > 0 ? (
-                reviews.map((r, i) => <EndorsementCard key={`${r.a}-${i}`} quote={r.q} author={r.a} index={i} badge={copy.reviews.badge} />)
+                reviews.map((r, i) => (
+                  <EndorsementCard
+                    key={`${r.a}-${i}`}
+                    quote={r.q}
+                    author={r.a}
+                    index={i}
+                    badge={copy.reviews.badge}
+                  />
+                ))
               ) : (
                 <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 text-center">
                   <div className="text-[40px] font-[900] text-white/30">∅</div>
@@ -85,7 +93,13 @@ export default function Reviews() {
               )}
             </div>
 
-            <motion.div variants={fadeUp} initial="hidden" animate="show" custom={reviews.length + 3} className="mt-6 rounded-2xl border border-white/10 bg-black/30 p-5">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              custom={reviews.length + 3}
+              className="mt-6 rounded-2xl border border-white/10 bg-black/30 p-5"
+            >
               <div className="text-[10px] tracking-[0.28em] uppercase text-white/55">{copy.reviews.notes.title}</div>
               <div className="mt-2 text-[12px] leading-relaxed text-white/65">{copy.reviews.notes.text}</div>
             </motion.div>
