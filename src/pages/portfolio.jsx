@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { t, SAFE } from "../lib/i18n";
+import { t } from "../lib/i18n";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -15,88 +15,31 @@ const fadeUp = {
   }),
 };
 
-const slowPulse = {
-  initial: { opacity: 0.18 },
-  animate: {
-    opacity: [0.12, 0.32, 0.12],
-    transition: { duration: 9.5, repeat: Infinity, ease: "easeInOut" },
-  },
-};
-
 export default function Portfolio() {
   const { lang = "en" } = useParams();
   const copy = t(lang);
+
   const [active, setActive] = useState("all");
   const [open, setOpen] = useState(null);
 
-  const CATEGORIES = [
-    { id: "all", label: "All" },
-    { id: "film", label: "Film / TV" },
-    { id: "brand", label: "Luxury / Brand" },
-    { id: "creative", label: "Creative" },
-    { id: "tech", label: "IT / Product" },
-  ];
-
-  const items = useMemo(
+  const CATEGORIES = useMemo(
     () => [
-      {
-        id: "vault-01",
-        category: "brand",
-        title: "Private Campaign — Platinum Edition",
-        subtitle: "Luxury brand collaboration (confidential)",
-        year: "2026",
-        badge: "NDA",
-        cover: "https://picsum.photos/seed/lux1/1400/900",
-        tags: ["Brand", "Direction", "Premium"],
-        description:
-          "High-end visual campaign with a restrained, cinematic tone. Private distribution, curated audience.",
-      },
-      {
-        id: "vault-02",
-        category: "film",
-        title: "Screen Presence — Noir Cut",
-        subtitle: "Acting / showreel sequence",
-        year: "2025",
-        badge: "SHOWREEL",
-        cover: "https://picsum.photos/seed/lux2/1400/900",
-        tags: ["Actor", "Camera", "Drama"],
-        description:
-          "A compact sequence built around micro-expression, silence, and controlled intensity.",
-      },
-      {
-        id: "vault-03",
-        category: "creative",
-        title: "Editorial Portrait — Gold Dust",
-        subtitle: "Magazine-grade portrait set",
-        year: "2025",
-        badge: "EDITORIAL",
-        cover: "https://picsum.photos/seed/lux3/1400/900",
-        tags: ["Portrait", "Styling", "Art"],
-        description:
-          "A minimal, expensive palette: matte black, warm gold edges, and soft neon reflections.",
-      },
-      {
-        id: "vault-04",
-        category: "tech",
-        title: "DG System — Product Aesthetic",
-        subtitle: "UX concept / premium interface",
-        year: "2026",
-        badge: "IT",
-        cover: "https://picsum.photos/seed/lux4/1400/900",
-        tags: ["UI", "Motion", "Luxury"],
-        description:
-          "A premium product interface concept where motion feels like an expensive material.",
-      },
+      { id: "all", label: copy.portfolio.categories.all },
+      { id: "film", label: copy.portfolio.categories.film },
+      { id: "brand", label: copy.portfolio.categories.brand },
+      { id: "creative", label: copy.portfolio.categories.creative },
+      { id: "tech", label: copy.portfolio.categories.tech },
     ],
-    []
+    [copy]
   );
+
+  const items = useMemo(() => copy.portfolio.items, [copy]);
 
   const filtered = active === "all" ? items : items.filter((x) => x.category === active);
 
   return (
-    <main className="relative min-h-[calc(100vh-1px)] overflow-hidden bg-[#0a0a0a] text-white">
+    <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white">
       <section className="relative mx-auto w-full max-w-6xl px-5 pb-24 pt-14 md:pt-20">
-        {/* HEADER */}
         <motion.div
           className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
           variants={fadeUp}
@@ -106,18 +49,18 @@ export default function Portfolio() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
-              {SAFE(copy?.nav?.portfolio, "Luxury Portfolio")}
+              {copy.portfolio.pill}
             </div>
 
             <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
               <span className="block text-[38px] font-[900] md:text-[58px]">
-                Luxury{" "}
+                {copy.portfolio.h1a}{" "}
                 <span className="bg-gradient-to-r from-[#f6e6a7] via-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
-                  Portfolio
+                  {copy.portfolio.h1b}
                 </span>
               </span>
               <span className="mt-3 block text-[13px] tracking-[0.35em] uppercase text-white/65">
-                Curated archive • Private access • Premium positioning
+                {copy.portfolio.sub}
               </span>
             </h1>
           </div>
@@ -127,12 +70,11 @@ export default function Portfolio() {
               {lang.toUpperCase()}
             </span>
             <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[10px] tracking-[0.22em] uppercase text-white/65">
-              {filtered.length} PROJECTS
+              {filtered.length} {copy.portfolio.counters.projects.toUpperCase()}
             </span>
           </div>
         </motion.div>
 
-        {/* FILTERS */}
         <div className="mt-10 flex flex-wrap gap-2">
           {CATEGORIES.map((c) => {
             const on = active === c.id;
@@ -152,40 +94,25 @@ export default function Portfolio() {
           })}
         </div>
 
-        {/* GRID */}
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {filtered.map((it, idx) => (
-            <PortfolioCard
-              key={it.id}
-              item={it}
-              index={idx}
-              onOpen={() => setOpen(it)}
-            />
+            <PortfolioCard key={it.id} item={it} index={idx} onOpen={() => setOpen(it)} cta={copy.portfolio.card.cta} />
           ))}
         </div>
 
-        {/* EMPTY STATE */}
         {filtered.length === 0 && (
-          <motion.div
-            className="mt-16 text-center"
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-          >
+          <motion.div className="mt-16 text-center" variants={fadeUp} initial="hidden" animate="show">
             <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-12">
               <div className="text-[40px] font-[900] text-white/30">∅</div>
               <div className="mt-4 text-[18px] font-[700] text-white/70">
-                No projects in this category
+                {copy.portfolio.empty.title}
               </div>
-              <p className="mt-2 text-white/50">
-                Select another category or check back later for new additions.
-              </p>
+              <p className="mt-2 text-white/50">{copy.portfolio.empty.desc}</p>
             </div>
           </motion.div>
         )}
       </section>
 
-      {/* MODAL */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -196,6 +123,7 @@ export default function Portfolio() {
             exit={{ opacity: 0 }}
           >
             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+
             <motion.div
               className="relative z-10 w-full max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-[#0b0b0b]"
               onClick={(e) => e.stopPropagation()}
@@ -210,7 +138,7 @@ export default function Portfolio() {
                   alt={open.title}
                   className="h-64 w-full object-cover md:h-80"
                   onError={(e) => {
-                    e.target.src = `https://picsum.photos/seed/fallback/1400/900`;
+                    e.currentTarget.src = `https://picsum.photos/seed/fallback/1400/900`;
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
@@ -226,7 +154,7 @@ export default function Portfolio() {
                   <h3 className="mt-4 text-[28px] font-[900]">{open.title}</h3>
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <div className="mb-4 flex flex-wrap gap-2">
                   {open.tags.map((tag, index) => (
@@ -238,18 +166,16 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
-                
+
                 <div className="mb-6 text-sm text-white/70">{open.description}</div>
-                
+
                 <div className="flex items-center justify-between border-t border-white/10 pt-6">
-                  <div className="text-[12px] tracking-[0.22em] uppercase text-white/50">
-                    {open.subtitle}
-                  </div>
+                  <div className="text-[12px] tracking-[0.22em] uppercase text-white/50">{open.subtitle}</div>
                   <button
                     onClick={() => setOpen(null)}
                     className="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 hover:bg-white/10 hover:text-white transition-colors"
                   >
-                    Close
+                    {copy.portfolio.modal.close}
                   </button>
                 </div>
               </div>
@@ -261,9 +187,7 @@ export default function Portfolio() {
   );
 }
 
-/* ==== helpers ==== */
-
-function PortfolioCard({ item, index, onOpen }) {
+function PortfolioCard({ item, index, onOpen, cta }) {
   return (
     <motion.div
       variants={fadeUp}
@@ -280,7 +204,7 @@ function PortfolioCard({ item, index, onOpen }) {
             alt={item.title}
             className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
             onError={(e) => {
-              e.target.src = `https://picsum.photos/seed/fallback/1400/900`;
+              e.currentTarget.src = `https://picsum.photos/seed/fallback/1400/900`;
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -290,16 +214,14 @@ function PortfolioCard({ item, index, onOpen }) {
             </span>
           </div>
           <div className="absolute bottom-4 left-4 right-4">
-            <div className="text-[12px] tracking-[0.22em] uppercase text-white/80">
-              {item.year}
-            </div>
+            <div className="text-[12px] tracking-[0.22em] uppercase text-white/80">{item.year}</div>
             <div className="mt-1 text-[18px] font-[800]">{item.title}</div>
           </div>
         </div>
-        
+
         <div className="p-5">
           <div className="text-[14px] text-white/70">{item.subtitle}</div>
-          
+
           <div className="mt-4 flex flex-wrap gap-2">
             {item.tags.map((tag, idx) => (
               <span
@@ -310,14 +232,10 @@ function PortfolioCard({ item, index, onOpen }) {
               </span>
             ))}
           </div>
-          
+
           <div className="mt-4 flex items-center justify-between">
-            <div className="text-[11px] tracking-[0.22em] uppercase text-white/50">
-              Click to view details
-            </div>
-            <span className="text-[#D4AF37] transition-transform group-hover:translate-x-1">
-              →
-            </span>
+            <div className="text-[11px] tracking-[0.22em] uppercase text-white/50">{cta}</div>
+            <span className="text-[#D4AF37] transition-transform group-hover:translate-x-1">→</span>
           </div>
         </div>
       </div>
