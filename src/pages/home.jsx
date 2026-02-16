@@ -121,7 +121,8 @@ export default function Home() {
             <img
             src={portrait}
             alt={c?.home?.portraitAlt || "Portrait"}
-            className="h-[360px] w-full object-cover md:h-[420px]"
+            className="h-[360px] w-full object-cover object-top md:h-[420px]"
+
             loading="eager"
             decoding="async"
             draggable={false}
