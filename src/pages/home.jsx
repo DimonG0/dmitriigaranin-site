@@ -97,54 +97,54 @@ export default function Home() {
           </div>
 
         {/* RIGHT */}
-          <div className="md:col-span-5">
-          <div className="flex flex-col gap-6">
-        {/* PORTRAIT (gold premium frame) */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          custom={2.4}
-          className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/45 bg-black/30 p-3"
-        >
-        {/* glow */}
-        <div
+<div className="md:col-span-5">
+  {/* сдвигаем ВЕСЬ правый блок: рамку + подпись */}
+  <div className="flex flex-col gap-6 -mt-10 -ml-3">
+    {/* PORTRAIT (gold premium frame) */}
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+        custom={2.4}
+        className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/45 bg-black/30 p-3 md:-translate-y-10 md:-translate-x-3 transform will-change-transform"
+    >
+      {/* glow */}
+      <div
         className="pointer-events-none absolute inset-0 opacity-[0.55]"
         style={{
           background:
             "radial-gradient(900px 420px at 20% 0%, rgba(255,215,0,0.14), transparent 60%), radial-gradient(800px 520px at 90% 40%, rgba(212,175,55,0.12), transparent 62%)",
         }}
+      />
+
+      {/* inner frame */}
+      <div className="relative overflow-hidden rounded-2xl border border-[#FFD700]/35 bg-black/40">
+        <img
+          src={portrait}
+          alt={c?.home?.portraitAlt || "Portrait"}
+          className="w-full h-auto object-contain"
+          loading="eager"
+          decoding="async"
+          draggable={false}
         />
+      </div>
+    </motion.div>
 
-        {/* inner frame */}
-          <div className="relative overflow-hidden rounded-2xl border border-[#FFD700]/35 bg-black/40">
-            <img
-            src={portrait}
-            alt={c?.home?.portraitAlt || "Portrait"}
-            className="h-[360px] w-full object-cover object-top md:h-[420px]"
-
-            loading="eager"
-            decoding="async"
-            draggable={false}
-          />
-          </div>
-      </motion.div>
-
-      {/* SIGNATURE (black & gold restrained) */}
-      <motion.div
-        className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur"
-        variants={fadeUp}
-        initial="hidden"
-        animate="show"
-        custom={2.6}
-      >
-        <div className="text-[12px] tracking-[0.22em] uppercase text-white/60">
-          {c.home.signatureTitle}
-        </div>
-        <div className="mt-3 text-[14px] text-white/75">{c.home.signatureText}</div>
-      </motion.div>
-    </div>
+    {/* SIGNATURE (black & gold restrained) */}
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      animate="show"
+      custom={2.6}
+      className="relative z-10 overflow-hidden rounded-3xl border border-[#D4AF37]/45 bg-black/30 p-3 -translate-y-10 -translate-x-3"
+    >
+      <div className="text-[12px] tracking-[0.22em] uppercase text-white/60">
+        {c.home.signatureTitle}
+      </div>
+      <div className="mt-3 text-[14px] text-white/75">{c.home.signatureText}</div>
+    </motion.div>
   </div>
+</div>
 </div>
   </section>
       <section className="mx-auto w-full max-w-[1400px] px-6 pb-24">
