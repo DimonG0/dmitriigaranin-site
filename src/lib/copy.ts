@@ -491,8 +491,11 @@ export const copy: Record<Lang, CopyBlock> = {
         text: "Рекомендации и подтверждения — по запросу. Дискретность — часть процесса.",
       },
 
-      badge: "verified tone",
-      list: (null as any),
+      badge: "подтверждено",
+      list: [
+        { q: "Очень сдержанный, премиальный тон. Именно тот уровень, который нам был нужен.", a: "Продюсер" },
+        { q: "Никакого шума — только намерение. Чистая подача и присутствие.", a: "Режиссёр" },
+      ],
     },
   },
 
@@ -622,8 +625,11 @@ export const copy: Record<Lang, CopyBlock> = {
       },
       empty: { title: "Aucun avis", desc: "Les avis s’afficheront ici lorsqu’ils seront disponibles." },
       notes: { title: "Protocole", text: "Références sur demande. La discrétion fait partie du processus." },
-      badge: "verified tone",
-      list: (null as any),
+      badge: "ton vérifié",
+      list: [
+        { q: "Très maîtrisé, ton premium. Exactement le niveau dont nous avions besoin.", a: "Producteur" },
+        { q: "Aucun bruit — seulement l’intention. Livraison et présence impeccables.", a: "Réalisateur" },
+      ],
     },
   },
 
@@ -753,8 +759,11 @@ export const copy: Record<Lang, CopyBlock> = {
       },
       empty: { title: "Կարծիքներ չկան", desc: "Երբ լինեն՝ կերևան այստեղ։" },
       notes: { title: "Պրոտոկոլ", text: "Հղումներ՝ ըստ պահանջի։ Զսպվածությունը գործընթացի մաս է։" },
-      badge: "verified tone",
-      list: (null as any),
+      badge: "ստուգված տոն",
+      list: [
+        { q: "Շատ վերահսկված, պրեմիում տոն։ Ճիշտ այն մակարդակը, որ մեզ պետք էր։", a: "Պրոդյուսեր" },
+        { q: "Ոչ մի աղմուկ — միայն մտադրություն։ Մաքուր մատուցում և ներկայություն։", a: "Ռեժիսոր" },
+      ],
     },
   },
 };

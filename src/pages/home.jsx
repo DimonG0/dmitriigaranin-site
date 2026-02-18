@@ -106,8 +106,8 @@ export default function Home() {
         initial="hidden"
         animate="show"
         custom={2.4}
-        className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/45 bg-black/30 p-3 md:-translate-y-10 md:-translate-x-3 transform will-change-transform"
-    >
+        className="relative overflow-hidden rounded-2xl border border-[#FFD700]/35 bg-black/40"
+      >
       {/* glow */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.55]"
@@ -118,16 +118,16 @@ export default function Home() {
       />
 
       {/* inner frame */}
-      <div className="relative overflow-hidden rounded-2xl border border-[#FFD700]/35 bg-black/40">
-        <img
-          src={portrait}
-          alt={c?.home?.portraitAlt || "Portrait"}
-          className="w-full h-auto object-contain"
-          loading="eager"
-          decoding="async"
-          draggable={false}
-        />
-      </div>
+      <div className="relative mx-auto aspect-square w-full max-w-[420px] overflow-hidden rounded-2xl border border-[#FFD700]/35 bg-black/40">
+      <img
+        src={portrait}
+        alt={c?.home?.portraitAlt || "Portrait"}
+        className="h-full w-full object-cover object-center"
+        loading="eager"
+        decoding="async"
+        draggable={false}
+      />
+    </div>
     </motion.div>
 
     {/* SIGNATURE (black & gold restrained) */}
@@ -136,7 +136,7 @@ export default function Home() {
       initial="hidden"
       animate="show"
       custom={2.6}
-      className="relative z-10 overflow-hidden rounded-3xl border border-[#D4AF37]/45 bg-black/30 p-3 -translate-y-10 -translate-x-3"
+      className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/45 bg-black/30 p-3 md:ml-auto"
     >
       <div className="text-[12px] tracking-[0.22em] uppercase text-white/60">
         {c.home.signatureTitle}
