@@ -106,9 +106,8 @@ export default function Home() {
         initial="hidden"
         animate="show"
         custom={2.4}
-        className="relative overflow-hidden rounded-2xl border border-[#FFD700]/35 bg-black/40"
-      >
-      {/* glow */}
+        className="relative">
+      {/* glow (behind) */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.55]"
         style={{
@@ -116,18 +115,20 @@ export default function Home() {
             "radial-gradient(900px 420px at 20% 0%, rgba(255,215,0,0.14), transparent 60%), radial-gradient(800px 520px at 90% 40%, rgba(212,175,55,0.12), transparent 62%)",
         }}
       />
-
+      
       {/* inner frame */}
-      <div className="relative mx-auto aspect-square w-full max-w-[420px] overflow-hidden rounded-2xl border border-[#FFD700]/35 bg-black/40">
+      <div className="relative rounded-3xl border border-[#D4AF37]/55 p-[2px] bg-black/30">
+    <div className="overflow-hidden rounded-[22px] bg-black/40">
       <img
         src={portrait}
         alt={c?.home?.portraitAlt || "Portrait"}
-        className="h-full w-full object-cover object-center"
+        className="w-full h-auto object-contain"
         loading="eager"
         decoding="async"
         draggable={false}
       />
     </div>
+  </div>
     </motion.div>
 
     {/* SIGNATURE (black & gold restrained) */}
