@@ -18,9 +18,9 @@ export default function Contact() {
   const { lang = "en" } = useParams();
   const c = t(lang);
 
-  const email = "booking@dmitriigaranin.com";
-  const telegram = "@dmitriigaranin";
-  const instagram = "@dmitriigaranin";
+  const email = "dmitry1040@gmail.com";
+  const telegram = "@Dmitrii_GaRaNin";
+  const instagram = "@dmitrii_garanin";
 
   const copyEmail = async () => {
     try {
