@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white">
-      <section className="relative mx-auto w-full max-w-[1400px] px-6 pb-20 pt-14 md:pt-20">
+      <section className="relative h-screen w-full overflow-hidden">
         <motion.div variants={fadeUp} initial="hidden" animate="show">
           <Badge subtle>{c.tagline}</Badge>
         </motion.div>
@@ -119,14 +119,7 @@ export default function Home() {
       {/* inner frame */}
       <div className="relative rounded-3xl border border-[#D4AF37]/55 p-[2px] bg-black/30">
     <div className="overflow-hidden rounded-[22px] bg-black/40">
-      <img
-        src={portrait}
-        alt={c?.home?.portraitAlt || "Portrait"}
-        className="w-full h-auto object-contain"
-        loading="eager"
-        decoding="async"
-        draggable={false}
-      />
+      
     </div>
   </div>
     </motion.div>
