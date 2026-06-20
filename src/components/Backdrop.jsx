@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const shimmer = {
   initial: { opacity: 0.18 },
@@ -21,7 +21,7 @@ export default function Backdrop() {
       />
 
       {/* TOP GOLD LINE */}
-      <motion.div
+      <Motion.div
         className="absolute left-1/2 top-0 h-[2px] w-[1200px] -translate-x-1/2"
         variants={shimmer}
         initial="initial"

@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
+import { LANGS } from "../lib/routes";
 
 export default function Footer() {
   const { lang } = useParams();
-  const safeLang = typeof lang === "string" ? lang : "en";
+  const safeLang = LANGS.includes(lang) ? lang : "en";
   const copy = t(safeLang);
 
   const year = new Date().getFullYear();
@@ -29,11 +30,10 @@ export default function Footer() {
 
       <div className="relative mx-auto max-w-6xl px-4 py-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          
           {/* ===== LEFT ===== */}
           <div className="flex flex-col gap-2">
             <div className="text-[11px] tracking-[0.28em] uppercase text-white/55">
-              © {year} {brand} — {rights}
+              &copy; {year} {brand} &mdash; {rights}
             </div>
 
             {tagline && (
@@ -70,7 +70,7 @@ export default function Footer() {
 
         {/* ===== FOOT BAR ===== */}
         <div className="mt-5 flex items-center justify-between text-[10px] tracking-[0.35em] uppercase text-white/35">
-          <span>NOIR • GOLD • CONTROLLED</span>
+          <span>NOIR &bull; GOLD &bull; CONTROLLED</span>
           <span>{safeLang.toUpperCase()}</span>
         </div>
       </div>

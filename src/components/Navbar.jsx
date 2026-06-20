@@ -20,7 +20,7 @@ const BRAND = {
 const NAV_ITEMS = [
   { key: "home", label: { en: "Home", ru: "Главная", fr: "Accueil", am: "Գլխավոր" } },
   { key: "about", label: { en: "About", ru: "О себе", fr: "À propos", am: "Իմ մասին" } },
-  { key: "portfolio", label: { en: "Portfolio", ru: "Портфолио", fr: "Portfolio", am: "Պորտֆոլիо" } },
+  { key: "portfolio", label: { en: "Portfolio", ru: "Портфолио", fr: "Portfolio", am: "Պորտֆոլիո" } },
   { key: "reviews", label: { en: "Reviews", ru: "Отзывы", fr: "Avis", am: "Կարծիքներ" } },
   { key: "behind", label: { en: "Behind", ru: "За кадром", fr: "Backstage", am: "Կուլիսներ" } },
   { key: "contact", label: { en: "Contact", ru: "Контакты", fr: "Contact", am: "Կապ" } },
