@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
 
@@ -33,7 +33,7 @@ export default function Contact() {
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white">
       <section className="relative mx-auto w-full max-w-6xl px-5 pb-24 pt-14 md:pt-20">
-        <motion.div variants={fadeUp} initial="hidden" animate="show" className="max-w-4xl">
+        <Motion.div variants={fadeUp} initial="hidden" animate="show" className="max-w-4xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
             {c.contact.pill}
@@ -48,10 +48,10 @@ export default function Contact() {
           <p className="mt-3 text-[13px] tracking-[0.35em] uppercase text-white/65">
             {c.contact.sub}
           </p>
-        </motion.div>
+        </Motion.div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
-          <motion.div className="md:col-span-7" variants={fadeUp} initial="hidden" animate="show" custom={1}>
+          <Motion.div className="md:col-span-7" variants={fadeUp} initial="hidden" animate="show" custom={1}>
             <Card>
               <SectionTitle over={c.contact.protocolOver} title={c.contact.protocolTitle} />
               <ul className="mt-6 space-y-2 text-[13px] text-white/65">
@@ -63,9 +63,9 @@ export default function Contact() {
                 ))}
               </ul>
             </Card>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div className="md:col-span-5" variants={fadeUp} initial="hidden" animate="show" custom={1.6}>
+          <Motion.div className="md:col-span-5" variants={fadeUp} initial="hidden" animate="show" custom={1.6}>
             <Card>
               <SectionTitle over={c.contact.emailOver} title={c.contact.emailTitle} />
 
@@ -85,14 +85,14 @@ export default function Contact() {
                 <Tag>{instagram}</Tag>
               </div>
             </Card>
-          </motion.div>
+          </Motion.div>
         </div>
 
-        <motion.div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3" variants={fadeUp} initial="hidden" animate="show" custom={2}>
+        <Motion.div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3" variants={fadeUp} initial="hidden" animate="show" custom={2}>
           <Meta label={c.contact.meta.availabilityLabel} value={c.contact.meta.availabilityValue} />
           <Meta label={c.contact.meta.locationLabel} value={c.contact.meta.locationValue} />
           <Meta label={c.contact.meta.responseLabel} value={c.contact.meta.responseValue} />
-        </motion.div>
+        </Motion.div>
       </section>
     </main>
   );

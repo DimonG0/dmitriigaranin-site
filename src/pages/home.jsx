@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
 import { useSeo } from "../lib/useSeo";
@@ -48,22 +48,21 @@ export default function Home() {
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white">
-      <section className="relative h-screen w-full overflow-hidden">
-        <motion.div variants={fadeUp} initial="hidden" animate="show">
+      <section className="relative mx-auto grid min-h-screen w-full max-w-6xl content-center px-5 pb-16 pt-28 md:pt-32">
+        <Motion.div variants={fadeUp} initial="hidden" animate="show">
           <Badge subtle>{c.tagline}</Badge>
-        </motion.div>
+        </Motion.div>
 
-        <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-12">
-          {/* LEFT */}
+        <div className="mt-12 grid grid-cols-1 items-center gap-10 md:grid-cols-12">
           <div className="md:col-span-7">
-            <motion.div variants={fadeUp} initial="hidden" animate="show" custom={1}>
+            <Motion.div variants={fadeUp} initial="hidden" animate="show" custom={1}>
               <SectionTitle title={c.brand} desc={c.home.sub} />
               <span className="mt-4 block text-[14px] tracking-[0.35em] uppercase text-white/70">
                 {c.home.note}
               </span>
-            </motion.div>
+            </Motion.div>
 
-            <motion.p
+            <Motion.p
               className="mt-7 max-w-xl text-[16px] leading-relaxed text-white/70"
               variants={fadeUp}
               initial="hidden"
@@ -71,9 +70,9 @@ export default function Home() {
               custom={2}
             >
               {c.home.sub}
-            </motion.p>
+            </Motion.p>
 
-            <motion.div
+            <Motion.div
               className="mt-10 flex flex-wrap items-center gap-4"
               variants={fadeUp}
               initial="hidden"
@@ -93,59 +92,59 @@ export default function Home() {
               >
                 {c.nav.portfolio}
               </Link>
-            </motion.div>
+            </Motion.div>
           </div>
 
-        {/* RIGHT */}
-<div className="md:col-span-5">
-  {/* сдвигаем ВЕСЬ правый блок: рамку + подпись */}
-  <div className="flex flex-col gap-6 -mt-10 -ml-3">
-    {/* PORTRAIT (gold premium frame) */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        animate="show"
-        custom={2.4}
-        className="relative">
-      {/* glow (behind) */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.55]"
-        style={{
-          background:
-            "radial-gradient(900px 420px at 20% 0%, rgba(255,215,0,0.14), transparent 60%), radial-gradient(800px 520px at 90% 40%, rgba(212,175,55,0.12), transparent 62%)",
-        }}
-      />
-      
-      {/* inner frame */}
-      <div className="relative rounded-3xl border border-[#D4AF37]/55 p-[2px] bg-black/30">
-    <div className="overflow-hidden rounded-[22px] bg-black/40">
-      
-    </div>
-  </div>
-    </motion.div>
+          <div className="md:col-span-5">
+            <div className="flex flex-col gap-5">
+              <Motion.div
+                variants={fadeUp}
+                initial="hidden"
+                animate="show"
+                custom={2.4}
+                className="relative"
+              >
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-[0.55]"
+                  style={{
+                    background:
+                      "radial-gradient(900px 420px at 20% 0%, rgba(255,215,0,0.14), transparent 60%), radial-gradient(800px 520px at 90% 40%, rgba(212,175,55,0.12), transparent 62%)",
+                  }}
+                />
 
-    {/* SIGNATURE (black & gold restrained) */}
-    <motion.div
-      variants={fadeUp}
-      initial="hidden"
-      animate="show"
-      custom={2.6}
-      className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/45 bg-black/30 p-3 md:ml-auto"
-    >
-      <div className="text-[12px] tracking-[0.22em] uppercase text-white/60">
-        {c.home.signatureTitle}
-      </div>
-      <div className="mt-3 text-[14px] text-white/75">{c.home.signatureText}</div>
-    </motion.div>
-  </div>
-</div>
-</div>
-  </section>
-      <section className="mx-auto w-full max-w-[1400px] px-6 pb-24">
+                <div className="relative rounded-3xl border border-[#D4AF37]/55 bg-black/30 p-[2px] shadow-[0_0_40px_rgba(212,175,55,0.12)]">
+                  <div className="aspect-[4/5] overflow-hidden rounded-[22px] bg-black/40">
+                    <img
+                      src={portrait}
+                      alt={c.home.portraitAlt}
+                      className="h-full w-full object-cover object-center"
+                    />
+                  </div>
+                </div>
+              </Motion.div>
+
+              <Motion.div
+                variants={fadeUp}
+                initial="hidden"
+                animate="show"
+                custom={2.6}
+                className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/45 bg-black/30 p-4 md:ml-auto md:max-w-[360px]"
+              >
+                <div className="text-[12px] tracking-[0.22em] uppercase text-white/60">
+                  {c.home.signatureTitle}
+                </div>
+                <div className="mt-3 text-[14px] text-white/75">{c.home.signatureText}</div>
+              </Motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-5 pb-24">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <Tile to={`/${lang}/about`} title={c.nav.about} over={c.home.tileOver} open={c.home.tileOpen} />
-          <Tile to={`/${lang}/portfolio`} title={c.nav.portfolio} over={c.home.tileOver} open={c.home.tileOpen} />
-          <Tile to={`/${lang}/behind`} title={c.nav.behind} over={c.home.tileOver} open={c.home.tileOpen} />
+          <Tile to={`/${lang}/about`} title={c.nav.about} over={c.home.tileOverline} open={c.home.tileCta} />
+          <Tile to={`/${lang}/portfolio`} title={c.nav.portfolio} over={c.home.tileOverline} open={c.home.tileCta} />
+          <Tile to={`/${lang}/behind`} title={c.nav.behind} over={c.home.tileOverline} open={c.home.tileCta} />
         </div>
       </section>
     </main>

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
 
@@ -23,7 +23,7 @@ export default function Reviews() {
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white">
       <section className="relative mx-auto w-full max-w-6xl px-5 pb-24 pt-14 md:pt-20">
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}>
+        <Motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}>
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
             {copy.reviews.pill}
@@ -42,10 +42,10 @@ export default function Reviews() {
           </h1>
 
           <p className="mt-5 max-w-2xl text-sm leading-7 text-white/70">{copy.reviews.sub}</p>
-        </motion.div>
+        </Motion.div>
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
-          <motion.div className="md:col-span-4" variants={fadeUp} initial="hidden" animate="show" custom={1}>
+          <Motion.div className="md:col-span-4" variants={fadeUp} initial="hidden" animate="show" custom={1}>
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
               <div
                 className="pointer-events-none absolute inset-0 opacity-[0.55]"
@@ -70,9 +70,9 @@ export default function Reviews() {
                 <p className="text-sm leading-7 text-white/70">{copy.reviews.left.desc2}</p>
               </div>
             </div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div className="md:col-span-8" variants={fadeUp} initial="hidden" animate="show" custom={2}>
+          <Motion.div className="md:col-span-8" variants={fadeUp} initial="hidden" animate="show" custom={2}>
             <div className="grid grid-cols-1 gap-5">
               {reviews.length > 0 ? (
                 reviews.map((r, i) => (
@@ -93,7 +93,7 @@ export default function Reviews() {
               )}
             </div>
 
-            <motion.div
+            <Motion.div
               variants={fadeUp}
               initial="hidden"
               animate="show"
@@ -102,12 +102,12 @@ export default function Reviews() {
             >
               <div className="text-[10px] tracking-[0.28em] uppercase text-white/55">{copy.reviews.notes.title}</div>
               <div className="mt-2 text-[12px] leading-relaxed text-white/65">{copy.reviews.notes.text}</div>
-            </motion.div>
+            </Motion.div>
 
             <div className="mt-6 text-center text-[11px] tracking-[0.35em] uppercase text-white/40">
               {(lang || "en").toUpperCase()}
             </div>
-          </motion.div>
+          </Motion.div>
         </div>
       </section>
     </main>
@@ -136,7 +136,7 @@ function Line({ label, value }) {
 
 function EndorsementCard({ quote, author, index, badge }) {
   return (
-    <motion.div
+    <Motion.div
       variants={fadeUp}
       initial="hidden"
       animate="show"
@@ -164,6 +164,6 @@ function EndorsementCard({ quote, author, index, badge }) {
 
         <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/35 to-transparent" />
       </div>
-    </motion.div>
+    </Motion.div>
   );
 }

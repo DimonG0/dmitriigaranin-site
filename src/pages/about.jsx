@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
 
@@ -19,7 +19,7 @@ export default function About() {
   return (
     <div className="relative">
       <section className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-24 pt-24 md:pt-28">
-        <motion.div variants={fadeUp} initial="hidden" animate="show" className="max-w-3xl">
+        <Motion.div variants={fadeUp} initial="hidden" animate="show" className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
             {copy.nav.about}
@@ -34,9 +34,9 @@ export default function About() {
           <p className="mt-3 text-[13px] tracking-[0.35em] uppercase text-white/60">
             {copy.tagline}
           </p>
-        </motion.div>
+        </Motion.div>
 
-        <motion.div
+        <Motion.div
           variants={fadeUp}
           initial="hidden"
           animate="show"
@@ -45,9 +45,9 @@ export default function About() {
         >
           <p className="text-[14px] leading-relaxed text-white/75">{copy.about.p1}</p>
           <p className="text-[14px] leading-relaxed text-white/75">{copy.about.p2}</p>
-        </motion.div>
+        </Motion.div>
 
-        <motion.div
+        <Motion.div
           variants={fadeUp}
           initial="hidden"
           animate="show"
@@ -60,9 +60,9 @@ export default function About() {
               <div className="mt-2 text-[13px] font-[700] text-white/80">{s.v}</div>
             </div>
           ))}
-        </motion.div>
+        </Motion.div>
 
-        <motion.div
+        <Motion.div
           variants={fadeUp}
           initial="hidden"
           animate="show"
@@ -82,7 +82,7 @@ export default function About() {
           >
             {copy.nav.contact} →
           </Link>
-        </motion.div>
+        </Motion.div>
       </section>
     </div>
   );

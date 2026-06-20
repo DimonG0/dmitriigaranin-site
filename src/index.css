@@ -4,22 +4,19 @@
 
 :root {
   --bg-main: #0a0a0a;
-  --bg-elevated: #111111;
+  --bg-elevated: #111;
   --gold: #d4af37;
   --gold-soft: #f6e6a7;
   --gold-bright: #ffd700;
   --gold-dark: #b08b1b;
-  
-  --text-main: rgba(255, 255, 255, 0.95);
-  --text-muted: rgba(255, 255, 255, 0.65);
-  --text-dim: rgba(255, 255, 255, 0.45);
-  
-  --border-soft: rgba(255, 255, 255, 0.10);
-  --border-gold: rgba(212, 175, 55, 0.35);
-  --border-gold-hover: rgba(212, 175, 55, 0.55);
-  
-  --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.15);
-  --shadow-gold: 0 0 20px rgba(212, 175, 55, 0.25);
+  --text-main: rgb(255 255 255 / 95%);
+  --text-muted: rgb(255 255 255 / 65%);
+  --text-dim: rgb(255 255 255 / 45%);
+  --border-soft: rgb(255 255 255 / 10%);
+  --border-gold: rgb(212 175 55 / 35%);
+  --border-gold-hover: rgb(212 175 55 / 55%);
+  --shadow-glow: 0 0 40px rgb(212 175 55 / 15%);
+  --shadow-gold: 0 0 20px rgb(212 175 55 / 25%);
 }
 
 /* ======================================
@@ -38,7 +35,7 @@
     background-color: var(--bg-main);
     color: var(--text-main);
     scroll-behavior: smooth;
-    text-rendering: optimizeLegibility;
+    text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -138,44 +135,44 @@
 
 /* Selection styling */
 ::selection {
-  background-color: rgba(212, 175, 55, 0.35);
-  color: #ffffff;
+  background-color: rgb(212 175 55 / 35%);
+  color: #fff;
 }
 
 /* Scrollbar styling */
-@media (min-width: 768px) {
+@media (width >= 768px) {
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(10, 10, 10, 0.8);
+    background: rgb(10 10 10 / 80%);
     border-radius: 6px;
   }
 
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(
       180deg,
-      rgba(212, 175, 55, 0.6),
-      rgba(212, 175, 55, 0.3)
+      rgb(212 175 55 / 60%),
+      rgb(212 175 55 / 30%)
     );
     border-radius: 6px;
-    border: 2px solid rgba(10, 10, 10, 0.8);
+    border: 2px solid rgb(10 10 10 / 80%);
   }
 
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(
       180deg,
-      rgba(212, 175, 55, 0.8),
-      rgba(212, 175, 55, 0.5)
+      rgb(212 175 55 / 80%),
+      rgb(212 175 55 / 50%)
     );
   }
 
   /* Firefox scrollbar */
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(212, 175, 55, 0.6) rgba(10, 10, 10, 0.8);
+    scrollbar-color: rgb(212 175 55 / 60%) rgb(10 10 10 / 80%);
   }
 }
 
@@ -185,7 +182,7 @@
 }
 
 :focus-visible {
-  outline: 2px solid rgba(212, 175, 55, 0.6);
+  outline: 2px solid rgb(212 175 55 / 60%);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -206,6 +203,7 @@ a:hover {
   0% {
     background-position: -200% center;
   }
+
   100% {
     background-position: 200% center;
   }
@@ -215,9 +213,9 @@ a:hover {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(212, 175, 55, 0.1),
-    rgba(212, 175, 55, 0.2),
-    rgba(212, 175, 55, 0.1),
+    rgb(212 175 55 / 10%),
+    rgb(212 175 55 / 20%),
+    rgb(212 175 55 / 10%),
     transparent
   );
   background-size: 200% auto;
@@ -227,10 +225,11 @@ a:hover {
 /* Gold glow animation */
 @keyframes gold-glow {
   0%, 100% {
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 10px rgb(212 175 55 / 30%);
   }
+
   50% {
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 25px rgb(212 175 55 / 60%);
   }
 }
 
@@ -243,6 +242,7 @@ a:hover {
   0%, 100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -253,11 +253,12 @@ a:hover {
 }
 
 /* Fade-in animation */
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -265,7 +266,7 @@ a:hover {
 }
 
 .fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
+  animation: fade-in 0.6s ease-out forwards;
 }
 
 /* Motion safety */
@@ -284,7 +285,7 @@ a:hover {
   .glass-effect,
   .backdrop-blur {
     backdrop-filter: none;
-    background: rgba(17, 17, 17, 0.95);
+    background: rgb(17 17 17 / 95%);
   }
 }
 
@@ -301,18 +302,18 @@ a:hover {
 }
 
 /* Responsive text scaling */
-@media (max-width: 640px) {
+@media (width <= 640px) {
   html {
     font-size: 14px;
   }
 }
 
 /* High contrast mode */
-@media (prefers-contrast: high) {
+@media (prefers-contrast: more) {
   :root {
-    --text-main: #ffffff;
-    --text-muted: #cccccc;
-    --border-soft: #ffffff;
+    --text-main: #fff;
+    --text-muted: #ccc;
+    --border-soft: #fff;
   }
   
   .btn-primary,

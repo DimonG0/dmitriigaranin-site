@@ -1,6 +1,6 @@
 // src/pages/portfolio.jsx
-import { motion, AnimatePresence } from "framer-motion";
-import { useMemo, useState } from "react";
+import { AnimatePresence, motion as Motion } from "framer-motion";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { t, SAFE } from "../lib/i18n";
 
@@ -26,22 +26,15 @@ export default function Portfolio() {
   const [open, setOpen] = useState(null);
 
   const categories = p?.categories ?? {};
-  const CATEGORIES = useMemo(
-    () => [
-      { id: "all", label: SAFE(categories?.all, "All") },
-      { id: "film", label: SAFE(categories?.film, "Film / TV") },
-      { id: "brand", label: SAFE(categories?.brand, "Luxury / Brand") },
-      { id: "creative", label: SAFE(categories?.creative, "Creative") },
-      { id: "tech", label: SAFE(categories?.tech, "IT / Product") },
-    ],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [categories?.all, categories?.film, categories?.brand, categories?.creative, categories?.tech]
-  );
+  const CATEGORIES = [
+    { id: "all", label: SAFE(categories?.all, "All") },
+    { id: "film", label: SAFE(categories?.film, "Film / TV") },
+    { id: "brand", label: SAFE(categories?.brand, "Luxury / Brand") },
+    { id: "creative", label: SAFE(categories?.creative, "Creative") },
+    { id: "tech", label: SAFE(categories?.tech, "IT / Product") },
+  ];
 
-  const items = useMemo(() => {
-    const arr = p?.items;
-    return Array.isArray(arr) ? arr : [];
-  }, [p?.items]);
+  const items = Array.isArray(p?.items) ? p.items : [];
 
   const filtered = active === "all" ? items : items.filter((x) => x?.category === active);
 
@@ -58,7 +51,7 @@ export default function Portfolio() {
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white">
       <section className="relative mx-auto w-full max-w-6xl px-5 pb-24 pt-14 md:pt-20">
-        <motion.div
+        <Motion.div
           className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
           variants={fadeUp}
           initial="hidden"
@@ -93,7 +86,7 @@ export default function Portfolio() {
               {filtered.length} {String(projectsWord).toUpperCase()}
             </span>
           </div>
-        </motion.div>
+        </Motion.div>
 
         <div className="mt-10 flex flex-wrap gap-2">
           {CATEGORIES.map((c) => {
@@ -127,7 +120,7 @@ export default function Portfolio() {
         </div>
 
         {filtered.length === 0 && (
-          <motion.div
+          <Motion.div
             className="mt-16 text-center"
             variants={fadeUp}
             initial="hidden"
@@ -138,13 +131,13 @@ export default function Portfolio() {
               <div className="mt-4 text-[18px] font-[700] text-white/70">{emptyTitle}</div>
               <p className="mt-2 text-white/50">{emptyDesc}</p>
             </div>
-          </motion.div>
+          </Motion.div>
         )}
       </section>
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <Motion.div
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
             onClick={() => setOpen(null)}
             initial={{ opacity: 0 }}
@@ -153,7 +146,7 @@ export default function Portfolio() {
           >
             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
 
-            <motion.div
+            <Motion.div
               className="relative z-10 w-full max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-[#0b0b0b]"
               onClick={(e) => e.stopPropagation()}
               initial={{ y: 20, opacity: 0, scale: 0.95 }}
@@ -216,8 +209,8 @@ export default function Portfolio() {
                   </button>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </Motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </main>
@@ -228,7 +221,7 @@ function PortfolioCard({ item, index, onOpen, cta }) {
   const tags = Array.isArray(item?.tags) ? item.tags : [];
 
   return (
-    <motion.div
+    <Motion.div
       variants={fadeUp}
       initial="hidden"
       animate="show"
@@ -284,6 +277,6 @@ function PortfolioCard({ item, index, onOpen, cta }) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </Motion.div>
   );
 }

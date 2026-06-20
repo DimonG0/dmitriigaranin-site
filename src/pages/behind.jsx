@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
 
@@ -26,7 +26,7 @@ export default function Behind() {
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white luxe-grain">
       <section className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-24 pt-16 md:pt-20">
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0} className="max-w-3xl">
+        <Motion.div variants={fadeUp} initial="hidden" animate="show" custom={0} className="max-w-3xl">
           <Badge>{c.nav.behind}</Badge>
 
           <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
@@ -41,10 +41,10 @@ export default function Behind() {
           <p className="mt-3 text-[13px] tracking-[0.35em] uppercase text-white/65">
             {c.behind.heroTagline}
           </p>
-        </motion.div>
+        </Motion.div>
 
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-12">
-          <motion.div className="md:col-span-7" variants={fadeUp} initial="hidden" animate="show" custom={1}>
+          <Motion.div className="md:col-span-7" variants={fadeUp} initial="hidden" animate="show" custom={1}>
             <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
               <SectionTitle over={c.behind.sectionOver} title={c.behind.title} desc={c.behind.desc} />
 
@@ -57,19 +57,19 @@ export default function Behind() {
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div className="md:col-span-5" variants={fadeUp} initial="hidden" animate="show" custom={1.4}>
+          <Motion.div className="md:col-span-5" variants={fadeUp} initial="hidden" animate="show" custom={1.4}>
             <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
               <div className="flex flex-col gap-3">
                 <Chip>{c.behind.chip}</Chip>
                 <p className="text-[14px] text-white/75">{c.behind.note}</p>
               </div>
             </div>
-          </motion.div>
+          </Motion.div>
         </div>
 
-        <motion.div
+        <Motion.div
           className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3"
           variants={fadeUp}
           initial="hidden"
@@ -82,7 +82,7 @@ export default function Behind() {
               <p className="mt-3 text-[14px] text-white/75">{item.desc}</p>
             </div>
           ))}
-        </motion.div>
+        </Motion.div>
       </section>
     </main>
   );
