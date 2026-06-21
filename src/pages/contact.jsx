@@ -67,7 +67,7 @@ export default function Contact() {
 
           <Motion.div className="md:col-span-5" variants={fadeUp} initial="hidden" animate="show" custom={1.6}>
             <Card>
-              <SectionTitle over={c.contact.emailOver} title={c.contact.emailTitle} />
+              <SectionTitle over={c.contact.emailLabel} title={c.contact.emailTitle} />
 
               <div className="mt-6 rounded-xl border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white/80">
                 {email}
@@ -77,7 +77,7 @@ export default function Contact() {
                 onClick={copyEmail}
                 className="mt-4 w-full rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 py-3 text-[11px] tracking-[0.22em] uppercase text-[#f6e6a7] hover:border-[#D4AF37]/80 hover:bg-[#D4AF37]/20 transition"
               >
-                {c.contact.copyEmail}
+                {c.contact.copyEmailBtn}
               </button>
 
               <div className="mt-6 flex flex-wrap gap-2">

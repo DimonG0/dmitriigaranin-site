@@ -14,7 +14,7 @@ import Contact from "./pages/contact";
 
 function Layout() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white flex flex-col">
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-[#030303] text-white">
       <Backdrop />
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />

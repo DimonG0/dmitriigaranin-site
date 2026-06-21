@@ -1,0 +1,68 @@
+{
+  "updatedAt": "2026-06-21",
+  "items": [
+    {
+      "id": "instagram-editorial-01",
+      "platform": "Instagram",
+      "title": "Noir editorial frame",
+      "date": "2026",
+      "image": "https://picsum.photos/seed/dg-live-instagram-01/1200/1500",
+      "url": "https://www.instagram.com/",
+      "tone": "portrait"
+    },
+    {
+      "id": "tiktok-backstage-01",
+      "platform": "TikTok",
+      "title": "Backstage motion cut",
+      "date": "2026",
+      "image": "https://picsum.photos/seed/dg-live-tiktok-01/1200/1600",
+      "url": "https://www.tiktok.com/",
+      "tone": "motion"
+    },
+    {
+      "id": "youtube-showreel-01",
+      "platform": "YouTube",
+      "title": "Showreel still",
+      "date": "2025",
+      "image": "https://picsum.photos/seed/dg-live-youtube-01/1600/900",
+      "url": "https://www.youtube.com/",
+      "tone": "cinema"
+    },
+    {
+      "id": "linkedin-product-01",
+      "platform": "LinkedIn",
+      "title": "Product aesthetic",
+      "date": "2025",
+      "image": "https://picsum.photos/seed/dg-live-linkedin-01/1400/1100",
+      "url": "https://www.linkedin.com/",
+      "tone": "tech"
+    },
+    {
+      "id": "facebook-campaign-01",
+      "platform": "Facebook",
+      "title": "Private campaign still",
+      "date": "2025",
+      "image": "https://picsum.photos/seed/dg-live-facebook-01/1400/1200",
+      "url": "https://www.facebook.com/",
+      "tone": "brand"
+    },
+    {
+      "id": "instagram-archive-02",
+      "platform": "Instagram",
+      "title": "Gold edge portrait",
+      "date": "2025",
+      "image": "https://picsum.photos/seed/dg-live-instagram-02/1200/1500",
+      "url": "https://www.instagram.com/",
+      "tone": "archive"
+    },
+    {
+      "id": "tiktok-scene-02",
+      "platform": "TikTok",
+      "title": "Scene rehearsal",
+      "date": "2025",
+      "image": "https://picsum.photos/seed/dg-live-tiktok-02/1200/1600",
+      "url": "https://www.tiktok.com/",
+      "tone": "video"
+    }
+  ]
+}

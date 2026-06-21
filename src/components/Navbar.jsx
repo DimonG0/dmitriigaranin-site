@@ -31,13 +31,14 @@ export default function Navbar() {
   const currentLang = LANGS.includes(lang) ? lang : "en";
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/70 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+    <header className="fixed top-0 z-50 w-full border-b border-[#d4af37]/15 bg-black/75 backdrop-blur-xl">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#d4af37]/50 to-transparent" />
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
         {/* BRAND */}
         <NavLink to={`/${currentLang}/home`} className="group flex items-center gap-3">
           <div
-            className="grid h-10 w-10 place-items-center rounded-full border border-[#D4AF37]/40 bg-black"
-            style={{ boxShadow: "0 0 18px rgba(212,175,55,.15)" }}
+            className="grid h-11 w-11 place-items-center border border-[#d4af37]/45 bg-[#050505]"
+            style={{ boxShadow: "inset 0 0 0 1px rgba(255,255,255,.05), 0 0 28px rgba(212,175,55,.14)" }}
           >
             <span
               className="text-[13px] font-[800] tracking-[0.1em]"
@@ -52,8 +53,10 @@ export default function Navbar() {
           </div>
 
           <div className="leading-tight">
-            <div className="text-[12px] tracking-[0.35em] text-white/90">{BRAND.name[currentLang]}</div>
-            <div className="text-[11px] tracking-[0.28em] text-white/50">{BRAND.tagline[currentLang]}</div>
+            <div className="text-[12px] font-bold tracking-[0.32em] text-white/92">{BRAND.name[currentLang]}</div>
+            <div className="mt-1 hidden text-[10px] tracking-[0.24em] text-[#d4af37]/70 sm:block">
+              {BRAND.tagline[currentLang]}
+            </div>
           </div>
         </NavLink>
 
@@ -65,8 +68,8 @@ export default function Navbar() {
               to={`/${currentLang}/${item.key}`}
               className={({ isActive }) =>
                 [
-                  "relative text-[11px] tracking-[0.28em] uppercase transition",
-                  isActive ? "text-white" : "text-white/65 hover:text-white",
+                  "relative text-[10px] font-semibold tracking-[0.24em] uppercase transition",
+                  isActive ? "text-[#f6e6a7]" : "text-white/58 hover:text-white",
                 ].join(" ")
               }
             >
@@ -74,7 +77,7 @@ export default function Navbar() {
                 <>
                   {item.label[currentLang] ?? item.label.en}
                   {isActive && (
-                    <span className="absolute -bottom-2 left-1/2 h-[2px] w-6 -translate-x-1/2 bg-white/60" />
+                    <span className="absolute -bottom-2 left-1/2 h-px w-7 -translate-x-1/2 bg-[#d4af37]" />
                   )}
                 </>
               )}

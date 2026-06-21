@@ -40,3 +40,9 @@ body {
          px-7 py-3 text-xs uppercase tracking-[0.22em]
          text-white/80 transition hover:bg-white/10;
 }
+
+.rounded-xl,
+.rounded-2xl,
+.rounded-3xl {
+  border-radius: 8px;
+}
