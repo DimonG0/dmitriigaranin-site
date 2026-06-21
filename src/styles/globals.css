@@ -46,3 +46,24 @@ body {
 .rounded-3xl {
   border-radius: 8px;
 }
+
+.contact-input {
+  width: 100%;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 8px;
+  background: rgb(0 0 0 / 42%);
+  padding: 0.9rem 1rem;
+  color: rgb(255 255 255 / 88%);
+  outline: none;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-input::placeholder {
+  color: rgb(255 255 255 / 28%);
+}
+
+.contact-input:focus {
+  border-color: rgb(212 175 55 / 70%);
+  background: rgb(0 0 0 / 58%);
+  box-shadow: 0 0 0 3px rgb(212 175 55 / 10%);
+}
