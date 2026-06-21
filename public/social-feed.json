@@ -8,7 +8,8 @@
       "date": "2026",
       "image": "https://picsum.photos/seed/dg-live-instagram-01/1200/1500",
       "url": "https://www.instagram.com/",
-      "tone": "portrait"
+      "tone": "portrait",
+      "category": "dima-photo"
     },
     {
       "id": "tiktok-backstage-01",
@@ -17,7 +18,8 @@
       "date": "2026",
       "image": "https://picsum.photos/seed/dg-live-tiktok-01/1200/1600",
       "url": "https://www.tiktok.com/",
-      "tone": "motion"
+      "tone": "motion",
+      "category": "backstage"
     },
     {
       "id": "youtube-showreel-01",
@@ -26,7 +28,8 @@
       "date": "2025",
       "image": "https://picsum.photos/seed/dg-live-youtube-01/1600/900",
       "url": "https://www.youtube.com/",
-      "tone": "cinema"
+      "tone": "cinema",
+      "category": "cinema"
     },
     {
       "id": "linkedin-product-01",
@@ -35,7 +38,8 @@
       "date": "2025",
       "image": "https://picsum.photos/seed/dg-live-linkedin-01/1400/1100",
       "url": "https://www.linkedin.com/",
-      "tone": "tech"
+      "tone": "tech",
+      "category": "work"
     },
     {
       "id": "facebook-campaign-01",
@@ -44,7 +48,8 @@
       "date": "2025",
       "image": "https://picsum.photos/seed/dg-live-facebook-01/1400/1200",
       "url": "https://www.facebook.com/",
-      "tone": "brand"
+      "tone": "brand",
+      "category": "brand"
     },
     {
       "id": "instagram-archive-02",
@@ -53,7 +58,8 @@
       "date": "2025",
       "image": "https://picsum.photos/seed/dg-live-instagram-02/1200/1500",
       "url": "https://www.instagram.com/",
-      "tone": "archive"
+      "tone": "archive",
+      "category": "dima-photo"
     },
     {
       "id": "tiktok-scene-02",
@@ -62,7 +68,28 @@
       "date": "2025",
       "image": "https://picsum.photos/seed/dg-live-tiktok-02/1200/1600",
       "url": "https://www.tiktok.com/",
-      "tone": "video"
+      "tone": "video",
+      "category": "backstage"
+    },
+    {
+      "id": "pinterest-philosophy-01",
+      "platform": "Pinterest",
+      "title": "Philosophy note about discipline",
+      "date": "2026",
+      "image": "https://picsum.photos/seed/dg-live-pinterest-philosophy-01/1200/1500",
+      "url": "https://ru.pinterest.com/dmitrii_garanin/",
+      "tone": "thought",
+      "category": "philosophy"
+    },
+    {
+      "id": "pinterest-dima-photo-01",
+      "platform": "Pinterest",
+      "title": "New photo of Dima",
+      "date": "2026",
+      "image": "https://picsum.photos/seed/dg-live-pinterest-dima-01/1200/1500",
+      "url": "https://ru.pinterest.com/dmitrii_garanin/",
+      "tone": "portrait",
+      "category": "dima-photo"
     }
   ]
 }

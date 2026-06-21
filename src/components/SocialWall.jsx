@@ -3,6 +3,17 @@ import { useEffect, useMemo, useState } from "react";
 import { fallbackSocialPosts, fetchSocialPosts } from "../lib/socialFeed";
 import portrait from "../assets/ph_zel_2.jpg";
 
+const categoryLabels = {
+  all: "All",
+  philosophy: "Philosophy",
+  "dima-photo": "Dima photos",
+  backstage: "Backstage",
+  cinema: "Cinema",
+  brand: "Brand",
+  work: "Work",
+  archive: "Archive",
+};
+
 const copy = {
   en: {
     kicker: "Live social archive",
@@ -11,6 +22,8 @@ const copy = {
     all: "All",
     open: "Open post",
     loading: "Loading social photos",
+    categories: "Sort by signal",
+    sources: "Source",
   },
   ru: {
     kicker: "Live social archive",
@@ -19,6 +32,8 @@ const copy = {
     all: "All",
     open: "Open post",
     loading: "Loading social photos",
+    categories: "Sort by signal",
+    sources: "Source",
   },
   fr: {
     kicker: "Live social archive",
@@ -27,6 +42,8 @@ const copy = {
     all: "All",
     open: "Open post",
     loading: "Loading social photos",
+    categories: "Sort by signal",
+    sources: "Source",
   },
   am: {
     kicker: "Live social archive",
@@ -35,6 +52,8 @@ const copy = {
     all: "All",
     open: "Open post",
     loading: "Loading social photos",
+    categories: "Sort by signal",
+    sources: "Source",
   },
 };
 
@@ -50,7 +69,8 @@ const fadeUp = {
 
 export default function SocialWall({ lang = "en" }) {
   const [posts, setPosts] = useState(fallbackSocialPosts);
-  const [active, setActive] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [activePlatform, setActivePlatform] = useState("all");
   const [loading, setLoading] = useState(true);
   const text = copy[lang] || copy.en;
 
@@ -74,7 +94,16 @@ export default function SocialWall({ lang = "en" }) {
     return ["all", ...names];
   }, [posts]);
 
-  const filteredPosts = active === "all" ? posts : posts.filter((post) => post.platform === active);
+  const categories = useMemo(() => {
+    const names = Array.from(new Set(posts.map((post) => post.category).filter(Boolean)));
+    return ["all", ...names];
+  }, [posts]);
+
+  const filteredPosts = posts.filter((post) => {
+    const categoryMatch = activeCategory === "all" || post.category === activeCategory;
+    const platformMatch = activePlatform === "all" || post.platform === activePlatform;
+    return categoryMatch && platformMatch;
+  });
 
   return (
     <section className="relative border-y border-[#d4af37]/15 bg-[#050505]/85 px-4 py-20 text-white md:px-6">
@@ -109,26 +138,21 @@ export default function SocialWall({ lang = "en" }) {
             <p className="mt-5 max-w-xl text-[15px] leading-7 text-white/[0.62]">{text.desc}</p>
           </div>
 
-          <div className="flex flex-wrap gap-2 md:justify-end">
-            {platforms.map((platform) => {
-              const selected = active === platform;
-              return (
-                <button
-                  key={platform}
-                  type="button"
-                  onClick={() => setActive(platform)}
-                  className={[
-                    "min-h-10 border px-4 text-[10px] font-bold uppercase tracking-[0.22em] transition",
-                    "rounded-[8px]",
-                    selected
-                      ? "border-[#d4af37]/70 bg-[#d4af37]/[0.16] text-[#ffe8a3]"
-                      : "border-white/10 bg-black/40 text-white/55 hover:border-[#d4af37]/45 hover:text-white",
-                  ].join(" ")}
-                >
-                  {platform === "all" ? text.all : platform}
-                </button>
-              );
-            })}
+          <div className="flex max-w-xl flex-col gap-4 md:items-end">
+            <FilterGroup
+              label={text.categories}
+              items={categories}
+              active={activeCategory}
+              getLabel={(category) => categoryLabels[category] || category}
+              onChange={setActiveCategory}
+            />
+            <FilterGroup
+              label={text.sources}
+              items={platforms}
+              active={activePlatform}
+              getLabel={(platform) => (platform === "all" ? text.all : platform)}
+              onChange={setActivePlatform}
+            />
           </div>
         </Motion.div>
 
@@ -145,6 +169,37 @@ export default function SocialWall({ lang = "en" }) {
         )}
       </div>
     </section>
+  );
+}
+
+function FilterGroup({ label, items, active, getLabel, onChange }) {
+  return (
+    <div className="w-full md:max-w-xl">
+      <div className="mb-2 text-[9px] font-bold uppercase tracking-[0.28em] text-white/35 md:text-right">
+        {label}
+      </div>
+      <div className="flex flex-wrap gap-2 md:justify-end">
+            {items.map((item) => {
+              const selected = active === item;
+              return (
+                <button
+                  key={item}
+                  type="button"
+                  onClick={() => onChange(item)}
+                  className={[
+                    "min-h-10 border px-4 text-[10px] font-bold uppercase tracking-[0.22em] transition",
+                    "rounded-[8px]",
+                    selected
+                      ? "border-[#d4af37]/70 bg-[#d4af37]/[0.16] text-[#ffe8a3]"
+                      : "border-white/10 bg-black/40 text-white/55 hover:border-[#d4af37]/45 hover:text-white",
+                  ].join(" ")}
+                >
+                  {getLabel(item)}
+                </button>
+              );
+            })}
+      </div>
+    </div>
   );
 }
 
@@ -197,7 +252,7 @@ function SocialCard({ post, index, openLabel }) {
           {post.title}
         </div>
         <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-3 text-[9px] uppercase tracking-[0.22em] text-white/[0.42]">
-          <span>{post.tone}</span>
+          <span>{categoryLabels[post.category] || post.tone}</span>
           {href && <span className="text-[#d4af37]">{openLabel}</span>}
         </div>
       </div>
