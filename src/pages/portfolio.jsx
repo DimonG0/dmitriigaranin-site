@@ -16,6 +16,81 @@ const fadeUp = {
   }),
 };
 
+const visualPortfolioItems = [
+  {
+    id: "headshot-2026",
+    category: "film",
+    title: "Headshot 2026",
+    subtitle: "Natural light portrait for casting and profile use",
+    year: "2026",
+    badge: "HEADSHOT",
+    cover: "/portfolio-media/dmitrii-headshot-2026.jpg",
+    tags: ["Actor", "Portrait", "Casting"],
+    description:
+      "A clean, warm portrait built around direct presence, open light, and a natural screen-ready expression.",
+  },
+  {
+    id: "character-paris",
+    category: "film",
+    title: "Character Creates The Role",
+    subtitle: "Cinematic winter character study",
+    year: "2025",
+    badge: "CHARACTER",
+    cover: "/portfolio-media/actor-character-paris.jpg",
+    tags: ["Drama", "Mood", "Poster"],
+    description:
+      "A darker, atmospheric frame with strong dramatic tension and a clear character-first tone.",
+  },
+  {
+    id: "looks-beyond",
+    category: "creative",
+    title: "The Boy Who Looks Beyond",
+    subtitle: "Editorial poster portrait",
+    year: "2025",
+    badge: "EDITORIAL",
+    cover: "/portfolio-media/boy-who-looks-beyond.jpg",
+    tags: ["Portrait", "Editorial", "Youth"],
+    description:
+      "A poetic outdoor portrait with soft restraint, negative space, and a strong magazine-cover feeling.",
+  },
+  {
+    id: "choice-beyond-status",
+    category: "brand",
+    title: "The Choice Beyond Status",
+    subtitle: "Luxury interior editorial frame",
+    year: "2026",
+    badge: "LUXURY",
+    cover: "/portfolio-media/choice-beyond-status.jpg",
+    tags: ["Editorial", "Luxury", "Presence"],
+    description:
+      "A composed interior image with a polished, old-world visual language and quiet confidence.",
+  },
+  {
+    id: "new-generation-studio",
+    category: "brand",
+    title: "New Generation Actor",
+    subtitle: "Minimal studio actor card",
+    year: "2026",
+    badge: "ACTOR",
+    cover: "/portfolio-media/new-generation-actor-studio.jpg",
+    tags: ["Actor", "Brand", "Profile"],
+    description:
+      "A sharp actor-card layout with clean contrast, formal positioning, and a direct casting-ready look.",
+  },
+  {
+    id: "new-generation-palace",
+    category: "film",
+    title: "Actor Manifesto",
+    subtitle: "Period-role inspired presentation",
+    year: "2026",
+    badge: "STAGE",
+    cover: "/portfolio-media/new-generation-actor-palace.jpg",
+    tags: ["Theatre", "Cinema", "History"],
+    description:
+      "A larger-format acting manifesto with theatrical detail, historical atmosphere, and premium gold accents.",
+  },
+];
+
 export default function Portfolio() {
   const { lang = "en" } = useParams();
   const copy = t(lang);
@@ -34,7 +109,10 @@ export default function Portfolio() {
     { id: "tech", label: SAFE(categories?.tech, "IT / Product") },
   ];
 
-  const items = Array.isArray(p?.items) ? p.items : [];
+  const items = visualPortfolioItems;
+  const visibleCategories = CATEGORIES.filter(
+    (category) => category.id === "all" || items.some((item) => item.category === category.id)
+  );
 
   const filtered = active === "all" ? items : items.filter((x) => x?.category === active);
 
@@ -89,7 +167,7 @@ export default function Portfolio() {
         </Motion.div>
 
         <div className="mt-10 flex flex-wrap gap-2">
-          {CATEGORIES.map((c) => {
+          {visibleCategories.map((c) => {
             const on = active === c.id;
             return (
               <button
@@ -107,7 +185,7 @@ export default function Portfolio() {
           })}
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((it, idx) => (
             <PortfolioCard
               key={it?.id ?? `${it?.title ?? "item"}-${idx}`}
@@ -147,7 +225,7 @@ export default function Portfolio() {
             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
 
             <Motion.div
-              className="relative z-10 w-full max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-[#0b0b0b]"
+              className="relative z-10 w-full max-w-4xl overflow-hidden rounded-[8px] border border-white/10 bg-[#0b0b0b]"
               onClick={(e) => e.stopPropagation()}
               initial={{ y: 20, opacity: 0, scale: 0.95 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
@@ -158,7 +236,7 @@ export default function Portfolio() {
                 <img
                   src={open?.cover}
                   alt={SAFE(open?.title, "")}
-                  className="h-64 w-full object-cover md:h-80"
+                  className="max-h-[72vh] w-full bg-black object-contain"
                   onError={(e) => {
                     e.currentTarget.src = "https://picsum.photos/seed/fallback/1400/900";
                   }}
@@ -229,17 +307,17 @@ function PortfolioCard({ item, index, onOpen, cta }) {
       className="group cursor-pointer"
       onClick={onOpen}
     >
-      <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-[#D4AF37]/40 hover:bg-white/[0.06]">
-        <div className="relative overflow-hidden">
+      <div className="overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-[#D4AF37]/40 hover:bg-white/[0.06]">
+        <div className="relative aspect-[4/5] overflow-hidden bg-black">
           <img
             src={item?.cover}
             alt={SAFE(item?.title, "")}
-            className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]"
             onError={(e) => {
               e.currentTarget.src = "https://picsum.photos/seed/fallback/1400/900";
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
           <div className="absolute top-4 right-4">
             {!!item?.badge && (
               <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] tracking-[0.22em] uppercase text-white/80 backdrop-blur">
@@ -247,15 +325,13 @@ function PortfolioCard({ item, index, onOpen, cta }) {
               </span>
             )}
           </div>
-          <div className="absolute bottom-4 left-4 right-4">
-            <div className="text-[12px] tracking-[0.22em] uppercase text-white/80">
-              {SAFE(item?.year, "")}
-            </div>
-            <div className="mt-1 text-[18px] font-[800]">{SAFE(item?.title, "")}</div>
-          </div>
         </div>
 
         <div className="p-5">
+          <div className="text-[11px] tracking-[0.22em] uppercase text-[#D4AF37]/80">
+            {SAFE(item?.year, "")}
+          </div>
+          <div className="mt-1 text-[18px] font-[800] text-white">{SAFE(item?.title, "")}</div>
           <div className="text-[14px] text-white/70">{SAFE(item?.subtitle, "")}</div>
 
           <div className="mt-4 flex flex-wrap gap-2">

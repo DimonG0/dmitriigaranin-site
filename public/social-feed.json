@@ -4,9 +4,9 @@
     {
       "id": "instagram-editorial-01",
       "platform": "Instagram",
-      "title": "Noir editorial frame",
+      "title": "Headshot 2026",
       "date": "2026",
-      "image": "https://picsum.photos/seed/dg-live-instagram-01/1200/1500",
+      "image": "/portfolio-media/dmitrii-headshot-2026.jpg",
       "url": "https://www.instagram.com/dmitrii_garanln/",
       "tone": "portrait",
       "category": "dima-photo"
@@ -14,82 +14,52 @@
     {
       "id": "vk-backstage-01",
       "platform": "VK",
-      "title": "Backstage motion cut",
+      "title": "The choice beyond status",
       "date": "2026",
-      "image": "https://picsum.photos/seed/dg-live-vk-01/1200/1600",
+      "image": "/portfolio-media/choice-beyond-status.jpg",
       "url": "https://vk.com/dimagaraninofficial",
-      "tone": "motion",
-      "category": "backstage"
+      "tone": "editorial",
+      "category": "brand"
     },
     {
       "id": "pinterest-showreel-01",
       "platform": "Pinterest",
-      "title": "Showreel moodboard",
+      "title": "The boy who looks beyond",
       "date": "2025",
-      "image": "https://picsum.photos/seed/dg-live-pinterest-showreel-01/1600/900",
+      "image": "/portfolio-media/boy-who-looks-beyond.jpg",
       "url": "https://ph.pinterest.com/dmitrii_garanin/",
-      "tone": "cinema",
-      "category": "cinema"
+      "tone": "portrait",
+      "category": "dima-photo"
     },
     {
       "id": "facebook-product-01",
       "platform": "Facebook",
-      "title": "Product aesthetic",
+      "title": "New generation actor",
       "date": "2025",
-      "image": "https://picsum.photos/seed/dg-live-facebook-product-01/1400/1100",
-      "url": "https://www.facebook.com/Dimon.G0/",
-      "tone": "tech",
-      "category": "work"
-    },
-    {
-      "id": "facebook-campaign-01",
-      "platform": "Facebook",
-      "title": "Private campaign still",
-      "date": "2025",
-      "image": "https://picsum.photos/seed/dg-live-facebook-01/1400/1200",
+      "image": "/portfolio-media/new-generation-actor-studio.jpg",
       "url": "https://www.facebook.com/Dimon.G0/",
       "tone": "brand",
       "category": "brand"
     },
     {
+      "id": "facebook-campaign-01",
+      "platform": "Facebook",
+      "title": "Actor manifesto",
+      "date": "2025",
+      "image": "/portfolio-media/new-generation-actor-palace.jpg",
+      "url": "https://www.facebook.com/Dimon.G0/",
+      "tone": "cinema",
+      "category": "cinema"
+    },
+    {
       "id": "instagram-archive-02",
       "platform": "Instagram",
-      "title": "Gold edge portrait",
+      "title": "Character creates the role",
       "date": "2025",
-      "image": "https://picsum.photos/seed/dg-live-instagram-02/1200/1500",
+      "image": "/portfolio-media/actor-character-paris.jpg",
       "url": "https://www.instagram.com/dmitrii_garanln/",
-      "tone": "archive",
-      "category": "dima-photo"
-    },
-    {
-      "id": "vk-scene-02",
-      "platform": "VK",
-      "title": "Scene rehearsal",
-      "date": "2025",
-      "image": "https://picsum.photos/seed/dg-live-vk-02/1200/1600",
-      "url": "https://vk.com/dimagaraninofficial",
-      "tone": "video",
-      "category": "backstage"
-    },
-    {
-      "id": "pinterest-philosophy-01",
-      "platform": "Pinterest",
-      "title": "Philosophy note about discipline",
-      "date": "2026",
-      "image": "https://picsum.photos/seed/dg-live-pinterest-philosophy-01/1200/1500",
-      "url": "https://ph.pinterest.com/dmitrii_garanin/",
-      "tone": "thought",
-      "category": "philosophy"
-    },
-    {
-      "id": "pinterest-dima-photo-01",
-      "platform": "Pinterest",
-      "title": "New photo of Dima",
-      "date": "2026",
-      "image": "https://picsum.photos/seed/dg-live-pinterest-dima-01/1200/1500",
-      "url": "https://ph.pinterest.com/dmitrii_garanin/",
-      "tone": "portrait",
-      "category": "dima-photo"
+      "tone": "character",
+      "category": "cinema"
     }
   ]
 }

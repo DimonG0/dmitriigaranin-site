@@ -2,7 +2,7 @@ import { motion as Motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
-import { SOCIAL_LINKS } from "../lib/socialLinks";
+import { SOCIAL_LINKS, THREADS_LINK } from "../lib/socialLinks";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -24,7 +24,6 @@ export default function Contact() {
   const ccEmail = import.meta.env?.VITE_CONTACT_CC_EMAIL || "hello@dmitriigaranin.com";
   const contactEndpoint =
     import.meta.env?.VITE_CONTACT_ENDPOINT || `https://formsubmit.co/ajax/${email}`;
-  const telegram = "@Dmitrii_GaRaNin";
 
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
@@ -259,7 +258,9 @@ export default function Contact() {
               </div>
 
               <div className="mt-6 flex flex-wrap gap-2">
-                <Tag>{telegram}</Tag>
+                <Tag href={THREADS_LINK.url} label={`Open ${THREADS_LINK.label}`}>
+                  {THREADS_LINK.handle}
+                </Tag>
               </div>
             </Card>
           </Motion.div>
@@ -311,12 +312,19 @@ function Field({ label, children }) {
   );
 }
 
-function Tag({ children }) {
-  return (
-    <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[10px] tracking-[0.22em] uppercase text-white/70">
-      {children}
-    </span>
-  );
+function Tag({ children, href, label }) {
+  const className =
+    "rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[10px] tracking-[0.22em] uppercase text-white/70 transition hover:border-[#D4AF37]/55 hover:text-[#f6e6a7]";
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noreferrer" aria-label={label} className={className}>
+        {children}
+      </a>
+    );
+  }
+
+  return <span className={className}>{children}</span>;
 }
 
 function Meta({ label, value }) {

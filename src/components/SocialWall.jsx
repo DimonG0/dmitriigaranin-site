@@ -204,8 +204,7 @@ function FilterGroup({ label, items, active, getLabel, onChange }) {
 }
 
 function SocialCard({ post, index, openLabel }) {
-  const large = index % 7 === 0;
-  const wide = index % 5 === 2;
+  const large = index === 0 || index === 4;
   const href = post.url || undefined;
 
   const content = (
@@ -218,14 +217,13 @@ function SocialCard({ post, index, openLabel }) {
       className={[
         "group relative overflow-hidden rounded-[8px] border border-white/10 bg-black shadow-[0_20px_70px_rgba(0,0,0,0.45)]",
         large ? "sm:row-span-2" : "",
-        wide ? "lg:col-span-2" : "",
       ].join(" ")}
     >
-      <div className={large ? "aspect-[4/5] h-full" : wide ? "aspect-[16/9]" : "aspect-[4/5]"}>
+      <div className={large ? "aspect-[4/5] h-full" : "aspect-[4/5]"}>
         <img
           src={post.image}
           alt={post.title}
-          className="h-full w-full object-cover opacity-[0.88] saturate-[0.92] transition duration-700 group-hover:scale-[1.035] group-hover:opacity-100"
+          className="h-full w-full bg-black object-contain opacity-[0.9] saturate-[0.94] transition duration-700 group-hover:scale-[1.025] group-hover:opacity-100"
           loading="lazy"
           onError={(event) => {
             event.currentTarget.src = portrait;
