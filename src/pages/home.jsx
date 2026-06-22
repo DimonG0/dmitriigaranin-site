@@ -4,6 +4,7 @@ import { t } from "../lib/i18n";
 import { useSeo } from "../lib/useSeo";
 import portrait from "../assets/ph_zel_2.jpg";
 import SocialWall from "../components/SocialWall";
+import { SOCIAL_LINKS } from "../lib/socialLinks";
 
 function Tile({ to, title, over, open, index }) {
   const number = String(index + 1).padStart(2, "0");
@@ -86,9 +87,6 @@ export default function Home() {
           <Motion.div variants={fadeUp} initial="hidden" animate="show" custom={1} className="mt-8 max-w-4xl">
             <h1 className="text-[54px] font-black uppercase leading-[0.92] md:text-[92px] lg:text-[116px]">
               <span className="block text-white">{c.brand}</span>
-              <span className="block bg-gradient-to-r from-[#f8edc7] via-[#d4af37] to-white bg-clip-text text-transparent">
-                Noir Gold
-              </span>
             </h1>
             <p className="mt-7 max-w-2xl text-[16px] leading-8 text-white/[0.68] md:text-[18px]">
               {c.home.sub}
@@ -118,6 +116,27 @@ export default function Home() {
             >
               {c.nav.portfolio}
             </Link>
+          </Motion.div>
+
+          <Motion.div
+            className="mt-5 flex flex-wrap items-center gap-2"
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            custom={2.4}
+          >
+            {SOCIAL_LINKS.map((link) => (
+              <a
+                key={link.id}
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open ${link.label}`}
+                className="rounded-[8px] border border-white/10 bg-black/35 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-white/58 transition hover:border-[#d4af37]/55 hover:text-[#f6e6a7]"
+              >
+                {link.label}
+              </a>
+            ))}
           </Motion.div>
 
           <Motion.div

@@ -18,7 +18,7 @@ const copy = {
   en: {
     kicker: "Live social archive",
     title: "Every post becomes part of the visual vault.",
-    desc: "A single premium feed for Instagram, TikTok, YouTube, Facebook, LinkedIn, and future channels.",
+    desc: "A single premium feed for Instagram, VK, Pinterest, Facebook, and future channels.",
     all: "All",
     open: "Open post",
     loading: "Loading social photos",
@@ -28,7 +28,7 @@ const copy = {
   ru: {
     kicker: "Live social archive",
     title: "Social photos, curated like a private magazine.",
-    desc: "One premium feed for Instagram, TikTok, YouTube, Facebook, LinkedIn, and future channels.",
+    desc: "One premium feed for Instagram, VK, Pinterest, Facebook, and future channels.",
     all: "All",
     open: "Open post",
     loading: "Loading social photos",
@@ -38,7 +38,7 @@ const copy = {
   fr: {
     kicker: "Live social archive",
     title: "Every post becomes part of the visual vault.",
-    desc: "A premium feed for Instagram, TikTok, YouTube, Facebook, LinkedIn, and future channels.",
+    desc: "A premium feed for Instagram, VK, Pinterest, Facebook, and future channels.",
     all: "All",
     open: "Open post",
     loading: "Loading social photos",
@@ -48,7 +48,7 @@ const copy = {
   am: {
     kicker: "Live social archive",
     title: "Every post becomes part of the visual vault.",
-    desc: "A premium feed for Instagram, TikTok, YouTube, Facebook, LinkedIn, and future channels.",
+    desc: "A premium feed for Instagram, VK, Pinterest, Facebook, and future channels.",
     all: "All",
     open: "Open post",
     loading: "Loading social photos",

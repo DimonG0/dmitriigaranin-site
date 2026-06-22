@@ -2,6 +2,7 @@ import { motion as Motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
+import { SOCIAL_LINKS } from "../lib/socialLinks";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -24,7 +25,6 @@ export default function Contact() {
   const contactEndpoint =
     import.meta.env?.VITE_CONTACT_ENDPOINT || `https://formsubmit.co/ajax/${email}`;
   const telegram = "@Dmitrii_GaRaNin";
-  const instagram = "@dmitrii_garanin";
 
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
@@ -237,9 +237,29 @@ export default function Contact() {
                 {c.contact.copyEmailBtn}
               </button>
 
+              <div className="mt-6">
+                <SectionTitle over="Social links" title="Official profiles" />
+                <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  {SOCIAL_LINKS.map((link) => (
+                    <a
+                      key={link.id}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Open ${link.label}`}
+                      className="rounded-[8px] border border-white/10 bg-white/[0.04] px-4 py-3 transition hover:border-[#D4AF37]/55 hover:bg-[#D4AF37]/10"
+                    >
+                      <span className="block text-[10px] font-bold uppercase tracking-[0.24em] text-[#f6e6a7]">
+                        {link.label}
+                      </span>
+                      <span className="mt-1 block text-[11px] text-white/52">{link.handle}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
               <div className="mt-6 flex flex-wrap gap-2">
                 <Tag>{telegram}</Tag>
-                <Tag>{instagram}</Tag>
               </div>
             </Card>
           </Motion.div>

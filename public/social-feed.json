@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-21",
+  "updatedAt": "2026-06-22",
   "items": [
     {
       "id": "instagram-editorial-01",
@@ -7,37 +7,37 @@
       "title": "Noir editorial frame",
       "date": "2026",
       "image": "https://picsum.photos/seed/dg-live-instagram-01/1200/1500",
-      "url": "https://www.instagram.com/",
+      "url": "https://www.instagram.com/dmitrii_garanln/",
       "tone": "portrait",
       "category": "dima-photo"
     },
     {
-      "id": "tiktok-backstage-01",
-      "platform": "TikTok",
+      "id": "vk-backstage-01",
+      "platform": "VK",
       "title": "Backstage motion cut",
       "date": "2026",
-      "image": "https://picsum.photos/seed/dg-live-tiktok-01/1200/1600",
-      "url": "https://www.tiktok.com/",
+      "image": "https://picsum.photos/seed/dg-live-vk-01/1200/1600",
+      "url": "https://vk.com/dimagaraninofficial",
       "tone": "motion",
       "category": "backstage"
     },
     {
-      "id": "youtube-showreel-01",
-      "platform": "YouTube",
-      "title": "Showreel still",
+      "id": "pinterest-showreel-01",
+      "platform": "Pinterest",
+      "title": "Showreel moodboard",
       "date": "2025",
-      "image": "https://picsum.photos/seed/dg-live-youtube-01/1600/900",
-      "url": "https://www.youtube.com/",
+      "image": "https://picsum.photos/seed/dg-live-pinterest-showreel-01/1600/900",
+      "url": "https://ph.pinterest.com/dmitrii_garanin/",
       "tone": "cinema",
       "category": "cinema"
     },
     {
-      "id": "linkedin-product-01",
-      "platform": "LinkedIn",
+      "id": "facebook-product-01",
+      "platform": "Facebook",
       "title": "Product aesthetic",
       "date": "2025",
-      "image": "https://picsum.photos/seed/dg-live-linkedin-01/1400/1100",
-      "url": "https://www.linkedin.com/",
+      "image": "https://picsum.photos/seed/dg-live-facebook-product-01/1400/1100",
+      "url": "https://www.facebook.com/Dimon.G0/",
       "tone": "tech",
       "category": "work"
     },
@@ -47,7 +47,7 @@
       "title": "Private campaign still",
       "date": "2025",
       "image": "https://picsum.photos/seed/dg-live-facebook-01/1400/1200",
-      "url": "https://www.facebook.com/",
+      "url": "https://www.facebook.com/Dimon.G0/",
       "tone": "brand",
       "category": "brand"
     },
@@ -57,17 +57,17 @@
       "title": "Gold edge portrait",
       "date": "2025",
       "image": "https://picsum.photos/seed/dg-live-instagram-02/1200/1500",
-      "url": "https://www.instagram.com/",
+      "url": "https://www.instagram.com/dmitrii_garanln/",
       "tone": "archive",
       "category": "dima-photo"
     },
     {
-      "id": "tiktok-scene-02",
-      "platform": "TikTok",
+      "id": "vk-scene-02",
+      "platform": "VK",
       "title": "Scene rehearsal",
       "date": "2025",
-      "image": "https://picsum.photos/seed/dg-live-tiktok-02/1200/1600",
-      "url": "https://www.tiktok.com/",
+      "image": "https://picsum.photos/seed/dg-live-vk-02/1200/1600",
+      "url": "https://vk.com/dimagaraninofficial",
       "tone": "video",
       "category": "backstage"
     },
@@ -77,7 +77,7 @@
       "title": "Philosophy note about discipline",
       "date": "2026",
       "image": "https://picsum.photos/seed/dg-live-pinterest-philosophy-01/1200/1500",
-      "url": "https://ru.pinterest.com/dmitrii_garanin/",
+      "url": "https://ph.pinterest.com/dmitrii_garanin/",
       "tone": "thought",
       "category": "philosophy"
     },
@@ -87,7 +87,7 @@
       "title": "New photo of Dima",
       "date": "2026",
       "image": "https://picsum.photos/seed/dg-live-pinterest-dima-01/1200/1500",
-      "url": "https://ru.pinterest.com/dmitrii_garanin/",
+      "url": "https://ph.pinterest.com/dmitrii_garanin/",
       "tone": "portrait",
       "category": "dima-photo"
     }

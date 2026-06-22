@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
 import { LANGS } from "../lib/routes";
+import { SOCIAL_LINKS } from "../lib/socialLinks";
 
 export default function Footer() {
   const { lang } = useParams();
@@ -62,6 +63,21 @@ export default function Footer() {
             >
               {email}
             </a>
+
+            <div className="flex flex-wrap justify-start gap-2 md:justify-end">
+              {SOCIAL_LINKS.map((link) => (
+                <a
+                  key={link.id}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${link.label}`}
+                  className="rounded-[8px] border border-white/10 bg-white/[0.035] px-3 py-2 text-[9px] font-bold uppercase tracking-[0.22em] text-white/45 transition hover:border-[#D4AF37]/55 hover:text-[#f6e6a7]"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
