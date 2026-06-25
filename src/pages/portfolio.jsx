@@ -19,7 +19,7 @@ const fadeUp = {
 const visualPortfolioItems = [
   {
     id: "headshot-2026",
-    category: "film",
+    category: "cinema",
     title: "Headshot 2026",
     subtitle: "Natural light portrait for casting and profile use",
     year: "2026",
@@ -43,7 +43,7 @@ const visualPortfolioItems = [
   },
   {
     id: "looks-beyond",
-    category: "creative",
+    category: "cinema",
     title: "The Boy Who Looks Beyond",
     subtitle: "Editorial poster portrait",
     year: "2025",
@@ -55,7 +55,7 @@ const visualPortfolioItems = [
   },
   {
     id: "choice-beyond-status",
-    category: "brand",
+    category: "bloggers",
     title: "The Choice Beyond Status",
     subtitle: "Luxury interior editorial frame",
     year: "2026",
@@ -67,7 +67,7 @@ const visualPortfolioItems = [
   },
   {
     id: "new-generation-studio",
-    category: "brand",
+    category: "bloggers",
     title: "New Generation Actor",
     subtitle: "Minimal studio actor card",
     year: "2026",
@@ -79,7 +79,7 @@ const visualPortfolioItems = [
   },
   {
     id: "new-generation-palace",
-    category: "film",
+    category: "series",
     title: "Actor Manifesto",
     subtitle: "Period-role inspired presentation",
     year: "2026",
@@ -255,11 +255,11 @@ export default function Portfolio() {
 
   const categories = p?.categories ?? {};
   const CATEGORIES = [
-    { id: "all", label: SAFE(categories?.all, "All") },
-    { id: "film", label: SAFE(categories?.film, "Film / TV") },
-    { id: "brand", label: SAFE(categories?.brand, "Luxury / Brand") },
-    { id: "creative", label: SAFE(categories?.creative, "Creative") },
-    { id: "tech", label: SAFE(categories?.tech, "IT / Product") },
+    { id: "all", label: SAFE(categories?.all, "All styles") },
+    { id: "film", label: SAFE(categories?.film, "Films") },
+    { id: "series", label: SAFE(categories?.series, "Series") },
+    { id: "bloggers", label: SAFE(categories?.bloggers, "Blogger projects") },
+    { id: "cinema", label: SAFE(categories?.cinema, "Cinema") },
   ];
 
   const itemCopy = portfolioItemCopy[lang] ?? {};
@@ -267,10 +267,6 @@ export default function Portfolio() {
     ...item,
     ...(itemCopy[item.id] ?? {}),
   }));
-  const visibleCategories = CATEGORIES.filter(
-    (category) => category.id === "all" || items.some((item) => item.category === category.id)
-  );
-
   const filtered = active === "all" ? items : items.filter((x) => x?.category === active);
 
   const pill = SAFE(p?.pill, SAFE(copy?.nav?.portfolio, "Portfolio"));
@@ -324,13 +320,13 @@ export default function Portfolio() {
         </Motion.div>
 
         <div className="mt-10 flex flex-wrap gap-2">
-          {visibleCategories.map((c) => {
+          {CATEGORIES.map((c) => {
             const on = active === c.id;
             return (
               <button
                 key={c.id}
                 onClick={() => setActive(c.id)}
-                className={`rounded-full border px-5 py-2 text-[11px] tracking-[0.28em] uppercase transition-all duration-200 ${
+                className={`min-h-10 whitespace-nowrap rounded-full border px-4 py-2 text-[12px] font-[700] leading-none transition-all duration-200 ${
                   on
                     ? "border-[#D4AF37]/50 bg-[#D4AF37]/10 text-[#FFD700]"
                     : "border-white/10 bg-white/5 text-white/70 hover:border-[#D4AF37]/40 hover:bg-white/10"

@@ -83,9 +83,9 @@ export type CopyBlock = {
     categories: {
       all: string;
       film: string;
-      brand: string;
-      creative: string;
-      tech: string;
+      series: string;
+      bloggers: string;
+      cinema: string;
     };
 
     empty: {
@@ -103,7 +103,7 @@ export type CopyBlock = {
 
     items: Array<{
       id: string;
-      category: "film" | "brand" | "creative" | "tech";
+      category: "film" | "series" | "bloggers" | "cinema";
       title: string;
       subtitle: string;
       year: string;
@@ -242,11 +242,11 @@ export const copy: Record<Lang, CopyBlock> = {
       counters: { projects: "projects" },
 
       categories: {
-        all: "All",
-        film: "Film / TV",
-        brand: "Luxury / Brand",
-        creative: "Creative",
-        tech: "IT / Product",
+        all: "All styles",
+        film: "Films",
+        series: "Series",
+        bloggers: "Blogger projects",
+        cinema: "Cinema",
       },
 
       empty: {
@@ -260,7 +260,7 @@ export const copy: Record<Lang, CopyBlock> = {
       items: [
         {
           id: "vault-01",
-          category: "brand",
+          category: "bloggers",
           title: "Private Campaign — Platinum Edition",
           subtitle: "Luxury brand collaboration (confidential)",
           year: "2026",
@@ -282,7 +282,7 @@ export const copy: Record<Lang, CopyBlock> = {
         },
         {
           id: "vault-03",
-          category: "creative",
+          category: "cinema",
           title: "Editorial Portrait — Gold Dust",
           subtitle: "Magazine-grade portrait set",
           year: "2025",
@@ -293,7 +293,7 @@ export const copy: Record<Lang, CopyBlock> = {
         },
         {
           id: "vault-04",
-          category: "tech",
+          category: "cinema",
           title: "DG System — Product Aesthetic",
           subtitle: "UX concept / premium interface",
           year: "2026",
@@ -441,11 +441,11 @@ export const copy: Record<Lang, CopyBlock> = {
       counters: { projects: "проектов" },
 
       categories: {
-        all: "Все",
-        film: "Кино / ТВ",
-        brand: "Luxury / Бренд",
-        creative: "Креатив",
-        tech: "IT / Продукт",
+        all: "Все стили",
+        film: "Фильмы",
+        series: "Сериалы",
+        bloggers: "Проекты с блогерами",
+        cinema: "Кино",
       },
 
       empty: {
@@ -590,11 +590,11 @@ export const copy: Record<Lang, CopyBlock> = {
       sub: "Archive curatée • Accès privé • Positionnement premium",
       counters: { projects: "projets" },
       categories: {
-        all: "Tout",
-        film: "Film / TV",
-        brand: "Luxe / Marque",
-        creative: "Créatif",
-        tech: "IT / Produit",
+        all: "Tous les styles",
+        film: "Films",
+        series: "Séries",
+        bloggers: "Projets avec blogueurs",
+        cinema: "Cinéma",
       },
       empty: {
         title: "Aucun projet dans cette catégorie",
@@ -724,11 +724,11 @@ export const copy: Record<Lang, CopyBlock> = {
       sub: "Ընտրված արխիվ • Պրիվատ մուտք • Պրեմիում դիրքավորում",
       counters: { projects: "նախագիծ" },
       categories: {
-        all: "Բոլորը",
-        film: "Ֆիլմ / TV",
-        brand: "Luxury / Բրենդ",
-        creative: "Կրեատիվ",
-        tech: "IT / Պրոդուկտ",
+        all: "Բոլոր ոճերը",
+        film: "Ֆիլմեր",
+        series: "Սերիալներ",
+        bloggers: "Բլոգերների նախագծեր",
+        cinema: "Կինո",
       },
       empty: {
         title: "Այս կատեգորիայում նախագծեր չկան",
