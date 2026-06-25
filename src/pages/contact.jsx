@@ -2,6 +2,7 @@ import { motion as Motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
+import { usePageSeo } from "../lib/usePageSeo";
 import { SOCIAL_LINKS, THREADS_LINK } from "../lib/socialLinks";
 
 const ease = [0.22, 1, 0.36, 1];
@@ -111,6 +112,8 @@ export default function Contact() {
   const { lang = "en" } = useParams();
   const c = t(lang);
   const ui = contactUiCopy[lang] || contactUiCopy.en;
+
+  usePageSeo(lang, "contact");
 
   const email = import.meta.env?.VITE_CONTACT_EMAIL || "dmitry1040@gmail.com";
   const ccEmail = import.meta.env?.VITE_CONTACT_CC_EMAIL || "hello@dmitriigaranin.com";

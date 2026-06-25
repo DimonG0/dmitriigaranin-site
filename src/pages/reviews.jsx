@@ -1,6 +1,7 @@
 import { motion as Motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
+import { usePageSeo } from "../lib/usePageSeo";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -19,6 +20,8 @@ export default function Reviews() {
   const copy = t(lang);
 
   const reviews = copy.reviews.list;
+
+  usePageSeo(lang, "reviews");
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white">

@@ -1,7 +1,7 @@
 import { motion as Motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
-import { useSeo } from "../lib/useSeo";
+import { usePageSeo } from "../lib/usePageSeo";
 import SocialWall from "../components/SocialWall";
 import { SOCIAL_LINKS } from "../lib/socialLinks";
 
@@ -80,12 +80,7 @@ export default function Home() {
   const c = t(lang);
   const page = homePageCopy[lang] || homePageCopy.en;
 
-  useSeo({
-    title: c.seo.baseTitle,
-    description: c.seo.baseDesc,
-    url: `https://dmitriigaranin.com/${lang}/home`,
-    lang,
-  });
+  usePageSeo(lang, "home");
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white">

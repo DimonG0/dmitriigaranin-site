@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --configLoader runner",
-    "build": "vite build --configLoader runner",
+    "generate:seo": "node scripts/generate-seo-files.mjs",
+    "build": "npm run generate:seo && vite build --configLoader runner",
     "lint": "eslint .",
     "preview": "vite preview --configLoader runner",
     "lint:css": "stylelint \"src/**/*.css\" --config src/.stylelintrc.json",

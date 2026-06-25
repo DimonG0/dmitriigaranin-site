@@ -1,6 +1,7 @@
 import { motion as Motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
+import { usePageSeo } from "../lib/usePageSeo";
 import { SOCIAL_LINKS, THREADS_LINK } from "../lib/socialLinks";
 
 const fadeUp = {
@@ -267,6 +268,8 @@ export default function About() {
   const copy = t(lang);
   const page = content[lang] || content.en;
   const sourceLinks = [...SOCIAL_LINKS, THREADS_LINK, ...contextLinks];
+
+  usePageSeo(lang, "about");
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white">

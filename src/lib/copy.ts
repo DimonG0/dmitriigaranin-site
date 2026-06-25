@@ -163,8 +163,8 @@ export const copy: Record<Lang, CopyBlock> = {
     },
 
     seo: {
-      baseTitle: "Dmitrii Garanin — Actor / Creative / IT | International Luxury Portfolio",
-      baseDesc: "Luxury black & gold personal brand site: showreel, portfolio, reviews and contact.",
+      baseTitle: "Dmitrii Garanin — Actor for Cinema, Series and Media Projects",
+      baseDesc: "Official portfolio of actor Dmitrii Garanin: cinema, series, blogger collaborations, editorial portraits, reviews and booking contacts.",
     },
 
     home: {
@@ -362,8 +362,8 @@ export const copy: Record<Lang, CopyBlock> = {
     },
 
     seo: {
-      baseTitle: "Дмитрий Гаранин — актёр / креатив / IT | Luxury International Portfolio",
-      baseDesc: "Black & gold персональный сайт: шоу-рил, портфолио, отзывы и контакты.",
+      baseTitle: "Дмитрий Гаранин — актер кино, сериалов и медиа-проектов",
+      baseDesc: "Официальный сайт актера Дмитрия Гаранина: портфолио, актерские фото, кино, сериалы, проекты с блогерами, отзывы и контакты.",
     },
 
     home: {
@@ -513,8 +513,8 @@ export const copy: Record<Lang, CopyBlock> = {
     },
 
     seo: {
-      baseTitle: "Dmitrii Garanin — Acteur / Créatif / IT | Portfolio luxe international",
-      baseDesc: "Site personnel black & gold : showreel, portfolio, avis et contact.",
+      baseTitle: "Dmitrii Garanin — Acteur pour cinéma, séries et projets média",
+      baseDesc: "Portfolio officiel de l'acteur Dmitrii Garanin : cinéma, séries, collaborations blogueurs, portraits éditoriaux, avis et contacts.",
     },
 
     home: {
@@ -647,8 +647,8 @@ export const copy: Record<Lang, CopyBlock> = {
     },
 
     seo: {
-      baseTitle: "Դմիտրի Գարանին — դերասան / կրեատիվ / IT | Luxury International Portfolio",
-      baseDesc: "Black & gold անձնական կայք՝ շոուռիլ, պորտֆոլիո, կարծիքներ և կապ։",
+      baseTitle: "Դմիտրի Գարանին — դերասան կինոյի, սերիալների և մեդիայի համար",
+      baseDesc: "Դմիտրի Գարանինի պաշտոնական պորտֆոլիո՝ կինո, սերիալներ, բլոգերների նախագծեր, կարծիքներ և կապ։",
     },
 
     home: {

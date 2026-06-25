@@ -1,6 +1,7 @@
 import { motion as Motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
+import { usePageSeo } from "../lib/usePageSeo";
 
 import Chip from "../ui/Chip";
 import SectionTitle from "../ui/SectionTitle";
@@ -22,6 +23,8 @@ const fadeUp = {
 export default function Behind() {
   const { lang = "en" } = useParams();
   const c = t(lang);
+
+  usePageSeo(lang, "behind");
 
   return (
     <main className="relative min-h-[calc(100vh-1px)] overflow-hidden text-white luxe-grain">

@@ -3,6 +3,7 @@ import { AnimatePresence, motion as Motion } from "framer-motion";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { t, SAFE } from "../lib/i18n";
+import { usePageSeo } from "../lib/usePageSeo";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -252,6 +253,8 @@ export default function Portfolio() {
 
   const [active, setActive] = useState("all");
   const [open, setOpen] = useState(null);
+
+  usePageSeo(lang, "portfolio");
 
   const categories = p?.categories ?? {};
   const CATEGORIES = [

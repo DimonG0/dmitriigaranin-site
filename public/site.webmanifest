@@ -1,0 +1,19 @@
+{
+  "name": "Dmitrii Garanin — Actor Portfolio",
+  "short_name": "Dmitrii Garanin",
+  "description": "Official portfolio of actor Dmitrii Garanin for cinema, series, media projects and collaborations.",
+  "lang": "en",
+  "start_url": "/en/home",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
