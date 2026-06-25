@@ -29,7 +29,7 @@ export default function Reviews() {
             {copy.reviews.pill}
           </div>
 
-          <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
+          <h1 className="mt-6 break-words leading-[1.05]">
             <span className="block text-[38px] font-[900] md:text-[58px]">
               {copy.reviews.h1a}{" "}
               <span className="bg-gradient-to-r from-white via-[#f6e6a7] via-40% via-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
@@ -118,7 +118,7 @@ function SectionTitle({ over, title }) {
   return (
     <div>
       <div className="text-[10px] tracking-[0.28em] uppercase text-white/55">{over}</div>
-      <div className="mt-2 text-[20px] font-[900] tracking-[-0.01em] bg-gradient-to-r from-white via-[#f6e6a7] via-40% via-[#D4AF37] to-white bg-clip-text text-transparent">
+      <div className="mt-2 break-words text-[20px] font-[900] leading-tight bg-gradient-to-r from-white via-[#f6e6a7] via-40% via-[#D4AF37] to-white bg-clip-text text-transparent">
         {title}
       </div>
     </div>

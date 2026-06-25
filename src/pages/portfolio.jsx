@@ -91,6 +91,159 @@ const visualPortfolioItems = [
   },
 ];
 
+const portfolioItemCopy = {
+  ru: {
+    "headshot-2026": {
+      title: "Актёрский портрет 2026",
+      subtitle: "Портрет при естественном свете для кастингов и профиля",
+      badge: "ПОРТРЕТ",
+      tags: ["Актёр", "Портрет", "Кастинг"],
+      description:
+        "Чистый и тёплый портрет, построенный на прямом присутствии, открытом свете и естественном экранном выражении.",
+    },
+    "character-paris": {
+      title: "Персонаж создаёт роль",
+      subtitle: "Кинематографичный зимний этюд персонажа",
+      badge: "ПЕРСОНАЖ",
+      tags: ["Драма", "Настроение", "Постер"],
+      description:
+        "Более тёмный атмосферный кадр с сильным драматическим напряжением и точным акцентом на персонаже.",
+    },
+    "looks-beyond": {
+      title: "Мальчик, который смотрит дальше",
+      subtitle: "Редакционный постер-портрет",
+      badge: "РЕДАКЦИЯ",
+      tags: ["Портрет", "Editorial", "Юность"],
+      description:
+        "Поэтичный портрет на природе: мягкая сдержанность, свободное пространство и ощущение журнальной обложки.",
+    },
+    "choice-beyond-status": {
+      title: "Выбор выше статуса",
+      subtitle: "Редакционный кадр в люксовом интерьере",
+      badge: "ЛЮКС",
+      tags: ["Editorial", "Люкс", "Присутствие"],
+      description:
+        "Собранный интерьерный образ с выверенным визуальным языком, старосветской фактурой и спокойной уверенностью.",
+    },
+    "new-generation-studio": {
+      title: "Актёр нового поколения",
+      subtitle: "Минималистичная студийная актёрская карточка",
+      badge: "АКТЁР",
+      tags: ["Актёр", "Бренд", "Профиль"],
+      description:
+        "Чёткая актёрская карточка с чистым контрастом, формальной посадкой и прямой кастинговой подачей.",
+    },
+    "new-generation-palace": {
+      title: "Актёрский манифест",
+      subtitle: "Подача в эстетике исторической роли",
+      badge: "СЦЕНА",
+      tags: ["Театр", "Кино", "История"],
+      description:
+        "Крупноформатный актёрский манифест с театральной деталью, исторической атмосферой и премиальными золотыми акцентами.",
+    },
+  },
+  fr: {
+    "headshot-2026": {
+      title: "Portrait acteur 2026",
+      subtitle: "Portrait en lumière naturelle pour casting et profil",
+      badge: "PORTRAIT",
+      tags: ["Acteur", "Portrait", "Casting"],
+      description:
+        "Un portrait net et chaleureux, construit autour d'une présence directe, d'une lumière ouverte et d'une expression naturelle prête pour l'écran.",
+    },
+    "character-paris": {
+      title: "Le personnage crée le rôle",
+      subtitle: "Étude de personnage hivernale et cinématographique",
+      badge: "PERSONNAGE",
+      tags: ["Drame", "Mood", "Affiche"],
+      description:
+        "Une image plus sombre et atmosphérique, avec une tension dramatique forte et une intention centrée sur le personnage.",
+    },
+    "looks-beyond": {
+      title: "Le garçon qui regarde au-delà",
+      subtitle: "Portrait-affiche éditorial",
+      badge: "ÉDITORIAL",
+      tags: ["Portrait", "Éditorial", "Jeunesse"],
+      description:
+        "Un portrait extérieur poétique, entre retenue douce, espace négatif et sensation de couverture magazine.",
+    },
+    "choice-beyond-status": {
+      title: "Le choix au-delà du statut",
+      subtitle: "Cadre éditorial en intérieur luxe",
+      badge: "LUXE",
+      tags: ["Éditorial", "Luxe", "Présence"],
+      description:
+        "Une image d'intérieur composée avec un langage visuel poli, une texture classique et une confiance discrète.",
+    },
+    "new-generation-studio": {
+      title: "Acteur nouvelle génération",
+      subtitle: "Carte acteur studio minimaliste",
+      badge: "ACTEUR",
+      tags: ["Acteur", "Marque", "Profil"],
+      description:
+        "Une carte acteur précise, au contraste net, à la posture formelle et à l'énergie directement exploitable pour le casting.",
+    },
+    "new-generation-palace": {
+      title: "Manifeste d'acteur",
+      subtitle: "Présentation inspirée d'un rôle d'époque",
+      badge: "SCÈNE",
+      tags: ["Théâtre", "Cinéma", "Histoire"],
+      description:
+        "Un manifeste grand format, porté par le détail théâtral, l'atmosphère historique et des accents dorés premium.",
+    },
+  },
+  am: {
+    "headshot-2026": {
+      title: "Դերասանի դիմանկար 2026",
+      subtitle: "Բնական լույսով դիմանկար քասթինգի և պրոֆիլի համար",
+      badge: "ԴԻՄԱՆԿԱՐ",
+      tags: ["Դերասան", "Դիմանկար", "Քասթինգ"],
+      description:
+        "Մաքուր և ջերմ դիմանկար՝ կառուցված ուղիղ ներկայության, բաց լույսի և էկրանին պատրաստ բնական արտահայտության շուրջ։",
+    },
+    "character-paris": {
+      title: "Կերպարը ստեղծում է դերը",
+      subtitle: "Կինեմատոգրաֆիկ ձմեռային կերպարի էտյուդ",
+      badge: "ԿԵՐՊԱՐ",
+      tags: ["Դրամա", "Տրամադրություն", "Պաստառ"],
+      description:
+        "Ավելի մուգ և մթնոլորտային կադր՝ ուժեղ դրամատիկ լարվածությամբ և կերպարից սկսվող հստակ տոնով։",
+    },
+    "looks-beyond": {
+      title: "Տղան, որը նայում է հեռուն",
+      subtitle: "Խմբագրական պաստառ-դիմանկար",
+      badge: "ԽՄԲԱԳՐԱԿԱՆ",
+      tags: ["Դիմանկար", "Խմբագրական", "Երիտասարդություն"],
+      description:
+        "Պոետիկ բացօթյա դիմանկար՝ մեղմ զսպվածությամբ, ազատ տարածությամբ և ամսագրային շապիկի զգացողությամբ։",
+    },
+    "choice-beyond-status": {
+      title: "Ընտրություն կարգավիճակից վեր",
+      subtitle: "Լյուքս ինտերիերի խմբագրական կադր",
+      badge: "ԼՅՈՒՔՍ",
+      tags: ["Խմբագրական", "Լյուքս", "Ներկայություն"],
+      description:
+        "Հավաքված ինտերիերային պատկեր՝ հղկված տեսողական լեզվով, դասական մթնոլորտով և հանգիստ վստահությամբ։",
+    },
+    "new-generation-studio": {
+      title: "Նոր սերնդի դերասան",
+      subtitle: "Մինիմալ ստուդիական դերասանական քարտ",
+      badge: "ԴԵՐԱՍԱՆ",
+      tags: ["Դերասան", "Բրենդ", "Պրոֆիլ"],
+      description:
+        "Սուր դերասանական քարտ՝ մաքուր հակադրությամբ, պաշտոնական դիրքով և քասթինգի համար պատրաստ ուղիղ տեսքով։",
+    },
+    "new-generation-palace": {
+      title: "Դերասանական մանիֆեստ",
+      subtitle: "Ժամանակաշրջանի դերից ներշնչված ներկայացում",
+      badge: "ԲԵՄ",
+      tags: ["Թատրոն", "Կինո", "Պատմություն"],
+      description:
+        "Մեծ ֆորմատի դերասանական մանիֆեստ՝ թատերական մանրամասներով, պատմական մթնոլորտով և պրեմիում ոսկեգույն շեշտերով։",
+    },
+  },
+};
+
 export default function Portfolio() {
   const { lang = "en" } = useParams();
   const copy = t(lang);
@@ -109,7 +262,11 @@ export default function Portfolio() {
     { id: "tech", label: SAFE(categories?.tech, "IT / Product") },
   ];
 
-  const items = visualPortfolioItems;
+  const itemCopy = portfolioItemCopy[lang] ?? {};
+  const items = visualPortfolioItems.map((item) => ({
+    ...item,
+    ...(itemCopy[item.id] ?? {}),
+  }));
   const visibleCategories = CATEGORIES.filter(
     (category) => category.id === "all" || items.some((item) => item.category === category.id)
   );
@@ -141,7 +298,7 @@ export default function Portfolio() {
               {pill}
             </div>
 
-            <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
+            <h1 className="mt-6 break-words leading-[1.05]">
               <span className="block text-[38px] font-[900] md:text-[58px]">
                 {h1a}{" "}
                 <span className="bg-gradient-to-r from-[#f6e6a7] via-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
@@ -304,10 +461,10 @@ function PortfolioCard({ item, index, onOpen, cta }) {
       initial="hidden"
       animate="show"
       custom={index}
-      className="group cursor-pointer"
+      className="group flex h-full cursor-pointer"
       onClick={onOpen}
     >
-      <div className="overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-[#D4AF37]/40 hover:bg-white/[0.06]">
+      <div className="flex h-full w-full flex-col overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-[#D4AF37]/40 hover:bg-white/[0.06]">
         <div className="relative aspect-[4/5] overflow-hidden bg-black">
           <img
             src={item?.cover}
@@ -327,14 +484,18 @@ function PortfolioCard({ item, index, onOpen, cta }) {
           </div>
         </div>
 
-        <div className="p-5">
+        <div className="flex flex-1 flex-col p-5">
           <div className="text-[11px] tracking-[0.22em] uppercase text-[#D4AF37]/80">
             {SAFE(item?.year, "")}
           </div>
-          <div className="mt-1 text-[18px] font-[800] text-white">{SAFE(item?.title, "")}</div>
-          <div className="text-[14px] text-white/70">{SAFE(item?.subtitle, "")}</div>
+          <div className="mt-2 min-h-[3.1rem] text-[18px] font-[800] leading-tight text-white">
+            {SAFE(item?.title, "")}
+          </div>
+          <div className="min-h-10 text-[14px] leading-5 text-white/70">
+            {SAFE(item?.subtitle, "")}
+          </div>
 
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-4 flex min-h-[3.25rem] flex-wrap content-start gap-2">
             {tags.map((tag, idx) => (
               <span
                 key={`${tag}-${idx}`}
@@ -345,8 +506,8 @@ function PortfolioCard({ item, index, onOpen, cta }) {
             ))}
           </div>
 
-          <div className="mt-4 flex items-center justify-between">
-            <div className="text-[11px] tracking-[0.22em] uppercase text-white/50">{cta}</div>
+          <div className="mt-auto flex min-h-9 items-center justify-between gap-3 border-t border-white/10 pt-4">
+            <div className="min-w-0 text-[11px] leading-4 tracking-[0.22em] uppercase text-white/50">{cta}</div>
             <span className="text-[#D4AF37] transition-transform group-hover:translate-x-1">
               →
             </span>

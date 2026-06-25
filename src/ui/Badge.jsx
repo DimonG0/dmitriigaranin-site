@@ -4,8 +4,8 @@ export default function Badge({ children, subtle = false }) {
   return (
     <span
       className={[
-        "inline-flex items-center rounded-full px-3 py-1",
-        "text-[11px] tracking-[0.24em] uppercase",
+        "inline-flex max-w-full items-center break-words rounded-full px-3 py-1",
+        "text-[11px] leading-4 tracking-[0.18em] uppercase md:tracking-[0.24em]",
         "border backdrop-blur",
         subtle
           ? "border-white/10 bg-white/5 text-white/70"

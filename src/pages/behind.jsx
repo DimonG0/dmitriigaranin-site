@@ -29,7 +29,7 @@ export default function Behind() {
         <Motion.div variants={fadeUp} initial="hidden" animate="show" custom={0} className="max-w-3xl">
           <Badge>{c.nav.behind}</Badge>
 
-          <h1 className="mt-6 leading-[1.05] tracking-[-0.02em]">
+          <h1 className="mt-6 break-words leading-[1.05]">
             <span className="block text-[40px] font-[800] md:text-[56px]">
               {c.behind.heroTitleLeft}{" "}
               <span className="bg-gradient-to-r from-[#f6e6a7] via-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
@@ -38,7 +38,7 @@ export default function Behind() {
             </span>
           </h1>
 
-          <p className="mt-3 text-[13px] tracking-[0.35em] uppercase text-white/65">
+          <p className="mt-3 text-[13px] leading-6 tracking-[0.24em] uppercase text-white/65 md:tracking-[0.35em]">
             {c.behind.heroTagline}
           </p>
         </Motion.div>
@@ -77,7 +77,7 @@ export default function Behind() {
           custom={2}
         >
           {c.behind.cards.map((item, i) => (
-            <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <div key={i} className="h-full rounded-2xl border border-white/10 bg-white/[0.04] p-5">
               <Tag>{item.title}</Tag>
               <p className="mt-3 text-[14px] text-white/75">{item.desc}</p>
             </div>

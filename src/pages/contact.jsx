@@ -16,9 +16,101 @@ const fadeUp = {
   }),
 };
 
+const contactUiCopy = {
+  en: {
+    formOver: "Private request",
+    formTitle: "Write directly here",
+    name: "Name",
+    namePlaceholder: "Your name",
+    email: "Email",
+    emailPlaceholder: "you@email.com",
+    subject: "Subject",
+    subjectPlaceholder: "Booking / collaboration / private request",
+    message: "Message",
+    messagePlaceholder: "Tell me what you want to discuss.",
+    send: "Send message",
+    sending: "Sending...",
+    directEmail: "Email direct",
+    sent: "Message sent. I will receive it by email.",
+    error: "Message was not sent. Use direct email instead.",
+    socialOver: "Social links",
+    socialTitle: "Official profiles",
+    openSocial: "Open",
+    mailSubject: "Private request from dmitriigaranin.com",
+    mailBody: "Name:\nEmail:\n\nMessage:\n",
+  },
+  ru: {
+    formOver: "Приватный запрос",
+    formTitle: "Напишите напрямую здесь",
+    name: "Имя",
+    namePlaceholder: "Ваше имя",
+    email: "Email",
+    emailPlaceholder: "you@email.com",
+    subject: "Тема",
+    subjectPlaceholder: "Бронирование / сотрудничество / приватный запрос",
+    message: "Сообщение",
+    messagePlaceholder: "Кратко опишите, что хотите обсудить.",
+    send: "Отправить сообщение",
+    sending: "Отправка...",
+    directEmail: "Написать на email",
+    sent: "Сообщение отправлено. Я получу его на email.",
+    error: "Сообщение не отправлено. Используйте прямой email.",
+    socialOver: "Социальные ссылки",
+    socialTitle: "Официальные профили",
+    openSocial: "Открыть",
+    mailSubject: "Приватный запрос с dmitriigaranin.com",
+    mailBody: "Имя:\nEmail:\n\nСообщение:\n",
+  },
+  fr: {
+    formOver: "Demande privée",
+    formTitle: "Écrire directement ici",
+    name: "Nom",
+    namePlaceholder: "Votre nom",
+    email: "Email",
+    emailPlaceholder: "vous@email.com",
+    subject: "Objet",
+    subjectPlaceholder: "Booking / collaboration / demande privée",
+    message: "Message",
+    messagePlaceholder: "Dites-moi ce que vous souhaitez discuter.",
+    send: "Envoyer le message",
+    sending: "Envoi...",
+    directEmail: "Email direct",
+    sent: "Message envoyé. Je le recevrai par email.",
+    error: "Le message n'a pas été envoyé. Utilisez l'email direct.",
+    socialOver: "Liens sociaux",
+    socialTitle: "Profils officiels",
+    openSocial: "Ouvrir",
+    mailSubject: "Demande privée depuis dmitriigaranin.com",
+    mailBody: "Nom:\nEmail:\n\nMessage:\n",
+  },
+  am: {
+    formOver: "Փրիվատ հարցում",
+    formTitle: "Գրել անմիջապես այստեղ",
+    name: "Անուն",
+    namePlaceholder: "Ձեր անունը",
+    email: "Email",
+    emailPlaceholder: "you@email.com",
+    subject: "Թեմա",
+    subjectPlaceholder: "Ամրագրում / համագործակցություն / փրիվատ հարցում",
+    message: "Հաղորդագրություն",
+    messagePlaceholder: "Գրեք, թե ինչ եք ցանկանում քննարկել։",
+    send: "Ուղարկել հաղորդագրությունը",
+    sending: "Ուղարկվում է...",
+    directEmail: "Ուղիղ email",
+    sent: "Հաղորդագրությունն ուղարկված է։ Ես այն կստանամ email-ով։",
+    error: "Հաղորդագրությունը չի ուղարկվել։ Օգտագործեք ուղիղ email-ը։",
+    socialOver: "Սոցիալական հղումներ",
+    socialTitle: "Պաշտոնական պրոֆիլներ",
+    openSocial: "Բացել",
+    mailSubject: "Փրիվատ հարցում dmitriigaranin.com-ից",
+    mailBody: "Անուն:\nEmail:\n\nՀաղորդագրություն:\n",
+  },
+};
+
 export default function Contact() {
   const { lang = "en" } = useParams();
   const c = t(lang);
+  const ui = contactUiCopy[lang] || contactUiCopy.en;
 
   const email = import.meta.env?.VITE_CONTACT_EMAIL || "dmitry1040@gmail.com";
   const ccEmail = import.meta.env?.VITE_CONTACT_CC_EMAIL || "hello@dmitriigaranin.com";
@@ -29,10 +121,10 @@ export default function Contact() {
   const [error, setError] = useState("");
 
   const mailto = useMemo(() => {
-    const subject = encodeURIComponent("Private request from dmitriigaranin.com");
-    const body = encodeURIComponent("Name:\nEmail:\n\nMessage:\n");
+    const subject = encodeURIComponent(ui.mailSubject);
+    const body = encodeURIComponent(ui.mailBody);
     return `mailto:${email}?subject=${subject}&body=${body}`;
-  }, [email]);
+  }, [email, ui.mailBody, ui.mailSubject]);
 
   const copyEmail = async () => {
     try {
@@ -74,7 +166,7 @@ export default function Contact() {
       form.reset();
     } catch {
       setStatus("error");
-      setError("Message was not sent. Use direct email instead.");
+      setError(ui.error);
     }
   };
 
@@ -107,7 +199,7 @@ export default function Contact() {
             custom={1}
           >
             <Card>
-              <SectionTitle over="Private request" title="Write directly here" />
+              <SectionTitle over={ui.formOver} title={ui.formTitle} />
 
               <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
                 <input
@@ -120,7 +212,7 @@ export default function Contact() {
                 />
 
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  <Field label="Name">
+                  <Field label={ui.name}>
                     <input
                       name="name"
                       type="text"
@@ -128,11 +220,11 @@ export default function Contact() {
                       maxLength={80}
                       autoComplete="name"
                       className="contact-input"
-                      placeholder="Your name"
+                      placeholder={ui.namePlaceholder}
                     />
                   </Field>
 
-                  <Field label="Email">
+                  <Field label={ui.email}>
                     <input
                       name="email"
                       type="email"
@@ -140,23 +232,23 @@ export default function Contact() {
                       maxLength={120}
                       autoComplete="email"
                       className="contact-input"
-                      placeholder="you@email.com"
+                      placeholder={ui.emailPlaceholder}
                     />
                   </Field>
                 </div>
 
-                <Field label="Subject">
+                <Field label={ui.subject}>
                   <input
                     name="subject"
                     type="text"
                     required
                     maxLength={120}
                     className="contact-input"
-                    placeholder="Booking / collaboration / private request"
+                    placeholder={ui.subjectPlaceholder}
                   />
                 </Field>
 
-                <Field label="Message">
+                <Field label={ui.message}>
                   <textarea
                     name="message"
                     required
@@ -164,7 +256,7 @@ export default function Contact() {
                     maxLength={2500}
                     rows={7}
                     className="contact-input resize-none"
-                    placeholder="Tell me what you want to discuss."
+                    placeholder={ui.messagePlaceholder}
                   />
                 </Field>
 
@@ -172,22 +264,22 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={status === "sending"}
-                    className="border border-[#D4AF37]/60 bg-[#D4AF37] px-6 py-3 text-[11px] font-black uppercase tracking-[0.24em] text-black transition-all duration-200 hover:bg-[#f6e6a7] disabled:cursor-wait disabled:opacity-60"
+                    className="min-h-11 border border-[#D4AF37]/60 bg-[#D4AF37] px-6 py-3 text-center text-[11px] font-black uppercase leading-4 tracking-[0.24em] text-black transition-all duration-200 hover:bg-[#f6e6a7] disabled:cursor-wait disabled:opacity-60"
                   >
-                    {status === "sending" ? "Sending..." : "Send message"}
+                    {status === "sending" ? ui.sending : ui.send}
                   </button>
 
                   <a
                     href={mailto}
                     className="text-[10px] font-bold uppercase tracking-[0.24em] text-white/45 transition hover:text-[#f6e6a7]"
                   >
-                    Email direct
+                    {ui.directEmail}
                   </a>
                 </div>
 
                 {status === "sent" && (
                   <div className="border border-[#D4AF37]/35 bg-[#D4AF37]/10 px-4 py-3 text-[12px] uppercase tracking-[0.18em] text-[#f6e6a7]">
-                    Message sent. I will receive it by email.
+                    {ui.sent}
                   </div>
                 )}
 
@@ -237,7 +329,7 @@ export default function Contact() {
               </button>
 
               <div className="mt-6">
-                <SectionTitle over="Social links" title="Official profiles" />
+                <SectionTitle over={ui.socialOver} title={ui.socialTitle} />
                 <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
                   {SOCIAL_LINKS.map((link) => (
                     <a
@@ -245,7 +337,7 @@ export default function Contact() {
                       href={link.url}
                       target="_blank"
                       rel="noreferrer"
-                      aria-label={`Open ${link.label}`}
+                      aria-label={`${ui.openSocial} ${link.label}`}
                       className="rounded-[8px] border border-white/10 bg-white/[0.04] px-4 py-3 transition hover:border-[#D4AF37]/55 hover:bg-[#D4AF37]/10"
                     >
                       <span className="block text-[10px] font-bold uppercase tracking-[0.24em] text-[#f6e6a7]">
@@ -258,7 +350,7 @@ export default function Contact() {
               </div>
 
               <div className="mt-6 flex flex-wrap gap-2">
-                <Tag href={THREADS_LINK.url} label={`Open ${THREADS_LINK.label}`}>
+                <Tag href={THREADS_LINK.url} label={`${ui.openSocial} ${THREADS_LINK.label}`}>
                   {THREADS_LINK.handle}
                 </Tag>
               </div>
@@ -284,7 +376,7 @@ export default function Contact() {
 
 function Card({ children }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
+    <div className="h-full rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
       {children}
     </div>
   );
@@ -329,8 +421,8 @@ function Tag({ children, href, label }) {
 
 function Meta({ label, value }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-      <div className="text-[12px] tracking-[0.22em] uppercase text-white/55">{label}</div>
+    <div className="h-full rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+      <div className="break-words text-[12px] leading-5 tracking-[0.18em] uppercase text-white/55 md:tracking-[0.22em]">{label}</div>
       <div className="mt-2 text-[14px] text-white/75">{value}</div>
     </div>
   );

@@ -2,12 +2,12 @@ export default function SectionTitle({ over, title, desc }) {
   return (
     <div>
       {over && (
-        <div className="text-[11px] tracking-[0.35em] uppercase text-white/55">
+        <div className="break-words text-[11px] leading-5 tracking-[0.22em] uppercase text-white/55 md:tracking-[0.35em]">
           {over}
         </div>
       )}
 
-      <h2 className="mt-2 text-[22px] font-[900] tracking-[-0.01em] md:text-[28px]">
+      <h2 className="mt-2 break-words text-[22px] font-[900] leading-tight md:text-[28px]">
         <span
           className="bg-clip-text text-transparent"
           style={{

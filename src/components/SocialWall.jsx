@@ -4,14 +4,46 @@ import { fallbackSocialPosts, fetchSocialPosts } from "../lib/socialFeed";
 import portrait from "../assets/ph_zel_2.jpg";
 
 const categoryLabels = {
-  all: "All",
-  philosophy: "Philosophy",
-  "dima-photo": "Dima photos",
-  backstage: "Backstage",
-  cinema: "Cinema",
-  brand: "Brand",
-  work: "Work",
-  archive: "Archive",
+  en: {
+    all: "All",
+    philosophy: "Philosophy",
+    "dima-photo": "Dima photos",
+    backstage: "Backstage",
+    cinema: "Cinema",
+    brand: "Brand",
+    work: "Work",
+    archive: "Archive",
+  },
+  ru: {
+    all: "Все",
+    philosophy: "Мысли",
+    "dima-photo": "Фото Димы",
+    backstage: "За кадром",
+    cinema: "Кино",
+    brand: "Бренд",
+    work: "Работа",
+    archive: "Архив",
+  },
+  fr: {
+    all: "Tout",
+    philosophy: "Philosophie",
+    "dima-photo": "Photos de Dima",
+    backstage: "Coulisses",
+    cinema: "Cinéma",
+    brand: "Marque",
+    work: "Travail",
+    archive: "Archive",
+  },
+  am: {
+    all: "Բոլորը",
+    philosophy: "Մտքեր",
+    "dima-photo": "Դիմայի լուսանկարներ",
+    backstage: "Կուլիսներ",
+    cinema: "Կինո",
+    brand: "Բրենդ",
+    work: "Աշխատանք",
+    archive: "Արխիվ",
+  },
 };
 
 const copy = {
@@ -26,34 +58,61 @@ const copy = {
     sources: "Source",
   },
   ru: {
-    kicker: "Live social archive",
-    title: "Social photos, curated like a private magazine.",
-    desc: "One premium feed for Instagram, VK, Pinterest, Facebook, and future channels.",
-    all: "All",
-    open: "Open post",
-    loading: "Loading social photos",
-    categories: "Sort by signal",
-    sources: "Source",
+    kicker: "Живой social-архив",
+    title: "Каждый пост становится частью визуального архива.",
+    desc: "Единая премиальная лента для Instagram, VK, Pinterest, Facebook и будущих каналов.",
+    all: "Все",
+    open: "Открыть пост",
+    loading: "Загружаем social-фото",
+    categories: "Сортировка по сигналу",
+    sources: "Источник",
   },
   fr: {
-    kicker: "Live social archive",
-    title: "Every post becomes part of the visual vault.",
-    desc: "A premium feed for Instagram, VK, Pinterest, Facebook, and future channels.",
-    all: "All",
-    open: "Open post",
-    loading: "Loading social photos",
-    categories: "Sort by signal",
+    kicker: "Archive sociale live",
+    title: "Chaque post rejoint le coffre visuel.",
+    desc: "Un feed premium pour Instagram, VK, Pinterest, Facebook et les futurs canaux.",
+    all: "Tout",
+    open: "Ouvrir le post",
+    loading: "Chargement des photos sociales",
+    categories: "Tri par signal",
     sources: "Source",
   },
   am: {
-    kicker: "Live social archive",
-    title: "Every post becomes part of the visual vault.",
-    desc: "A premium feed for Instagram, VK, Pinterest, Facebook, and future channels.",
-    all: "All",
-    open: "Open post",
-    loading: "Loading social photos",
-    categories: "Sort by signal",
-    sources: "Source",
+    kicker: "Կենդանի social արխիվ",
+    title: "Յուրաքանչյուր հրապարակում դառնում է տեսողական արխիվի մաս։",
+    desc: "Պրեմիում մեկ հոսք Instagram-ի, VK-ի, Pinterest-ի, Facebook-ի և ապագա ալիքների համար։",
+    all: "Բոլորը",
+    open: "Բացել հրապարակումը",
+    loading: "Բեռնվում են social լուսանկարները",
+    categories: "Տեսակավորում ըստ ազդակի",
+    sources: "Աղբյուր",
+  },
+};
+
+const fallbackTitleCopy = {
+  ru: {
+    "fallback-instagram-01": "Актёрский портрет 2026",
+    "fallback-vk-01": "Выбор выше статуса",
+    "fallback-pinterest-01": "Мальчик, который смотрит дальше",
+    "fallback-facebook-01": "Актёр нового поколения",
+    "fallback-instagram-02": "Актёрский манифест",
+    "fallback-pinterest-02": "Персонаж создаёт роль",
+  },
+  fr: {
+    "fallback-instagram-01": "Portrait acteur 2026",
+    "fallback-vk-01": "Le choix au-delà du statut",
+    "fallback-pinterest-01": "Le garçon qui regarde au-delà",
+    "fallback-facebook-01": "Acteur nouvelle génération",
+    "fallback-instagram-02": "Manifeste d'acteur",
+    "fallback-pinterest-02": "Le personnage crée le rôle",
+  },
+  am: {
+    "fallback-instagram-01": "Դերասանի դիմանկար 2026",
+    "fallback-vk-01": "Ընտրություն կարգավիճակից վեր",
+    "fallback-pinterest-01": "Տղան, որը նայում է հեռուն",
+    "fallback-facebook-01": "Նոր սերնդի դերասան",
+    "fallback-instagram-02": "Դերասանական մանիֆեստ",
+    "fallback-pinterest-02": "Կերպարը ստեղծում է դերը",
   },
 };
 
@@ -73,6 +132,8 @@ export default function SocialWall({ lang = "en" }) {
   const [activePlatform, setActivePlatform] = useState("all");
   const [loading, setLoading] = useState(true);
   const text = copy[lang] || copy.en;
+  const labels = categoryLabels[lang] || categoryLabels.en;
+  const localizedTitles = fallbackTitleCopy[lang] || {};
 
   useEffect(() => {
     const controller = new AbortController();
@@ -143,7 +204,7 @@ export default function SocialWall({ lang = "en" }) {
               label={text.categories}
               items={categories}
               active={activeCategory}
-              getLabel={(category) => categoryLabels[category] || category}
+              getLabel={(category) => labels[category] || category}
               onChange={setActiveCategory}
             />
             <FilterGroup
@@ -158,7 +219,13 @@ export default function SocialWall({ lang = "en" }) {
 
         <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {filteredPosts.map((post, index) => (
-            <SocialCard key={post.id} post={post} index={index} openLabel={text.open} />
+            <SocialCard
+              key={post.id}
+              post={{ ...post, title: localizedTitles[post.id] || post.title }}
+              index={index}
+              openLabel={text.open}
+              categoryLabels={labels}
+            />
           ))}
         </div>
 
@@ -203,7 +270,7 @@ function FilterGroup({ label, items, active, getLabel, onChange }) {
   );
 }
 
-function SocialCard({ post, index, openLabel }) {
+function SocialCard({ post, index, openLabel, categoryLabels: labels }) {
   const large = index === 0 || index === 4;
   const href = post.url || undefined;
 
@@ -250,7 +317,7 @@ function SocialCard({ post, index, openLabel }) {
           {post.title}
         </div>
         <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-3 text-[9px] uppercase tracking-[0.22em] text-white/[0.42]">
-          <span>{categoryLabels[post.category] || post.tone}</span>
+          <span>{labels[post.category] || post.tone}</span>
           {href && <span className="text-[#d4af37]">{openLabel}</span>}
         </div>
       </div>

@@ -13,15 +13,15 @@ function Tile({ to, title, over, open, index }) {
   return (
     <Link
       to={to}
-      className="group relative overflow-hidden rounded-[8px] border border-white/10 bg-black/55 p-6 transition-all duration-300 hover:border-[#d4af37]/55 hover:bg-[#0d0b07]"
+      className="group relative flex h-full min-h-[190px] flex-col overflow-hidden rounded-[8px] border border-white/10 bg-black/55 p-6 transition-all duration-300 hover:border-[#d4af37]/55 hover:bg-[#0d0b07]"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af37]/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-      <div className="relative">
+      <div className="relative flex flex-1 flex-col">
         <div className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#d4af37]/80">
           {over}
         </div>
-        <div className="mt-3 text-[23px] font-black leading-tight text-white">{title}</div>
-        <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] uppercase tracking-[0.24em] text-white/[0.42] transition group-hover:text-[#f6e6a7]">
+        <div className="mt-3 min-h-[3.5rem] text-[23px] font-black leading-tight text-white">{title}</div>
+        <div className="mt-auto flex items-center justify-between gap-4 border-t border-white/10 pt-4 text-[10px] uppercase tracking-[0.24em] text-white/[0.42] transition group-hover:text-[#f6e6a7]">
           <span>{open}</span>
           <span className="text-[#d4af37]">{number}</span>
         </div>
@@ -40,15 +40,45 @@ const fadeUp = {
   }),
 };
 
-const signals = [
-  { k: "NOIR", v: "Controlled" },
-  { k: "GOLD", v: "Premium" },
-  { k: "GLOBAL", v: "Selective" },
-];
+const homePageCopy = {
+  en: {
+    privateIndex: "Private index",
+    signals: [
+      { k: "NOIR", v: "Controlled" },
+      { k: "GOLD", v: "Premium" },
+      { k: "GLOBAL", v: "Selective" },
+    ],
+  },
+  ru: {
+    privateIndex: "Приватный индекс",
+    signals: [
+      { k: "NOIR", v: "Контроль" },
+      { k: "GOLD", v: "Премиум" },
+      { k: "GLOBAL", v: "Выборочно" },
+    ],
+  },
+  fr: {
+    privateIndex: "Index privé",
+    signals: [
+      { k: "NOIR", v: "Maîtrisé" },
+      { k: "GOLD", v: "Premium" },
+      { k: "GLOBAL", v: "Sélectif" },
+    ],
+  },
+  am: {
+    privateIndex: "Փրիվատ ինդեքս",
+    signals: [
+      { k: "NOIR", v: "Վերահսկվող" },
+      { k: "GOLD", v: "Պրեմիում" },
+      { k: "GLOBAL", v: "Ընտրված" },
+    ],
+  },
+};
 
 export default function Home() {
   const { lang = "en" } = useParams();
   const c = t(lang);
+  const page = homePageCopy[lang] || homePageCopy.en;
 
   useSeo({
     title: c.seo.baseTitle,
@@ -147,7 +177,7 @@ export default function Home() {
             custom={3}
             className="mt-12 grid max-w-3xl grid-cols-1 border border-white/10 bg-black/35 backdrop-blur sm:grid-cols-3"
           >
-            {signals.map((item) => (
+            {page.signals.map((item) => (
               <div key={item.k} className="border-b border-white/10 p-4 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0">
                 <div className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#d4af37]">
                   {item.k}
@@ -168,7 +198,7 @@ export default function Home() {
               {c.home.tileOverline}
             </div>
             <h2 className="mt-3 text-[30px] font-black uppercase leading-none text-white md:text-[44px]">
-              Private index
+              {page.privateIndex}
             </h2>
           </div>
           <div className="hidden h-px flex-1 bg-gradient-to-r from-[#d4af37]/45 to-transparent md:block" />

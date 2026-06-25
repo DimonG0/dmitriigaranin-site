@@ -75,7 +75,7 @@ const content = {
     ctaContact: "Contact",
   },
   ru: {
-    pill: "About",
+    pill: "О себе",
     title: "Дмитрий Гаранин",
     strap: "Актер с бэкграундом в креативе, IT и продуктовой логике",
     lead:
@@ -134,6 +134,126 @@ const content = {
     ctaPortfolio: "Открыть портфолио",
     ctaContact: "Контакт",
   },
+  fr: {
+    pill: "À propos",
+    title: "Dmitrii Garanin",
+    strap: "Acteur avec une base créative, IT et produit",
+    lead:
+      "Dmitrii Garanin construit une trajectoire d'acteur à partir d'une base inhabituelle : discipline de management, pensée produit digitale, projets médias corporate, exposition internationale et formation d'acteur au VGIK.",
+    origin:
+      "Le parcours compte : ce n'est pas une vitrine aléatoire, mais une progression lisible du business, des présentations et des médias vers le jeu, les personnages, le théâtre, le cinéma, la voix et l'image éditoriale.",
+    facts: [
+      ["Base", "Management, IT, logique de présentation"],
+      ["Formation", "VGIK, formation et diplôme d'acteur"],
+      ["Focus actuel", "Cinéma, théâtre, voix, projets éditoriaux"],
+    ],
+    timelineTitle: "Chronologie d'origine",
+    timeline: [
+      {
+        label: "Business et produit",
+        title: "Management d'abord, scène ensuite",
+        text:
+          "La première base n'était pas seulement créative. Elle réunissait management, pensée système, produits digitaux et capacité à présenter clairement des idées complexes.",
+      },
+      {
+        label: "KAMAZ et médias de conférence",
+        title: "Projets à grande échelle",
+        text:
+          "Le chapitre KAMAZ/conférences appartient au côté pratique de la biographie : médias, présentation, coordination et travail autour d'un grand contexte industriel.",
+      },
+      {
+        label: "Expo Dubai",
+        title: "Perspective internationale",
+        text:
+          "Le voyage à l'Expo de Dubai a ajouté un repère global : pavillons, narration nationale, technologie, flux d'audience et échelle de présentation publique.",
+      },
+      {
+        label: "VGIK",
+        title: "Formation d'acteur et diplôme",
+        text:
+          "Le VGIK représente le chapitre formel du jeu : métier, discipline, conscience caméra, langage scénique, construction du personnage et cadre artistique professionnel.",
+      },
+      {
+        label: "Aujourd'hui",
+        title: "Acteur, créatif, présence digitale",
+        text:
+          "La direction actuelle relie jeu, théâtre, écran, voix, portrait éditorial et portfolio digital premium autour d'une identité publique claire.",
+      },
+    ],
+    projectsTitle: "Ce qui appartient ici",
+    projects: [
+      "Médias et présentations liés à KAMAZ et aux conférences",
+      "Photos et matériaux médias issus de contextes d'exposition ou de conférence",
+      "Voyage à l'Expo Dubai et références visuelles internationales",
+      "Fin du VGIK et matériaux de portfolio acteur",
+      "Cinéma, théâtre, voix off, publicité et positionnement fashion",
+    ],
+    sourcesTitle: "Liens publics",
+    sourcesIntro:
+      "Profils ouverts et liens de contexte pour la présence publique. Les articles précis pourront être ajoutés ici dès qu'ils seront envoyés ou confirmés.",
+    ctaPortfolio: "Ouvrir le portfolio",
+    ctaContact: "Contact",
+  },
+  am: {
+    pill: "Իմ մասին",
+    title: "Դմիտրի Գարանին",
+    strap: "Դերասան՝ կրեատիվ, IT և պրոդուկտային հիմքով",
+    lead:
+      "Դմիտրի Գարանինը դերասանական ճանապարհ է կառուցում ոչ սովորական հիմքից՝ մենեջմենթ, թվային պրոդուկտային մտածողություն, կորպորատիվ մեդիա նախագծեր, միջազգային փորձ և դերասանական կրթություն ՎԳԻԿ-ում։",
+    origin:
+      "Այս ճանապարհը կարևոր է. սա պատահական լուսանկարների հավաքածու չէ, այլ տեսանելի անցում բիզնեսից, ներկայացումներից և մեդիայից դեպի դերասանություն, կերպար, թատրոն, կինո, ձայն և խմբագրական կերպար։",
+    facts: [
+      ["Հիմք", "Մենեջմենթ, IT, ներկայացման տրամաբանություն"],
+      ["Դերասանական դպրոց", "ՎԳԻԿ, դերասանական պատրաստում և ավարտ"],
+      ["Ներկայիս ֆոկուս", "Կինո, թատրոն, ձայն, խմբագրական նախագծեր"],
+    ],
+    timelineTitle: "Սկզբի ժամանակագիծ",
+    timeline: [
+      {
+        label: "Բիզնես և պրոդուկտային հիմք",
+        title: "Սկզբում կառավարում, հետո բեմ",
+        text:
+          "Առաջին հիմքը միայն ստեղծագործական չէր. այն ներառում էր մենեջմենթ, համակարգային մտածողություն, թվային պրոդուկտներ և բարդ գաղափարները պարզ ներկայացնելու հմտություն։",
+      },
+      {
+        label: "KAMAZ և կոնֆերանսների մեդիա",
+        title: "Մեծ մասշտաբի նախագծեր",
+        text:
+          "KAMAZ-ի և կոնֆերանսների փուլը կենսագրության գործնական կողմն է՝ մեդիա, ներկայացումներ, համակարգում և աշխատանք մեծ արդյունաբերական բրենդի համատեքստում։",
+      },
+      {
+        label: "Expo Dubai",
+        title: "Միջազգային դիտանկյուն",
+        text:
+          "Dubai Expo-ի այցը ավելացրեց գլոբալ հղում՝ պավիլիոններ, ազգային պատմում, տեխնոլոգիա, հանդիսատեսի հոսք և հանրային ներկայացման մասշտաբ։",
+      },
+      {
+        label: "ՎԳԻԿ",
+        title: "Դերասանական կրթություն և ավարտ",
+        text:
+          "ՎԳԻԿ-ը դերասանական ճանապարհի պաշտոնական գլուխն է՝ վարպետություն, կարգապահություն, տեսախցիկի գիտակցում, բեմական լեզու, կերպարի կառուցում և մասնագիտական գեղարվեստական շրջանակ։",
+      },
+      {
+        label: "Հիմա",
+        title: "Դերասան, կրեատիվ, թվային ներկայություն",
+        text:
+          "Ներկայիս ուղղությունը միավորում է դերասանություն, թատրոն և էկրան, ձայն, խմբագրական դիմանկար և պրեմիում թվային պորտֆոլիո՝ հստակ հանրային ինքնությամբ։",
+      },
+    ],
+    projectsTitle: "Ինչ է ներառված այստեղ",
+    projects: [
+      "KAMAZ-ի և կոնֆերանսների հետ կապված մեդիա / ներկայացման նախագծեր",
+      "Ցուցահանդեսային կամ կոնֆերանսային համատեքստերի լուսանկարներ և մեդիա նյութեր",
+      "Expo Dubai այց և միջազգային տեսողական հղումներ",
+      "ՎԳԻԿ-ի ավարտ և դերասանական պորտֆոլիոյի նյութեր",
+      "Կինո, թատրոն, ձայնագրում, գովազդ և fashion դիրքավորում",
+    ],
+    sourcesTitle: "Հանրային հղումներ",
+    sourcesIntro:
+      "Բաց պրոֆիլներ և համատեքստային հղումներ հանրային ներկայության համար։ Ճշգրիտ հոդվածները կարելի է ավելացնել այստեղ, երբ դրանք ուղարկվեն կամ հաստատվեն։",
+    ctaPortfolio: "Բացել պորտֆոլիոն",
+    ctaContact: "Կապ",
+  },
 };
 
 const contextLinks = [
@@ -163,13 +283,13 @@ export default function About() {
               {page.pill}
             </div>
 
-            <h1 className="mt-6 text-[42px] font-[900] leading-[0.98] tracking-[-0.02em] md:text-[68px]">
+            <h1 className="mt-6 break-words text-[42px] font-[900] leading-[0.98] md:text-[68px]">
               <span className="bg-gradient-to-r from-white via-[#f6e6a7] to-[#D4AF37] bg-clip-text text-transparent">
                 {page.title}
               </span>
             </h1>
 
-            <p className="mt-4 text-[12px] font-semibold uppercase tracking-[0.34em] text-white/55">
+            <p className="mt-4 max-w-3xl text-[12px] font-semibold uppercase leading-6 tracking-[0.24em] text-white/55 md:tracking-[0.34em]">
               {page.strap}
             </p>
           </div>
@@ -187,7 +307,7 @@ export default function About() {
           className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3"
         >
           {page.facts.map(([label, value]) => (
-            <div key={label} className="rounded-[8px] border border-white/10 bg-white/[0.04] p-5">
+            <div key={label} className="h-full rounded-[8px] border border-white/10 bg-white/[0.04] p-5">
               <div className="text-[10px] font-bold uppercase tracking-[0.26em] text-[#D4AF37]">
                 {label}
               </div>
@@ -243,7 +363,7 @@ export default function About() {
             className="lg:col-span-7"
           >
             <div className="mb-5 flex items-end justify-between gap-4">
-              <h2 className="text-[28px] font-[900] uppercase leading-none text-white md:text-[38px]">
+              <h2 className="text-[28px] font-[900] uppercase leading-tight text-white md:text-[38px]">
                 {page.timelineTitle}
               </h2>
               <div className="hidden h-px flex-1 bg-gradient-to-r from-[#D4AF37]/45 to-transparent md:block" />
@@ -265,7 +385,7 @@ export default function About() {
           className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-12"
         >
           <div className="lg:col-span-5">
-            <h2 className="text-[26px] font-[900] uppercase leading-none text-white md:text-[34px]">
+            <h2 className="text-[26px] font-[900] uppercase leading-tight text-white md:text-[34px]">
               {page.projectsTitle}
             </h2>
             <div className="mt-5 space-y-2">
@@ -279,7 +399,7 @@ export default function About() {
           </div>
 
           <div className="lg:col-span-7">
-            <h2 className="text-[26px] font-[900] uppercase leading-none text-white md:text-[34px]">
+            <h2 className="text-[26px] font-[900] uppercase leading-tight text-white md:text-[34px]">
               {page.sourcesTitle}
             </h2>
             <p className="mt-4 max-w-2xl text-[14px] leading-7 text-white/62">{page.sourcesIntro}</p>
@@ -335,13 +455,13 @@ export default function About() {
 
 function TimelineItem({ item, index }) {
   return (
-    <div className="grid grid-cols-[52px_1fr] gap-4 rounded-[8px] border border-white/10 bg-white/[0.035] p-4">
+    <div className="grid grid-cols-[52px_minmax(0,1fr)] gap-4 rounded-[8px] border border-white/10 bg-white/[0.035] p-4">
       <div className="text-[11px] font-black text-[#D4AF37]">{String(index + 1).padStart(2, "0")}</div>
-      <div>
-        <div className="text-[10px] font-bold uppercase tracking-[0.26em] text-white/42">
+      <div className="min-w-0">
+        <div className="break-words text-[10px] font-bold uppercase leading-5 tracking-[0.2em] text-white/42 md:tracking-[0.26em]">
           {item.label}
         </div>
-        <div className="mt-2 text-[18px] font-[900] text-white">{item.title}</div>
+        <div className="mt-2 break-words text-[18px] font-[900] leading-tight text-white">{item.title}</div>
         <p className="mt-2 text-[14px] leading-7 text-white/66">{item.text}</p>
       </div>
     </div>

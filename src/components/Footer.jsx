@@ -3,6 +3,33 @@ import { t } from "../lib/i18n";
 import { LANGS } from "../lib/routes";
 import { SOCIAL_LINKS } from "../lib/socialLinks";
 
+const footerCopy = {
+  en: {
+    rights: "All rights reserved",
+    contact: "Private contact",
+    mood: "NOIR • GOLD • CONTROLLED",
+    openSocial: "Open",
+  },
+  ru: {
+    rights: "Все права защищены",
+    contact: "Приватный контакт",
+    mood: "НУАР • ЗОЛОТО • КОНТРОЛЬ",
+    openSocial: "Открыть",
+  },
+  fr: {
+    rights: "Tous droits réservés",
+    contact: "Contact privé",
+    mood: "NOIR • OR • MAÎTRISÉ",
+    openSocial: "Ouvrir",
+  },
+  am: {
+    rights: "Բոլոր իրավունքները պաշտպանված են",
+    contact: "Փրիվատ կապ",
+    mood: "ՆՈՒԱՐ • ՈՍԿԻ • ՎԵՐԱՀՍԿՈՒՄ",
+    openSocial: "Բացել",
+  },
+};
+
 export default function Footer() {
   const { lang } = useParams();
   const safeLang = LANGS.includes(lang) ? lang : "en";
@@ -13,8 +40,9 @@ export default function Footer() {
 
   const brand = copy?.brand ?? "Dmitrii Garanin";
   const tagline = copy?.tagline ?? "";
-  const rights = copy?.footer?.rights ?? "All rights reserved";
-  const contactLabel = copy?.footer?.contact ?? "Private contact";
+  const footer = footerCopy[safeLang] || footerCopy.en;
+  const rights = footer.rights;
+  const contactLabel = footer.contact;
 
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-black">
@@ -71,7 +99,7 @@ export default function Footer() {
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`Open ${link.label}`}
+                  aria-label={`${footer.openSocial} ${link.label}`}
                   className="rounded-[8px] border border-white/10 bg-white/[0.035] px-3 py-2 text-[9px] font-bold uppercase tracking-[0.22em] text-white/45 transition hover:border-[#D4AF37]/55 hover:text-[#f6e6a7]"
                 >
                   {link.label}
@@ -86,7 +114,7 @@ export default function Footer() {
 
         {/* ===== FOOT BAR ===== */}
         <div className="mt-5 flex items-center justify-between text-[10px] tracking-[0.35em] uppercase text-white/35">
-          <span>NOIR &bull; GOLD &bull; CONTROLLED</span>
+          <span>{footer.mood}</span>
           <span>{safeLang.toUpperCase()}</span>
         </div>
       </div>
