@@ -1,6 +1,6 @@
 import { motion as Motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
-import { fallbackSocialPosts, fetchSocialPosts } from "../lib/socialFeed";
+import { fallbackSocialPosts, fetchSocialPosts, russianSocialPosts } from "../lib/socialFeed";
 import portrait from "../assets/ph_zel_2.jpg";
 
 const categoryLabels = {
@@ -134,8 +134,14 @@ export default function SocialWall({ lang = "en" }) {
   const text = copy[lang] || copy.en;
   const labels = categoryLabels[lang] || categoryLabels.en;
   const localizedTitles = fallbackTitleCopy[lang] || {};
+  const displayPosts = lang === "ru" ? russianSocialPosts : posts;
+  const isLoading = lang === "ru" ? false : loading;
 
   useEffect(() => {
+    if (lang === "ru") {
+      return undefined;
+    }
+
     const controller = new AbortController();
 
     fetchSocialPosts(controller.signal)
@@ -148,19 +154,19 @@ export default function SocialWall({ lang = "en" }) {
       });
 
     return () => controller.abort();
-  }, []);
+  }, [lang]);
 
   const platforms = useMemo(() => {
-    const names = Array.from(new Set(posts.map((post) => post.platform).filter(Boolean)));
+    const names = Array.from(new Set(displayPosts.map((post) => post.platform).filter(Boolean)));
     return ["all", ...names];
-  }, [posts]);
+  }, [displayPosts]);
 
   const categories = useMemo(() => {
-    const names = Array.from(new Set(posts.map((post) => post.category).filter(Boolean)));
+    const names = Array.from(new Set(displayPosts.map((post) => post.category).filter(Boolean)));
     return ["all", ...names];
-  }, [posts]);
+  }, [displayPosts]);
 
-  const filteredPosts = posts.filter((post) => {
+  const filteredPosts = displayPosts.filter((post) => {
     const categoryMatch = activeCategory === "all" || post.category === activeCategory;
     const platformMatch = activePlatform === "all" || post.platform === activePlatform;
     return categoryMatch && platformMatch;
@@ -229,7 +235,7 @@ export default function SocialWall({ lang = "en" }) {
           ))}
         </div>
 
-        {loading && (
+        {isLoading && (
           <div className="mt-5 text-[10px] uppercase tracking-[0.28em] text-white/35">
             {text.loading}
           </div>

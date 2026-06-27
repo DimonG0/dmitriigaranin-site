@@ -153,6 +153,49 @@ export const fallbackSocialPosts = [
   },
 ];
 
+export const russianSocialPosts = [
+  {
+    id: "ru-social-official-portrait",
+    platform: "Instagram",
+    title: "Остаться собой",
+    date: "2026",
+    image: "/portfolio-media/ru-social-official-portrait-luxury.png",
+    url: SOCIAL_URLS.instagram,
+    tone: "portrait",
+    category: "dima-photo",
+  },
+  {
+    id: "ru-social-winter-portrait",
+    platform: "VK",
+    title: "Искусство начинается",
+    date: "2025",
+    image: "/portfolio-media/ru-social-winter-portrait.png",
+    url: SOCIAL_URLS.vk,
+    tone: "cinema",
+    category: "cinema",
+  },
+  {
+    id: "ru-social-pool-portrait",
+    platform: "Pinterest",
+    title: "Мечты работают",
+    date: "2025",
+    image: "/portfolio-media/ru-social-pool-portrait.png",
+    url: SOCIAL_URLS.pinterest,
+    tone: "brand",
+    category: "brand",
+  },
+  {
+    id: "ru-social-cinematic-snow",
+    platform: "Facebook",
+    title: "Характер создает роль",
+    date: "2025",
+    image: "/portfolio-media/ru-social-cinematic-snow.png",
+    url: SOCIAL_URLS.facebook,
+    tone: "character",
+    category: "cinema",
+  },
+];
+
 export function normalizeSocialPosts(payload) {
   const list = Array.isArray(payload) ? payload : payload?.items;
   if (!Array.isArray(list)) return fallbackSocialPosts;
