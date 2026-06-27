@@ -83,6 +83,7 @@ function upsertJsonLd(id, data) {
 export function useSeo({
   title,
   description,
+  keywords,
   url,
   lang = "en",
   image = DEFAULT_SEO_IMAGE,
@@ -120,6 +121,7 @@ export function useSeo({
     =========================== */
 
     upsertMeta({ attr: "name", key: "description", content: description });
+    upsertMeta({ attr: "name", key: "keywords", content: keywords });
     upsertMeta({
       attr: "name",
       key: "robots",
@@ -206,8 +208,8 @@ export function useSeo({
       console.info(
         "%c[SEO]",
         "color:#D4AF37;font-weight:bold;",
-        { title, description, url, lang: safeLang, alternates, structuredData }
+        { title, description, keywords, url, lang: safeLang, alternates, structuredData }
       );
     }
-  }, [title, description, url, lang, image, imageAlt, alternates, siteName, type, structuredData, noIndex]);
+  }, [title, description, keywords, url, lang, image, imageAlt, alternates, siteName, type, structuredData, noIndex]);
 }

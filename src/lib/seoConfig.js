@@ -4,6 +4,33 @@ export const SITE_ORIGIN = "https://dmitriigaranin.com";
 export const SITE_NAME = "Dmitrii Garanin";
 export const DEFAULT_SEO_IMAGE = `${SITE_ORIGIN}/portfolio-media/dmitrii-headshot-2026.jpg`;
 
+export const PORTFOLIO_IMAGE_SITEMAP_ITEMS = [
+  {
+    loc: `${SITE_ORIGIN}/portfolio-media/dmitrii-garanin-official-photo-2026.jpg`,
+    title: "Dmitrii Garanin official actor photo 2026",
+    caption:
+      "Official actor photo of Dmitrii Garanin for casting, biography, VGIK actor portfolio and media references.",
+  },
+  {
+    loc: `${SITE_ORIGIN}/portfolio-media/dmitriy-garanin-akter-vgik-portret-na-kryshe-goroda.jpg`,
+    title: "Dmitriy Garanin actor VGIK rooftop city portrait",
+    caption:
+      "Cinematic rooftop portrait of Dmitriy Garanin, actor portfolio image for cinema, VGIK and editorial search.",
+  },
+  {
+    loc: `${SITE_ORIGIN}/portfolio-media/dmitrii-garanin-actor-vgik-tropical-portrait.jpg`,
+    title: "Dmitrii Garanin actor VGIK tropical portrait",
+    caption:
+      "Tropical editorial portrait of Dmitrii Garanin for actor portfolio, media presence and international visual identity.",
+  },
+  {
+    loc: `${SITE_ORIGIN}/portfolio-media/dmitry-garanin-actor-vgik-cinematic-portrait-pool.jpg`,
+    title: "Dmitry Garanin actor VGIK cinematic pool portrait",
+    caption:
+      "Cinematic poolside actor portrait of Dmitry Garanin for casting materials, portfolio discovery and image search.",
+  },
+];
+
 export const SEO_LOCALES = {
   en: "en_US",
   ru: "ru_RU",
@@ -38,9 +65,11 @@ export const ROUTE_SEO = {
         "Biography of Dmitrii Garanin: actor, VGIK training, cinema and theatre direction, corporate media experience, international references and creative projects.",
     },
     portfolio: {
-      title: "Dmitrii Garanin Portfolio — Films, Series, Cinema and Blogger Projects",
+      title: "Dmitrii Garanin — Actor Portfolio, VGIK Portraits and Official Photos",
       description:
-        "Actor portfolio of Dmitrii Garanin with film, series, cinema, editorial and blogger project materials for casting, collaborations and premium media positioning.",
+        "Official actor portfolio of Dmitrii Garanin with VGIK actor portraits, cinematic photos, casting materials, editorial images, cinema, series and media projects.",
+      keywords:
+        "Dmitrii Garanin, Dmitry Garanin, Dmitrii Garanin actor, VGIK actor, actor portfolio, official actor photo, cinematic portrait, casting portrait",
     },
     reviews: {
       title: "Reviews and Professional Signals — Dmitrii Garanin Actor",
@@ -70,9 +99,11 @@ export const ROUTE_SEO = {
         "Биография Дмитрия Гаранина: актер, обучение во ВГИК, кино и театр, корпоративные медиа-проекты, международный опыт и творческий путь.",
     },
     portfolio: {
-      title: "Портфолио Дмитрия Гаранина — фильмы, сериалы, кино, блогеры",
+      title: "Дмитрий Гаранин — актёр ВГИК, портфолио и официальные фото",
       description:
-        "Актерское портфолио Дмитрия Гаранина: фильмы, сериалы, кино, проекты с блогерами, editorial-портреты, материалы для кастинга и сотрудничества.",
+        "Кто такой Дмитрий Гаранин: актёр с обучением во ВГИК, официальное портфолио, актёрские фото, кинематографичные портреты, кастинг, кино и медиа-проекты.",
+      keywords:
+        "Дмитрий Гаранин, кто такой Дмитрий Гаранин, Дмитрий Гаранин актер, Дмитрий Гаранин актёр, актер ВГИК, актёр ВГИК, портфолио актера, актерские фото, официальное фото Дмитрия Гаранина",
     },
     reviews: {
       title: "Отзывы и рекомендации — Дмитрий Гаранин, актер",
@@ -102,9 +133,11 @@ export const ROUTE_SEO = {
         "Biographie de Dmitrii Garanin : acteur, formation au VGIK, cinéma, théâtre, expérience média corporate, références internationales et projets créatifs.",
     },
     portfolio: {
-      title: "Portfolio Dmitrii Garanin — films, séries, cinéma et blogueurs",
+      title: "Dmitrii Garanin — portfolio acteur, VGIK et photos officielles",
       description:
-        "Portfolio acteur de Dmitrii Garanin avec matériaux cinéma, séries, projets éditoriaux et collaborations blogueurs pour casting et médias premium.",
+        "Portfolio officiel de l'acteur Dmitrii Garanin : portraits d'acteur VGIK, photos cinématographiques, casting, images éditoriales, cinéma, séries et médias.",
+      keywords:
+        "Dmitrii Garanin, Dmitry Garanin, acteur Dmitrii Garanin, acteur VGIK, portfolio acteur, photo officielle acteur, portrait cinéma",
     },
     reviews: {
       title: "Avis et signaux professionnels — Dmitrii Garanin acteur",
@@ -134,9 +167,11 @@ export const ROUTE_SEO = {
         "Դմիտրի Գարանինի կենսագրությունը՝ դերասան, ՎԳԻԿ, կինո և թատրոն, կորպորատիվ մեդիա նախագծեր, միջազգային փորձ և ստեղծագործական ուղի։",
     },
     portfolio: {
-      title: "Դմիտրի Գարանինի պորտֆոլիո — ֆիլմեր, սերիալներ, կինո և բլոգերներ",
+      title: "Դմիտրի Գարանին — դերասանական պորտֆոլիո, ՎԳԻԿ և պաշտոնական լուսանկարներ",
       description:
-        "Դերասանական պորտֆոլիո՝ ֆիլմեր, սերիալներ, կինո, բլոգերների նախագծեր, editorial դիմանկարներ և նյութեր քասթինգի համար։",
+        "Դմիտրի Գարանինի պաշտոնական դերասանական պորտֆոլիո՝ ՎԳԻԿ դիմանկարներ, կինեմատոգրաֆիկ լուսանկարներ, քասթինգի նյութեր, կինո, սերիալներ և մեդիա նախագծեր։",
+      keywords:
+        "Դմիտրի Գարանին, Դմիտրի Գարանին դերասան, ՎԳԻԿ դերասան, դերասանական պորտֆոլիո, պաշտոնական դերասանական լուսանկար, կինեմատոգրաֆիկ դիմանկար",
     },
     reviews: {
       title: "Կարծիքներ և մասնագիտական ազդակներ — Դմիտրի Գարանին",

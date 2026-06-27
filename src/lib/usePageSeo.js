@@ -27,103 +27,167 @@ const PERSON_KNOWS_ABOUT = {
   am: ["դերասան", "կինո", "սերիալներ", "թատրոն", "ձայն", "դերասանական պորտֆոլիո"],
 };
 
+const EMPTY_COLLECTION_ITEMS = [];
+
 function getSameAsUrls() {
   return [...SOCIAL_LINKS.map((link) => link.url), THREADS_LINK.url];
 }
 
-function buildStructuredData({ lang, route, title, description, url, image }) {
+function toAbsoluteUrl(value) {
+  if (!value) return undefined;
+  return String(value).startsWith("http") ? String(value) : `${SITE_ORIGIN}${value}`;
+}
+
+function buildStructuredData({ lang, route, title, description, url, image, imageAlt, keywords, collectionItems = [] }) {
   const languageTag = SEO_LANGUAGE_TAGS[lang] || SEO_LANGUAGE_TAGS.en;
   const pageType = ROUTE_SCHEMA_TYPES[route] || "WebPage";
   const personId = `${SITE_ORIGIN}/#person`;
   const websiteId = `${SITE_ORIGIN}/#website`;
   const imageId = `${SITE_ORIGIN}/#primaryimage`;
   const pageId = `${url}#webpage`;
+  const portfolioImages = Array.isArray(collectionItems)
+    ? collectionItems.filter((item) => item?.cover)
+    : [];
 
-  return {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": personId,
-        name: SITE_NAME,
-        alternateName: ["Dmitrii Garanin", "Дмитрий Гаранин", "Դմիտրի Գարանին"],
-        url: SITE_ORIGIN,
-        image: {
-          "@id": imageId,
-        },
-        jobTitle: lang === "ru" ? "Актер" : "Actor",
-        alumniOf: {
-          "@type": "CollegeOrUniversity",
-          name: "VGIK",
-          url: "https://vgik.info/",
-        },
-        knowsAbout: PERSON_KNOWS_ABOUT[lang] || PERSON_KNOWS_ABOUT.en,
-        sameAs: getSameAsUrls(),
-      },
-      {
-        "@type": "ImageObject",
+  const graph = [
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: SITE_NAME,
+      alternateName: ["Dmitrii Garanin", "Dmitry Garanin", "Дмитрий Гаранин", "Դմիտրի Գարանին"],
+      url: SITE_ORIGIN,
+      image: {
         "@id": imageId,
-        url: image,
-        contentUrl: image,
-        caption: "Dmitrii Garanin actor portfolio portrait",
       },
-      {
-        "@type": "WebSite",
+      jobTitle: lang === "ru" ? "Актер" : "Actor",
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "VGIK",
+        url: "https://vgik.info/",
+      },
+      knowsAbout: PERSON_KNOWS_ABOUT[lang] || PERSON_KNOWS_ABOUT.en,
+      sameAs: getSameAsUrls(),
+    },
+    {
+      "@type": "ImageObject",
+      "@id": imageId,
+      url: toAbsoluteUrl(image),
+      contentUrl: toAbsoluteUrl(image),
+      caption: imageAlt || "Dmitrii Garanin actor portfolio portrait",
+      creator: {
+        "@id": personId,
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      name: SITE_NAME,
+      alternateName: "Dmitrii Garanin Official Portfolio",
+      url: SITE_ORIGIN,
+      inLanguage: Object.values(SEO_LANGUAGE_TAGS),
+      publisher: {
+        "@id": personId,
+      },
+    },
+    {
+      "@type": pageType,
+      "@id": pageId,
+      url,
+      name: title,
+      description,
+      keywords,
+      inLanguage: languageTag,
+      isPartOf: {
         "@id": websiteId,
-        name: SITE_NAME,
-        alternateName: "Dmitrii Garanin Official Portfolio",
-        url: SITE_ORIGIN,
-        inLanguage: Object.values(SEO_LANGUAGE_TAGS),
-        publisher: {
-          "@id": personId,
-        },
       },
-      {
-        "@type": pageType,
-        "@id": pageId,
-        url,
-        name: title,
-        description,
+      about: {
+        "@id": personId,
+      },
+      mainEntity: {
+        "@id": route === "portfolio" && portfolioImages.length ? `${url}#portfolio-item-list` : personId,
+      },
+      primaryImageOfPage: {
+        "@id": imageId,
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${url}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: buildAbsoluteUrl(lang, "home"),
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: title,
+          item: url,
+        },
+      ],
+    },
+  ];
+
+  if (route === "portfolio" && portfolioImages.length) {
+    const imageObjects = portfolioImages.map((item, index) => {
+      const itemId = `${url}#portfolio-image-${item.id || index + 1}`;
+      const itemImage = toAbsoluteUrl(item.cover);
+
+      return {
+        "@type": "ImageObject",
+        "@id": itemId,
+        name: item.title,
+        alternateName: item.alt,
+        description: item.description,
+        caption: item.alt || item.title,
+        url: itemImage,
+        contentUrl: itemImage,
         inLanguage: languageTag,
-        isPartOf: {
-          "@id": websiteId,
+        creator: {
+          "@id": personId,
         },
         about: {
           "@id": personId,
         },
-        mainEntity: {
-          "@id": personId,
-        },
-        primaryImageOfPage: {
-          "@id": imageId,
-        },
-      },
+      };
+    });
+
+    graph.push(
       {
-        "@type": "BreadcrumbList",
-        "@id": `${url}#breadcrumb`,
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: buildAbsoluteUrl(lang, "home"),
+        "@type": "ItemList",
+        "@id": `${url}#portfolio-item-list`,
+        name: title,
+        description,
+        numberOfItems: imageObjects.length,
+        itemListElement: imageObjects.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@id": item["@id"],
           },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: title,
-            item: url,
-          },
-        ],
+        })),
       },
-    ],
+      ...imageObjects
+    );
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph,
   };
 }
 
-export function usePageSeo(lang = "en", route = "home") {
+export function usePageSeo(lang = "en", route = "home", options = {}) {
   const seo = getRouteSeo(lang, route);
   const url = buildAbsoluteUrl(lang, route);
   const alternates = useMemo(() => getAlternateLinks(route), [route]);
+  const image = options.image || DEFAULT_SEO_IMAGE;
+  const imageAlt = options.imageAlt || "Dmitrii Garanin actor portfolio portrait";
+  const collectionItems = Array.isArray(options.collectionItems)
+    ? options.collectionItems
+    : EMPTY_COLLECTION_ITEMS;
   const structuredData = useMemo(
     () =>
       buildStructuredData({
@@ -131,19 +195,23 @@ export function usePageSeo(lang = "en", route = "home") {
         route,
         title: seo.title,
         description: seo.description,
+        keywords: seo.keywords,
         url,
-        image: DEFAULT_SEO_IMAGE,
+        image,
+        imageAlt,
+        collectionItems,
       }),
-    [lang, route, seo.description, seo.title, url]
+    [collectionItems, image, imageAlt, lang, route, seo.description, seo.keywords, seo.title, url]
   );
 
   useSeo({
     title: seo.title,
     description: seo.description,
+    keywords: seo.keywords,
     url,
     lang,
-    image: DEFAULT_SEO_IMAGE,
-    imageAlt: "Dmitrii Garanin actor portfolio portrait",
+    image,
+    imageAlt,
     alternates,
     siteName: SITE_NAME,
     type: route === "home" ? "profile" : "website",

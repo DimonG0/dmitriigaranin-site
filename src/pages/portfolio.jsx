@@ -19,6 +19,58 @@ const fadeUp = {
 
 const visualPortfolioItems = [
   {
+    id: "official-photo-2026",
+    category: "cinema",
+    title: "Dmitrii Garanin Official Actor Photo 2026",
+    subtitle: "Official portrait for casting, biography pages, and press use",
+    year: "2026",
+    badge: "OFFICIAL",
+    cover: "/portfolio-media/dmitrii-garanin-official-photo-2026.jpg",
+    alt: "Dmitrii Garanin official actor photo 2026, VGIK actor portrait",
+    tags: ["Dmitrii Garanin", "Actor", "VGIK"],
+    description:
+      "A direct official portrait for searches around who Dmitrii Garanin is, actor biography pages, casting profiles, and professional media references.",
+  },
+  {
+    id: "rooftop-city-portrait",
+    category: "film",
+    title: "Dmitrii Garanin Rooftop City Portrait",
+    subtitle: "Urban cinematic actor portrait with a strong screen presence",
+    year: "2026",
+    badge: "CITY",
+    cover: "/portfolio-media/dmitriy-garanin-akter-vgik-portret-na-kryshe-goroda.jpg",
+    alt: "Dmitriy Garanin actor VGIK rooftop city portrait",
+    tags: ["Actor", "Cinema", "Portrait"],
+    description:
+      "A cinematic rooftop portrait of Dmitrii Garanin, built for actor portfolio discovery, image search, and editorial context around cinema, youth, and urban drama.",
+  },
+  {
+    id: "tropical-vgik-portrait",
+    category: "bloggers",
+    title: "Dmitrii Garanin Tropical Editorial Portrait",
+    subtitle: "Warm lifestyle frame for media, social, and brand positioning",
+    year: "2026",
+    badge: "EDITORIAL",
+    cover: "/portfolio-media/dmitrii-garanin-actor-vgik-tropical-portrait.jpg",
+    alt: "Dmitrii Garanin actor VGIK tropical portrait",
+    tags: ["Editorial", "Media", "Lifestyle"],
+    description:
+      "A bright tropical actor portrait that expands the public visual identity of Dmitrii Garanin with a relaxed, premium, and international editorial tone.",
+  },
+  {
+    id: "cinematic-pool-portrait",
+    category: "cinema",
+    title: "Dmitry Garanin Cinematic Pool Portrait",
+    subtitle: "Natural poolside portrait with a calm cinematic mood",
+    year: "2026",
+    badge: "PORTRAIT",
+    cover: "/portfolio-media/dmitry-garanin-actor-vgik-cinematic-portrait-pool.jpg",
+    alt: "Dmitry Garanin actor VGIK cinematic pool portrait",
+    tags: ["Portrait", "Casting", "Cinema"],
+    description:
+      "A poolside portrait with natural light, soft character presence, and clear actor portfolio value for searches around Dmitry Garanin and VGIK acting materials.",
+  },
+  {
     id: "headshot-2026",
     category: "cinema",
     title: "Headshot 2026",
@@ -94,6 +146,42 @@ const visualPortfolioItems = [
 
 const portfolioItemCopy = {
   ru: {
+    "official-photo-2026": {
+      title: "Официальное фото Дмитрия Гаранина 2026",
+      subtitle: "Актёрский портрет для кастинга, биографии и пресс-материалов",
+      badge: "ОФИЦИАЛЬНО",
+      alt: "Дмитрий Гаранин официальное фото актера 2026, портрет актера ВГИК",
+      tags: ["Дмитрий Гаранин", "Актёр", "ВГИК"],
+      description:
+        "Прямой официальный портрет для запросов «кто такой Дмитрий Гаранин», актёрских биографий, кастинговых профилей и профессиональных медиа-материалов.",
+    },
+    "rooftop-city-portrait": {
+      title: "Дмитрий Гаранин — портрет на крыше города",
+      subtitle: "Городской кинематографичный портрет актёра с сильным экранным присутствием",
+      badge: "ГОРОД",
+      alt: "Дмитрий Гаранин актер ВГИК портрет на крыше города",
+      tags: ["Актёр", "Кино", "Портрет"],
+      description:
+        "Кинематографичный портрет Дмитрия Гаранина на городской крыше: образ для актёрского портфолио, поиска по фото и запросов о кино, ВГИК и современной экранной подаче.",
+    },
+    "tropical-vgik-portrait": {
+      title: "Дмитрий Гаранин — тропический editorial-портрет",
+      subtitle: "Тёплый lifestyle-кадр для медиа, соцсетей и публичного образа",
+      badge: "EDITORIAL",
+      alt: "Дмитрий Гаранин актер ВГИК тропический портрет",
+      tags: ["Editorial", "Медиа", "Образ"],
+      description:
+        "Яркий тропический портрет актёра, который расширяет визуальную идентичность Дмитрия Гаранина через расслабленный, премиальный и международный editorial-тон.",
+    },
+    "cinematic-pool-portrait": {
+      title: "Дмитрий Гаранин — кинематографичный портрет у бассейна",
+      subtitle: "Естественный портрет у бассейна с мягким экранным настроением",
+      badge: "ПОРТРЕТ",
+      alt: "Дмитрий Гаранин актер ВГИК кинематографичный портрет у бассейна",
+      tags: ["Портрет", "Кастинг", "Кино"],
+      description:
+        "Портрет у бассейна с естественным светом, спокойным присутствием и ясной актёрской подачей для поиска «Дмитрий Гаранин актёр» и материалов портфолио ВГИК.",
+    },
     "headshot-2026": {
       title: "Актёрский портрет 2026",
       subtitle: "Портрет при естественном свете для кастингов и профиля",
@@ -144,6 +232,42 @@ const portfolioItemCopy = {
     },
   },
   fr: {
+    "official-photo-2026": {
+      title: "Photo officielle de Dmitrii Garanin 2026",
+      subtitle: "Portrait acteur pour casting, biographie et presse",
+      badge: "OFFICIEL",
+      alt: "Photo officielle de Dmitrii Garanin acteur 2026, portrait acteur VGIK",
+      tags: ["Dmitrii Garanin", "Acteur", "VGIK"],
+      description:
+        "Un portrait officiel direct pour les recherches sur Dmitrii Garanin, les biographies d'acteur, les profils de casting et les références média professionnelles.",
+    },
+    "rooftop-city-portrait": {
+      title: "Dmitrii Garanin — portrait sur un toit urbain",
+      subtitle: "Portrait cinématographique en ville avec une forte présence écran",
+      badge: "VILLE",
+      alt: "Dmitrii Garanin acteur VGIK portrait sur un toit en ville",
+      tags: ["Acteur", "Cinéma", "Portrait"],
+      description:
+        "Un portrait urbain et cinématographique de Dmitrii Garanin, pensé pour le portfolio acteur, la recherche d'images et un contexte éditorial lié au cinéma.",
+    },
+    "tropical-vgik-portrait": {
+      title: "Dmitrii Garanin — portrait éditorial tropical",
+      subtitle: "Image lifestyle chaleureuse pour média, social et positionnement public",
+      badge: "ÉDITORIAL",
+      alt: "Dmitrii Garanin acteur VGIK portrait tropical",
+      tags: ["Éditorial", "Média", "Lifestyle"],
+      description:
+        "Un portrait tropical lumineux qui élargit l'identité visuelle publique de Dmitrii Garanin avec un ton éditorial détendu, premium et international.",
+    },
+    "cinematic-pool-portrait": {
+      title: "Dmitry Garanin — portrait cinématographique à la piscine",
+      subtitle: "Portrait naturel au bord de la piscine avec une humeur calme",
+      badge: "PORTRAIT",
+      alt: "Dmitry Garanin acteur VGIK portrait cinématographique à la piscine",
+      tags: ["Portrait", "Casting", "Cinéma"],
+      description:
+        "Un portrait au bord de la piscine, en lumière naturelle, avec une présence douce et une valeur claire pour le portfolio acteur de Dmitry Garanin.",
+    },
     "headshot-2026": {
       title: "Portrait acteur 2026",
       subtitle: "Portrait en lumière naturelle pour casting et profil",
@@ -194,6 +318,42 @@ const portfolioItemCopy = {
     },
   },
   am: {
+    "official-photo-2026": {
+      title: "Դմիտրի Գարանինի պաշտոնական լուսանկար 2026",
+      subtitle: "Դերասանական դիմանկար քասթինգի, կենսագրության և մամուլի համար",
+      badge: "ՊԱՇՏՈՆԱԿԱՆ",
+      alt: "Դմիտրի Գարանին պաշտոնական դերասանական լուսանկար 2026, ՎԳԻԿ դերասանի դիմանկար",
+      tags: ["Դմիտրի Գարանին", "Դերասան", "ՎԳԻԿ"],
+      description:
+        "Ուղիղ պաշտոնական դիմանկար՝ Դմիտրի Գարանինի մասին որոնումների, դերասանական կենսագրությունների, քասթինգի պրոֆիլների և մասնագիտական մեդիա նյութերի համար։",
+    },
+    "rooftop-city-portrait": {
+      title: "Դմիտրի Գարանին — քաղաքային տանիքի դիմանկար",
+      subtitle: "Քաղաքային կինեմատոգրաֆիկ դերասանական դիմանկար ուժեղ ներկայությամբ",
+      badge: "ՔԱՂԱՔ",
+      alt: "Դմիտրի Գարանին դերասան ՎԳԻԿ քաղաքային տանիքի դիմանկար",
+      tags: ["Դերասան", "Կինո", "Դիմանկար"],
+      description:
+        "Դմիտրի Գարանինի քաղաքային կինեմատոգրաֆիկ դիմանկար՝ դերասանական պորտֆոլիոյի, պատկերների որոնման և կինոյի շուրջ խմբագրական համատեքստի համար։",
+    },
+    "tropical-vgik-portrait": {
+      title: "Դմիտրի Գարանին — արևադարձային խմբագրական դիմանկար",
+      subtitle: "Ջերմ lifestyle կադր մեդիայի, սոցիալական հարթակների և հանրային կերպարի համար",
+      badge: "ԽՄԲԱԳՐԱԿԱՆ",
+      alt: "Դմիտրի Գարանին դերասան ՎԳԻԿ արևադարձային դիմանկար",
+      tags: ["Խմբագրական", "Մեդիա", "Կերպար"],
+      description:
+        "Լուսավոր արևադարձային դերասանական դիմանկար, որը ընդլայնում է Դմիտրի Գարանինի հանրային տեսողական ինքնությունը հանգիստ և պրեմիում տոնով։",
+    },
+    "cinematic-pool-portrait": {
+      title: "Դմիտրի Գարանին — կինեմատոգրաֆիկ դիմանկար լողավազանի մոտ",
+      subtitle: "Բնական լույսով հանգիստ դերասանական դիմանկար",
+      badge: "ԴԻՄԱՆԿԱՐ",
+      alt: "Դմիտրի Գարանին դերասան ՎԳԻԿ կինեմատոգրաֆիկ դիմանկար լողավազանի մոտ",
+      tags: ["Դիմանկար", "Քասթինգ", "Կինո"],
+      description:
+        "Լողավազանի մոտ բնական լույսով դիմանկար՝ մեղմ ներկայությամբ և հստակ դերասանական արժեքով Դմիտրի Գարանինի պորտֆոլիոյի համար։",
+    },
     "headshot-2026": {
       title: "Դերասանի դիմանկար 2026",
       subtitle: "Բնական լույսով դիմանկար քասթինգի և պրոֆիլի համար",
@@ -254,7 +414,17 @@ export default function Portfolio() {
   const [active, setActive] = useState("all");
   const [open, setOpen] = useState(null);
 
-  usePageSeo(lang, "portfolio");
+  const itemCopy = portfolioItemCopy[lang] ?? {};
+  const items = visualPortfolioItems.map((item) => ({
+    ...item,
+    ...(itemCopy[item.id] ?? {}),
+  }));
+
+  usePageSeo(lang, "portfolio", {
+    image: items[0]?.cover,
+    imageAlt: items[0]?.alt || items[0]?.title,
+    collectionItems: items,
+  });
 
   const categories = p?.categories ?? {};
   const CATEGORIES = [
@@ -265,11 +435,6 @@ export default function Portfolio() {
     { id: "cinema", label: SAFE(categories?.cinema, "Cinema") },
   ];
 
-  const itemCopy = portfolioItemCopy[lang] ?? {};
-  const items = visualPortfolioItems.map((item) => ({
-    ...item,
-    ...(itemCopy[item.id] ?? {}),
-  }));
   const filtered = active === "all" ? items : items.filter((x) => x?.category === active);
 
   const pill = SAFE(p?.pill, SAFE(copy?.nav?.portfolio, "Portfolio"));
@@ -391,8 +556,9 @@ export default function Portfolio() {
               <div className="relative">
                 <img
                   src={open?.cover}
-                  alt={SAFE(open?.title, "")}
+                  alt={SAFE(open?.alt, SAFE(open?.title, ""))}
                   className="max-h-[72vh] w-full bg-black object-contain"
+                  loading="lazy"
                   onError={(e) => {
                     e.currentTarget.src = "https://picsum.photos/seed/fallback/1400/900";
                   }}
@@ -467,8 +633,9 @@ function PortfolioCard({ item, index, onOpen, cta }) {
         <div className="relative aspect-[4/5] overflow-hidden bg-black">
           <img
             src={item?.cover}
-            alt={SAFE(item?.title, "")}
+            alt={SAFE(item?.alt, SAFE(item?.title, ""))}
             className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]"
+            loading="lazy"
             onError={(e) => {
               e.currentTarget.src = "https://picsum.photos/seed/fallback/1400/900";
             }}
@@ -493,6 +660,11 @@ function PortfolioCard({ item, index, onOpen, cta }) {
           <div className="min-h-10 text-[14px] leading-5 text-white/70">
             {SAFE(item?.subtitle, "")}
           </div>
+          {!!item?.description && (
+            <p className="mt-3 min-h-[4.75rem] text-[13px] leading-6 text-white/50">
+              {item.description}
+            </p>
+          )}
 
           <div className="mt-4 flex min-h-[3.25rem] flex-wrap content-start gap-2">
             {tags.map((tag, idx) => (

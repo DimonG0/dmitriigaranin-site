@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { getSitemapEntries, SITE_ORIGIN } from "../src/lib/seoConfig.js";
+import { getSitemapEntries, PORTFOLIO_IMAGE_SITEMAP_ITEMS, SITE_ORIGIN } from "../src/lib/seoConfig.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
@@ -30,6 +30,20 @@ function getChangefreq(route) {
   return "monthly";
 }
 
+function getImageEntries(route) {
+  if (route !== "portfolio") return "";
+
+  return PORTFOLIO_IMAGE_SITEMAP_ITEMS.map((image) =>
+    [
+      "    <image:image>",
+      `      <image:loc>${escapeXml(image.loc)}</image:loc>`,
+      `      <image:title>${escapeXml(image.title)}</image:title>`,
+      `      <image:caption>${escapeXml(image.caption)}</image:caption>`,
+      "    </image:image>",
+    ].join("\n")
+  ).join("\n");
+}
+
 function buildSitemap() {
   const urls = getSitemapEntries()
     .map((entry) => {
@@ -39,6 +53,7 @@ function buildSitemap() {
             `    <xhtml:link rel="alternate" hreflang="${escapeXml(alternate.hreflang)}" href="${escapeXml(alternate.href)}" />`
         )
         .join("\n");
+      const images = getImageEntries(entry.route);
 
       return [
         "  <url>",
@@ -47,14 +62,15 @@ function buildSitemap() {
         `    <changefreq>${getChangefreq(entry.route)}</changefreq>`,
         `    <priority>${getPriority(entry.route)}</priority>`,
         alternates,
+        images,
         "  </url>",
-      ].join("\n");
+      ].filter(Boolean).join("\n");
     })
     .join("\n");
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
     urls,
     "</urlset>",
     "",

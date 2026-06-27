@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://dmitriigaranin.com/en/home</loc>
     <lastmod>2026-06-27</lastmod>
@@ -89,6 +89,26 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/portfolio" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/portfolio" />
     <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/portfolio" />
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-official-photo-2026.jpg</image:loc>
+      <image:title>Dmitrii Garanin official actor photo 2026</image:title>
+      <image:caption>Official actor photo of Dmitrii Garanin for casting, biography, VGIK actor portfolio and media references.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-akter-vgik-portret-na-kryshe-goroda.jpg</image:loc>
+      <image:title>Dmitriy Garanin actor VGIK rooftop city portrait</image:title>
+      <image:caption>Cinematic rooftop portrait of Dmitriy Garanin, actor portfolio image for cinema, VGIK and editorial search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-actor-vgik-tropical-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin actor VGIK tropical portrait</image:title>
+      <image:caption>Tropical editorial portrait of Dmitrii Garanin for actor portfolio, media presence and international visual identity.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitry-garanin-actor-vgik-cinematic-portrait-pool.jpg</image:loc>
+      <image:title>Dmitry Garanin actor VGIK cinematic pool portrait</image:title>
+      <image:caption>Cinematic poolside actor portrait of Dmitry Garanin for casting materials, portfolio discovery and image search.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://dmitriigaranin.com/ru/portfolio</loc>
@@ -99,6 +119,26 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/portfolio" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/portfolio" />
     <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/portfolio" />
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-official-photo-2026.jpg</image:loc>
+      <image:title>Dmitrii Garanin official actor photo 2026</image:title>
+      <image:caption>Official actor photo of Dmitrii Garanin for casting, biography, VGIK actor portfolio and media references.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-akter-vgik-portret-na-kryshe-goroda.jpg</image:loc>
+      <image:title>Dmitriy Garanin actor VGIK rooftop city portrait</image:title>
+      <image:caption>Cinematic rooftop portrait of Dmitriy Garanin, actor portfolio image for cinema, VGIK and editorial search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-actor-vgik-tropical-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin actor VGIK tropical portrait</image:title>
+      <image:caption>Tropical editorial portrait of Dmitrii Garanin for actor portfolio, media presence and international visual identity.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitry-garanin-actor-vgik-cinematic-portrait-pool.jpg</image:loc>
+      <image:title>Dmitry Garanin actor VGIK cinematic pool portrait</image:title>
+      <image:caption>Cinematic poolside actor portrait of Dmitry Garanin for casting materials, portfolio discovery and image search.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://dmitriigaranin.com/fr/portfolio</loc>
@@ -109,6 +149,26 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/portfolio" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/portfolio" />
     <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/portfolio" />
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-official-photo-2026.jpg</image:loc>
+      <image:title>Dmitrii Garanin official actor photo 2026</image:title>
+      <image:caption>Official actor photo of Dmitrii Garanin for casting, biography, VGIK actor portfolio and media references.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-akter-vgik-portret-na-kryshe-goroda.jpg</image:loc>
+      <image:title>Dmitriy Garanin actor VGIK rooftop city portrait</image:title>
+      <image:caption>Cinematic rooftop portrait of Dmitriy Garanin, actor portfolio image for cinema, VGIK and editorial search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-actor-vgik-tropical-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin actor VGIK tropical portrait</image:title>
+      <image:caption>Tropical editorial portrait of Dmitrii Garanin for actor portfolio, media presence and international visual identity.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitry-garanin-actor-vgik-cinematic-portrait-pool.jpg</image:loc>
+      <image:title>Dmitry Garanin actor VGIK cinematic pool portrait</image:title>
+      <image:caption>Cinematic poolside actor portrait of Dmitry Garanin for casting materials, portfolio discovery and image search.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://dmitriigaranin.com/am/portfolio</loc>
@@ -119,6 +179,26 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/portfolio" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/portfolio" />
     <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/portfolio" />
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-official-photo-2026.jpg</image:loc>
+      <image:title>Dmitrii Garanin official actor photo 2026</image:title>
+      <image:caption>Official actor photo of Dmitrii Garanin for casting, biography, VGIK actor portfolio and media references.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-akter-vgik-portret-na-kryshe-goroda.jpg</image:loc>
+      <image:title>Dmitriy Garanin actor VGIK rooftop city portrait</image:title>
+      <image:caption>Cinematic rooftop portrait of Dmitriy Garanin, actor portfolio image for cinema, VGIK and editorial search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-actor-vgik-tropical-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin actor VGIK tropical portrait</image:title>
+      <image:caption>Tropical editorial portrait of Dmitrii Garanin for actor portfolio, media presence and international visual identity.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitry-garanin-actor-vgik-cinematic-portrait-pool.jpg</image:loc>
+      <image:title>Dmitry Garanin actor VGIK cinematic pool portrait</image:title>
+      <image:caption>Cinematic poolside actor portrait of Dmitry Garanin for casting materials, portfolio discovery and image search.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://dmitriigaranin.com/en/reviews</loc>
