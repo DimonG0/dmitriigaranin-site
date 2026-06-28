@@ -82,66 +82,6 @@ const visualPortfolioItems = [
     description:
       "A clean, warm portrait built around direct presence, open light, and a natural screen-ready expression.",
   },
-  {
-    id: "character-paris",
-    category: "film",
-    title: "Character Creates The Role",
-    subtitle: "Cinematic winter character study",
-    year: "2025",
-    badge: "CHARACTER",
-    cover: "/portfolio-media/actor-character-paris.jpg",
-    tags: ["Drama", "Mood", "Poster"],
-    description:
-      "A darker, atmospheric frame with strong dramatic tension and a clear character-first tone.",
-  },
-  {
-    id: "looks-beyond",
-    category: "cinema",
-    title: "The Boy Who Looks Beyond",
-    subtitle: "Editorial poster portrait",
-    year: "2025",
-    badge: "EDITORIAL",
-    cover: "/portfolio-media/boy-who-looks-beyond.jpg",
-    tags: ["Portrait", "Editorial", "Youth"],
-    description:
-      "A poetic outdoor portrait with soft restraint, negative space, and a strong magazine-cover feeling.",
-  },
-  {
-    id: "choice-beyond-status",
-    category: "bloggers",
-    title: "The Choice Beyond Status",
-    subtitle: "Luxury interior editorial frame",
-    year: "2026",
-    badge: "LUXURY",
-    cover: "/portfolio-media/choice-beyond-status.jpg",
-    tags: ["Editorial", "Luxury", "Presence"],
-    description:
-      "A composed interior image with a polished, old-world visual language and quiet confidence.",
-  },
-  {
-    id: "new-generation-studio",
-    category: "bloggers",
-    title: "New Generation Actor",
-    subtitle: "Minimal studio actor card",
-    year: "2026",
-    badge: "ACTOR",
-    cover: "/portfolio-media/new-generation-actor-studio.jpg",
-    tags: ["Actor", "Brand", "Profile"],
-    description:
-      "A sharp actor-card layout with clean contrast, formal positioning, and a direct casting-ready look.",
-  },
-  {
-    id: "new-generation-palace",
-    category: "series",
-    title: "Actor Manifesto",
-    subtitle: "Period-role inspired presentation",
-    year: "2026",
-    badge: "STAGE",
-    cover: "/portfolio-media/new-generation-actor-palace.jpg",
-    tags: ["Theatre", "Cinema", "History"],
-    description:
-      "A larger-format acting manifesto with theatrical detail, historical atmosphere, and premium gold accents.",
-  },
 ];
 
 const portfolioItemCopy = {
@@ -429,10 +369,12 @@ export default function Portfolio() {
   const categories = p?.categories ?? {};
   const CATEGORIES = [
     { id: "all", label: SAFE(categories?.all, "All styles") },
-    { id: "film", label: SAFE(categories?.film, "Films") },
-    { id: "series", label: SAFE(categories?.series, "Series") },
-    { id: "bloggers", label: SAFE(categories?.bloggers, "Blogger projects") },
-    { id: "cinema", label: SAFE(categories?.cinema, "Cinema") },
+    ...[
+      { id: "film", label: SAFE(categories?.film, "Films") },
+      { id: "series", label: SAFE(categories?.series, "Series") },
+      { id: "bloggers", label: SAFE(categories?.bloggers, "Blogger projects") },
+      { id: "cinema", label: SAFE(categories?.cinema, "Cinema") },
+    ].filter((category) => items.some((item) => item?.category === category.id)),
   ];
 
   const filtered = active === "all" ? items : items.filter((x) => x?.category === active);
