@@ -83,6 +83,7 @@ export type CopyBlock = {
     categories: {
       all: string;
       film: string;
+      theatre: string;
       series: string;
       bloggers: string;
       cinema: string;
@@ -244,6 +245,7 @@ export const copy: Record<Lang, CopyBlock> = {
       categories: {
         all: "All styles",
         film: "Films",
+        theatre: "Theatre",
         series: "Series",
         bloggers: "Blogger projects",
         cinema: "Cinema",
@@ -443,6 +445,7 @@ export const copy: Record<Lang, CopyBlock> = {
       categories: {
         all: "Все стили",
         film: "Фильмы",
+        theatre: "Театр",
         series: "Сериалы",
         bloggers: "Проекты с блогерами",
         cinema: "Кино",
@@ -592,6 +595,7 @@ export const copy: Record<Lang, CopyBlock> = {
       categories: {
         all: "Tous les styles",
         film: "Films",
+        theatre: "Théâtre",
         series: "Séries",
         bloggers: "Projets avec blogueurs",
         cinema: "Cinéma",
@@ -726,6 +730,7 @@ export const copy: Record<Lang, CopyBlock> = {
       categories: {
         all: "Բոլոր ոճերը",
         film: "Ֆիլմեր",
+        theatre: "Թատրոն",
         series: "Սերիալներ",
         bloggers: "Բլոգերների նախագծեր",
         cinema: "Կինո",

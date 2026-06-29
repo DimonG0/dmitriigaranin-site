@@ -29,6 +29,48 @@ export const PORTFOLIO_IMAGE_SITEMAP_ITEMS = [
     caption:
       "Cinematic poolside actor portrait of Dmitry Garanin for casting materials, portfolio discovery and image search.",
   },
+  {
+    loc: `${SITE_ORIGIN}/portfolio-media/dmitrii-garanin-vgik-actor-racing-cinema-portrait.jpg`,
+    title: "Dmitrii Garanin VGIK graduate theatre and cinema actor portrait",
+    caption:
+      "Cinematic racing portrait of Dmitrii Garanin, theatre and film actor, VGIK graduate, for casting, press, Google and Yandex image discovery.",
+  },
+  {
+    loc: `${SITE_ORIGIN}/portfolio-media/dmitrii-garanin-vgik-theatre-cinema-headshot-white.jpg`,
+    title: "Dmitrii Garanin theatre and cinema actor headshot",
+    caption:
+      "Clean actor headshot of Dmitrii Garanin for biography pages, casting profiles, theatre, cinema, VGIK references and media interviews.",
+  },
+  {
+    loc: `${SITE_ORIGIN}/portfolio-media/dmitrii-garanin-vgik-actor-close-up-portrait.jpg`,
+    title: "Dmitrii Garanin cinematic close-up actor portrait",
+    caption:
+      "Close-up portrait of Dmitrii Garanin, VGIK actor, theatre and cinema performer, for casting, screen presence and character work.",
+  },
+  {
+    loc: `${SITE_ORIGIN}/portfolio-media/dmitrii-garanin-theatre-cinema-vgik-soft-portrait.jpg`,
+    title: "Dmitrii Garanin theatre cinema VGIK editorial portrait",
+    caption:
+      "Soft editorial actor portrait of Dmitrii Garanin for theatre, cinema, VGIK biography, press materials, interviews and search indexing.",
+  },
+  {
+    loc: `${SITE_ORIGIN}/portfolio-media/dmitrii-garanin-vgik-theatre-actor-stage-costume.jpg`,
+    title: "Dmitrii Garanin theatre actor stage costume portrait",
+    caption:
+      "Stage costume portrait of Dmitrii Garanin, VGIK graduate and theatre actor, for theatre, cinema, character roles and media discovery.",
+  },
+  {
+    loc: `${SITE_ORIGIN}/portfolio-media/dmitrii-garanin-actor-vgik-editorial-white-shirt.jpg`,
+    title: "Dmitrii Garanin editorial actor portrait for media",
+    caption:
+      "Editorial portrait of Dmitrii Garanin for media, interviews, actor portfolio pages, casting visibility, theatre, cinema and VGIK search signals.",
+  },
+  {
+    loc: `${SITE_ORIGIN}/portfolio-media/dmitrii-garanin-vgik-actor-hoodie-portrait.jpg`,
+    title: "Dmitrii Garanin natural casting actor portrait",
+    caption:
+      "Natural casting portrait of Dmitrii Garanin, VGIK graduate, theatre and cinema actor, for Google, Yandex, portfolio and press discovery.",
+  },
 ];
 
 export const SEO_LOCALES = {
@@ -67,9 +109,9 @@ export const ROUTE_SEO = {
     portfolio: {
       title: "Dmitrii Garanin — Actor Portfolio, VGIK Portraits and Official Photos",
       description:
-        "Official actor portfolio of Dmitrii Garanin with VGIK actor portraits, cinematic photos, casting materials, editorial images, cinema, series and media projects.",
+        "Official actor portfolio of Dmitrii Garanin, VGIK graduate and theatre and cinema actor: portraits, casting materials, editorial images, press photos, interviews, cinema and media projects.",
       keywords:
-        "Dmitrii Garanin, Dmitry Garanin, Dmitrii Garanin actor, VGIK actor, actor portfolio, official actor photo, cinematic portrait, casting portrait",
+        "Dmitrii Garanin, Dmitry Garanin, Dmitrii Garanin actor, VGIK graduate, VGIK actor, theatre actor, cinema actor, actor portfolio, official actor photo, casting portrait, actor interview",
     },
     reviews: {
       title: "Reviews and Professional Signals — Dmitrii Garanin Actor",
@@ -101,9 +143,9 @@ export const ROUTE_SEO = {
     portfolio: {
       title: "Дмитрий Гаранин — актёр ВГИК, портфолио и официальные фото",
       description:
-        "Кто такой Дмитрий Гаранин: актёр с обучением во ВГИК, официальное портфолио, актёрские фото, кинематографичные портреты, кастинг, кино и медиа-проекты.",
+        "Кто такой Дмитрий Гаранин: выпускник ВГИК, актёр театра и кино, официальное портфолио, актёрские фото, кастинг, интервью, кинематографичные портреты и медиа-проекты.",
       keywords:
-        "Дмитрий Гаранин, кто такой Дмитрий Гаранин, Дмитрий Гаранин актер, Дмитрий Гаранин актёр, актер ВГИК, актёр ВГИК, портфолио актера, актерские фото, официальное фото Дмитрия Гаранина",
+        "Дмитрий Гаранин, кто такой Дмитрий Гаранин, Дмитрий Гаранин актер, Дмитрий Гаранин актёр, выпускник ВГИК, актер ВГИК, актёр театра и кино, портфолио актера, актерские фото, интервью Дмитрий Гаранин, Яндекс Дмитрий Гаранин",
     },
     reviews: {
       title: "Отзывы и рекомендации — Дмитрий Гаранин, актер",
@@ -135,9 +177,9 @@ export const ROUTE_SEO = {
     portfolio: {
       title: "Dmitrii Garanin — portfolio acteur, VGIK et photos officielles",
       description:
-        "Portfolio officiel de l'acteur Dmitrii Garanin : portraits d'acteur VGIK, photos cinématographiques, casting, images éditoriales, cinéma, séries et médias.",
+        "Portfolio officiel de Dmitrii Garanin, acteur de théâtre et de cinéma formé au VGIK : portraits, casting, photos presse, interviews, cinéma, séries et médias.",
       keywords:
-        "Dmitrii Garanin, Dmitry Garanin, acteur Dmitrii Garanin, acteur VGIK, portfolio acteur, photo officielle acteur, portrait cinéma",
+        "Dmitrii Garanin, Dmitry Garanin, acteur Dmitrii Garanin, formation VGIK, acteur théâtre cinéma, portfolio acteur, photo officielle acteur, portrait cinéma, interview acteur",
     },
     reviews: {
       title: "Avis et signaux professionnels — Dmitrii Garanin acteur",
@@ -169,9 +211,9 @@ export const ROUTE_SEO = {
     portfolio: {
       title: "Դմիտրի Գարանին — դերասանական պորտֆոլիո, ՎԳԻԿ և պաշտոնական լուսանկարներ",
       description:
-        "Դմիտրի Գարանինի պաշտոնական դերասանական պորտֆոլիո՝ ՎԳԻԿ դիմանկարներ, կինեմատոգրաֆիկ լուսանկարներ, քասթինգի նյութեր, կինո, սերիալներ և մեդիա նախագծեր։",
+        "Դմիտրի Գարանինի պաշտոնական պորտֆոլիո՝ ՎԳԻԿ շրջանավարտ, թատրոնի և կինոյի դերասան, դիմանկարներ, քասթինգ, մամուլի լուսանկարներ, հարցազրույցներ և մեդիա նախագծեր։",
       keywords:
-        "Դմիտրի Գարանին, Դմիտրի Գարանին դերասան, ՎԳԻԿ դերասան, դերասանական պորտֆոլիո, պաշտոնական դերասանական լուսանկար, կինեմատոգրաֆիկ դիմանկար",
+        "Դմիտրի Գարանին, Դմիտրի Գարանին դերասան, ՎԳԻԿ շրջանավարտ, թատրոնի և կինոյի դերասան, դերասանական պորտֆոլիո, պաշտոնական դերասանական լուսանկար, հարցազրույց",
     },
     reviews: {
       title: "Կարծիքներ և մասնագիտական ազդակներ — Դմիտրի Գարանին",
