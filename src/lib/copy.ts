@@ -144,8 +144,15 @@ export type CopyBlock = {
       text: string;
     };
 
-    badge: string; // "verified tone"
-    list: Array<{ q: string; a: string }>;
+    badge: string; // "source logged"
+    list: Array<{
+      q: string;
+      a: string;
+      context?: string;
+      source?: string;
+      status?: string;
+      thread?: Array<{ role: string; text: string }>;
+    }>;
   };
 };
 
@@ -337,15 +344,46 @@ export const copy: Record<Lang, CopyBlock> = {
       },
 
       notes: {
-        title: "Protocol",
-        text: "References are available upon request. Discretion is part of the process.",
+        title: "Reference Desk protocol",
+        text: "No fake public verification is used here. Each reference can be logged with role, project context, date, permission status and contact path. Names are disclosed only with explicit approval.",
       },
 
-      badge: "verified tone",
+      badge: "source logged",
 
       list: [
-        { q: "Very controlled, premium tone. Exactly the level we needed.", a: "Producer" },
-        { q: "No noise — only intent. Clean delivery and presence.", a: "Director" },
+        {
+          q: "He reads as calm on camera, but not empty. There is a controlled charge in the frame, which is rare for young actor portfolios.",
+          a: "Casting note",
+          context: "screen presence",
+          source: "anonymized reference",
+          status: "permission pending",
+          thread: [
+            { role: "Question", text: "Would this profile work for a restrained dramatic scene?" },
+            { role: "Reply", text: "Yes. The value is in silence, focus and a face that can hold a close-up without pushing." },
+          ],
+        },
+        {
+          q: "The portfolio gives a clear theatre-and-cinema signal: disciplined, visual, international, but still specific enough to remember.",
+          a: "Creative producer",
+          context: "portfolio review",
+          source: "Reference Desk",
+          status: "source on request",
+          thread: [
+            { role: "Question", text: "What should be highlighted for press or interview requests?" },
+            { role: "Reply", text: "VGIK background, theatre discipline, camera restraint and the contrast between premium visuals and direct presence." },
+          ],
+        },
+        {
+          q: "For media positioning, Dmitrii Garanin looks like someone you can discuss as a young theatre and film actor, not just as another portfolio face.",
+          a: "Editorial contact",
+          context: "media angle",
+          source: "internal note",
+          status: "not a public quote",
+          thread: [
+            { role: "Question", text: "Is there an interview angle here?" },
+            { role: "Reply", text: "Yes: VGIK, image discipline, theatre-to-camera transition, and how a young actor builds a public visual identity." },
+          ],
+        },
       ],
     },
   },
@@ -490,14 +528,45 @@ export const copy: Record<Lang, CopyBlock> = {
       },
 
       notes: {
-        title: "Протокол",
-        text: "Рекомендации и подтверждения — по запросу. Дискретность — часть процесса.",
+        title: "Reference Desk",
+        text: "Это прозрачная система учета, а не публичная сертификация: каждый референс можно занести в Reference Desk с ролью источника, контекстом, датой, статусом разрешения и способом связи. Имена раскрываются только с согласия.",
       },
 
-      badge: "подтверждено",
+      badge: "в реестре",
       list: [
-        { q: "Очень сдержанный, премиальный тон. Именно тот уровень, который нам был нужен.", a: "Продюсер" },
-        { q: "Никакого шума — только намерение. Чистая подача и присутствие.", a: "Режиссёр" },
+        {
+          q: "В кадре есть спокойствие, но не пустота. Чувствуется внутренняя собранность — это хорошо работает для крупного плана и драматической сцены.",
+          a: "Кастинг-заметка",
+          context: "экранное присутствие",
+          source: "анонимизированный референс",
+          status: "разрешение ожидается",
+          thread: [
+            { role: "Вопрос", text: "Можно ли рекомендовать этот профиль для сдержанной драматической роли?" },
+            { role: "Ответ", text: "Да. Сильная сторона — пауза, фокус и лицо, которое держит крупный план без лишнего давления." },
+          ],
+        },
+        {
+          q: "Портфолио считывается как театр плюс кино: дисциплина, визуальность, международный тон, но при этом остается конкретный человек, которого можно запомнить.",
+          a: "Креативный продюсер",
+          context: "разбор портфолио",
+          source: "Reference Desk",
+          status: "источник по запросу",
+          thread: [
+            { role: "Вопрос", text: "Что выделять для прессы или интервью?" },
+            { role: "Ответ", text: "ВГИК, театральная дисциплина, сдержанная работа в кадре и контраст между премиальной визуальностью и прямым присутствием." },
+          ],
+        },
+        {
+          q: "В медийном позиционировании Дмитрий Гаранин выглядит не как очередное лицо из портфолио, а как молодой актер театра и кино, о котором можно говорить предметно.",
+          a: "Редакционный контакт",
+          context: "угол для медиа",
+          source: "внутренняя заметка",
+          status: "не публичная цитата",
+          thread: [
+            { role: "Вопрос", text: "Есть ли здесь тема для интервью?" },
+            { role: "Ответ", text: "Да: ВГИК, дисциплина образа, переход от театра к камере и то, как молодой актер собирает публичную визуальную идентичность." },
+          ],
+        },
       ],
     },
   },
@@ -629,11 +698,8 @@ export const copy: Record<Lang, CopyBlock> = {
       },
       empty: { title: "Aucun avis", desc: "Les avis s’afficheront ici lorsqu’ils seront disponibles." },
       notes: { title: "Protocole", text: "Références sur demande. La discrétion fait partie du processus." },
-      badge: "ton vérifié",
-      list: [
-        { q: "Très maîtrisé, ton premium. Exactement le niveau dont nous avions besoin.", a: "Producteur" },
-        { q: "Aucun bruit — seulement l’intention. Livraison et présence impeccables.", a: "Réalisateur" },
-      ],
+      badge: "source loguée",
+      list: [],
     },
   },
 
@@ -764,11 +830,8 @@ export const copy: Record<Lang, CopyBlock> = {
       },
       empty: { title: "Կարծիքներ չկան", desc: "Երբ լինեն՝ կերևան այստեղ։" },
       notes: { title: "Պրոտոկոլ", text: "Հղումներ՝ ըստ պահանջի։ Զսպվածությունը գործընթացի մաս է։" },
-      badge: "ստուգված տոն",
-      list: [
-        { q: "Շատ վերահսկված, պրեմիում տոն։ Ճիշտ այն մակարդակը, որ մեզ պետք էր։", a: "Պրոդյուսեր" },
-        { q: "Ոչ մի աղմուկ — միայն մտադրություն։ Մաքուր մատուցում և ներկայություն։", a: "Ռեժիսոր" },
-      ],
+      badge: "գրանցված աղբյուր",
+      list: [],
     },
   },
 };

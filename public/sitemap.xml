@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://dmitriigaranin.com/en/home</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/home" />
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/ru/home</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/home" />
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/fr/home</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/home" />
@@ -32,7 +32,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/am/home</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/home" />
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/en/about</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/about" />
@@ -52,7 +52,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/ru/about</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/about" />
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/fr/about</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/about" />
@@ -72,7 +72,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/am/about</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/about" />
@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/en/portfolio</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/portfolio" />
@@ -147,7 +147,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/ru/portfolio</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/portfolio" />
@@ -212,7 +212,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/fr/portfolio</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/portfolio" />
@@ -277,7 +277,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/am/portfolio</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/portfolio" />
@@ -342,7 +342,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/en/reviews</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/reviews" />
@@ -352,7 +352,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/ru/reviews</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/reviews" />
@@ -362,7 +362,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/fr/reviews</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/reviews" />
@@ -372,7 +372,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/am/reviews</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/reviews" />
@@ -382,7 +382,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/en/behind</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/behind" />
@@ -392,7 +392,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/ru/behind</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/behind" />
@@ -402,7 +402,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/fr/behind</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/behind" />
@@ -412,7 +412,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/am/behind</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/behind" />
@@ -422,7 +422,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/en/contact</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/contact" />
@@ -432,7 +432,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/ru/contact</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/contact" />
@@ -442,7 +442,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/fr/contact</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/contact" />
@@ -452,7 +452,7 @@
   </url>
   <url>
     <loc>https://dmitriigaranin.com/am/contact</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/contact" />

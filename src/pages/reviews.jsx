@@ -83,6 +83,10 @@ export default function Reviews() {
                     key={`${r.a}-${i}`}
                     quote={r.q}
                     author={r.a}
+                    context={r.context}
+                    source={r.source}
+                    status={r.status}
+                    thread={r.thread}
                     index={i}
                     badge={copy.reviews.badge}
                   />
@@ -137,7 +141,7 @@ function Line({ label, value }) {
   );
 }
 
-function EndorsementCard({ quote, author, index, badge }) {
+function EndorsementCard({ quote, author, context, source, status, thread = [], index, badge }) {
   return (
     <Motion.div
       variants={fadeUp}
@@ -155,14 +159,41 @@ function EndorsementCard({ quote, author, index, badge }) {
       />
 
       <div className="relative">
+        {(context || source) && (
+          <div className="mb-4 flex flex-wrap gap-2 text-[10px] tracking-[0.22em] uppercase text-white/50">
+            {context && <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1">{context}</span>}
+            {source && <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1">{source}</span>}
+          </div>
+        )}
+
         <div className="text-[20px] leading-relaxed font-[500] text-white/85">"{quote}"</div>
+
+        {thread.length > 0 && (
+          <div className="mt-5 space-y-3 rounded-2xl border border-white/10 bg-black/25 p-4">
+            {thread.map((item, i) => (
+              <div key={`${item.role}-${i}`} className="grid gap-1 text-sm leading-6 sm:grid-cols-[120px_1fr]">
+                <div className="text-[10px] font-[700] tracking-[0.24em] uppercase text-[#D4AF37]/75">
+                  {item.role}
+                </div>
+                <div className="text-white/70">{item.text}</div>
+              </div>
+            ))}
+          </div>
+        )}
 
         <div className="mt-4 flex items-center justify-between gap-4">
           <div className="text-[11px] tracking-[0.28em] uppercase text-white/55">— {author}</div>
 
-          <span className="rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/[0.07] px-3 py-1 text-[10px] tracking-[0.28em] uppercase text-[#FFD700]/80">
-            {badge}
-          </span>
+          <div className="flex flex-wrap justify-end gap-2">
+            {status && (
+              <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] tracking-[0.24em] uppercase text-white/55">
+                {status}
+              </span>
+            )}
+            <span className="rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/[0.07] px-3 py-1 text-[10px] tracking-[0.28em] uppercase text-[#FFD700]/80">
+              {badge}
+            </span>
+          </div>
         </div>
 
         <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/35 to-transparent" />

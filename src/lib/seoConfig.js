@@ -114,9 +114,9 @@ export const ROUTE_SEO = {
         "Dmitrii Garanin, Dmitry Garanin, Dmitrii Garanin actor, VGIK graduate, VGIK actor, theatre actor, cinema actor, actor portfolio, official actor photo, casting portrait, actor interview",
     },
     reviews: {
-      title: "Reviews and Professional Signals — Dmitrii Garanin Actor",
+      title: "Reference Desk and Professional Signals — Dmitrii Garanin Actor",
       description:
-        "References, professional signals and curated feedback for Dmitrii Garanin: acting presence, camera work, media projects and private collaboration context.",
+        "Reference Desk for Dmitrii Garanin: anonymized professional signals, source-logging protocol, acting presence, camera work, media angles and private collaboration context.",
     },
     behind: {
       title: "Behind the Scenes — Dmitrii Garanin Acting and Creative Process",
@@ -148,9 +148,9 @@ export const ROUTE_SEO = {
         "Дмитрий Гаранин, кто такой Дмитрий Гаранин, Дмитрий Гаранин актер, Дмитрий Гаранин актёр, выпускник ВГИК, актер ВГИК, актёр театра и кино, портфолио актера, актерские фото, интервью Дмитрий Гаранин, Яндекс Дмитрий Гаранин",
     },
     reviews: {
-      title: "Отзывы и рекомендации — Дмитрий Гаранин, актер",
+      title: "Reference Desk и профессиональные сигналы — Дмитрий Гаранин",
       description:
-        "Отзывы, профессиональные сигналы и рекомендации для Дмитрия Гаранина: актерское присутствие, работа в кадре, медиа и творческие проекты.",
+        "Reference Desk Дмитрия Гаранина: анонимизированные профессиональные сигналы, протокол учета источников, актерское присутствие, работа в кадре, медиа-углы и контекст для интервью.",
     },
     behind: {
       title: "Закулисье и процесс — актерские проекты Дмитрия Гаранина",
@@ -182,9 +182,9 @@ export const ROUTE_SEO = {
         "Dmitrii Garanin, Dmitry Garanin, acteur Dmitrii Garanin, formation VGIK, acteur théâtre cinéma, portfolio acteur, photo officielle acteur, portrait cinéma, interview acteur",
     },
     reviews: {
-      title: "Avis et signaux professionnels — Dmitrii Garanin acteur",
+      title: "Reference Desk et signaux professionnels — Dmitrii Garanin",
       description:
-        "Références, signaux professionnels et retours sélectionnés pour Dmitrii Garanin : présence caméra, jeu d'acteur et projets média.",
+        "Reference Desk de Dmitrii Garanin : signaux professionnels anonymisés, protocole de source, présence caméra, jeu d'acteur, angles média et contexte privé.",
     },
     behind: {
       title: "Behind the Scenes — processus d'acteur de Dmitrii Garanin",
@@ -216,9 +216,9 @@ export const ROUTE_SEO = {
         "Դմիտրի Գարանին, Դմիտրի Գարանին դերասան, ՎԳԻԿ շրջանավարտ, թատրոնի և կինոյի դերասան, դերասանական պորտֆոլիո, պաշտոնական դերասանական լուսանկար, հարցազրույց",
     },
     reviews: {
-      title: "Կարծիքներ և մասնագիտական ազդակներ — Դմիտրի Գարանին",
+      title: "Reference Desk և մասնագիտական ազդակներ — Դմիտրի Գարանին",
       description:
-        "Դմիտրի Գարանինի մասնագիտական կարծիքներ և ազդակներ՝ դերասանական ներկայություն, տեսախցիկի աշխատանք, մեդիա և ստեղծագործական նախագծեր։",
+        "Դմիտրի Գարանինի Reference Desk՝ անանուն մասնագիտական ազդակներ, աղբյուրների գրանցման պրոտոկոլ, դերասանական ներկայություն, տեսախցիկի աշխատանք և մեդիա համատեքստ։",
     },
     behind: {
       title: "Կուլիսներ և գործընթաց — Դմիտրի Գարանինի դերասանական նախագծեր",
