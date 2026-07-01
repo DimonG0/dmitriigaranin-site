@@ -1,5 +1,30 @@
 # React + Vite
 
+## Private archive backend
+
+The "Behind" page now uses Cloudflare Pages Functions plus a private R2 bucket.
+Private files are not served from `public`; they are downloaded only through
+`/api/archive/download` after a signed HttpOnly session cookie is verified.
+
+Local secrets live in `.dev.vars` (copy `.dev.vars.example` and change the
+values). Do not commit `.dev.vars`.
+
+Required production variables:
+
+- `ARCHIVE_SESSION_SECRET` - long random value used to sign archive sessions.
+- `ARCHIVE_ACCESS_CODE` or `ARCHIVE_ACCESS_CODES` - partner viewing codes.
+- `ARCHIVE_ADMIN_CODE` - owner code that can upload and delete archive files.
+- `ARCHIVE_SESSION_DAYS` - optional session lifetime, capped at 30 days.
+
+The R2 binding is configured in `wrangler.toml` as `ARCHIVE_BUCKET`. Create the
+production and preview buckets in Cloudflare before deploying.
+
+Useful commands:
+
+- `npm run build`
+- `npm run pages:dev`
+- `npm run pages:deploy`
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

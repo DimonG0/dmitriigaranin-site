@@ -9,6 +9,8 @@
     "build": "npm run generate:seo && vite build --configLoader runner",
     "lint": "eslint .",
     "preview": "vite preview --configLoader runner",
+    "pages:dev": "npm run build && npx wrangler pages dev dist --r2 ARCHIVE_BUCKET",
+    "pages:deploy": "npm run build && npx wrangler pages deploy dist",
     "lint:css": "stylelint \"src/**/*.css\" --config src/.stylelintrc.json",
     "lint:css:fix": "stylelint \"src/**/*.css\" --config src/.stylelintrc.json --fix"
   },

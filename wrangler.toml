@@ -2,3 +2,8 @@
 name = "dmitriigaranin-site"
 compatibility_date = "2026-02-15"
 pages_build_output_dir = "dist"
+
+[[r2_buckets]]
+binding = "ARCHIVE_BUCKET"
+bucket_name = "dmitriigaranin-private-archive"
+preview_bucket_name = "dmitriigaranin-private-archive-preview"

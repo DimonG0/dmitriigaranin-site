@@ -1,0 +1,5 @@
+ARCHIVE_SESSION_SECRET=replace-with-a-long-random-secret-at-least-32-characters
+ARCHIVE_ACCESS_CODE=partner-invite-code
+ARCHIVE_ACCESS_CODES=
+ARCHIVE_ADMIN_CODE=owner-upload-code
+ARCHIVE_SESSION_DAYS=7
