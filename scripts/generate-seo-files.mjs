@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { getSitemapEntries, PORTFOLIO_IMAGE_SITEMAP_ITEMS, SITE_ORIGIN } from "../src/lib/seoConfig.js";
@@ -7,7 +7,38 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
 const publicDir = resolve(root, "public");
 
-const today = new Date().toISOString().slice(0, 10);
+const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+
+async function readText(filePath) {
+  try {
+    return await readFile(filePath, "utf8");
+  } catch (error) {
+    if (error?.code === "ENOENT") return "";
+    throw error;
+  }
+}
+
+function normalizeNewlines(value) {
+  return String(value).replace(/\r\n/g, "\n");
+}
+
+function getLastmodDate(existingSitemap) {
+  const envDate = process.env.SITEMAP_LASTMOD;
+  if (datePattern.test(envDate || "")) return envDate;
+
+  const existingDate = existingSitemap.match(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/)?.[1];
+  if (datePattern.test(existingDate || "")) return existingDate;
+
+  return new Date().toISOString().slice(0, 10);
+}
+
+async function writeIfChanged(filePath, nextContent) {
+  const existingContent = await readText(filePath);
+  if (normalizeNewlines(existingContent) === normalizeNewlines(nextContent)) return false;
+
+  await writeFile(filePath, nextContent, "utf8");
+  return true;
+}
 
 function escapeXml(value) {
   return String(value)
@@ -44,7 +75,7 @@ function getImageEntries(route) {
   ).join("\n");
 }
 
-function buildSitemap() {
+function buildSitemap(lastmodDate) {
   const urls = getSitemapEntries()
     .map((entry) => {
       const alternates = entry.alternates
@@ -58,7 +89,7 @@ function buildSitemap() {
       return [
         "  <url>",
         `    <loc>${escapeXml(entry.url)}</loc>`,
-        `    <lastmod>${today}</lastmod>`,
+        `    <lastmod>${lastmodDate}</lastmod>`,
         `    <changefreq>${getChangefreq(entry.route)}</changefreq>`,
         `    <priority>${getPriority(entry.route)}</priority>`,
         alternates,
@@ -88,7 +119,22 @@ function buildRobots() {
 }
 
 await mkdir(publicDir, { recursive: true });
-await writeFile(resolve(publicDir, "sitemap.xml"), buildSitemap(), "utf8");
-await writeFile(resolve(publicDir, "robots.txt"), buildRobots(), "utf8");
+const sitemapPath = resolve(publicDir, "sitemap.xml");
+const robotsPath = resolve(publicDir, "robots.txt");
+const existingSitemap = await readText(sitemapPath);
+const lastmodDate = getLastmodDate(existingSitemap);
+const changedFiles = [];
 
-console.log("Generated public/sitemap.xml and public/robots.txt");
+if (await writeIfChanged(sitemapPath, buildSitemap(lastmodDate))) {
+  changedFiles.push("public/sitemap.xml");
+}
+
+if (await writeIfChanged(robotsPath, buildRobots())) {
+  changedFiles.push("public/robots.txt");
+}
+
+console.log(
+  changedFiles.length
+    ? `Generated ${changedFiles.join(" and ")}`
+    : "SEO files already up to date"
+);
