@@ -330,24 +330,24 @@ export default function About() {
             <div className="grid grid-cols-5 gap-3">
               <div className="col-span-3 overflow-hidden rounded-[8px] border border-white/10 bg-black">
                 <img
-                  src="/portfolio-media/dmitrii-headshot-2026.jpg"
+                  src="/portfolio-media/about-hangar-portrait.jpg"
                   alt={page.title}
-                  className="aspect-[4/5] h-full w-full object-cover object-[center_24%]"
+                  className="aspect-[4/5] h-full w-full object-cover object-[center_35%]"
                 />
               </div>
               <div className="col-span-2 flex flex-col gap-3">
                 <div className="overflow-hidden rounded-[8px] border border-white/10 bg-black">
                   <img
-                    src="/portfolio-media/media-exhibit.jpg"
-                    alt="Media exhibit"
-                    className="aspect-[4/5] w-full object-cover"
+                    src="/portfolio-media/about-motorcycle-helmet.jpg"
+                    alt="Motorcycle helmet portrait"
+                    className="aspect-[4/5] w-full object-cover object-center"
                   />
                 </div>
                 <div className="overflow-hidden rounded-[8px] border border-white/10 bg-black">
                   <img
-                    src="/portfolio-media/new-generation-actor-palace.jpg"
-                    alt="Actor portfolio"
-                    className="aspect-[4/5] w-full object-cover"
+                    src="/portfolio-media/about-soft-light-selfie-portrait.png"
+                    alt="Soft light selfie portrait"
+                    className="aspect-[4/5] w-full object-cover object-[center_35%]"
                   />
                 </div>
               </div>
