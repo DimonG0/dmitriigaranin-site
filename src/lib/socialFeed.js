@@ -165,11 +165,11 @@ export const russianSocialPosts = [
     category: "dima-photo",
   },
   {
-    id: "ru-social-zhivi-segodnya-portrait",
+    id: "ru-social-zhivi-segodnya-final-portrait",
     platform: "VK",
     title: "Живи сегодня",
     date: "2025",
-    image: "/portfolio-media/ru-social-zhivi-segodnya-portrait.png",
+    image: "/portfolio-media/ru-social-zhivi-segodnya-final-portrait.png",
     url: SOCIAL_URLS.vk,
     tone: "philosophy",
     category: "philosophy",
