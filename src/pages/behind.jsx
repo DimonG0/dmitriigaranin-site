@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion as Motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { t } from "../lib/i18n";
+import { resolveLang } from "../lib/routes";
 import { usePageSeo } from "../lib/usePageSeo";
 
 import Chip from "../ui/Chip";
@@ -21,90 +22,12 @@ const fadeUp = {
   }),
 };
 
-const archiveText = {
-  en: {
-    loginTitle: "Private archive",
-    loginDesc: "Enter the invitation code to unlock closed materials.",
-    codePlaceholder: "Access code",
-    unlock: "Unlock archive",
-    signingIn: "Checking...",
-    authenticated: "Access is open. Files are served only through the protected backend.",
-    openChip: "Access open",
-    admin: "Admin",
-    viewer: "Partner",
-    logout: "Log out",
-    vaultOver: "Private vault",
-    vaultTitle: "Archive materials",
-    vaultDesc: "Materials stay in private storage and downloads pass through server-side access checks.",
-    emptyTitle: "Archive is ready",
-    emptyDesc: "No private materials have been uploaded yet.",
-    uploadTitle: "Add material",
-    uploadDesc: "Admin upload writes the file into private storage and updates the archive manifest.",
-    titlePlaceholder: "Title",
-    descriptionPlaceholder: "Short note",
-    categoryPlaceholder: "Category",
-    fileLabel: "File",
-    upload: "Upload",
-    uploading: "Uploading...",
-    delete: "Delete",
-    download: "Download",
-    size: "Size",
-    uploaded: "Uploaded",
-    itemsLabel: "materials",
-    invalidCode: "The access code was not accepted.",
-    unavailable: "The archive server is not available in this run.",
-    generalError: "Request failed. Please try again.",
-    missingFile: "Choose a file first.",
-    fileTooLarge: "The file is larger than the archive limit.",
-    uploadDone: "Material added to the private archive.",
-    deleteDone: "Material removed.",
-    confirmDelete: "Remove this private material?",
-    configProblem: "Archive secrets and private storage need to be configured.",
-  },
-  ru: {
-    loginTitle: "Вход в приватный архив",
-    loginDesc: "Введите персональный код приглашения, чтобы открыть закрытые материалы.",
-    codePlaceholder: "Код доступа",
-    unlock: "Открыть архив",
-    signingIn: "Проверяю...",
-    authenticated: "Доступ открыт. Материалы выдаются только через защищенный сервер.",
-    openChip: "Доступ открыт",
-    admin: "Админ",
-    viewer: "Партнер",
-    logout: "Выйти",
-    vaultOver: "Приватный сейф",
-    vaultTitle: "Материалы архива",
-    vaultDesc: "Файлы хранятся в приватном хранилище и скачиваются только после проверки доступа.",
-    emptyTitle: "Архив готов",
-    emptyDesc: "Пока нет загруженных приватных материалов.",
-    uploadTitle: "Добавить материал",
-    uploadDesc: "Загрузка доступна только администратору.",
-    titlePlaceholder: "Название",
-    descriptionPlaceholder: "Короткая заметка",
-    categoryPlaceholder: "Категория",
-    fileLabel: "Файл",
-    upload: "Загрузить",
-    uploading: "Загружаю...",
-    delete: "Удалить",
-    download: "Скачать",
-    size: "Размер",
-    uploaded: "Добавлено",
-    itemsLabel: "материалов",
-    invalidCode: "Код доступа не подошел.",
-    unavailable: "Сервер архива сейчас недоступен.",
-    generalError: "Запрос не прошел. Попробуйте еще раз.",
-    missingFile: "Сначала выберите файл.",
-    fileTooLarge: "Файл больше лимита архива.",
-    uploadDone: "Материал добавлен в приватный архив.",
-    deleteDone: "Материал удален.",
-    confirmDelete: "Удалить этот приватный материал?",
-    configProblem: "Для архива нужно настроить секреты и приватное хранилище.",
-  },
+const dateLocales = {
+  en: "en",
+  ru: "ru",
+  fr: "fr",
+  am: "hy",
 };
-
-function resolveArchiveText(lang) {
-  return archiveText[lang] || archiveText.en;
-}
 
 async function requestJson(path, options = {}) {
   const response = await fetch(path, {
@@ -130,12 +53,21 @@ function errorMessage(error, text) {
   const code = error?.message;
 
   if (code === "invalid_code") return text.invalidCode;
+  if (code === "unauthorized") return text.unauthorized;
+  if (code === "forbidden") return text.forbidden;
   if (code === "api_unavailable") return text.unavailable;
   if (code === "archive_not_configured" || code === "archive_storage_not_configured") return text.configProblem;
   if (code === "missing_file") return text.missingFile;
+  if (code === "missing_item_id") return text.missingItem;
+  if (code === "invalid_form_data") return text.invalidForm;
+  if (code === "not_found") return text.notFound;
   if (code === "file_too_large") return text.fileTooLarge;
 
   return text.generalError;
+}
+
+function sessionExpired(error) {
+  return error?.message === "unauthorized";
 }
 
 function formatBytes(value) {
@@ -153,13 +85,14 @@ function formatDate(value, lang) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return "-";
 
-  return new Intl.DateTimeFormat(lang, { dateStyle: "medium" }).format(date);
+  return new Intl.DateTimeFormat(dateLocales[lang] || "en", { dateStyle: "medium" }).format(date);
 }
 
 export default function Behind() {
-  const { lang = "en" } = useParams();
-  const c = t(lang);
-  const text = resolveArchiveText(lang);
+  const { lang: routeLang = "en" } = useParams();
+  const lang = resolveLang(routeLang);
+  const c = useMemo(() => t(lang), [lang]);
+  const text = c.behind.archive;
   const fileInputRef = useRef(null);
 
   const [session, setSession] = useState({ authenticated: false, role: null });
@@ -176,6 +109,11 @@ export default function Behind() {
   });
 
   const isAdmin = session.authenticated && session.role === "admin";
+
+  const clearArchiveAccess = useCallback(() => {
+    setSession({ authenticated: false, role: null });
+    setItems([]);
+  }, []);
 
   usePageSeo(lang, "behind");
 
@@ -195,13 +133,22 @@ export default function Behind() {
           role: sessionData.role,
         });
 
+        if (!sessionData.configured) {
+          setNotice(text.configProblem);
+        }
+
         if (sessionData.authenticated) {
           setArchiveLoading(true);
           const itemData = await requestJson("/api/archive/items");
           if (active) setItems(itemData.items || []);
+        } else {
+          setItems([]);
         }
       } catch (error) {
-        if (active) setNotice(errorMessage(error, text));
+        if (active) {
+          if (sessionExpired(error)) clearArchiveAccess();
+          setNotice(errorMessage(error, text));
+        }
       } finally {
         if (active) {
           setLoading(false);
@@ -215,7 +162,7 @@ export default function Behind() {
     return () => {
       active = false;
     };
-  }, [text]);
+  }, [clearArchiveAccess, text]);
 
   async function refreshItems() {
     setArchiveLoading(true);
@@ -224,6 +171,7 @@ export default function Behind() {
       const itemData = await requestJson("/api/archive/items");
       setItems(itemData.items || []);
     } catch (error) {
+      if (sessionExpired(error)) clearArchiveAccess();
       setNotice(errorMessage(error, text));
     } finally {
       setArchiveLoading(false);
@@ -264,8 +212,7 @@ export default function Behind() {
     } catch {
       // The local UI still clears the session if the cookie has already expired.
     } finally {
-      setSession({ authenticated: false, role: null });
-      setItems([]);
+      clearArchiveAccess();
       setBusy(false);
     }
   }
@@ -299,6 +246,7 @@ export default function Behind() {
       setNotice(text.uploadDone);
       await refreshItems();
     } catch (error) {
+      if (sessionExpired(error)) clearArchiveAccess();
       setNotice(errorMessage(error, text));
     } finally {
       setBusy(false);
@@ -319,6 +267,7 @@ export default function Behind() {
       setNotice(text.deleteDone);
       await refreshItems();
     } catch (error) {
+      if (sessionExpired(error)) clearArchiveAccess();
       setNotice(errorMessage(error, text));
     } finally {
       setBusy(false);

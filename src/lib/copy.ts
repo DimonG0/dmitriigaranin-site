@@ -45,6 +45,51 @@ export type CopyBlock = {
     note: string;
 
     cards: Array<{ title: string; desc: string }>;
+
+    archive: {
+      loginTitle: string;
+      loginDesc: string;
+      codePlaceholder: string;
+      unlock: string;
+      signingIn: string;
+      authenticated: string;
+      openChip: string;
+      admin: string;
+      viewer: string;
+      logout: string;
+      vaultOver: string;
+      vaultTitle: string;
+      vaultDesc: string;
+      emptyTitle: string;
+      emptyDesc: string;
+      uploadTitle: string;
+      uploadDesc: string;
+      titlePlaceholder: string;
+      descriptionPlaceholder: string;
+      categoryPlaceholder: string;
+      fileLabel: string;
+      upload: string;
+      uploading: string;
+      delete: string;
+      download: string;
+      size: string;
+      uploaded: string;
+      itemsLabel: string;
+      invalidCode: string;
+      unauthorized: string;
+      forbidden: string;
+      unavailable: string;
+      generalError: string;
+      missingFile: string;
+      missingItem: string;
+      invalidForm: string;
+      notFound: string;
+      fileTooLarge: string;
+      uploadDone: string;
+      deleteDone: string;
+      confirmDelete: string;
+      configProblem: string;
+    };
   };
 
   contact: {
@@ -212,6 +257,51 @@ export const copy: Record<Lang, CopyBlock> = {
         { title: "Archive", desc: "Curated unreleased material and drafts." },
         { title: "Access", desc: "Invitation-only viewing permissions." },
       ],
+
+      archive: {
+        loginTitle: "Private archive",
+        loginDesc: "Enter the invitation code to unlock closed materials.",
+        codePlaceholder: "Access code",
+        unlock: "Unlock archive",
+        signingIn: "Checking...",
+        authenticated: "Access is open. Files are served only through the protected backend.",
+        openChip: "Access open",
+        admin: "Admin",
+        viewer: "Partner",
+        logout: "Log out",
+        vaultOver: "Private vault",
+        vaultTitle: "Archive materials",
+        vaultDesc: "Materials stay in private storage and downloads pass through server-side access checks.",
+        emptyTitle: "Archive is ready",
+        emptyDesc: "No private materials have been uploaded yet.",
+        uploadTitle: "Add material",
+        uploadDesc: "Admin upload writes the file into private storage and updates the archive manifest.",
+        titlePlaceholder: "Title",
+        descriptionPlaceholder: "Short note",
+        categoryPlaceholder: "Category",
+        fileLabel: "File",
+        upload: "Upload",
+        uploading: "Uploading...",
+        delete: "Delete",
+        download: "Download",
+        size: "Size",
+        uploaded: "Uploaded",
+        itemsLabel: "materials",
+        invalidCode: "The access code was not accepted.",
+        unauthorized: "Session expired. Enter the code again.",
+        forbidden: "Admin access is required for this action.",
+        unavailable: "The archive server is not available in this run.",
+        generalError: "Request failed. Please try again.",
+        missingFile: "Choose a file first.",
+        missingItem: "Select a material first.",
+        invalidForm: "The upload form could not be read.",
+        notFound: "This archive material was not found.",
+        fileTooLarge: "The file is larger than the archive limit.",
+        uploadDone: "Material added to the private archive.",
+        deleteDone: "Material removed.",
+        confirmDelete: "Remove this private material?",
+        configProblem: "Archive secrets and private storage need to be configured.",
+      },
     },
 
     contact: {
@@ -443,6 +533,51 @@ export const copy: Record<Lang, CopyBlock> = {
         { title: "Архив", desc: "Кураторские черновики и материалы, не публикуемые массово." },
         { title: "Доступ", desc: "Просмотр по приглашению." },
       ],
+
+      archive: {
+        loginTitle: "Вход в приватный архив",
+        loginDesc: "Введите персональный код приглашения, чтобы открыть закрытые материалы.",
+        codePlaceholder: "Код доступа",
+        unlock: "Открыть архив",
+        signingIn: "Проверяю...",
+        authenticated: "Доступ открыт. Материалы выдаются только через защищённый сервер.",
+        openChip: "Доступ открыт",
+        admin: "Админ",
+        viewer: "Партнёр",
+        logout: "Выйти",
+        vaultOver: "Приватный сейф",
+        vaultTitle: "Материалы архива",
+        vaultDesc: "Файлы хранятся в приватном хранилище и скачиваются только после проверки доступа.",
+        emptyTitle: "Архив готов",
+        emptyDesc: "Пока нет загруженных приватных материалов.",
+        uploadTitle: "Добавить материал",
+        uploadDesc: "Загрузка доступна только администратору: файл уходит в приватное хранилище и обновляет манифест архива.",
+        titlePlaceholder: "Название",
+        descriptionPlaceholder: "Короткая заметка",
+        categoryPlaceholder: "Категория",
+        fileLabel: "Файл",
+        upload: "Загрузить",
+        uploading: "Загружаю...",
+        delete: "Удалить",
+        download: "Скачать",
+        size: "Размер",
+        uploaded: "Добавлено",
+        itemsLabel: "материалов",
+        invalidCode: "Код доступа не подошёл.",
+        unauthorized: "Сессия истекла. Введите код ещё раз.",
+        forbidden: "Для этого действия нужен доступ администратора.",
+        unavailable: "Сервер архива сейчас недоступен.",
+        generalError: "Запрос не прошёл. Попробуйте ещё раз.",
+        missingFile: "Сначала выберите файл.",
+        missingItem: "Сначала выберите материал.",
+        invalidForm: "Форму загрузки не удалось прочитать.",
+        notFound: "Этот материал архива не найден.",
+        fileTooLarge: "Файл больше лимита архива.",
+        uploadDone: "Материал добавлен в приватный архив.",
+        deleteDone: "Материал удалён.",
+        confirmDelete: "Удалить этот приватный материал?",
+        configProblem: "Для архива нужно настроить секреты и приватное хранилище.",
+      },
     },
 
     contact: {
@@ -626,6 +761,51 @@ export const copy: Record<Lang, CopyBlock> = {
         { title: "Archive", desc: "Matériaux inédits et brouillons curatés." },
         { title: "Accès", desc: "Visionnage sur invitation." },
       ],
+
+      archive: {
+        loginTitle: "Archive privée",
+        loginDesc: "Entrez le code d’invitation pour ouvrir les matériaux fermés.",
+        codePlaceholder: "Code d’accès",
+        unlock: "Ouvrir l’archive",
+        signingIn: "Vérification...",
+        authenticated: "L’accès est ouvert. Les fichiers passent uniquement par le backend protégé.",
+        openChip: "Accès ouvert",
+        admin: "Admin",
+        viewer: "Partenaire",
+        logout: "Se déconnecter",
+        vaultOver: "Coffre privé",
+        vaultTitle: "Matériaux d’archive",
+        vaultDesc: "Les fichiers restent dans un stockage privé et les téléchargements passent par une vérification côté serveur.",
+        emptyTitle: "L’archive est prête",
+        emptyDesc: "Aucun matériau privé n’a encore été ajouté.",
+        uploadTitle: "Ajouter un matériau",
+        uploadDesc: "L’ajout admin écrit le fichier dans le stockage privé et met à jour le manifeste de l’archive.",
+        titlePlaceholder: "Titre",
+        descriptionPlaceholder: "Note courte",
+        categoryPlaceholder: "Catégorie",
+        fileLabel: "Fichier",
+        upload: "Téléverser",
+        uploading: "Téléversement...",
+        delete: "Supprimer",
+        download: "Télécharger",
+        size: "Taille",
+        uploaded: "Ajouté",
+        itemsLabel: "matériaux",
+        invalidCode: "Le code d’accès n’a pas été accepté.",
+        unauthorized: "La session a expiré. Entrez à nouveau le code.",
+        forbidden: "Un accès administrateur est requis pour cette action.",
+        unavailable: "Le serveur d’archive n’est pas disponible dans cette exécution.",
+        generalError: "La requête a échoué. Réessayez.",
+        missingFile: "Choisissez d’abord un fichier.",
+        missingItem: "Sélectionnez d’abord un matériau.",
+        invalidForm: "Le formulaire d’ajout n’a pas pu être lu.",
+        notFound: "Ce matériau d’archive est introuvable.",
+        fileTooLarge: "Le fichier dépasse la limite de l’archive.",
+        uploadDone: "Matériau ajouté à l’archive privée.",
+        deleteDone: "Matériau supprimé.",
+        confirmDelete: "Supprimer ce matériau privé ?",
+        configProblem: "Les secrets de l’archive et le stockage privé doivent être configurés.",
+      },
     },
 
     contact: {
@@ -758,6 +938,51 @@ export const copy: Record<Lang, CopyBlock> = {
         { title: "Արխիվ", desc: "Չհրապարակված նյութեր և տարբերակներ՝ ընտրված։" },
         { title: "Մուտք", desc: "Դիտում՝ միայն հրավերով։" },
       ],
+
+      archive: {
+        loginTitle: "Մուտք պրիվատ արխիվ",
+        loginDesc: "Մուտքագրեք հրավերի անձնական կոդը՝ փակ նյութերը բացելու համար։",
+        codePlaceholder: "Մուտքի կոդ",
+        unlock: "Բացել արխիվը",
+        signingIn: "Ստուգում եմ...",
+        authenticated: "Մուտքը բաց է։ Ֆայլերը հասանելի են միայն պաշտպանված սերվերի միջոցով։",
+        openChip: "Մուտքը բաց է",
+        admin: "Ադմին",
+        viewer: "Գործընկեր",
+        logout: "Դուրս գալ",
+        vaultOver: "Պրիվատ սեյֆ",
+        vaultTitle: "Արխիվի նյութեր",
+        vaultDesc: "Ֆայլերը պահվում են պրիվատ պահեստում, իսկ ներբեռնումն անցնում է սերվերային մուտքի ստուգմամբ։",
+        emptyTitle: "Արխիվը պատրաստ է",
+        emptyDesc: "Պրիվատ նյութեր դեռ չեն վերբեռնվել։",
+        uploadTitle: "Ավելացնել նյութ",
+        uploadDesc: "Ադմինի վերբեռնումը ֆայլը պահում է պրիվատ պահեստում և թարմացնում արխիվի մանիֆեստը։",
+        titlePlaceholder: "Վերնագիր",
+        descriptionPlaceholder: "Կարճ նշում",
+        categoryPlaceholder: "Կատեգորիա",
+        fileLabel: "Ֆայլ",
+        upload: "Վերբեռնել",
+        uploading: "Վերբեռնում եմ...",
+        delete: "Ջնջել",
+        download: "Ներբեռնել",
+        size: "Չափ",
+        uploaded: "Ավելացվել է",
+        itemsLabel: "նյութ",
+        invalidCode: "Մուտքի կոդը չի ընդունվել։",
+        unauthorized: "Սեսիան ավարտվել է։ Մուտքագրեք կոդը նորից։",
+        forbidden: "Այս գործողության համար պետք է ադմինի մուտք։",
+        unavailable: "Արխիվի սերվերը հիմա հասանելի չէ։",
+        generalError: "Հարցումը չհաջողվեց։ Փորձեք նորից։",
+        missingFile: "Նախ ընտրեք ֆայլ։",
+        missingItem: "Նախ ընտրեք նյութ։",
+        invalidForm: "Վերբեռնման ձևը չհաջողվեց կարդալ։",
+        notFound: "Արխիվի այս նյութը չի գտնվել։",
+        fileTooLarge: "Ֆայլը մեծ է արխիվի սահմանաչափից։",
+        uploadDone: "Նյութը ավելացվել է պրիվատ արխիվում։",
+        deleteDone: "Նյութը ջնջվել է։",
+        confirmDelete: "Ջնջե՞լ այս պրիվատ նյութը։",
+        configProblem: "Արխիվի համար պետք է կարգավորել գաղտնիքները և պրիվատ պահեստը։",
+      },
     },
 
     contact: {
