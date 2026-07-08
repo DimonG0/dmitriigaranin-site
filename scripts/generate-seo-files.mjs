@@ -1,13 +1,31 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { getSitemapEntries, PORTFOLIO_IMAGE_SITEMAP_ITEMS, SITE_ORIGIN } from "../src/lib/seoConfig.js";
+import { buildAbsoluteUrl, getSitemapEntries, PORTFOLIO_IMAGE_SITEMAP_ITEMS, SITE_ORIGIN } from "../src/lib/seoConfig.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
 const publicDir = resolve(root, "public");
 
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+
+const securityHeaders = [
+  ["Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload"],
+  ["X-Content-Type-Options", "nosniff"],
+  ["X-Frame-Options", "DENY"],
+  ["Referrer-Policy", "strict-origin-when-cross-origin"],
+  ["X-Permitted-Cross-Domain-Policies", "none"],
+  ["Cross-Origin-Opener-Policy", "same-origin"],
+  ["Cross-Origin-Resource-Policy", "same-origin"],
+  [
+    "Permissions-Policy",
+    "accelerometer=(), autoplay=(), camera=(), clipboard-read=(), display-capture=(), encrypted-media=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), usb=(), web-share=()",
+  ],
+  [
+    "Content-Security-Policy",
+    "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://formsubmit.co; img-src 'self' data: blob: https:; media-src 'self' https:; font-src 'self' data: https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; connect-src 'self' https:; manifest-src 'self'; worker-src 'self' blob:; upgrade-insecure-requests",
+  ],
+];
 
 async function readText(filePath) {
   try {
@@ -79,6 +97,7 @@ function buildSitemap(lastmodDate) {
   const urls = getSitemapEntries()
     .map((entry) => {
       const alternates = entry.alternates
+        .concat({ hreflang: "x-default", href: buildAbsoluteUrl("en", entry.route) })
         .map(
           (alternate) =>
             `    <xhtml:link rel="alternate" hreflang="${escapeXml(alternate.hreflang)}" href="${escapeXml(alternate.href)}" />`
@@ -112,8 +131,40 @@ function buildRobots() {
   return [
     "User-agent: *",
     "Allow: /",
+    "Disallow: /api/archive/",
+    "Disallow: /private-archive/",
+    "",
+    "User-agent: Yandex",
+    "Allow: /",
+    "Disallow: /api/archive/",
+    "Disallow: /private-archive/",
+    "",
+    "User-agent: Googlebot",
+    "Allow: /",
+    "Disallow: /api/archive/",
+    "Disallow: /private-archive/",
     "",
     `Sitemap: ${SITE_ORIGIN}/sitemap.xml`,
+    "",
+  ].join("\n");
+}
+
+function buildHeaders() {
+  return [
+    "/*",
+    ...securityHeaders.map(([key, value]) => `  ${key}: ${value}`),
+    "",
+    "/api/archive/*",
+    "  Cache-Control: no-store",
+    "  X-Robots-Tag: noindex, nofollow",
+    "",
+    "/sitemap.xml",
+    "  Content-Type: application/xml; charset=utf-8",
+    "  Cache-Control: public, max-age=3600",
+    "",
+    "/robots.txt",
+    "  Content-Type: text/plain; charset=utf-8",
+    "  Cache-Control: public, max-age=3600",
     "",
   ].join("\n");
 }
@@ -121,6 +172,7 @@ function buildRobots() {
 await mkdir(publicDir, { recursive: true });
 const sitemapPath = resolve(publicDir, "sitemap.xml");
 const robotsPath = resolve(publicDir, "robots.txt");
+const headersPath = resolve(publicDir, "_headers");
 const existingSitemap = await readText(sitemapPath);
 const lastmodDate = getLastmodDate(existingSitemap);
 const changedFiles = [];
@@ -131,6 +183,10 @@ if (await writeIfChanged(sitemapPath, buildSitemap(lastmodDate))) {
 
 if (await writeIfChanged(robotsPath, buildRobots())) {
   changedFiles.push("public/robots.txt");
+}
+
+if (await writeIfChanged(headersPath, buildHeaders())) {
+  changedFiles.push("public/_headers");
 }
 
 console.log(

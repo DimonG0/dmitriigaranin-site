@@ -1,4 +1,16 @@
 User-agent: *
 Allow: /
+Disallow: /api/archive/
+Disallow: /private-archive/
+
+User-agent: Yandex
+Allow: /
+Disallow: /api/archive/
+Disallow: /private-archive/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/archive/
+Disallow: /private-archive/
 
 Sitemap: https://dmitriigaranin.com/sitemap.xml

@@ -1,65 +1,49 @@
 {
-  "updatedAt": "2026-06-22",
+  "updatedAt": "2026-07-04",
   "items": [
     {
-      "id": "instagram-editorial-01",
+      "id": "en-social-move-with-the-tide",
       "platform": "Instagram",
-      "title": "Headshot 2026",
+      "title": "Move with the tide",
       "date": "2026",
-      "image": "/portfolio-media/dmitrii-headshot-2026.jpg",
+      "image": "/portfolio-media/dmitrii-garanin-move-with-the-tide-trust-your-way-tropical-actor-portrait.png",
       "url": "https://www.instagram.com/dmitrii_garanln/",
-      "tone": "portrait",
-      "category": "dima-photo"
+      "tone": "poster",
+      "category": "philosophy",
+      "presentation": "poster"
     },
     {
-      "id": "vk-backstage-01",
+      "id": "en-social-create-your-moment",
       "platform": "VK",
-      "title": "The choice beyond status",
+      "title": "Create your moment",
       "date": "2026",
-      "image": "/portfolio-media/choice-beyond-status.jpg",
+      "image": "/portfolio-media/dmitrii-garanin-create-your-moment-today-here-now-actor-portrait.png",
       "url": "https://vk.com/dimagaraninofficial",
-      "tone": "editorial",
-      "category": "brand"
+      "tone": "poster",
+      "category": "philosophy",
+      "presentation": "poster"
     },
     {
-      "id": "pinterest-showreel-01",
+      "id": "en-social-dreams-dont-work",
       "platform": "Pinterest",
-      "title": "The boy who looks beyond",
-      "date": "2025",
-      "image": "/portfolio-media/boy-who-looks-beyond.jpg",
+      "title": "Dreams don't work until you do",
+      "date": "2026",
+      "image": "/portfolio-media/dmitrii-garanin-dreams-dont-work-until-you-do-actor-portrait.png",
       "url": "https://ph.pinterest.com/dmitrii_garanin/",
-      "tone": "portrait",
-      "category": "dima-photo"
+      "tone": "poster",
+      "category": "philosophy",
+      "presentation": "poster"
     },
     {
-      "id": "facebook-product-01",
+      "id": "en-social-live-today",
       "platform": "Facebook",
-      "title": "New generation actor",
-      "date": "2025",
-      "image": "/portfolio-media/new-generation-actor-studio.jpg",
+      "title": "Stay soft. Stay true",
+      "date": "2026",
+      "image": "/portfolio-media/dmitriy-garanin-stay-soft-stay-true-actor-card.png",
       "url": "https://www.facebook.com/Dimon.G0/",
-      "tone": "brand",
-      "category": "brand"
-    },
-    {
-      "id": "facebook-campaign-01",
-      "platform": "Facebook",
-      "title": "Actor manifesto",
-      "date": "2025",
-      "image": "/portfolio-media/new-generation-actor-palace.jpg",
-      "url": "https://www.facebook.com/Dimon.G0/",
-      "tone": "cinema",
-      "category": "cinema"
-    },
-    {
-      "id": "instagram-archive-02",
-      "platform": "Instagram",
-      "title": "Character creates the role",
-      "date": "2025",
-      "image": "/portfolio-media/actor-character-paris.jpg",
-      "url": "https://www.instagram.com/dmitrii_garanln/",
-      "tone": "character",
-      "category": "cinema"
+      "tone": "poster",
+      "category": "philosophy",
+      "presentation": "poster"
     }
   ]
 }

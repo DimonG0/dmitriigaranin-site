@@ -3,9 +3,11 @@ import { AnimatePresence, motion as Motion } from "framer-motion";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { t, SAFE } from "../lib/i18n";
+import { resolveLang } from "../lib/routes";
 import { usePageSeo } from "../lib/usePageSeo";
 
 const ease = [0.22, 1, 0.36, 1];
+const fallbackCover = "/portfolio-media/dmitriy-garanin-golden-hour-river-portrait.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16, filter: "blur(10px)" },
@@ -17,616 +19,807 @@ const fadeUp = {
   }),
 };
 
-const visualPortfolioItems = [
+const portfolioFrames = [
   {
-    id: "official-photo-2026",
+    id: "golden-hour-river",
     category: "cinema",
-    title: "Dmitrii Garanin Official Actor Photo 2026",
-    subtitle: "Official portrait for casting, biography pages, and press use",
     year: "2026",
-    badge: "OFFICIAL",
-    cover: "/portfolio-media/dmitrii-garanin-official-photo-2026.jpg",
-    alt: "Dmitrii Garanin official actor photo 2026, VGIK actor portrait",
-    tags: ["Dmitrii Garanin", "Actor", "VGIK"],
-    description:
-      "A direct official portrait for searches around who Dmitrii Garanin is, actor biography pages, casting profiles, and professional media references.",
+    cover: "/portfolio-media/dmitriy-garanin-golden-hour-river-portrait.jpg",
+    focus: "center 42%",
   },
   {
-    id: "rooftop-city-portrait",
-    category: "film",
-    title: "Dmitrii Garanin Rooftop City Portrait",
-    subtitle: "Urban cinematic actor portrait with a strong screen presence",
+    id: "classical-art-museum",
+    category: "theatre",
     year: "2026",
-    badge: "CITY",
-    cover: "/portfolio-media/dmitriy-garanin-akter-vgik-portret-na-kryshe-goroda.jpg",
-    alt: "Dmitriy Garanin actor VGIK rooftop city portrait",
-    tags: ["Actor", "Cinema", "Portrait"],
-    description:
-      "A cinematic rooftop portrait of Dmitrii Garanin, built for actor portfolio discovery, image search, and editorial context around cinema, youth, and urban drama.",
+    cover: "/portfolio-media/dmitrii-garanin-classical-art-museum-portrait.jpg",
+    focus: "center 34%",
   },
   {
-    id: "tropical-vgik-portrait",
+    id: "helicopter-portrait",
     category: "bloggers",
-    title: "Dmitrii Garanin Tropical Editorial Portrait",
-    subtitle: "Warm lifestyle frame for media, social, and brand positioning",
     year: "2026",
-    badge: "EDITORIAL",
-    cover: "/portfolio-media/dmitrii-garanin-actor-vgik-tropical-portrait.jpg",
-    alt: "Dmitrii Garanin actor VGIK tropical portrait",
-    tags: ["Editorial", "Media", "Lifestyle"],
-    description:
-      "A bright tropical actor portrait that expands the public visual identity of Dmitrii Garanin with a relaxed, premium, and international editorial tone.",
+    cover: "/portfolio-media/dmitrii-garanin-helicopter-portrait.jpg",
+    focus: "center 38%",
   },
   {
-    id: "cinematic-pool-portrait",
+    id: "tropical-island",
     category: "cinema",
-    title: "Dmitry Garanin Cinematic Pool Portrait",
-    subtitle: "Natural poolside portrait with a calm cinematic mood",
     year: "2026",
-    badge: "PORTRAIT",
-    cover: "/portfolio-media/dmitry-garanin-actor-vgik-cinematic-portrait-pool.jpg",
-    alt: "Dmitry Garanin actor VGIK cinematic pool portrait",
-    tags: ["Portrait", "Casting", "Cinema"],
-    description:
-      "A poolside portrait with natural light, soft character presence, and clear actor portfolio value for searches around Dmitry Garanin and VGIK acting materials.",
+    cover: "/portfolio-media/dmitrii-garanin-tropical-island-portrait.jpg",
+    focus: "center 42%",
   },
   {
-    id: "headshot-2026",
-    category: "cinema",
-    title: "Headshot 2026",
-    subtitle: "Natural light portrait for casting and profile use",
-    year: "2026",
-    badge: "HEADSHOT",
-    cover: "/portfolio-media/dmitrii-headshot-2026.jpg",
-    tags: ["Actor", "Portrait", "Casting"],
-    description:
-      "A clean, warm portrait built around direct presence, open light, and a natural screen-ready expression.",
-  },
-  {
-    id: "vgik-racing-cinema-portrait",
-    category: "cinema",
-    title: "Dmitrii Garanin VGIK Actor Racing Cinema Portrait",
-    subtitle: "Theatre and film actor portrait with action-screen energy",
-    year: "2026",
-    badge: "CINEMA",
-    cover: "/portfolio-media/dmitrii-garanin-vgik-actor-racing-cinema-portrait.jpg",
-    alt: "Dmitrii Garanin VGIK graduate theatre and cinema actor racing portrait",
-    tags: ["Dmitrii Garanin", "VGIK graduate", "Theatre actor", "Cinema actor", "Casting"],
-    description:
-      "A cinematic action-style portrait of Dmitrii Garanin, a theatre and film actor with VGIK training, prepared as actor portfolio, casting and press material for Google, Yandex, cinema and media discovery.",
-  },
-  {
-    id: "vgik-theatre-cinema-headshot-white",
-    category: "theatre",
-    title: "Dmitrii Garanin Theatre and Cinema Actor Headshot",
-    subtitle: "Clean actor headshot for press, casting and biography pages",
-    year: "2026",
-    badge: "VGIK",
-    cover: "/portfolio-media/dmitrii-garanin-vgik-theatre-cinema-headshot-white.jpg",
-    alt: "Dmitrii Garanin theatre and cinema actor VGIK graduate headshot",
-    tags: ["Dmitrii Garanin", "Theatre", "Cinema", "VGIK", "Actor headshot"],
-    description:
-      "A clean close actor headshot of Dmitrii Garanin for biography pages, casting profiles, theatre and cinema references, interview requests and official actor portfolio indexing.",
-  },
-  {
-    id: "vgik-actor-close-up-portrait",
+    id: "evening-marina",
     category: "film",
-    title: "Dmitrii Garanin Cinematic Close-Up Actor Portrait",
-    subtitle: "Intense screen close-up for cinema, series and character work",
     year: "2026",
-    badge: "CLOSE-UP",
-    cover: "/portfolio-media/dmitrii-garanin-vgik-actor-close-up-portrait.jpg",
-    alt: "Dmitrii Garanin VGIK actor close-up portrait for cinema and theatre casting",
-    tags: ["Close-up", "Actor portrait", "VGIK", "Cinema", "Theatre"],
-    description:
-      "A close-up portrait focused on screen presence, useful for searches around Dmitrii Garanin actor, VGIK graduate, theatre and cinema performer, casting portrait and character-driven media materials.",
+    cover: "/portfolio-media/dmitriy-garanin-vecher-v-marine-portret.jpg",
+    focus: "center 42%",
   },
   {
-    id: "theatre-cinema-vgik-soft-portrait",
-    category: "theatre",
-    title: "Dmitrii Garanin Soft Editorial Actor Portrait",
-    subtitle: "Natural actor portrait for theatre, cinema and editorial media",
-    year: "2026",
-    badge: "PORTRAIT",
-    cover: "/portfolio-media/dmitrii-garanin-theatre-cinema-vgik-soft-portrait.jpg",
-    alt: "Dmitrii Garanin theatre and cinema actor soft editorial portrait VGIK",
-    tags: ["Editorial", "Theatre actor", "Cinema actor", "VGIK", "Press"],
-    description:
-      "A soft editorial portrait of Dmitrii Garanin that supports search signals for theatre actor, cinema actor, VGIK graduate, actor biography, press image and professional portfolio materials.",
-  },
-  {
-    id: "vgik-theatre-actor-stage-costume",
-    category: "theatre",
-    title: "Dmitrii Garanin Theatre Actor Stage Costume Portrait",
-    subtitle: "Stage-ready visual for theatre, movement and character roles",
-    year: "2026",
-    badge: "THEATRE",
-    cover: "/portfolio-media/dmitrii-garanin-vgik-theatre-actor-stage-costume.jpg",
-    alt: "Dmitrii Garanin VGIK graduate theatre actor stage costume portrait",
-    tags: ["Theatre", "Stage", "Actor", "VGIK", "Character"],
-    description:
-      "A theatre-led actor portrait of Dmitrii Garanin in stage costume, positioned for searches about theatre and film actor Dmitrii Garanin, VGIK background, character work and media interviews.",
-  },
-  {
-    id: "actor-vgik-editorial-white-shirt",
+    id: "european-cafe",
     category: "bloggers",
-    title: "Dmitrii Garanin Editorial Actor Portrait",
-    subtitle: "Public-facing actor image for media, interviews and collaborations",
     year: "2026",
-    badge: "MEDIA",
-    cover: "/portfolio-media/dmitrii-garanin-actor-vgik-editorial-white-shirt.jpg",
-    alt: "Dmitrii Garanin actor VGIK editorial portrait for cinema theatre media",
-    tags: ["Media", "Interview", "Actor portfolio", "VGIK", "Cinema"],
-    description:
-      "An editorial portrait of Dmitrii Garanin for media discovery, interview context, actor profile pages, casting visibility and theatre-cinema portfolio indexing across search engines.",
+    cover: "/portfolio-media/dmitriy-garanin-european-cafe-lifestyle-portrait.jpg",
+    focus: "center 40%",
   },
   {
-    id: "vgik-actor-hoodie-portrait",
-    category: "cinema",
-    title: "Dmitrii Garanin Casual Casting Actor Portrait",
-    subtitle: "Natural profile image for actor casting and screen presence",
+    id: "historic-city",
+    category: "film",
     year: "2026",
-    badge: "CASTING",
-    cover: "/portfolio-media/dmitrii-garanin-vgik-actor-hoodie-portrait.jpg",
-    alt: "Dmitrii Garanin VGIK actor casual casting portrait theatre cinema",
-    tags: ["Casting", "Actor", "VGIK", "Theatre", "Cinema"],
-    description:
-      "A natural casual casting portrait of Dmitrii Garanin, reinforcing actor portfolio signals for Google and Yandex around VGIK graduate, theatre actor, cinema actor and professional media presence.",
+    cover: "/portfolio-media/dmitrii-garanin-historic-city-portrait.jpg",
+    focus: "center 39%",
+  },
+  {
+    id: "summer-stone-wall",
+    category: "theatre",
+    year: "2026",
+    cover: "/portfolio-media/dmitrii-garanin-summer-stone-wall-portrait.jpg",
+    focus: "center 44%",
+  },
+  {
+    id: "motorcycle-rider",
+    category: "film",
+    year: "2026",
+    cover: "/portfolio-media/dmitrii-garanin-motorcycle-rider-portrait.jpg",
+    focus: "center 42%",
+  },
+  {
+    id: "evening-city",
+    category: "series",
+    year: "2026",
+    cover: "/portfolio-media/dmitrii-garanin-evening-city-portrait.jpg",
+    focus: "60% 36%",
+  },
+  {
+    id: "sport-lifestyle",
+    category: "series",
+    year: "2026",
+    cover: "/portfolio-media/dmitrii-garanin-sport-lifestyle-portrait.jpg",
+    focus: "center 34%",
+  },
+  {
+    id: "green-sweater",
+    category: "bloggers",
+    year: "2026",
+    cover: "/portfolio-media/dmitrii-garanin-mens-fashion-portrait-green-sweater.jpg",
+    focus: "center 42%",
+  },
+  {
+    id: "minimalist-casual",
+    category: "cinema",
+    year: "2026",
+    cover: "/portfolio-media/dmitrii-garanin-minimalist-casual-portrait.jpg",
+    focus: "center 30%",
+  },
+  {
+    id: "golden-hour-close",
+    category: "cinema",
+    year: "2026",
+    cover: "/portfolio-media/dmitrii-garanin-golden-hour-portrait.jpg",
+    focus: "center 36%",
+  },
+  {
+    id: "living-room-casual",
+    category: "bloggers",
+    year: "2026",
+    cover: "/portfolio-media/dmitrii-garanin-casual-modern-living-room-portrait.jpg",
+    focus: "center 34%",
+  },
+  {
+    id: "summer-beach-sunglasses",
+    category: "cinema",
+    year: "2026",
+    cover: "/portfolio-media/dmitrii-garanin-summer-beach-sunglasses-portrait.jpg",
+    focus: "center 38%",
+  },
+  {
+    id: "tropical-luxury",
+    category: "bloggers",
+    year: "2026",
+    cover: "/portfolio-media/dmitrii-garanin-tropical-luxury-portrait.jpg",
+    focus: "center 42%",
+  },
+  {
+    id: "morning-selfie",
+    category: "series",
+    year: "2026",
+    cover: "/portfolio-media/dmitrii-garanin-morning-selfie.jpg",
+    focus: "center 28%",
   },
 ];
 
 const portfolioItemCopy = {
-  ru: {
-    "official-photo-2026": {
-      title: "Официальное фото Дмитрия Гаранина 2026",
-      subtitle: "Актёрский портрет для кастинга, биографии и пресс-материалов",
-      badge: "ОФИЦИАЛЬНО",
-      alt: "Дмитрий Гаранин официальное фото актера 2026, портрет актера ВГИК",
-      tags: ["Дмитрий Гаранин", "Актёр", "ВГИК"],
+  en: {
+    "golden-hour-river": {
+      title: "Golden Hour River Frame",
+      subtitle: "Cinematic portrait in reflected evening light",
+      badge: "CINEMA",
+      alt: "Dmitrii Garanin golden hour river cinematic portrait",
+      tags: ["Cinema", "Golden hour", "Screen presence"],
       description:
-        "Прямой официальный портрет для запросов «кто такой Дмитрий Гаранин», актёрских биографий, кастинговых профилей и профессиональных медиа-материалов.",
+        "A warm river portrait built around stillness, reflected light, and a screen-ready calm.",
     },
-    "rooftop-city-portrait": {
-      title: "Дмитрий Гаранин — портрет на крыше города",
-      subtitle: "Городской кинематографичный портрет актёра с сильным экранным присутствием",
-      badge: "ГОРОД",
-      alt: "Дмитрий Гаранин актер ВГИК портрет на крыше города",
-      tags: ["Актёр", "Кино", "Портрет"],
+    "classical-art-museum": {
+      title: "Classical Museum Presence",
+      subtitle: "Actor portrait with theatrical architecture and sculpture",
+      badge: "THEATRE",
+      alt: "Dmitrii Garanin classical art museum actor portrait",
+      tags: ["Theatre", "Classical", "Character"],
       description:
-        "Кинематографичный портрет Дмитрия Гаранина на городской крыше: образ для актёрского портфолио, поиска по фото и запросов о кино, ВГИК и современной экранной подаче.",
+        "A restrained museum frame that connects classical form, actor discipline, and quiet authority.",
     },
-    "tropical-vgik-portrait": {
-      title: "Дмитрий Гаранин — тропический editorial-портрет",
-      subtitle: "Тёплый lifestyle-кадр для медиа, соцсетей и публичного образа",
+    "helicopter-portrait": {
+      title: "Private Flight Editorial",
+      subtitle: "Luxury mobility frame for media and brand positioning",
+      badge: "MEDIA",
+      alt: "Dmitrii Garanin helicopter lifestyle editorial portrait",
+      tags: ["Editorial", "Luxury", "Media"],
+      description:
+        "A clean high-status visual with aviation scale, useful for premium lifestyle and public-image contexts.",
+    },
+    "tropical-island": {
+      title: "Island White Shirt",
+      subtitle: "International travel portrait with calm cinematic restraint",
+      badge: "TRAVEL",
+      alt: "Dmitrii Garanin tropical island white shirt portrait",
+      tags: ["Travel", "Cinema", "Lifestyle"],
+      description:
+        "A bright coastal frame that keeps the image relaxed, international, and visually polished.",
+    },
+    "evening-marina": {
+      title: "Evening Marina Cut",
+      subtitle: "Noir-leaning port portrait for film and character mood",
+      badge: "FILM",
+      alt: "Dmitrii Garanin evening marina cinematic portrait",
+      tags: ["Film", "Noir", "Port"],
+      description:
+        "A dusk marina image with a quiet dramatic charge, built for story-led visual positioning.",
+    },
+    "european-cafe": {
+      title: "European Cafe Lifestyle",
+      subtitle: "Editorial social frame with warm urban evening energy",
+      badge: "LIFESTYLE",
+      alt: "Dmitrii Garanin European cafe lifestyle portrait",
+      tags: ["Lifestyle", "Editorial", "City"],
+      description:
+        "A public-facing cafe image that feels social, polished, and suitable for premium media presence.",
+    },
+    "historic-city": {
+      title: "Historic City Walk",
+      subtitle: "Clean white look against old European architecture",
+      badge: "CITY",
+      alt: "Dmitrii Garanin historic city white shirt portrait",
+      tags: ["Film", "City", "Editorial"],
+      description:
+        "A city portrait with architectural depth, useful for travel, character, and cinematic context.",
+    },
+    "summer-stone-wall": {
+      title: "Stone Wall Summer Study",
+      subtitle: "Full-body outdoor frame with theatre-poster clarity",
+      badge: "STUDY",
+      alt: "Dmitrii Garanin summer stone wall full body portrait",
+      tags: ["Theatre", "Outdoor", "Poster"],
+      description:
+        "A composed outdoor study with strong lines, natural texture, and a clear actor silhouette.",
+    },
+    "motorcycle-rider": {
+      title: "Motorcycle Rider Close-Up",
+      subtitle: "Action-ready image with protected gaze and movement energy",
+      badge: "ACTION",
+      alt: "Dmitrii Garanin motorcycle rider helmet portrait",
+      tags: ["Action", "Film", "Movement"],
+      description:
+        "A kinetic close-up that adds speed, risk, and physical screen energy to the portfolio.",
+    },
+    "evening-city": {
+      title: "Evening City Signal",
+      subtitle: "Urban dusk portrait with headphones and modern character tone",
+      badge: "SERIES",
+      alt: "Dmitrii Garanin evening city portrait with headphones",
+      tags: ["Series", "Urban", "Youth"],
+      description:
+        "A contemporary city frame that reads naturally for series, youth drama, and street-level stories.",
+    },
+    "sport-lifestyle": {
+      title: "Sport Lifestyle Signal",
+      subtitle: "Athletic red-and-blue frame with direct camera charm",
+      badge: "SPORT",
+      alt: "Dmitrii Garanin sport lifestyle red shirt portrait",
+      tags: ["Sport", "Series", "Energy"],
+      description:
+        "A brighter active-life image that opens the portfolio beyond formal portraits and editorial scenes.",
+    },
+    "green-sweater": {
+      title: "Green Sweater Interior",
+      subtitle: "Soft fashion portrait with relaxed transport intimacy",
+      badge: "FASHION",
+      alt: "Dmitrii Garanin green sweater fashion portrait",
+      tags: ["Fashion", "Lifestyle", "Soft"],
+      description:
+        "A close lifestyle portrait with tactile color, fashion texture, and controlled softness.",
+    },
+    "minimalist-casual": {
+      title: "Minimalist Mirror Portrait",
+      subtitle: "Clean monochrome casual frame for casting and identity",
+      badge: "CASTING",
+      alt: "Dmitrii Garanin minimalist mirror casual portrait",
+      tags: ["Casting", "Minimal", "Portrait"],
+      description:
+        "A restrained black-and-white styling frame that keeps the face, profile, and identity readable.",
+    },
+    "golden-hour-close": {
+      title: "Golden Hour Close-Up",
+      subtitle: "Warm direct portrait with focused eye contact",
+      badge: "HEADSHOT",
+      alt: "Dmitrii Garanin golden hour close-up portrait",
+      tags: ["Headshot", "Warm light", "Casting"],
+      description:
+        "A close, warm portrait that carries direct presence without overstatement.",
+    },
+    "living-room-casual": {
+      title: "Modern Living Room Editorial",
+      subtitle: "Relaxed interior portrait with youth-fashion attitude",
       badge: "EDITORIAL",
-      alt: "Дмитрий Гаранин актер ВГИК тропический портрет",
-      tags: ["Editorial", "Медиа", "Образ"],
+      alt: "Dmitrii Garanin casual modern living room portrait",
+      tags: ["Editorial", "Interior", "Fashion"],
       description:
-        "Яркий тропический портрет актёра, который расширяет визуальную идентичность Дмитрия Гаранина через расслабленный, премиальный и международный editorial-тон.",
+        "A contemporary interior image with casual styling, useful for lifestyle and social visual language.",
     },
-    "cinematic-pool-portrait": {
-      title: "Дмитрий Гаранин — кинематографичный портрет у бассейна",
-      subtitle: "Естественный портрет у бассейна с мягким экранным настроением",
-      badge: "ПОРТРЕТ",
-      alt: "Дмитрий Гаранин актер ВГИК кинематографичный портрет у бассейна",
-      tags: ["Портрет", "Кастинг", "Кино"],
+    "summer-beach-sunglasses": {
+      title: "Beach Sunglasses Close-Up",
+      subtitle: "Sunlit summer portrait with sharp premium styling",
+      badge: "SUMMER",
+      alt: "Dmitrii Garanin summer beach sunglasses close-up portrait",
+      tags: ["Summer", "Close-up", "Style"],
       description:
-        "Портрет у бассейна с естественным светом, спокойным присутствием и ясной актёрской подачей для поиска «Дмитрий Гаранин актёр» и материалов портфолио ВГИК.",
+        "A tight sunlit frame with crisp styling and a strong luxury-summer signal.",
     },
-    "headshot-2026": {
-      title: "Актёрский портрет 2026",
-      subtitle: "Портрет при естественном свете для кастингов и профиля",
-      badge: "ПОРТРЕТ",
-      tags: ["Актёр", "Портрет", "Кастинг"],
+    "tropical-luxury": {
+      title: "Tropical Luxury Court",
+      subtitle: "Golden resort frame with fashion and leisure positioning",
+      badge: "LUXURY",
+      alt: "Dmitrii Garanin tropical luxury portrait",
+      tags: ["Luxury", "Tropical", "Fashion"],
       description:
-        "Чистый и тёплый портрет, построенный на прямом присутствии, открытом свете и естественном экранном выражении.",
+        "A warm resort portrait that adds leisure, style, and premium atmosphere to the public image.",
     },
-    "character-paris": {
-      title: "Персонаж создаёт роль",
-      subtitle: "Кинематографичный зимний этюд персонажа",
-      badge: "ПЕРСОНАЖ",
-      tags: ["Драма", "Настроение", "Постер"],
+    "morning-selfie": {
+      title: "Morning Selfie",
+      subtitle: "Natural intimate frame for a softer personal register",
+      badge: "PERSONAL",
+      alt: "Dmitrii Garanin morning selfie portrait",
+      tags: ["Personal", "Soft", "Natural"],
       description:
-        "Более тёмный атмосферный кадр с сильным драматическим напряжением и точным акцентом на персонаже.",
+        "A lighter personal portrait that makes the portfolio feel alive without losing polish.",
     },
-    "looks-beyond": {
-      title: "Мальчик, который смотрит дальше",
-      subtitle: "Редакционный постер-портрет",
-      badge: "РЕДАКЦИЯ",
-      tags: ["Портрет", "Editorial", "Юность"],
-      description:
-        "Поэтичный портрет на природе: мягкая сдержанность, свободное пространство и ощущение журнальной обложки.",
-    },
-    "choice-beyond-status": {
-      title: "Выбор выше статуса",
-      subtitle: "Редакционный кадр в люксовом интерьере",
-      badge: "ЛЮКС",
-      tags: ["Editorial", "Люкс", "Присутствие"],
-      description:
-        "Собранный интерьерный образ с выверенным визуальным языком, старосветской фактурой и спокойной уверенностью.",
-    },
-    "new-generation-studio": {
-      title: "Актёр нового поколения",
-      subtitle: "Минималистичная студийная актёрская карточка",
-      badge: "АКТЁР",
-      tags: ["Актёр", "Бренд", "Профиль"],
-      description:
-        "Чёткая актёрская карточка с чистым контрастом, формальной посадкой и прямой кастинговой подачей.",
-    },
-    "new-generation-palace": {
-      title: "Актёрский манифест",
-      subtitle: "Подача в эстетике исторической роли",
-      badge: "СЦЕНА",
-      tags: ["Театр", "Кино", "История"],
-      description:
-        "Крупноформатный актёрский манифест с театральной деталью, исторической атмосферой и премиальными золотыми акцентами.",
-    },
-    "vgik-racing-cinema-portrait": {
-      title: "Дмитрий Гаранин — актёр театра и кино, портрет ВГИК",
-      subtitle: "Кинематографичный образ для кастинга, прессы и медиа",
+  },
+  ru: {
+    "golden-hour-river": {
+      title: "Золотой час на воде",
+      subtitle: "Кинематографичный портрет в отражённом вечернем свете",
       badge: "КИНО",
-      alt: "Дмитрий Гаранин актёр театра и кино, выпускник ВГИК, кинематографичный портрет",
-      tags: ["Дмитрий Гаранин", "актёр театра и кино", "ВГИК", "кастинг", "кино"],
+      alt: "Дмитрий Гаранин кинематографичный портрет на реке в золотой час",
+      tags: ["Кино", "Золотой час", "Присутствие"],
       description:
-        "Кинематографичный портрет Дмитрия Гаранина, актёра театра и кино, выпускника ВГИК. Материал для актёрского портфолио, кастинга, интервью, медиа-публикаций, Google и Яндекс поиска.",
+        "Тёплый речной кадр на спокойствии, отражениях и сдержанной экранной подаче.",
     },
-    "vgik-theatre-cinema-headshot-white": {
-      title: "Дмитрий Гаранин — актёрский портрет для кино и театра",
-      subtitle: "Чистый headshot для биографии, кастинга и пресс-материалов",
-      badge: "ВГИК",
-      alt: "Дмитрий Гаранин выпускник ВГИК актёр театра и кино портрет для кастинга",
-      tags: ["Дмитрий Гаранин", "ВГИК", "театр", "кино", "актёрский портрет"],
-      description:
-        "Портрет Дмитрия Гаранина для страниц биографии, кастинговых профилей, театральных и кинопроектов. Чёткий поисковый сигнал: актёр театра и кино, выпускник ВГИК, официальный актёрский материал.",
-    },
-    "vgik-actor-close-up-portrait": {
-      title: "Дмитрий Гаранин — крупный актёрский портрет",
-      subtitle: "Экранный close-up для кино, сериалов и драматических ролей",
-      badge: "CLOSE-UP",
-      alt: "Дмитрий Гаранин актёр ВГИК крупный портрет для кино театра и сериалов",
-      tags: ["Дмитрий Гаранин актёр", "крупный портрет", "ВГИК", "кино", "театр"],
-      description:
-        "Крупный портрет с акцентом на экранное присутствие Дмитрия Гаранина. Подходит для поиска по запросам актёр ВГИК, театр и кино, кастинговый портрет, драматический персонаж и медиа-материалы.",
-    },
-    "theatre-cinema-vgik-soft-portrait": {
-      title: "Дмитрий Гаранин — мягкий editorial-портрет актёра",
-      subtitle: "Естественный образ для театра, кино, прессы и интервью",
-      badge: "ПОРТРЕТ",
-      alt: "Дмитрий Гаранин актёр театра и кино выпускник ВГИК мягкий editorial портрет",
-      tags: ["editorial", "актёр театра", "актёр кино", "ВГИК", "пресса"],
-      description:
-        "Мягкий editorial-портрет Дмитрия Гаранина усиливает поисковые сигналы для Google и Яндекс: актёр театра, актёр кино, выпускник ВГИК, биография, интервью и профессиональное портфолио.",
-    },
-    "vgik-theatre-actor-stage-costume": {
-      title: "Дмитрий Гаранин — театральный образ и сценический портрет",
-      subtitle: "Сценическая пластика, характер и актёрское присутствие",
+    "classical-art-museum": {
+      title: "Классическое музейное присутствие",
+      subtitle: "Актёрский портрет среди архитектуры и скульптуры",
       badge: "ТЕАТР",
-      alt: "Дмитрий Гаранин выпускник ВГИК театральный актёр сценический костюм портрет",
-      tags: ["театр", "сцена", "Дмитрий Гаранин", "ВГИК", "характер"],
+      alt: "Дмитрий Гаранин актёрский портрет в классическом музее",
+      tags: ["Театр", "Классика", "Персонаж"],
       description:
-        "Театральный портрет Дмитрия Гаранина в сценическом образе. Карточка подчёркивает ВГИК, театр, кино, работу с персонажем, актёрскую пластику и готовность к интервью и профессиональным публикациям.",
+        "Сдержанный музейный кадр соединяет классическую форму, актёрскую дисциплину и спокойный авторитет.",
     },
-    "actor-vgik-editorial-white-shirt": {
-      title: "Дмитрий Гаранин — editorial-портрет для медиа",
-      subtitle: "Публичный актёрский образ для интервью, прессы и проектов",
+    "helicopter-portrait": {
+      title: "Private Flight Editorial",
+      subtitle: "Люксовый кадр мобильности для медиа и брендинга",
       badge: "МЕДИА",
-      alt: "Дмитрий Гаранин актёр ВГИК editorial портрет для кино театра и медиа",
-      tags: ["медиа", "интервью", "актёрское портфолио", "ВГИК", "кино"],
+      alt: "Дмитрий Гаранин lifestyle editorial портрет у вертолёта",
+      tags: ["Editorial", "Люкс", "Медиа"],
       description:
-        "Editorial-портрет Дмитрия Гаранина для медиа, интервью, пресс-китов, актёрских профилей и кастинговой видимости. Основные сигналы: Дмитрий Гаранин, актёр, театр, кино, ВГИК.",
+        "Чистый статусный визуал с авиационным масштабом для премиального lifestyle и публичного образа.",
     },
-    "vgik-actor-hoodie-portrait": {
-      title: "Дмитрий Гаранин — естественный кастинговый портрет",
-      subtitle: "Натуральный профиль для кино, театра и экранного присутствия",
-      badge: "КАСТИНГ",
-      alt: "Дмитрий Гаранин актёр ВГИК естественный кастинговый портрет театр кино",
-      tags: ["кастинг", "актёр", "ВГИК", "театр", "кино"],
+    "tropical-island": {
+      title: "Белая рубашка на острове",
+      subtitle: "Международный travel-портрет с кинематографичной сдержанностью",
+      badge: "TRAVEL",
+      alt: "Дмитрий Гаранин тропический остров портрет в белой рубашке",
+      tags: ["Travel", "Кино", "Lifestyle"],
       description:
-        "Естественный кастинговый портрет Дмитрия Гаранина для поисковой выдачи Google и Яндекс: выпускник ВГИК, актёр театра и кино, профессиональное портфолио, медиа и интервью.",
+        "Светлый прибрежный кадр: расслабленный, международный и визуально отполированный.",
+    },
+    "evening-marina": {
+      title: "Вечерний порт",
+      subtitle: "Портовый портрет с нуарным настроением для кинообраза",
+      badge: "ФИЛЬМ",
+      alt: "Дмитрий Гаранин вечерний порт кинематографичный портрет",
+      tags: ["Фильм", "Нуар", "Порт"],
+      description:
+        "Марина на закате даёт тихое драматическое напряжение и хорошо работает для сюжетной подачи.",
+    },
+    "european-cafe": {
+      title: "Европейское кафе",
+      subtitle: "Социальный editorial-кадр с тёплой городской энергией",
+      badge: "LIFESTYLE",
+      alt: "Дмитрий Гаранин lifestyle портрет в европейском кафе",
+      tags: ["Lifestyle", "Editorial", "Город"],
+      description:
+        "Публичный кафе-кадр: социальный, собранный и уместный для премиального медиа-присутствия.",
+    },
+    "historic-city": {
+      title: "Прогулка по историческому городу",
+      subtitle: "Чистый белый образ на фоне старой европейской архитектуры",
+      badge: "ГОРОД",
+      alt: "Дмитрий Гаранин портрет в историческом городе в белой рубашке",
+      tags: ["Фильм", "Город", "Editorial"],
+      description:
+        "Городской портрет с архитектурной глубиной для travel, персонажа и кинематографичного контекста.",
+    },
+    "summer-stone-wall": {
+      title: "Летний этюд у каменной стены",
+      subtitle: "Ростовой outdoor-кадр с ясностью театрального постера",
+      badge: "ЭТЮД",
+      alt: "Дмитрий Гаранин летний ростовой портрет у каменной стены",
+      tags: ["Театр", "Outdoor", "Постер"],
+      description:
+        "Собранный outdoor-этюд с сильными линиями, природной фактурой и чистым актёрским силуэтом.",
+    },
+    "motorcycle-rider": {
+      title: "Motorcycle Rider Close-Up",
+      subtitle: "Экшен-кадр с защищённым взглядом и энергией движения",
+      badge: "ЭКШЕН",
+      alt: "Дмитрий Гаранин портрет в мотоциклетном шлеме",
+      tags: ["Экшен", "Фильм", "Движение"],
+      description:
+        "Кинетичный крупный план добавляет в портфолио скорость, риск и физическую экранную энергию.",
+    },
+    "evening-city": {
+      title: "Вечерний городской сигнал",
+      subtitle: "Сумеречный urban-портрет с наушниками и современным тоном",
+      badge: "СЕРИАЛ",
+      alt: "Дмитрий Гаранин вечерний городской портрет с наушниками",
+      tags: ["Сериал", "Urban", "Молодость"],
+      description:
+        "Современный городской кадр естественно читается для сериалов, молодёжной драмы и уличных историй.",
+    },
+    "sport-lifestyle": {
+      title: "Sport Lifestyle Signal",
+      subtitle: "Спортивный красно-синий кадр с прямым обаянием камеры",
+      badge: "СПОРТ",
+      alt: "Дмитрий Гаранин спортивный lifestyle портрет в красной форме",
+      tags: ["Спорт", "Сериал", "Энергия"],
+      description:
+        "Более яркий активный кадр расширяет портфолио за пределы формальных портретов и editorial-сцен.",
+    },
+    "green-sweater": {
+      title: "Зелёный свитер",
+      subtitle: "Мягкий fashion-портрет с камерной lifestyle-близостью",
+      badge: "FASHION",
+      alt: "Дмитрий Гаранин fashion портрет в зелёном свитере",
+      tags: ["Fashion", "Lifestyle", "Мягкость"],
+      description:
+        "Близкий lifestyle-портрет с тактильным цветом, фактурой и управляемой мягкостью.",
+    },
+    "minimalist-casual": {
+      title: "Минималистичный mirror-портрет",
+      subtitle: "Чистый монохромный casual-кадр для кастинга и идентичности",
+      badge: "КАСТИНГ",
+      alt: "Дмитрий Гаранин минималистичный casual портрет в зеркале",
+      tags: ["Кастинг", "Минимализм", "Портрет"],
+      description:
+        "Сдержанный чёрно-белый styling-кадр, где лицо, профиль и идентичность остаются читаемыми.",
+    },
+    "golden-hour-close": {
+      title: "Крупный план в золотой час",
+      subtitle: "Тёплый прямой портрет с фокусом на взгляде",
+      badge: "HEADSHOT",
+      alt: "Дмитрий Гаранин крупный портрет в золотой час",
+      tags: ["Headshot", "Тёплый свет", "Кастинг"],
+      description:
+        "Крупный тёплый портрет с прямым присутствием без лишнего нажима.",
+    },
+    "living-room-casual": {
+      title: "Modern Living Room Editorial",
+      subtitle: "Расслабленный интерьерный портрет с youth-fashion настроением",
+      badge: "EDITORIAL",
+      alt: "Дмитрий Гаранин casual портрет в современной гостиной",
+      tags: ["Editorial", "Интерьер", "Fashion"],
+      description:
+        "Современный интерьерный кадр с casual-стилизацией для lifestyle и социального визуального языка.",
+    },
+    "summer-beach-sunglasses": {
+      title: "Пляжный close-up в очках",
+      subtitle: "Солнечный летний портрет с премиальной стилизацией",
+      badge: "ЛЕТО",
+      alt: "Дмитрий Гаранин летний пляжный портрет в солнцезащитных очках",
+      tags: ["Лето", "Close-up", "Стиль"],
+      description:
+        "Плотный солнечный кадр с чёткой стилизацией и сильным luxury-summer сигналом.",
+    },
+    "tropical-luxury": {
+      title: "Tropical Luxury Court",
+      subtitle: "Золотой resort-кадр с fashion и leisure-позиционированием",
+      badge: "ЛЮКС",
+      alt: "Дмитрий Гаранин тропический luxury портрет",
+      tags: ["Люкс", "Тропики", "Fashion"],
+      description:
+        "Тёплый resort-портрет добавляет публичному образу отдых, стиль и премиальную атмосферу.",
+    },
+    "morning-selfie": {
+      title: "Утреннее селфи",
+      subtitle: "Естественный личный кадр для более мягкого регистра",
+      badge: "ЛИЧНОЕ",
+      alt: "Дмитрий Гаранин утренний селфи портрет",
+      tags: ["Личное", "Мягко", "Естественно"],
+      description:
+        "Более лёгкий личный портрет делает портфолио живым, не разрушая его полированность.",
     },
   },
   fr: {
-    "official-photo-2026": {
-      title: "Photo officielle de Dmitrii Garanin 2026",
-      subtitle: "Portrait acteur pour casting, biographie et presse",
-      badge: "OFFICIEL",
-      alt: "Photo officielle de Dmitrii Garanin acteur 2026, portrait acteur VGIK",
-      tags: ["Dmitrii Garanin", "Acteur", "VGIK"],
-      description:
-        "Un portrait officiel direct pour les recherches sur Dmitrii Garanin, les biographies d'acteur, les profils de casting et les références média professionnelles.",
-    },
-    "rooftop-city-portrait": {
-      title: "Dmitrii Garanin — portrait sur un toit urbain",
-      subtitle: "Portrait cinématographique en ville avec une forte présence écran",
-      badge: "VILLE",
-      alt: "Dmitrii Garanin acteur VGIK portrait sur un toit en ville",
-      tags: ["Acteur", "Cinéma", "Portrait"],
-      description:
-        "Un portrait urbain et cinématographique de Dmitrii Garanin, pensé pour le portfolio acteur, la recherche d'images et un contexte éditorial lié au cinéma.",
-    },
-    "tropical-vgik-portrait": {
-      title: "Dmitrii Garanin — portrait éditorial tropical",
-      subtitle: "Image lifestyle chaleureuse pour média, social et positionnement public",
-      badge: "ÉDITORIAL",
-      alt: "Dmitrii Garanin acteur VGIK portrait tropical",
-      tags: ["Éditorial", "Média", "Lifestyle"],
-      description:
-        "Un portrait tropical lumineux qui élargit l'identité visuelle publique de Dmitrii Garanin avec un ton éditorial détendu, premium et international.",
-    },
-    "cinematic-pool-portrait": {
-      title: "Dmitry Garanin — portrait cinématographique à la piscine",
-      subtitle: "Portrait naturel au bord de la piscine avec une humeur calme",
-      badge: "PORTRAIT",
-      alt: "Dmitry Garanin acteur VGIK portrait cinématographique à la piscine",
-      tags: ["Portrait", "Casting", "Cinéma"],
-      description:
-        "Un portrait au bord de la piscine, en lumière naturelle, avec une présence douce et une valeur claire pour le portfolio acteur de Dmitry Garanin.",
-    },
-    "headshot-2026": {
-      title: "Portrait acteur 2026",
-      subtitle: "Portrait en lumière naturelle pour casting et profil",
-      badge: "PORTRAIT",
-      tags: ["Acteur", "Portrait", "Casting"],
-      description:
-        "Un portrait net et chaleureux, construit autour d'une présence directe, d'une lumière ouverte et d'une expression naturelle prête pour l'écran.",
-    },
-    "character-paris": {
-      title: "Le personnage crée le rôle",
-      subtitle: "Étude de personnage hivernale et cinématographique",
-      badge: "PERSONNAGE",
-      tags: ["Drame", "Mood", "Affiche"],
-      description:
-        "Une image plus sombre et atmosphérique, avec une tension dramatique forte et une intention centrée sur le personnage.",
-    },
-    "looks-beyond": {
-      title: "Le garçon qui regarde au-delà",
-      subtitle: "Portrait-affiche éditorial",
-      badge: "ÉDITORIAL",
-      tags: ["Portrait", "Éditorial", "Jeunesse"],
-      description:
-        "Un portrait extérieur poétique, entre retenue douce, espace négatif et sensation de couverture magazine.",
-    },
-    "choice-beyond-status": {
-      title: "Le choix au-delà du statut",
-      subtitle: "Cadre éditorial en intérieur luxe",
-      badge: "LUXE",
-      tags: ["Éditorial", "Luxe", "Présence"],
-      description:
-        "Une image d'intérieur composée avec un langage visuel poli, une texture classique et une confiance discrète.",
-    },
-    "new-generation-studio": {
-      title: "Acteur nouvelle génération",
-      subtitle: "Carte acteur studio minimaliste",
-      badge: "ACTEUR",
-      tags: ["Acteur", "Marque", "Profil"],
-      description:
-        "Une carte acteur précise, au contraste net, à la posture formelle et à l'énergie directement exploitable pour le casting.",
-    },
-    "new-generation-palace": {
-      title: "Manifeste d'acteur",
-      subtitle: "Présentation inspirée d'un rôle d'époque",
-      badge: "SCÈNE",
-      tags: ["Théâtre", "Cinéma", "Histoire"],
-      description:
-        "Un manifeste grand format, porté par le détail théâtral, l'atmosphère historique et des accents dorés premium.",
-    },
-    "vgik-racing-cinema-portrait": {
-      title: "Dmitrii Garanin — acteur de théâtre et de cinéma, portrait VGIK",
-      subtitle: "Portrait cinématographique pour casting, presse et médias",
+    "golden-hour-river": {
+      title: "Cadre rivière à l’heure dorée",
+      subtitle: "Portrait cinématographique dans une lumière du soir réfléchie",
       badge: "CINÉMA",
-      alt: "Dmitrii Garanin acteur de théâtre et de cinéma formé au VGIK portrait cinématographique",
-      tags: ["Dmitrii Garanin", "acteur théâtre cinéma", "VGIK", "casting", "cinéma"],
+      alt: "Dmitrii Garanin portrait cinématographique au bord de la rivière à l’heure dorée",
+      tags: ["Cinéma", "Heure dorée", "Présence"],
       description:
-        "Portrait cinématographique de Dmitrii Garanin, acteur de théâtre et de cinéma formé au VGIK. Image pensée pour portfolio acteur, casting, presse, interviews, Google, Yandex et recherche média.",
+        "Un portrait chaud sur l’eau, construit autour du calme, des reflets et d’une présence prête pour l’écran.",
     },
-    "vgik-theatre-cinema-headshot-white": {
-      title: "Dmitrii Garanin — headshot acteur cinéma et théâtre",
-      subtitle: "Portrait clair pour biographie, casting et presse",
-      badge: "VGIK",
-      alt: "Dmitrii Garanin acteur théâtre cinéma VGIK headshot pour casting",
-      tags: ["Dmitrii Garanin", "VGIK", "théâtre", "cinéma", "portrait acteur"],
-      description:
-        "Headshot de Dmitrii Garanin pour pages biographiques, profils de casting, projets de théâtre et de cinéma. Signal clair : acteur théâtre et cinéma, formation VGIK, image officielle de portfolio.",
-    },
-    "vgik-actor-close-up-portrait": {
-      title: "Dmitrii Garanin — gros plan acteur cinématographique",
-      subtitle: "Close-up écran pour cinéma, séries et rôles dramatiques",
-      badge: "CLOSE-UP",
-      alt: "Dmitrii Garanin acteur VGIK gros plan pour cinéma théâtre et séries",
-      tags: ["Dmitrii Garanin acteur", "gros plan", "VGIK", "cinéma", "théâtre"],
-      description:
-        "Portrait gros plan centré sur la présence écran de Dmitrii Garanin. Utile pour les recherches acteur VGIK, théâtre et cinéma, portrait de casting, personnage dramatique et documents médias.",
-    },
-    "theatre-cinema-vgik-soft-portrait": {
-      title: "Dmitrii Garanin — portrait éditorial d'acteur",
-      subtitle: "Image naturelle pour théâtre, cinéma, presse et interviews",
-      badge: "PORTRAIT",
-      alt: "Dmitrii Garanin acteur théâtre cinéma VGIK portrait éditorial doux",
-      tags: ["éditorial", "acteur théâtre", "acteur cinéma", "VGIK", "presse"],
-      description:
-        "Portrait éditorial de Dmitrii Garanin renforçant les signaux de recherche : acteur de théâtre, acteur de cinéma, formation VGIK, biographie, interviews et portfolio professionnel.",
-    },
-    "vgik-theatre-actor-stage-costume": {
-      title: "Dmitrii Garanin — portrait théâtre et costume de scène",
-      subtitle: "Présence scénique, mouvement et travail de personnage",
+    "classical-art-museum": {
+      title: "Présence au musée classique",
+      subtitle: "Portrait d’acteur entre architecture théâtrale et sculpture",
       badge: "THÉÂTRE",
-      alt: "Dmitrii Garanin acteur théâtre VGIK costume de scène portrait",
-      tags: ["théâtre", "scène", "Dmitrii Garanin", "VGIK", "personnage"],
+      alt: "Dmitrii Garanin portrait d’acteur dans un musée classique",
+      tags: ["Théâtre", "Classique", "Personnage"],
       description:
-        "Portrait de Dmitrii Garanin en image de scène. La carte met en avant VGIK, théâtre, cinéma, travail du personnage, présence corporelle et contexte pour interviews et publications.",
+        "Un cadre muséal retenu qui relie forme classique, discipline d’acteur et autorité calme.",
     },
-    "actor-vgik-editorial-white-shirt": {
-      title: "Dmitrii Garanin — portrait éditorial pour médias",
-      subtitle: "Image publique pour interviews, presse et collaborations",
+    "helicopter-portrait": {
+      title: "Éditorial vol privé",
+      subtitle: "Image de mobilité luxe pour médias et positionnement de marque",
       badge: "MÉDIA",
-      alt: "Dmitrii Garanin acteur VGIK portrait éditorial cinéma théâtre médias",
-      tags: ["médias", "interview", "portfolio acteur", "VGIK", "cinéma"],
+      alt: "Dmitrii Garanin portrait éditorial lifestyle près d’un hélicoptère",
+      tags: ["Éditorial", "Luxe", "Média"],
       description:
-        "Portrait éditorial de Dmitrii Garanin pour médias, interviews, press kits, profils d'acteur et visibilité casting. Signaux principaux : Dmitrii Garanin, acteur, théâtre, cinéma, VGIK.",
+        "Un visuel statutaire et propre, avec une échelle aviation, pour un contexte premium et public.",
     },
-    "vgik-actor-hoodie-portrait": {
-      title: "Dmitrii Garanin — portrait casting naturel",
-      subtitle: "Profil naturel pour cinéma, théâtre et présence écran",
-      badge: "CASTING",
-      alt: "Dmitrii Garanin acteur VGIK portrait casting naturel théâtre cinéma",
-      tags: ["casting", "acteur", "VGIK", "théâtre", "cinéma"],
+    "tropical-island": {
+      title: "Chemise blanche sur l’île",
+      subtitle: "Portrait voyage international avec retenue cinématographique",
+      badge: "VOYAGE",
+      alt: "Dmitrii Garanin portrait tropical chemise blanche sur une île",
+      tags: ["Voyage", "Cinéma", "Lifestyle"],
       description:
-        "Portrait casting naturel de Dmitrii Garanin pour Google et Yandex : formation VGIK, acteur de théâtre et de cinéma, portfolio professionnel, médias et interviews.",
+        "Un cadre côtier lumineux, détendu, international et visuellement poli.",
+    },
+    "evening-marina": {
+      title: "Coupe marina du soir",
+      subtitle: "Portrait portuaire à tonalité noir pour film et personnage",
+      badge: "FILM",
+      alt: "Dmitrii Garanin portrait cinématographique du soir dans une marina",
+      tags: ["Film", "Noir", "Port"],
+      description:
+        "Une image de marina au crépuscule, avec une charge dramatique calme et une vraie logique narrative.",
+    },
+    "european-cafe": {
+      title: "Lifestyle café européen",
+      subtitle: "Cadre éditorial social avec énergie urbaine chaude",
+      badge: "LIFESTYLE",
+      alt: "Dmitrii Garanin portrait lifestyle dans un café européen",
+      tags: ["Lifestyle", "Éditorial", "Ville"],
+      description:
+        "Une image publique de café, sociale, soignée et adaptée à une présence média premium.",
+    },
+    "historic-city": {
+      title: "Promenade en ville historique",
+      subtitle: "Silhouette blanche nette sur architecture européenne ancienne",
+      badge: "VILLE",
+      alt: "Dmitrii Garanin portrait en ville historique chemise blanche",
+      tags: ["Film", "Ville", "Éditorial"],
+      description:
+        "Un portrait urbain avec profondeur architecturale pour le voyage, le personnage et le contexte cinéma.",
+    },
+    "summer-stone-wall": {
+      title: "Étude d’été au mur de pierre",
+      subtitle: "Cadre extérieur en pied avec clarté d’affiche théâtrale",
+      badge: "ÉTUDE",
+      alt: "Dmitrii Garanin portrait estival en pied près d’un mur de pierre",
+      tags: ["Théâtre", "Extérieur", "Affiche"],
+      description:
+        "Une étude extérieure composée, avec lignes fortes, texture naturelle et silhouette d’acteur lisible.",
+    },
+    "motorcycle-rider": {
+      title: "Gros plan motard",
+      subtitle: "Image prête pour l’action avec regard protégé et énergie de mouvement",
+      badge: "ACTION",
+      alt: "Dmitrii Garanin portrait avec casque de moto",
+      tags: ["Action", "Film", "Mouvement"],
+      description:
+        "Un gros plan cinétique qui ajoute vitesse, risque et énergie physique au portfolio.",
+    },
+    "evening-city": {
+      title: "Signal ville du soir",
+      subtitle: "Portrait urbain au crépuscule avec casque audio et ton contemporain",
+      badge: "SÉRIE",
+      alt: "Dmitrii Garanin portrait urbain du soir avec casque audio",
+      tags: ["Série", "Urbain", "Jeunesse"],
+      description:
+        "Un cadre de ville contemporain, naturel pour les séries, le drame jeune et les histoires de rue.",
+    },
+    "sport-lifestyle": {
+      title: "Signal sport lifestyle",
+      subtitle: "Cadre rouge et bleu avec charme direct caméra",
+      badge: "SPORT",
+      alt: "Dmitrii Garanin portrait sport lifestyle en haut rouge",
+      tags: ["Sport", "Série", "Énergie"],
+      description:
+        "Une image active plus lumineuse qui ouvre le portfolio au-delà des portraits formels et éditoriaux.",
+    },
+    "green-sweater": {
+      title: "Pull vert intérieur",
+      subtitle: "Portrait mode doux avec intimité lifestyle",
+      badge: "FASHION",
+      alt: "Dmitrii Garanin portrait fashion en pull vert",
+      tags: ["Fashion", "Lifestyle", "Doux"],
+      description:
+        "Un portrait lifestyle proche, avec couleur tactile, texture mode et douceur maîtrisée.",
+    },
+    "minimalist-casual": {
+      title: "Portrait miroir minimaliste",
+      subtitle: "Cadre casual monochrome pour casting et identité",
+      badge: "CASTING",
+      alt: "Dmitrii Garanin portrait casual minimaliste au miroir",
+      tags: ["Casting", "Minimal", "Portrait"],
+      description:
+        "Une image noir et blanc retenue où le visage, le profil et l’identité restent immédiatement lisibles.",
+    },
+    "golden-hour-close": {
+      title: "Gros plan heure dorée",
+      subtitle: "Portrait chaud et direct centré sur le regard",
+      badge: "HEADSHOT",
+      alt: "Dmitrii Garanin portrait gros plan à l’heure dorée",
+      tags: ["Headshot", "Lumière chaude", "Casting"],
+      description:
+        "Un portrait proche et chaud, avec présence directe sans excès.",
+    },
+    "living-room-casual": {
+      title: "Éditorial salon moderne",
+      subtitle: "Portrait intérieur détendu avec attitude youth-fashion",
+      badge: "ÉDITORIAL",
+      alt: "Dmitrii Garanin portrait casual dans un salon moderne",
+      tags: ["Éditorial", "Intérieur", "Fashion"],
+      description:
+        "Une image intérieure contemporaine, utile pour le lifestyle et le langage visuel social.",
+    },
+    "summer-beach-sunglasses": {
+      title: "Gros plan plage et lunettes",
+      subtitle: "Portrait d’été ensoleillé avec styling premium",
+      badge: "ÉTÉ",
+      alt: "Dmitrii Garanin portrait d’été plage lunettes de soleil",
+      tags: ["Été", "Gros plan", "Style"],
+      description:
+        "Un cadre serré et solaire, avec styling net et signal luxury-summer marqué.",
+    },
+    "tropical-luxury": {
+      title: "Court tropical luxe",
+      subtitle: "Cadre resort doré entre mode et loisir",
+      badge: "LUXE",
+      alt: "Dmitrii Garanin portrait tropical luxe",
+      tags: ["Luxe", "Tropical", "Fashion"],
+      description:
+        "Un portrait resort chaud qui ajoute loisir, style et atmosphère premium à l’image publique.",
+    },
+    "morning-selfie": {
+      title: "Selfie du matin",
+      subtitle: "Cadre naturel intime pour un registre plus doux",
+      badge: "PERSONNEL",
+      alt: "Dmitrii Garanin selfie portrait du matin",
+      tags: ["Personnel", "Doux", "Naturel"],
+      description:
+        "Un portrait personnel plus léger qui rend le portfolio vivant sans perdre son niveau de finition.",
     },
   },
   am: {
-    "official-photo-2026": {
-      title: "Դմիտրի Գարանինի պաշտոնական լուսանկար 2026",
-      subtitle: "Դերասանական դիմանկար քասթինգի, կենսագրության և մամուլի համար",
-      badge: "ՊԱՇՏՈՆԱԿԱՆ",
-      alt: "Դմիտրի Գարանին պաշտոնական դերասանական լուսանկար 2026, ՎԳԻԿ դերասանի դիմանկար",
-      tags: ["Դմիտրի Գարանին", "Դերասան", "ՎԳԻԿ"],
-      description:
-        "Ուղիղ պաշտոնական դիմանկար՝ Դմիտրի Գարանինի մասին որոնումների, դերասանական կենսագրությունների, քասթինգի պրոֆիլների և մասնագիտական մեդիա նյութերի համար։",
-    },
-    "rooftop-city-portrait": {
-      title: "Դմիտրի Գարանին — քաղաքային տանիքի դիմանկար",
-      subtitle: "Քաղաքային կինեմատոգրաֆիկ դերասանական դիմանկար ուժեղ ներկայությամբ",
-      badge: "ՔԱՂԱՔ",
-      alt: "Դմիտրի Գարանին դերասան ՎԳԻԿ քաղաքային տանիքի դիմանկար",
-      tags: ["Դերասան", "Կինո", "Դիմանկար"],
-      description:
-        "Դմիտրի Գարանինի քաղաքային կինեմատոգրաֆիկ դիմանկար՝ դերասանական պորտֆոլիոյի, պատկերների որոնման և կինոյի շուրջ խմբագրական համատեքստի համար։",
-    },
-    "tropical-vgik-portrait": {
-      title: "Դմիտրի Գարանին — արևադարձային խմբագրական դիմանկար",
-      subtitle: "Ջերմ lifestyle կադր մեդիայի, սոցիալական հարթակների և հանրային կերպարի համար",
-      badge: "ԽՄԲԱԳՐԱԿԱՆ",
-      alt: "Դմիտրի Գարանին դերասան ՎԳԻԿ արևադարձային դիմանկար",
-      tags: ["Խմբագրական", "Մեդիա", "Կերպար"],
-      description:
-        "Լուսավոր արևադարձային դերասանական դիմանկար, որը ընդլայնում է Դմիտրի Գարանինի հանրային տեսողական ինքնությունը հանգիստ և պրեմիում տոնով։",
-    },
-    "cinematic-pool-portrait": {
-      title: "Դմիտրի Գարանին — կինեմատոգրաֆիկ դիմանկար լողավազանի մոտ",
-      subtitle: "Բնական լույսով հանգիստ դերասանական դիմանկար",
-      badge: "ԴԻՄԱՆԿԱՐ",
-      alt: "Դմիտրի Գարանին դերասան ՎԳԻԿ կինեմատոգրաֆիկ դիմանկար լողավազանի մոտ",
-      tags: ["Դիմանկար", "Քասթինգ", "Կինո"],
-      description:
-        "Լողավազանի մոտ բնական լույսով դիմանկար՝ մեղմ ներկայությամբ և հստակ դերասանական արժեքով Դմիտրի Գարանինի պորտֆոլիոյի համար։",
-    },
-    "headshot-2026": {
-      title: "Դերասանի դիմանկար 2026",
-      subtitle: "Բնական լույսով դիմանկար քասթինգի և պրոֆիլի համար",
-      badge: "ԴԻՄԱՆԿԱՐ",
-      tags: ["Դերասան", "Դիմանկար", "Քասթինգ"],
-      description:
-        "Մաքուր և ջերմ դիմանկար՝ կառուցված ուղիղ ներկայության, բաց լույսի և էկրանին պատրաստ բնական արտահայտության շուրջ։",
-    },
-    "character-paris": {
-      title: "Կերպարը ստեղծում է դերը",
-      subtitle: "Կինեմատոգրաֆիկ ձմեռային կերպարի էտյուդ",
-      badge: "ԿԵՐՊԱՐ",
-      tags: ["Դրամա", "Տրամադրություն", "Պաստառ"],
-      description:
-        "Ավելի մուգ և մթնոլորտային կադր՝ ուժեղ դրամատիկ լարվածությամբ և կերպարից սկսվող հստակ տոնով։",
-    },
-    "looks-beyond": {
-      title: "Տղան, որը նայում է հեռուն",
-      subtitle: "Խմբագրական պաստառ-դիմանկար",
-      badge: "ԽՄԲԱԳՐԱԿԱՆ",
-      tags: ["Դիմանկար", "Խմբագրական", "Երիտասարդություն"],
-      description:
-        "Պոետիկ բացօթյա դիմանկար՝ մեղմ զսպվածությամբ, ազատ տարածությամբ և ամսագրային շապիկի զգացողությամբ։",
-    },
-    "choice-beyond-status": {
-      title: "Ընտրություն կարգավիճակից վեր",
-      subtitle: "Լյուքս ինտերիերի խմբագրական կադր",
-      badge: "ԼՅՈՒՔՍ",
-      tags: ["Խմբագրական", "Լյուքս", "Ներկայություն"],
-      description:
-        "Հավաքված ինտերիերային պատկեր՝ հղկված տեսողական լեզվով, դասական մթնոլորտով և հանգիստ վստահությամբ։",
-    },
-    "new-generation-studio": {
-      title: "Նոր սերնդի դերասան",
-      subtitle: "Մինիմալ ստուդիական դերասանական քարտ",
-      badge: "ԴԵՐԱՍԱՆ",
-      tags: ["Դերասան", "Բրենդ", "Պրոֆիլ"],
-      description:
-        "Սուր դերասանական քարտ՝ մաքուր հակադրությամբ, պաշտոնական դիրքով և քասթինգի համար պատրաստ ուղիղ տեսքով։",
-    },
-    "new-generation-palace": {
-      title: "Դերասանական մանիֆեստ",
-      subtitle: "Ժամանակաշրջանի դերից ներշնչված ներկայացում",
-      badge: "ԲԵՄ",
-      tags: ["Թատրոն", "Կինո", "Պատմություն"],
-      description:
-        "Մեծ ֆորմատի դերասանական մանիֆեստ՝ թատերական մանրամասներով, պատմական մթնոլորտով և պրեմիում ոսկեգույն շեշտերով։",
-    },
-    "vgik-racing-cinema-portrait": {
-      title: "Դմիտրի Գարանին — թատրոնի և կինոյի դերասան, ՎԳԻԿ դիմանկար",
-      subtitle: "Կինեմատոգրաֆիկ կերպար քասթինգի, մամուլի և մեդիայի համար",
+    "golden-hour-river": {
+      title: "Ոսկե ժամ գետի վրա",
+      subtitle: "Կինեմատոգրաֆիկ դիմանկար երեկոյան արտացոլված լույսում",
       badge: "ԿԻՆՈ",
-      alt: "Դմիտրի Գարանին թատրոնի և կինոյի դերասան ՎԳԻԿ շրջանավարտ կինեմատոգրաֆիկ դիմանկար",
-      tags: ["Դմիտրի Գարանին", "թատրոնի և կինոյի դերասան", "ՎԳԻԿ", "քասթինգ", "կինո"],
+      alt: "Դմիտրի Գարանին ոսկե ժամ գետի վրա կինեմատոգրաֆիկ դիմանկար",
+      tags: ["Կինո", "Ոսկե ժամ", "Ներկայություն"],
       description:
-        "Դմիտրի Գարանինի կինեմատոգրաֆիկ դիմանկար՝ թատրոնի և կինոյի դերասան, ՎԳԻԿ շրջանավարտ։ Նյութ դերասանական պորտֆոլիոյի, քասթինգի, մամուլի, հարցազրույցների, Google-ի և Yandex-ի որոնման համար։",
+        "Տաք գետային կադր՝ հանգստության, արտացոլումների և էկրանային զուսպ ներկայության վրա կառուցված։",
     },
-    "vgik-theatre-cinema-headshot-white": {
-      title: "Դմիտրի Գարանին — դերասանի headshot կինոյի և թատրոնի համար",
-      subtitle: "Մաքուր դիմանկար կենսագրության, քասթինգի և մամուլի համար",
-      badge: "ՎԳԻԿ",
-      alt: "Դմիտրի Գարանին ՎԳԻԿ շրջանավարտ թատրոնի և կինոյի դերասան քասթինգի դիմանկար",
-      tags: ["Դմիտրի Գարանին", "ՎԳԻԿ", "թատրոն", "կինո", "դերասանի դիմանկար"],
-      description:
-        "Դմիտրի Գարանինի դիմանկար կենսագրական էջերի, քասթինգի պրոֆիլների, թատերական և կինոնախագծերի համար։ Հստակ ազդանշան՝ թատրոնի և կինոյի դերասան, ՎԳԻԿ շրջանավարտ, պաշտոնական պորտֆոլիո։",
-    },
-    "vgik-actor-close-up-portrait": {
-      title: "Դմիտրի Գարանին — կինեմատոգրաֆիկ խոշոր պլան",
-      subtitle: "Էկրանային close-up կինոյի, սերիալների և դրամատիկ դերերի համար",
-      badge: "CLOSE-UP",
-      alt: "Դմիտրի Գարանին ՎԳԻԿ դերասան խոշոր պլան կինոյի թատրոնի և սերիալների համար",
-      tags: ["Դմիտրի Գարանին դերասան", "խոշոր պլան", "ՎԳԻԿ", "կինո", "թատրոն"],
-      description:
-        "Խոշոր դիմանկար՝ կենտրոնացած Դմիտրի Գարանինի էկրանային ներկայության վրա։ Օգտակար է ՎԳԻԿ դերասան, թատրոն և կինո, քասթինգի դիմանկար, կերպար և մեդիա նյութեր որոնումների համար։",
-    },
-    "theatre-cinema-vgik-soft-portrait": {
-      title: "Դմիտրի Գարանին — դերասանի editorial դիմանկար",
-      subtitle: "Բնական կերպար թատրոնի, կինոյի, մամուլի և հարցազրույցների համար",
-      badge: "ԴԻՄԱՆԿԱՐ",
-      alt: "Դմիտրի Գարանին թատրոնի և կինոյի դերասան ՎԳԻԿ editorial դիմանկար",
-      tags: ["editorial", "թատրոնի դերասան", "կինոյի դերասան", "ՎԳԻԿ", "մամուլ"],
-      description:
-        "Դմիտրի Գարանինի մեղմ editorial դիմանկարը ուժեղացնում է որոնման ազդանշանները՝ թատրոնի դերասան, կինոյի դերասան, ՎԳԻԿ շրջանավարտ, կենսագրություն, հարցազրույցներ և պրոֆեսիոնալ պորտֆոլիո։",
-    },
-    "vgik-theatre-actor-stage-costume": {
-      title: "Դմիտրի Գարանին — թատրոնի կերպար և բեմական դիմանկար",
-      subtitle: "Բեմական ներկայություն, շարժում և կերպարի աշխատանք",
+    "classical-art-museum": {
+      title: "Դասական թանգարանային ներկայություն",
+      subtitle: "Դերասանական դիմանկար թատերական ճարտարապետության և քանդակի մեջ",
       badge: "ԹԱՏՐՈՆ",
-      alt: "Դմիտրի Գարանին ՎԳԻԿ թատրոնի դերասան բեմական հագուստ դիմանկար",
-      tags: ["թատրոն", "բեմ", "Դմիտրի Գարանին", "ՎԳԻԿ", "կերպար"],
+      alt: "Դմիտրի Գարանին դերասանական դիմանկար դասական թանգարանում",
+      tags: ["Թատրոն", "Դասական", "Կերպար"],
       description:
-        "Դմիտրի Գարանինի թատերական դիմանկար բեմական կերպարով։ Քարտը ընդգծում է ՎԳԻԿ-ը, թատրոնը, կինոն, կերպարի աշխատանքը, դերասանական պլաստիկան և հարցազրույցների համատեքստը։",
+        "Զուսպ թանգարանային կադր, որը կապում է դասական ձևը, դերասանական կարգապահությունը և հանգիստ վստահությունը։",
     },
-    "actor-vgik-editorial-white-shirt": {
-      title: "Դմիտրի Գարանին — editorial դիմանկար մեդիայի համար",
-      subtitle: "Հանրային դերասանական կերպար հարցազրույցների, մամուլի և նախագծերի համար",
+    "helicopter-portrait": {
+      title: "Private Flight Editorial",
+      subtitle: "Լյուքս շարժման կադր մեդիայի և բրենդային դիրքավորման համար",
       badge: "ՄԵԴԻԱ",
-      alt: "Դմիտրի Գարանին դերասան ՎԳԻԿ editorial դիմանկար կինո թատրոն մեդիա",
-      tags: ["մեդիա", "հարցազրույց", "դերասանական պորտֆոլիո", "ՎԳԻԿ", "կինո"],
+      alt: "Դմիտրի Գարանին ուղղաթիռի մոտ lifestyle editorial դիմանկար",
+      tags: ["Editorial", "Լյուքս", "Մեդիա"],
       description:
-        "Դմիտրի Գարանինի editorial դիմանկար մեդիայի, հարցազրույցների, մամուլի փաթեթների, դերասանական պրոֆիլների և քասթինգի տեսանելիության համար։ Հիմնական ազդանշաններ՝ Դմիտրի Գարանին, դերասան, թատրոն, կինո, ՎԳԻԿ։",
+        "Մաքուր կարգավիճակային վիզուալ ավիացիոն մասշտաբով՝ պրեմիում lifestyle-ի և հանրային կերպարի համար։",
     },
-    "vgik-actor-hoodie-portrait": {
-      title: "Դմիտրի Գարանին — բնական քասթինգի դիմանկար",
-      subtitle: "Բնական պրոֆիլ կինոյի, թատրոնի և էկրանային ներկայության համար",
-      badge: "ՔԱՍԹԻՆԳ",
-      alt: "Դմիտրի Գարանին ՎԳԻԿ դերասան բնական քասթինգի դիմանկար թատրոն կինո",
-      tags: ["քասթինգ", "դերասան", "ՎԳԻԿ", "թատրոն", "կինո"],
+    "tropical-island": {
+      title: "Սպիտակ վերնաշապիկ կղզում",
+      subtitle: "Միջազգային travel դիմանկար կինեմատոգրաֆիկ զսպվածությամբ",
+      badge: "TRAVEL",
+      alt: "Դմիտրի Գարանին տրոպիկական կղզի սպիտակ վերնաշապիկով դիմանկար",
+      tags: ["Travel", "Կինո", "Lifestyle"],
       description:
-        "Դմիտրի Գարանինի բնական քասթինգի դիմանկար Google-ի և Yandex-ի համար՝ ՎԳԻԿ շրջանավարտ, թատրոնի և կինոյի դերասան, պրոֆեսիոնալ պորտֆոլիո, մեդիա և հարցազրույցներ։",
+        "Լուսավոր ծովափնյա կադր՝ հանգիստ, միջազգային և վիզուալ հղկված տրամադրությամբ։",
+    },
+    "evening-marina": {
+      title: "Երեկոյան նավահանգիստ",
+      subtitle: "Նուարային տրամադրությամբ port դիմանկար ֆիլմային կերպարի համար",
+      badge: "ՖԻԼՄ",
+      alt: "Դմիտրի Գարանին երեկոյան նավահանգիստ կինեմատոգրաֆիկ դիմանկար",
+      tags: ["Ֆիլմ", "Նուար", "Port"],
+      description:
+        "Մայրամուտի marina-կադր՝ լուռ դրամատիկ լարվածությամբ և պատմողական վիզուալ տրամաբանությամբ։",
+    },
+    "european-cafe": {
+      title: "Եվրոպական սրճարան",
+      subtitle: "Սոցիալական editorial կադր տաք քաղաքային էներգիայով",
+      badge: "LIFESTYLE",
+      alt: "Դմիտրի Գարանին lifestyle դիմանկար եվրոպական սրճարանում",
+      tags: ["Lifestyle", "Editorial", "Քաղաք"],
+      description:
+        "Հանրային սրճարանային կադր՝ սոցիալական, հավաքված և պրեմիում մեդիա ներկայությանը համապատասխան։",
+    },
+    "historic-city": {
+      title: "Պատմական քաղաքի զբոսանք",
+      subtitle: "Մաքուր սպիտակ կերպար հին եվրոպական ճարտարապետության ֆոնին",
+      badge: "ՔԱՂԱՔ",
+      alt: "Դմիտրի Գարանին պատմական քաղաքում սպիտակ վերնաշապիկով դիմանկար",
+      tags: ["Ֆիլմ", "Քաղաք", "Editorial"],
+      description:
+        "Քաղաքային դիմանկար ճարտարապետական խորությամբ՝ travel-ի, կերպարի և կինեմատոգրաֆիկ համատեքստի համար։",
+    },
+    "summer-stone-wall": {
+      title: "Ամառային էտյուդ քարե պատի մոտ",
+      subtitle: "Ամբողջ հասակով outdoor կադր թատերական պաստառի հստակությամբ",
+      badge: "ԷՏՅՈՒԴ",
+      alt: "Դմիտրի Գարանին ամառային ամբողջ հասակով դիմանկար քարե պատի մոտ",
+      tags: ["Թատրոն", "Outdoor", "Պաստառ"],
+      description:
+        "Հավաքված outdoor էտյուդ՝ ուժեղ գծերով, բնական տեքստուրայով և մաքուր դերասանական սիլուետով։",
+    },
+    "motorcycle-rider": {
+      title: "Motorcycle Rider Close-Up",
+      subtitle: "Action կադր պաշտպանված հայացքով և շարժման էներգիայով",
+      badge: "ACTION",
+      alt: "Դմիտրի Գարանին մոտոցիկլետային սաղավարտով դիմանկար",
+      tags: ["Action", "Ֆիլմ", "Շարժում"],
+      description:
+        "Կինետիկ խոշոր պլան, որը պորտֆոլիոյին ավելացնում է արագություն, ռիսկ և ֆիզիկական էկրանային էներգիա։",
+    },
+    "evening-city": {
+      title: "Երեկոյան քաղաքային ազդակ",
+      subtitle: "Urban դիմանկար ականջակալներով և ժամանակակից կերպարի տոնով",
+      badge: "ՍԵՐԻԱԼ",
+      alt: "Դմիտրի Գարանին երեկոյան քաղաքային դիմանկար ականջակալներով",
+      tags: ["Սերիալ", "Urban", "Երիտասարդություն"],
+      description:
+        "Ժամանակակից քաղաքային կադր, որը բնական է սերիալների, երիտասարդական դրամայի և փողոցային պատմությունների համար։",
+    },
+    "sport-lifestyle": {
+      title: "Sport Lifestyle Signal",
+      subtitle: "Կարմիր-կապույտ սպորտային կադր ուղիղ camera charm-ով",
+      badge: "ՍՊՈՐՏ",
+      alt: "Դմիտրի Գարանին sport lifestyle դիմանկար կարմիր հագուստով",
+      tags: ["Սպորտ", "Սերիալ", "Էներգիա"],
+      description:
+        "Ավելի պայծառ ակտիվ կադր, որը պորտֆոլիոն բացում է ֆորմալ դիմանկարներից և editorial տեսարաններից դուրս։",
+    },
+    "green-sweater": {
+      title: "Կանաչ սվիտեր",
+      subtitle: "Փափուկ fashion դիմանկար lifestyle մտերմությամբ",
+      badge: "FASHION",
+      alt: "Դմիտրի Գարանին կանաչ սվիտերով fashion դիմանկար",
+      tags: ["Fashion", "Lifestyle", "Փափուկ"],
+      description:
+        "Մոտ lifestyle դիմանկար՝ շոշափելի գույնով, fashion տեքստուրայով և վերահսկված փափկությամբ։",
+    },
+    "minimalist-casual": {
+      title: "Մինիմալ mirror դիմանկար",
+      subtitle: "Մաքուր մոնոխրոմ casual կադր քասթինգի և ինքնության համար",
+      badge: "ՔԱՍԹԻՆԳ",
+      alt: "Դմիտրի Գարանին մինիմալ casual դիմանկար հայելու մեջ",
+      tags: ["Քասթինգ", "Մինիմալ", "Դիմանկար"],
+      description:
+        "Զուսպ սև-սպիտակ styling կադր, որտեղ դեմքը, պրոֆիլը և ինքնությունը հստակ ընթեռնելի են։",
+    },
+    "golden-hour-close": {
+      title: "Խոշոր պլան ոսկե ժամին",
+      subtitle: "Տաք ուղիղ դիմանկար՝ հայացքի վրա ֆոկուսով",
+      badge: "HEADSHOT",
+      alt: "Դմիտրի Գարանին ոսկե ժամ խոշոր դիմանկար",
+      tags: ["Headshot", "Տաք լույս", "Քասթինգ"],
+      description:
+        "Մոտիկ, տաք դիմանկար՝ ուղիղ ներկայությամբ, առանց ավելորդ ճնշման։",
+    },
+    "living-room-casual": {
+      title: "Modern Living Room Editorial",
+      subtitle: "Հանգիստ ինտերիերային դիմանկար youth-fashion տրամադրությամբ",
+      badge: "EDITORIAL",
+      alt: "Դմիտրի Գարանին casual դիմանկար ժամանակակից հյուրասենյակում",
+      tags: ["Editorial", "Ինտերիեր", "Fashion"],
+      description:
+        "Ժամանակակից ինտերիերային կադր casual styling-ով՝ lifestyle-ի և սոցիալական վիզուալ լեզվի համար։",
+    },
+    "summer-beach-sunglasses": {
+      title: "Լողափնյա close-up ակնոցներով",
+      subtitle: "Արևոտ ամառային դիմանկար պրեմիում styling-ով",
+      badge: "ԱՄԱՌ",
+      alt: "Դմիտրի Գարանին ամառային լողափնյա դիմանկար արևային ակնոցներով",
+      tags: ["Ամառ", "Close-up", "Ոճ"],
+      description:
+        "Խիտ արևոտ կադր՝ հստակ styling-ով և ուժեղ luxury-summer ազդակով։",
+    },
+    "tropical-luxury": {
+      title: "Tropical Luxury Court",
+      subtitle: "Ոսկեգույն resort կադր fashion և leisure դիրքավորմամբ",
+      badge: "ԼՅՈՒՔՍ",
+      alt: "Դմիտրի Գարանին tropical luxury դիմանկար",
+      tags: ["Լյուքս", "Տրոպիկ", "Fashion"],
+      description:
+        "Տաք resort դիմանկար, որը հանրային կերպարին ավելացնում է հանգիստ, ոճ և պրեմիում մթնոլորտ։",
+    },
+    "morning-selfie": {
+      title: "Առավոտյան սելֆի",
+      subtitle: "Բնական անձնական կադր ավելի փափուկ ռեգիստրի համար",
+      badge: "ԱՆՁՆԱԿԱՆ",
+      alt: "Դմիտրի Գարանին առավոտյան սելֆի դիմանկար",
+      tags: ["Անձնական", "Փափուկ", "Բնական"],
+      description:
+        "Ավելի թեթև անձնական դիմանկար, որը պորտֆոլիոն կենդանի է դարձնում՝ պահպանելով հղկվածությունը։",
     },
   },
 };
 
+function getPortfolioItems(lang) {
+  const itemCopy = portfolioItemCopy[lang] ?? {};
+
+  return portfolioFrames.map((frame) => ({
+    ...frame,
+    ...(portfolioItemCopy.en[frame.id] ?? {}),
+    ...(itemCopy[frame.id] ?? {}),
+  }));
+}
+
 export default function Portfolio() {
-  const { lang = "en" } = useParams();
+  const { lang: routeLang = "en" } = useParams();
+  const lang = resolveLang(routeLang);
   const copy = t(lang);
 
   const p = copy?.portfolio ?? {};
@@ -634,11 +827,7 @@ export default function Portfolio() {
   const [active, setActive] = useState("all");
   const [open, setOpen] = useState(null);
 
-  const itemCopy = portfolioItemCopy[lang] ?? {};
-  const items = visualPortfolioItems.map((item) => ({
-    ...item,
-    ...(itemCopy[item.id] ?? {}),
-  }));
+  const items = getPortfolioItems(lang);
 
   usePageSeo(lang, "portfolio", {
     image: items[0]?.cover,
@@ -711,19 +900,19 @@ export default function Portfolio() {
         </Motion.div>
 
         <div className="mt-10 flex flex-wrap gap-2">
-          {CATEGORIES.map((c) => {
-            const on = active === c.id;
+          {CATEGORIES.map((category) => {
+            const on = active === category.id;
             return (
               <button
-                key={c.id}
-                onClick={() => setActive(c.id)}
+                key={category.id}
+                onClick={() => setActive(category.id)}
                 className={`min-h-10 whitespace-nowrap rounded-full border px-4 py-2 text-[12px] font-[700] leading-none transition-all duration-200 ${
                   on
                     ? "border-[#D4AF37]/50 bg-[#D4AF37]/10 text-[#FFD700]"
                     : "border-white/10 bg-white/5 text-white/70 hover:border-[#D4AF37]/40 hover:bg-white/10"
                 }`}
               >
-                {c.label}
+                {category.label}
               </button>
             );
           })}
@@ -782,8 +971,9 @@ export default function Portfolio() {
                   alt={SAFE(open?.alt, SAFE(open?.title, ""))}
                   className="max-h-[72vh] w-full bg-black object-contain"
                   loading="lazy"
-                  onError={(e) => {
-                    e.currentTarget.src = "https://picsum.photos/seed/fallback/1400/900";
+                  decoding="async"
+                  onError={(event) => {
+                    event.currentTarget.src = fallbackCover;
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
@@ -820,13 +1010,13 @@ export default function Portfolio() {
                   <div className="mb-6 text-sm text-white/70">{open.description}</div>
                 )}
 
-                <div className="flex items-center justify-between border-t border-white/10 pt-6">
+                <div className="flex items-center justify-between gap-5 border-t border-white/10 pt-6">
                   <div className="text-[12px] tracking-[0.22em] uppercase text-white/50">
                     {SAFE(open?.subtitle, "")}
                   </div>
                   <button
                     onClick={() => setOpen(null)}
-                    className="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 hover:bg-white/10 hover:text-white transition-colors"
+                    className="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[11px] tracking-[0.22em] uppercase text-white/70 transition-colors hover:bg-white/10 hover:text-white"
                   >
                     {closeText}
                   </button>
@@ -843,6 +1033,13 @@ export default function Portfolio() {
 function PortfolioCard({ item, index, onOpen, cta }) {
   const tags = Array.isArray(item?.tags) ? item.tags : [];
 
+  function handleKeyDown(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onOpen();
+    }
+  }
+
   return (
     <Motion.div
       variants={fadeUp}
@@ -851,22 +1048,27 @@ function PortfolioCard({ item, index, onOpen, cta }) {
       custom={index}
       className="group flex h-full cursor-pointer"
       onClick={onOpen}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
     >
       <div className="flex h-full w-full flex-col overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-[#D4AF37]/40 hover:bg-white/[0.06]">
         <div className="relative aspect-[4/5] overflow-hidden bg-black">
           <img
             src={item?.cover}
             alt={SAFE(item?.alt, SAFE(item?.title, ""))}
-            className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]"
+            style={{ objectPosition: item?.focus || "center" }}
             loading="lazy"
-            onError={(e) => {
-              e.currentTarget.src = "https://picsum.photos/seed/fallback/1400/900";
+            decoding="async"
+            onError={(event) => {
+              event.currentTarget.src = fallbackCover;
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
           <div className="absolute top-4 right-4">
             {!!item?.badge && (
-              <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] tracking-[0.22em] uppercase text-white/80 backdrop-blur">
+              <span className="rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[10px] tracking-[0.22em] uppercase text-white/85 backdrop-blur">
                 {item.badge}
               </span>
             )}

@@ -5,7 +5,7 @@ import { usePageSeo } from "../lib/usePageSeo";
 import SocialWall from "../components/SocialWall";
 import { SOCIAL_LINKS } from "../lib/socialLinks";
 
-const heroPortrait = "/portfolio-media/dmitrii-headshot-2026.jpg";
+const heroPortrait = "/portfolio-media/dmitriy-garanin-golden-hour-river-portrait.jpg";
 
 function Tile({ to, title, over, open, index }) {
   const number = String(index + 1).padStart(2, "0");
@@ -89,7 +89,7 @@ export default function Home() {
           <img
             src={heroPortrait}
             alt={c.home.portraitAlt}
-            className="absolute inset-y-0 right-0 h-full w-full object-cover object-[center_24%] opacity-[0.5] saturate-[0.92] md:w-[58%] md:opacity-[0.74]"
+            className="absolute inset-y-0 right-0 h-full w-full object-cover object-[center_42%] opacity-[0.5] saturate-[0.92] md:w-[58%] md:opacity-[0.74]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,#030303_0%,rgba(3,3,3,0.96)_28%,rgba(3,3,3,0.62)_58%,rgba(3,3,3,0.18)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.18)_0%,transparent_38%,#030303_100%)]" />

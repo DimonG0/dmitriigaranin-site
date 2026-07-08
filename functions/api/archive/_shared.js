@@ -7,13 +7,23 @@ const MAX_UPLOAD_BYTES = 250 * 1024 * 1024;
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
+export function applySecurityHeaders(headers) {
+  headers.set("x-content-type-options", "nosniff");
+  headers.set("referrer-policy", "strict-origin-when-cross-origin");
+  headers.set("x-frame-options", "DENY");
+  headers.set("x-robots-tag", "noindex, nofollow");
+  headers.set("cross-origin-resource-policy", "same-origin");
+  headers.set("permissions-policy", "camera=(), microphone=(), geolocation=(), payment=()");
+  return headers;
+}
+
 export function json(data, init = {}) {
   const status = typeof init === "number" ? init : init.status || 200;
   const headers = new Headers(typeof init === "number" ? undefined : init.headers);
 
   headers.set("content-type", "application/json; charset=utf-8");
   headers.set("cache-control", "no-store");
-  headers.set("x-content-type-options", "nosniff");
+  applySecurityHeaders(headers);
 
   return new Response(JSON.stringify(data), { status, headers });
 }

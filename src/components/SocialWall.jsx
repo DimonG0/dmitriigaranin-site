@@ -277,7 +277,8 @@ function FilterGroup({ label, items, active, getLabel, onChange }) {
 }
 
 function SocialCard({ post, index, openLabel, categoryLabels: labels }) {
-  const large = index === 0 || index === 4;
+  const isPoster = post.presentation === "poster";
+  const large = !isPoster && (index === 0 || index === 4);
   const href = post.url || undefined;
 
   const content = (
@@ -296,7 +297,12 @@ function SocialCard({ post, index, openLabel, categoryLabels: labels }) {
         <img
           src={post.image}
           alt={post.title}
-          className="h-full w-full bg-black object-contain opacity-[0.9] saturate-[0.94] transition duration-700 group-hover:scale-[1.025] group-hover:opacity-100"
+          className={[
+            "h-full w-full bg-black object-contain transition duration-700",
+            isPoster
+              ? "opacity-100 saturate-[0.98] group-hover:saturate-100"
+              : "opacity-[0.9] saturate-[0.94] group-hover:scale-[1.025] group-hover:opacity-100",
+          ].join(" ")}
           loading="lazy"
           onError={(event) => {
             event.currentTarget.src = portrait;
@@ -304,29 +310,35 @@ function SocialCard({ post, index, openLabel, categoryLabels: labels }) {
         />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-95" />
+      {!isPoster && (
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-95" />
+      )}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#f7d778]/80 to-transparent opacity-0 transition group-hover:opacity-100" />
 
-      <div className="absolute left-0 right-0 top-0 flex items-center justify-between p-3">
-        <span className="rounded-[6px] border border-[#d4af37]/35 bg-black/60 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.22em] text-[#ffe8a3] backdrop-blur">
-          {post.platform}
-        </span>
-        {!!post.date && (
-          <span className="rounded-[6px] border border-white/10 bg-black/45 px-2.5 py-1 text-[9px] uppercase tracking-[0.18em] text-white/[0.58] backdrop-blur">
-            {post.date}
-          </span>
-        )}
-      </div>
+      {!isPoster && (
+        <>
+          <div className="absolute left-0 right-0 top-0 flex items-center justify-between p-3">
+            <span className="rounded-[6px] border border-[#d4af37]/35 bg-black/60 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.22em] text-[#ffe8a3] backdrop-blur">
+              {post.platform}
+            </span>
+            {!!post.date && (
+              <span className="rounded-[6px] border border-white/10 bg-black/45 px-2.5 py-1 text-[9px] uppercase tracking-[0.18em] text-white/[0.58] backdrop-blur">
+                {post.date}
+              </span>
+            )}
+          </div>
 
-      <div className="absolute bottom-0 left-0 right-0 p-4">
-        <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-white">
-          {post.title}
-        </div>
-        <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-3 text-[9px] uppercase tracking-[0.22em] text-white/[0.42]">
-          <span>{labels[post.category] || post.tone}</span>
-          {href && <span className="text-[#d4af37]">{openLabel}</span>}
-        </div>
-      </div>
+          <div className="absolute bottom-0 left-0 right-0 p-4">
+            <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-white">
+              {post.title}
+            </div>
+            <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-3 text-[9px] uppercase tracking-[0.22em] text-white/[0.42]">
+              <span>{labels[post.category] || post.tone}</span>
+              {href && <span className="text-[#d4af37]">{openLabel}</span>}
+            </div>
+          </div>
+        </>
+      )}
     </Motion.article>
   );
 

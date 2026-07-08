@@ -6,9 +6,10 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/home" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/home" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/home" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/home" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/home" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/home" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/home" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/home" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/ru/home</loc>
@@ -16,9 +17,10 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/home" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/home" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/home" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/home" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/home" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/home" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/home" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/home" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/fr/home</loc>
@@ -26,9 +28,10 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/home" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/home" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/home" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/home" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/home" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/home" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/home" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/home" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/am/home</loc>
@@ -36,9 +39,10 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/home" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/home" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/home" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/home" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/home" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/home" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/home" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/home" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/en/about</loc>
@@ -46,9 +50,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/about" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/about" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/about" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/about" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/about" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/about" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/ru/about</loc>
@@ -56,9 +61,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/about" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/about" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/about" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/about" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/about" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/about" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/fr/about</loc>
@@ -66,9 +72,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/about" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/about" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/about" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/about" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/about" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/about" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/am/about</loc>
@@ -76,9 +83,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/about" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/about" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/about" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/about" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/about" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/about" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/en/portfolio</loc>
@@ -86,63 +94,99 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/portfolio" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/portfolio" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/portfolio" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/portfolio" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/portfolio" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/portfolio" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/portfolio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/portfolio" />
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-official-photo-2026.jpg</image:loc>
-      <image:title>Dmitrii Garanin official actor photo 2026</image:title>
-      <image:caption>Official actor photo of Dmitrii Garanin for casting, biography, VGIK actor portfolio and media references.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-golden-hour-river-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin golden hour river cinematic portrait</image:title>
+      <image:caption>Cinematic golden hour river portrait of Dmitrii Garanin for actor portfolio, editorial media and screen presence discovery.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-akter-vgik-portret-na-kryshe-goroda.jpg</image:loc>
-      <image:title>Dmitriy Garanin actor VGIK rooftop city portrait</image:title>
-      <image:caption>Cinematic rooftop portrait of Dmitriy Garanin, actor portfolio image for cinema, VGIK and editorial search.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-classical-art-museum-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin classical art museum actor portrait</image:title>
+      <image:caption>Classical museum actor portrait of Dmitrii Garanin with theatre, sculpture, character and editorial portfolio signals.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-actor-vgik-tropical-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin actor VGIK tropical portrait</image:title>
-      <image:caption>Tropical editorial portrait of Dmitrii Garanin for actor portfolio, media presence and international visual identity.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-helicopter-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin helicopter editorial portrait</image:title>
+      <image:caption>Private flight editorial portrait of Dmitrii Garanin for premium media, lifestyle and brand positioning.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitry-garanin-actor-vgik-cinematic-portrait-pool.jpg</image:loc>
-      <image:title>Dmitry Garanin actor VGIK cinematic pool portrait</image:title>
-      <image:caption>Cinematic poolside actor portrait of Dmitry Garanin for casting materials, portfolio discovery and image search.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-tropical-island-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin tropical island white shirt portrait</image:title>
+      <image:caption>International tropical island portrait of Dmitrii Garanin for cinema, travel, lifestyle and editorial search.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-actor-racing-cinema-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin VGIK graduate theatre and cinema actor portrait</image:title>
-      <image:caption>Cinematic racing portrait of Dmitrii Garanin, theatre and film actor, VGIK graduate, for casting, press, Google and Yandex image discovery.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-vecher-v-marine-portret.jpg</image:loc>
+      <image:title>Dmitrii Garanin evening marina cinematic portrait</image:title>
+      <image:caption>Evening marina portrait of Dmitrii Garanin with noir film mood, port atmosphere and character-led visual positioning.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-theatre-cinema-headshot-white.jpg</image:loc>
-      <image:title>Dmitrii Garanin theatre and cinema actor headshot</image:title>
-      <image:caption>Clean actor headshot of Dmitrii Garanin for biography pages, casting profiles, theatre, cinema, VGIK references and media interviews.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-european-cafe-lifestyle-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin European cafe lifestyle portrait</image:title>
+      <image:caption>European cafe lifestyle portrait of Dmitrii Garanin for social, editorial, premium media and public profile discovery.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-actor-close-up-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin cinematic close-up actor portrait</image:title>
-      <image:caption>Close-up portrait of Dmitrii Garanin, VGIK actor, theatre and cinema performer, for casting, screen presence and character work.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-historic-city-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin historic city white shirt portrait</image:title>
+      <image:caption>Historic city portrait of Dmitrii Garanin for actor portfolio, travel, cinema, European architecture and editorial search.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-theatre-cinema-vgik-soft-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin theatre cinema VGIK editorial portrait</image:title>
-      <image:caption>Soft editorial actor portrait of Dmitrii Garanin for theatre, cinema, VGIK biography, press materials, interviews and search indexing.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-summer-stone-wall-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin summer stone wall full body portrait</image:title>
+      <image:caption>Full-body summer portrait of Dmitrii Garanin near a stone wall with theatre poster clarity and outdoor character presence.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-theatre-actor-stage-costume.jpg</image:loc>
-      <image:title>Dmitrii Garanin theatre actor stage costume portrait</image:title>
-      <image:caption>Stage costume portrait of Dmitrii Garanin, VGIK graduate and theatre actor, for theatre, cinema, character roles and media discovery.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-motorcycle-rider-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin motorcycle rider helmet portrait</image:title>
+      <image:caption>Action-ready motorcycle rider portrait of Dmitrii Garanin for film, movement, action character and cinematic portfolio search.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-actor-vgik-editorial-white-shirt.jpg</image:loc>
-      <image:title>Dmitrii Garanin editorial actor portrait for media</image:title>
-      <image:caption>Editorial portrait of Dmitrii Garanin for media, interviews, actor portfolio pages, casting visibility, theatre, cinema and VGIK search signals.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-evening-city-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin evening city portrait with headphones</image:title>
+      <image:caption>Evening city portrait of Dmitrii Garanin with headphones for urban series, youth drama and contemporary media positioning.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-actor-hoodie-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin natural casting actor portrait</image:title>
-      <image:caption>Natural casting portrait of Dmitrii Garanin, VGIK graduate, theatre and cinema actor, for Google, Yandex, portfolio and press discovery.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-sport-lifestyle-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin sport lifestyle portrait</image:title>
+      <image:caption>Sport lifestyle portrait of Dmitrii Garanin with active red and blue visual energy for series, media and lifestyle search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-mens-fashion-portrait-green-sweater.jpg</image:loc>
+      <image:title>Dmitrii Garanin green sweater fashion portrait</image:title>
+      <image:caption>Soft green sweater fashion portrait of Dmitrii Garanin for lifestyle, editorial, casting and public image discovery.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-minimalist-casual-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin minimalist mirror casual portrait</image:title>
+      <image:caption>Minimalist mirror portrait of Dmitrii Garanin for casting, clean public identity and actor profile search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-golden-hour-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin golden hour close-up portrait</image:title>
+      <image:caption>Warm golden hour close-up portrait of Dmitrii Garanin for headshot, casting, screen presence and editorial discovery.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-casual-modern-living-room-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin casual modern living room portrait</image:title>
+      <image:caption>Modern living room editorial portrait of Dmitrii Garanin with youth fashion and lifestyle positioning.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-summer-beach-sunglasses-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin summer beach sunglasses portrait</image:title>
+      <image:caption>Sunlit beach sunglasses close-up portrait of Dmitrii Garanin for summer luxury, fashion and editorial search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-tropical-luxury-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin tropical luxury portrait</image:title>
+      <image:caption>Tropical luxury resort portrait of Dmitrii Garanin for fashion, lifestyle, premium media and international image discovery.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-morning-selfie.jpg</image:loc>
+      <image:title>Dmitrii Garanin morning selfie portrait</image:title>
+      <image:caption>Natural morning selfie portrait of Dmitrii Garanin for personal, softer actor profile and social media discovery.</image:caption>
     </image:image>
   </url>
   <url>
@@ -151,63 +195,99 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/portfolio" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/portfolio" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/portfolio" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/portfolio" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/portfolio" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/portfolio" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/portfolio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/portfolio" />
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-official-photo-2026.jpg</image:loc>
-      <image:title>Dmitrii Garanin official actor photo 2026</image:title>
-      <image:caption>Official actor photo of Dmitrii Garanin for casting, biography, VGIK actor portfolio and media references.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-golden-hour-river-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin golden hour river cinematic portrait</image:title>
+      <image:caption>Cinematic golden hour river portrait of Dmitrii Garanin for actor portfolio, editorial media and screen presence discovery.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-akter-vgik-portret-na-kryshe-goroda.jpg</image:loc>
-      <image:title>Dmitriy Garanin actor VGIK rooftop city portrait</image:title>
-      <image:caption>Cinematic rooftop portrait of Dmitriy Garanin, actor portfolio image for cinema, VGIK and editorial search.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-classical-art-museum-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin classical art museum actor portrait</image:title>
+      <image:caption>Classical museum actor portrait of Dmitrii Garanin with theatre, sculpture, character and editorial portfolio signals.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-actor-vgik-tropical-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin actor VGIK tropical portrait</image:title>
-      <image:caption>Tropical editorial portrait of Dmitrii Garanin for actor portfolio, media presence and international visual identity.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-helicopter-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin helicopter editorial portrait</image:title>
+      <image:caption>Private flight editorial portrait of Dmitrii Garanin for premium media, lifestyle and brand positioning.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitry-garanin-actor-vgik-cinematic-portrait-pool.jpg</image:loc>
-      <image:title>Dmitry Garanin actor VGIK cinematic pool portrait</image:title>
-      <image:caption>Cinematic poolside actor portrait of Dmitry Garanin for casting materials, portfolio discovery and image search.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-tropical-island-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin tropical island white shirt portrait</image:title>
+      <image:caption>International tropical island portrait of Dmitrii Garanin for cinema, travel, lifestyle and editorial search.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-actor-racing-cinema-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin VGIK graduate theatre and cinema actor portrait</image:title>
-      <image:caption>Cinematic racing portrait of Dmitrii Garanin, theatre and film actor, VGIK graduate, for casting, press, Google and Yandex image discovery.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-vecher-v-marine-portret.jpg</image:loc>
+      <image:title>Dmitrii Garanin evening marina cinematic portrait</image:title>
+      <image:caption>Evening marina portrait of Dmitrii Garanin with noir film mood, port atmosphere and character-led visual positioning.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-theatre-cinema-headshot-white.jpg</image:loc>
-      <image:title>Dmitrii Garanin theatre and cinema actor headshot</image:title>
-      <image:caption>Clean actor headshot of Dmitrii Garanin for biography pages, casting profiles, theatre, cinema, VGIK references and media interviews.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-european-cafe-lifestyle-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin European cafe lifestyle portrait</image:title>
+      <image:caption>European cafe lifestyle portrait of Dmitrii Garanin for social, editorial, premium media and public profile discovery.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-actor-close-up-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin cinematic close-up actor portrait</image:title>
-      <image:caption>Close-up portrait of Dmitrii Garanin, VGIK actor, theatre and cinema performer, for casting, screen presence and character work.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-historic-city-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin historic city white shirt portrait</image:title>
+      <image:caption>Historic city portrait of Dmitrii Garanin for actor portfolio, travel, cinema, European architecture and editorial search.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-theatre-cinema-vgik-soft-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin theatre cinema VGIK editorial portrait</image:title>
-      <image:caption>Soft editorial actor portrait of Dmitrii Garanin for theatre, cinema, VGIK biography, press materials, interviews and search indexing.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-summer-stone-wall-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin summer stone wall full body portrait</image:title>
+      <image:caption>Full-body summer portrait of Dmitrii Garanin near a stone wall with theatre poster clarity and outdoor character presence.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-theatre-actor-stage-costume.jpg</image:loc>
-      <image:title>Dmitrii Garanin theatre actor stage costume portrait</image:title>
-      <image:caption>Stage costume portrait of Dmitrii Garanin, VGIK graduate and theatre actor, for theatre, cinema, character roles and media discovery.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-motorcycle-rider-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin motorcycle rider helmet portrait</image:title>
+      <image:caption>Action-ready motorcycle rider portrait of Dmitrii Garanin for film, movement, action character and cinematic portfolio search.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-actor-vgik-editorial-white-shirt.jpg</image:loc>
-      <image:title>Dmitrii Garanin editorial actor portrait for media</image:title>
-      <image:caption>Editorial portrait of Dmitrii Garanin for media, interviews, actor portfolio pages, casting visibility, theatre, cinema and VGIK search signals.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-evening-city-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin evening city portrait with headphones</image:title>
+      <image:caption>Evening city portrait of Dmitrii Garanin with headphones for urban series, youth drama and contemporary media positioning.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-actor-hoodie-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin natural casting actor portrait</image:title>
-      <image:caption>Natural casting portrait of Dmitrii Garanin, VGIK graduate, theatre and cinema actor, for Google, Yandex, portfolio and press discovery.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-sport-lifestyle-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin sport lifestyle portrait</image:title>
+      <image:caption>Sport lifestyle portrait of Dmitrii Garanin with active red and blue visual energy for series, media and lifestyle search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-mens-fashion-portrait-green-sweater.jpg</image:loc>
+      <image:title>Dmitrii Garanin green sweater fashion portrait</image:title>
+      <image:caption>Soft green sweater fashion portrait of Dmitrii Garanin for lifestyle, editorial, casting and public image discovery.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-minimalist-casual-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin minimalist mirror casual portrait</image:title>
+      <image:caption>Minimalist mirror portrait of Dmitrii Garanin for casting, clean public identity and actor profile search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-golden-hour-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin golden hour close-up portrait</image:title>
+      <image:caption>Warm golden hour close-up portrait of Dmitrii Garanin for headshot, casting, screen presence and editorial discovery.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-casual-modern-living-room-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin casual modern living room portrait</image:title>
+      <image:caption>Modern living room editorial portrait of Dmitrii Garanin with youth fashion and lifestyle positioning.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-summer-beach-sunglasses-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin summer beach sunglasses portrait</image:title>
+      <image:caption>Sunlit beach sunglasses close-up portrait of Dmitrii Garanin for summer luxury, fashion and editorial search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-tropical-luxury-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin tropical luxury portrait</image:title>
+      <image:caption>Tropical luxury resort portrait of Dmitrii Garanin for fashion, lifestyle, premium media and international image discovery.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-morning-selfie.jpg</image:loc>
+      <image:title>Dmitrii Garanin morning selfie portrait</image:title>
+      <image:caption>Natural morning selfie portrait of Dmitrii Garanin for personal, softer actor profile and social media discovery.</image:caption>
     </image:image>
   </url>
   <url>
@@ -216,63 +296,99 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/portfolio" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/portfolio" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/portfolio" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/portfolio" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/portfolio" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/portfolio" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/portfolio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/portfolio" />
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-official-photo-2026.jpg</image:loc>
-      <image:title>Dmitrii Garanin official actor photo 2026</image:title>
-      <image:caption>Official actor photo of Dmitrii Garanin for casting, biography, VGIK actor portfolio and media references.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-golden-hour-river-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin golden hour river cinematic portrait</image:title>
+      <image:caption>Cinematic golden hour river portrait of Dmitrii Garanin for actor portfolio, editorial media and screen presence discovery.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-akter-vgik-portret-na-kryshe-goroda.jpg</image:loc>
-      <image:title>Dmitriy Garanin actor VGIK rooftop city portrait</image:title>
-      <image:caption>Cinematic rooftop portrait of Dmitriy Garanin, actor portfolio image for cinema, VGIK and editorial search.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-classical-art-museum-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin classical art museum actor portrait</image:title>
+      <image:caption>Classical museum actor portrait of Dmitrii Garanin with theatre, sculpture, character and editorial portfolio signals.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-actor-vgik-tropical-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin actor VGIK tropical portrait</image:title>
-      <image:caption>Tropical editorial portrait of Dmitrii Garanin for actor portfolio, media presence and international visual identity.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-helicopter-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin helicopter editorial portrait</image:title>
+      <image:caption>Private flight editorial portrait of Dmitrii Garanin for premium media, lifestyle and brand positioning.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitry-garanin-actor-vgik-cinematic-portrait-pool.jpg</image:loc>
-      <image:title>Dmitry Garanin actor VGIK cinematic pool portrait</image:title>
-      <image:caption>Cinematic poolside actor portrait of Dmitry Garanin for casting materials, portfolio discovery and image search.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-tropical-island-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin tropical island white shirt portrait</image:title>
+      <image:caption>International tropical island portrait of Dmitrii Garanin for cinema, travel, lifestyle and editorial search.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-actor-racing-cinema-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin VGIK graduate theatre and cinema actor portrait</image:title>
-      <image:caption>Cinematic racing portrait of Dmitrii Garanin, theatre and film actor, VGIK graduate, for casting, press, Google and Yandex image discovery.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-vecher-v-marine-portret.jpg</image:loc>
+      <image:title>Dmitrii Garanin evening marina cinematic portrait</image:title>
+      <image:caption>Evening marina portrait of Dmitrii Garanin with noir film mood, port atmosphere and character-led visual positioning.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-theatre-cinema-headshot-white.jpg</image:loc>
-      <image:title>Dmitrii Garanin theatre and cinema actor headshot</image:title>
-      <image:caption>Clean actor headshot of Dmitrii Garanin for biography pages, casting profiles, theatre, cinema, VGIK references and media interviews.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-european-cafe-lifestyle-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin European cafe lifestyle portrait</image:title>
+      <image:caption>European cafe lifestyle portrait of Dmitrii Garanin for social, editorial, premium media and public profile discovery.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-actor-close-up-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin cinematic close-up actor portrait</image:title>
-      <image:caption>Close-up portrait of Dmitrii Garanin, VGIK actor, theatre and cinema performer, for casting, screen presence and character work.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-historic-city-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin historic city white shirt portrait</image:title>
+      <image:caption>Historic city portrait of Dmitrii Garanin for actor portfolio, travel, cinema, European architecture and editorial search.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-theatre-cinema-vgik-soft-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin theatre cinema VGIK editorial portrait</image:title>
-      <image:caption>Soft editorial actor portrait of Dmitrii Garanin for theatre, cinema, VGIK biography, press materials, interviews and search indexing.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-summer-stone-wall-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin summer stone wall full body portrait</image:title>
+      <image:caption>Full-body summer portrait of Dmitrii Garanin near a stone wall with theatre poster clarity and outdoor character presence.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-theatre-actor-stage-costume.jpg</image:loc>
-      <image:title>Dmitrii Garanin theatre actor stage costume portrait</image:title>
-      <image:caption>Stage costume portrait of Dmitrii Garanin, VGIK graduate and theatre actor, for theatre, cinema, character roles and media discovery.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-motorcycle-rider-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin motorcycle rider helmet portrait</image:title>
+      <image:caption>Action-ready motorcycle rider portrait of Dmitrii Garanin for film, movement, action character and cinematic portfolio search.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-actor-vgik-editorial-white-shirt.jpg</image:loc>
-      <image:title>Dmitrii Garanin editorial actor portrait for media</image:title>
-      <image:caption>Editorial portrait of Dmitrii Garanin for media, interviews, actor portfolio pages, casting visibility, theatre, cinema and VGIK search signals.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-evening-city-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin evening city portrait with headphones</image:title>
+      <image:caption>Evening city portrait of Dmitrii Garanin with headphones for urban series, youth drama and contemporary media positioning.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-actor-hoodie-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin natural casting actor portrait</image:title>
-      <image:caption>Natural casting portrait of Dmitrii Garanin, VGIK graduate, theatre and cinema actor, for Google, Yandex, portfolio and press discovery.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-sport-lifestyle-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin sport lifestyle portrait</image:title>
+      <image:caption>Sport lifestyle portrait of Dmitrii Garanin with active red and blue visual energy for series, media and lifestyle search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-mens-fashion-portrait-green-sweater.jpg</image:loc>
+      <image:title>Dmitrii Garanin green sweater fashion portrait</image:title>
+      <image:caption>Soft green sweater fashion portrait of Dmitrii Garanin for lifestyle, editorial, casting and public image discovery.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-minimalist-casual-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin minimalist mirror casual portrait</image:title>
+      <image:caption>Minimalist mirror portrait of Dmitrii Garanin for casting, clean public identity and actor profile search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-golden-hour-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin golden hour close-up portrait</image:title>
+      <image:caption>Warm golden hour close-up portrait of Dmitrii Garanin for headshot, casting, screen presence and editorial discovery.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-casual-modern-living-room-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin casual modern living room portrait</image:title>
+      <image:caption>Modern living room editorial portrait of Dmitrii Garanin with youth fashion and lifestyle positioning.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-summer-beach-sunglasses-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin summer beach sunglasses portrait</image:title>
+      <image:caption>Sunlit beach sunglasses close-up portrait of Dmitrii Garanin for summer luxury, fashion and editorial search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-tropical-luxury-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin tropical luxury portrait</image:title>
+      <image:caption>Tropical luxury resort portrait of Dmitrii Garanin for fashion, lifestyle, premium media and international image discovery.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-morning-selfie.jpg</image:loc>
+      <image:title>Dmitrii Garanin morning selfie portrait</image:title>
+      <image:caption>Natural morning selfie portrait of Dmitrii Garanin for personal, softer actor profile and social media discovery.</image:caption>
     </image:image>
   </url>
   <url>
@@ -281,63 +397,99 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/portfolio" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/portfolio" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/portfolio" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/portfolio" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/portfolio" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/portfolio" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/portfolio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/portfolio" />
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-official-photo-2026.jpg</image:loc>
-      <image:title>Dmitrii Garanin official actor photo 2026</image:title>
-      <image:caption>Official actor photo of Dmitrii Garanin for casting, biography, VGIK actor portfolio and media references.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-golden-hour-river-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin golden hour river cinematic portrait</image:title>
+      <image:caption>Cinematic golden hour river portrait of Dmitrii Garanin for actor portfolio, editorial media and screen presence discovery.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-akter-vgik-portret-na-kryshe-goroda.jpg</image:loc>
-      <image:title>Dmitriy Garanin actor VGIK rooftop city portrait</image:title>
-      <image:caption>Cinematic rooftop portrait of Dmitriy Garanin, actor portfolio image for cinema, VGIK and editorial search.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-classical-art-museum-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin classical art museum actor portrait</image:title>
+      <image:caption>Classical museum actor portrait of Dmitrii Garanin with theatre, sculpture, character and editorial portfolio signals.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-actor-vgik-tropical-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin actor VGIK tropical portrait</image:title>
-      <image:caption>Tropical editorial portrait of Dmitrii Garanin for actor portfolio, media presence and international visual identity.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-helicopter-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin helicopter editorial portrait</image:title>
+      <image:caption>Private flight editorial portrait of Dmitrii Garanin for premium media, lifestyle and brand positioning.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitry-garanin-actor-vgik-cinematic-portrait-pool.jpg</image:loc>
-      <image:title>Dmitry Garanin actor VGIK cinematic pool portrait</image:title>
-      <image:caption>Cinematic poolside actor portrait of Dmitry Garanin for casting materials, portfolio discovery and image search.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-tropical-island-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin tropical island white shirt portrait</image:title>
+      <image:caption>International tropical island portrait of Dmitrii Garanin for cinema, travel, lifestyle and editorial search.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-actor-racing-cinema-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin VGIK graduate theatre and cinema actor portrait</image:title>
-      <image:caption>Cinematic racing portrait of Dmitrii Garanin, theatre and film actor, VGIK graduate, for casting, press, Google and Yandex image discovery.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-vecher-v-marine-portret.jpg</image:loc>
+      <image:title>Dmitrii Garanin evening marina cinematic portrait</image:title>
+      <image:caption>Evening marina portrait of Dmitrii Garanin with noir film mood, port atmosphere and character-led visual positioning.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-theatre-cinema-headshot-white.jpg</image:loc>
-      <image:title>Dmitrii Garanin theatre and cinema actor headshot</image:title>
-      <image:caption>Clean actor headshot of Dmitrii Garanin for biography pages, casting profiles, theatre, cinema, VGIK references and media interviews.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitriy-garanin-european-cafe-lifestyle-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin European cafe lifestyle portrait</image:title>
+      <image:caption>European cafe lifestyle portrait of Dmitrii Garanin for social, editorial, premium media and public profile discovery.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-actor-close-up-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin cinematic close-up actor portrait</image:title>
-      <image:caption>Close-up portrait of Dmitrii Garanin, VGIK actor, theatre and cinema performer, for casting, screen presence and character work.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-historic-city-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin historic city white shirt portrait</image:title>
+      <image:caption>Historic city portrait of Dmitrii Garanin for actor portfolio, travel, cinema, European architecture and editorial search.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-theatre-cinema-vgik-soft-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin theatre cinema VGIK editorial portrait</image:title>
-      <image:caption>Soft editorial actor portrait of Dmitrii Garanin for theatre, cinema, VGIK biography, press materials, interviews and search indexing.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-summer-stone-wall-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin summer stone wall full body portrait</image:title>
+      <image:caption>Full-body summer portrait of Dmitrii Garanin near a stone wall with theatre poster clarity and outdoor character presence.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-theatre-actor-stage-costume.jpg</image:loc>
-      <image:title>Dmitrii Garanin theatre actor stage costume portrait</image:title>
-      <image:caption>Stage costume portrait of Dmitrii Garanin, VGIK graduate and theatre actor, for theatre, cinema, character roles and media discovery.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-motorcycle-rider-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin motorcycle rider helmet portrait</image:title>
+      <image:caption>Action-ready motorcycle rider portrait of Dmitrii Garanin for film, movement, action character and cinematic portfolio search.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-actor-vgik-editorial-white-shirt.jpg</image:loc>
-      <image:title>Dmitrii Garanin editorial actor portrait for media</image:title>
-      <image:caption>Editorial portrait of Dmitrii Garanin for media, interviews, actor portfolio pages, casting visibility, theatre, cinema and VGIK search signals.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-evening-city-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin evening city portrait with headphones</image:title>
+      <image:caption>Evening city portrait of Dmitrii Garanin with headphones for urban series, youth drama and contemporary media positioning.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-vgik-actor-hoodie-portrait.jpg</image:loc>
-      <image:title>Dmitrii Garanin natural casting actor portrait</image:title>
-      <image:caption>Natural casting portrait of Dmitrii Garanin, VGIK graduate, theatre and cinema actor, for Google, Yandex, portfolio and press discovery.</image:caption>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-sport-lifestyle-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin sport lifestyle portrait</image:title>
+      <image:caption>Sport lifestyle portrait of Dmitrii Garanin with active red and blue visual energy for series, media and lifestyle search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-mens-fashion-portrait-green-sweater.jpg</image:loc>
+      <image:title>Dmitrii Garanin green sweater fashion portrait</image:title>
+      <image:caption>Soft green sweater fashion portrait of Dmitrii Garanin for lifestyle, editorial, casting and public image discovery.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-minimalist-casual-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin minimalist mirror casual portrait</image:title>
+      <image:caption>Minimalist mirror portrait of Dmitrii Garanin for casting, clean public identity and actor profile search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-golden-hour-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin golden hour close-up portrait</image:title>
+      <image:caption>Warm golden hour close-up portrait of Dmitrii Garanin for headshot, casting, screen presence and editorial discovery.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-casual-modern-living-room-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin casual modern living room portrait</image:title>
+      <image:caption>Modern living room editorial portrait of Dmitrii Garanin with youth fashion and lifestyle positioning.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-summer-beach-sunglasses-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin summer beach sunglasses portrait</image:title>
+      <image:caption>Sunlit beach sunglasses close-up portrait of Dmitrii Garanin for summer luxury, fashion and editorial search.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-tropical-luxury-portrait.jpg</image:loc>
+      <image:title>Dmitrii Garanin tropical luxury portrait</image:title>
+      <image:caption>Tropical luxury resort portrait of Dmitrii Garanin for fashion, lifestyle, premium media and international image discovery.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmitriigaranin.com/portfolio-media/dmitrii-garanin-morning-selfie.jpg</image:loc>
+      <image:title>Dmitrii Garanin morning selfie portrait</image:title>
+      <image:caption>Natural morning selfie portrait of Dmitrii Garanin for personal, softer actor profile and social media discovery.</image:caption>
     </image:image>
   </url>
   <url>
@@ -346,9 +498,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/reviews" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/reviews" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/reviews" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/reviews" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/reviews" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/reviews" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/reviews" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/reviews" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/ru/reviews</loc>
@@ -356,9 +509,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/reviews" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/reviews" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/reviews" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/reviews" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/reviews" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/reviews" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/reviews" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/reviews" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/fr/reviews</loc>
@@ -366,9 +520,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/reviews" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/reviews" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/reviews" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/reviews" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/reviews" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/reviews" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/reviews" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/reviews" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/am/reviews</loc>
@@ -376,9 +531,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/reviews" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/reviews" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/reviews" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/reviews" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/reviews" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/reviews" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/reviews" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/reviews" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/en/behind</loc>
@@ -386,9 +542,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/behind" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/behind" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/behind" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/behind" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/behind" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/behind" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/behind" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/behind" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/ru/behind</loc>
@@ -396,9 +553,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/behind" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/behind" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/behind" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/behind" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/behind" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/behind" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/behind" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/behind" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/fr/behind</loc>
@@ -406,9 +564,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/behind" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/behind" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/behind" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/behind" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/behind" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/behind" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/behind" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/behind" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/am/behind</loc>
@@ -416,9 +575,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/behind" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/behind" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/behind" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/behind" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/behind" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/behind" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/behind" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/behind" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/en/contact</loc>
@@ -426,9 +586,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/contact" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/contact" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/contact" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/contact" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/contact" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/contact" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/ru/contact</loc>
@@ -436,9 +597,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/contact" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/contact" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/contact" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/contact" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/contact" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/contact" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/fr/contact</loc>
@@ -446,9 +608,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/contact" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/contact" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/contact" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/contact" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/contact" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/contact" />
   </url>
   <url>
     <loc>https://dmitriigaranin.com/am/contact</loc>
@@ -456,8 +619,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dmitriigaranin.com/en/contact" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dmitriigaranin.com/ru/contact" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dmitriigaranin.com/fr/contact" />
-    <xhtml:link rel="alternate" hreflang="hy" href="https://dmitriigaranin.com/am/contact" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://dmitriigaranin.com/ru/contact" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://dmitriigaranin.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="hy-AM" href="https://dmitriigaranin.com/am/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmitriigaranin.com/en/contact" />
   </url>
 </urlset>

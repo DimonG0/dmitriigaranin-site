@@ -1,4 +1,5 @@
 import {
+  applySecurityHeaders,
   attachmentHeader,
   json,
   methodNotAllowed,
@@ -36,8 +37,8 @@ export async function onRequestGet({ request, env }) {
     headers.set("content-type", object.httpMetadata?.contentType || item.contentType);
     headers.set("content-disposition", attachmentHeader(item.filename));
     headers.set("cache-control", "private, no-store");
-    headers.set("x-content-type-options", "nosniff");
     headers.set("content-length", String(object.size || item.size || 0));
+    applySecurityHeaders(headers);
 
     return new Response(object.body, { headers });
   } catch {

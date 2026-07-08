@@ -3,6 +3,7 @@ import { useSeo } from "./useSeo.js";
 import {
   DEFAULT_SEO_IMAGE,
   SEO_LANGUAGE_TAGS,
+  SEO_REGIONS,
   SITE_NAME,
   SITE_ORIGIN,
   buildAbsoluteUrl,
@@ -27,6 +28,20 @@ const PERSON_KNOWS_ABOUT = {
   am: ["դերասան", "կինո", "սերիալներ", "թատրոն", "ձայն", "դերասանական պորտֆոլիո"],
 };
 
+const PERSON_ALTERNATE_NAMES = {
+  en: ["Dmitrii Garanin", "Dmitry Garanin", "Dmitrii Garanin actor", "Dmitry Garanin actor"],
+  ru: ["Дмитрий Гаранин", "Дима Гаранин", "Дмитрий Гаранин актер", "Дмитрий Гаранин актёр", "Dmitrii Garanin", "Dmitry Garanin"],
+  fr: ["Dmitrii Garanin", "Dmitry Garanin", "Dmitrii Garanin acteur"],
+  am: ["Դմիտրի Գարանին", "Դմիտրի Գարանին դերասան", "Dmitrii Garanin", "Dmitry Garanin"],
+};
+
+const SUPPORTED_LANGUAGES = [
+  { "@type": "Language", name: "English", alternateName: "en" },
+  { "@type": "Language", name: "Russian", alternateName: "ru" },
+  { "@type": "Language", name: "French", alternateName: "fr" },
+  { "@type": "Language", name: "Armenian", alternateName: "hy" },
+];
+
 const EMPTY_COLLECTION_ITEMS = [];
 
 function getSameAsUrls() {
@@ -40,6 +55,7 @@ function toAbsoluteUrl(value) {
 
 function buildStructuredData({ lang, route, title, description, url, image, imageAlt, keywords, collectionItems = [] }) {
   const languageTag = SEO_LANGUAGE_TAGS[lang] || SEO_LANGUAGE_TAGS.en;
+  const region = SEO_REGIONS[lang] || SEO_REGIONS.en;
   const pageType = ROUTE_SCHEMA_TYPES[route] || "WebPage";
   const personId = `${SITE_ORIGIN}/#person`;
   const websiteId = `${SITE_ORIGIN}/#website`;
@@ -54,17 +70,19 @@ function buildStructuredData({ lang, route, title, description, url, image, imag
       "@type": "Person",
       "@id": personId,
       name: SITE_NAME,
-      alternateName: ["Dmitrii Garanin", "Dmitry Garanin", "Дмитрий Гаранин", "Դմիտրի Գարանին"],
+      alternateName: PERSON_ALTERNATE_NAMES[lang] || PERSON_ALTERNATE_NAMES.en,
       url: SITE_ORIGIN,
       image: {
         "@id": imageId,
       },
+      description,
       jobTitle: lang === "ru" ? "Актер" : "Actor",
       alumniOf: {
         "@type": "CollegeOrUniversity",
         name: "VGIK",
         url: "https://vgik.info/",
       },
+      knowsLanguage: SUPPORTED_LANGUAGES,
       knowsAbout: PERSON_KNOWS_ABOUT[lang] || PERSON_KNOWS_ABOUT.en,
       sameAs: getSameAsUrls(),
     },
@@ -85,6 +103,14 @@ function buildStructuredData({ lang, route, title, description, url, image, imag
       alternateName: "Dmitrii Garanin Official Portfolio",
       url: SITE_ORIGIN,
       inLanguage: Object.values(SEO_LANGUAGE_TAGS),
+      audience: {
+        "@type": "Audience",
+        name: region.audience,
+        geographicArea: {
+          "@type": "Country",
+          name: region.place,
+        },
+      },
       publisher: {
         "@id": personId,
       },
@@ -97,6 +123,19 @@ function buildStructuredData({ lang, route, title, description, url, image, imag
       description,
       keywords,
       inLanguage: languageTag,
+      isAccessibleForFree: true,
+      spatialCoverage: {
+        "@type": "Country",
+        name: region.place,
+      },
+      audience: {
+        "@type": "Audience",
+        name: region.audience,
+        geographicArea: {
+          "@type": "Country",
+          name: region.place,
+        },
+      },
       isPartOf: {
         "@id": websiteId,
       },

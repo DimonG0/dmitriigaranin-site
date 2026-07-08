@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { DEFAULT_SEO_IMAGE, SEO_LOCALES, SEO_LANGUAGE_TAGS, SITE_NAME, SITE_ORIGIN } from "./seoConfig.js";
+import { DEFAULT_SEO_IMAGE, SEO_LOCALES, SEO_LANGUAGE_TAGS, SEO_REGIONS, SITE_NAME, SITE_ORIGIN } from "./seoConfig.js";
 
 /**
  * Locale map for Open Graph / search engines
@@ -104,6 +104,7 @@ export function useSeo({
     const safeLang = SEO_LOCALES[lang] ? lang : "en";
     const locale = SEO_LOCALES[safeLang];
     const languageTag = SEO_LANGUAGE_TAGS[safeLang] || safeLang;
+    const region = SEO_REGIONS[safeLang] || SEO_REGIONS.en;
     const absoluteImage = image?.startsWith("http") ? image : `${SITE_ORIGIN}${image}`;
 
     /* ===========================
@@ -132,9 +133,15 @@ export function useSeo({
     upsertMeta({ attr: "name", key: "googlebot", content: noIndex ? "noindex,nofollow" : "index,follow" });
     upsertMeta({ attr: "name", key: "yandex", content: noIndex ? "noindex,nofollow" : "index,follow" });
     upsertMeta({ attr: "name", key: "language", content: languageTag });
+    upsertMeta({ attr: "http-equiv", key: "content-language", content: languageTag });
     upsertMeta({ attr: "name", key: "author", content: "Dmitrii Garanin" });
     upsertMeta({ attr: "name", key: "application-name", content: siteName });
     upsertMeta({ attr: "name", key: "referrer", content: "strict-origin-when-cross-origin" });
+    upsertMeta({ attr: "name", key: "distribution", content: "global" });
+    upsertMeta({ attr: "name", key: "coverage", content: region.place });
+    upsertMeta({ attr: "name", key: "target", content: region.audience });
+    upsertMeta({ attr: "name", key: "geo.region", content: region.region });
+    upsertMeta({ attr: "name", key: "geo.placename", content: region.place });
 
     /* ===========================
        Canonical
